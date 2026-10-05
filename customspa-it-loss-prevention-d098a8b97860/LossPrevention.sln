@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. LossPrevention.API", "LossPrevention.API\01. LossPrevention.API.csproj", "{43E51AE6-ED01-42F3-84C6-BBEE6737B1D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LossPrevention.Domain", "LossPrevention.Domain\LossPrevention.Domain.csproj", "{8E8638AD-4FB9-48A5-B33F-4A455FF9F6BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LossPrevention.Infrastructure", "LossPrevention.Infrastructure\LossPrevention.Infrastructure.csproj", "{C2609528-540C-4336-8273-38D537B68CD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. LossPrevention.DataIngestionService", "LossPrevention.DataIngestionService\02. LossPrevention.DataIngestionService.csproj", "{45AAD906-7C6A-48C1-A6C9-7EB85ED3B994}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LossPrevention.Application", "LossPrevention.Application\LossPrevention.Application.csproj", "{F54D5914-0820-00CD-A944-C95DAE42F2EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43E51AE6-ED01-42F3-84C6-BBEE6737B1D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E51AE6-ED01-42F3-84C6-BBEE6737B1D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E51AE6-ED01-42F3-84C6-BBEE6737B1D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E51AE6-ED01-42F3-84C6-BBEE6737B1D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E8638AD-4FB9-48A5-B33F-4A455FF9F6BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E8638AD-4FB9-48A5-B33F-4A455FF9F6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E8638AD-4FB9-48A5-B33F-4A455FF9F6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E8638AD-4FB9-48A5-B33F-4A455FF9F6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2609528-540C-4336-8273-38D537B68CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2609528-540C-4336-8273-38D537B68CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2609528-540C-4336-8273-38D537B68CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2609528-540C-4336-8273-38D537B68CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45AAD906-7C6A-48C1-A6C9-7EB85ED3B994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AAD906-7C6A-48C1-A6C9-7EB85ED3B994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AAD906-7C6A-48C1-A6C9-7EB85ED3B994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AAD906-7C6A-48C1-A6C9-7EB85ED3B994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F54D5914-0820-00CD-A944-C95DAE42F2EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F54D5914-0820-00CD-A944-C95DAE42F2EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F54D5914-0820-00CD-A944-C95DAE42F2EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F54D5914-0820-00CD-A944-C95DAE42F2EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99B1C835-6AE2-4E95-A552-C39DEFE671D4}
+	EndGlobalSection
+EndGlobal

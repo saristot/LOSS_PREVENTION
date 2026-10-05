@@ -1,0 +1,90 @@
+**Suggested Deliverables - Within 3 Months Time frame**
+Review and suggest any UI Changes up front, so we can ensure it is correct as early as possible(minimise changes)
+User - Login - DONE
+User - Login - Auth Expiry - Set to x hours - Appsettings - DONE
+User - Password Reset - DONE
+Settings - Mapping Add/Delete/Rename - DONE
+Workspaces - Add/Delete/Rename/Search - DONE
+Report Designer - Add/Delete/Rename Tab/Duplicate - DONE
+Report Designer - Design/View - DONE
+Report Designer - Expression Editor - DONE
+Report Designer - Prefix/Suffix - DONE
+Report Designer - Conditional Formatting - DONE
+Report Designer - Heatmap - DONE
+Report Designer - Heatmap Drilldown - DONE
+Dashboard - Add/Edit/Delete Chart, Add/Edit/Delete Tabular Report, Add/Edit/Delete Text Block - DONE
+AI Report Generation - DONE
+AI NQL - DONE
+
+Additional Work
+**Added Notificiations** - DONE
+**Improved Data Distance UI and functionality.** - DONE
+**Improved AI UI and added progress, batching for more precise results.** - DONE
+**Added ability to add conditions to tabular reports.** - DONE
+**Fraud Detection Rules - Generic Solution** - DONE
+
+Left to do.
+Data - Real world data to test with. There may be optimisations we need to make of the back of this. - Waiting for Custom
+Tested with some other sample data. Appears to be working, but we need more datasets to test against real world data.
+
+Settings - Mapping - Lookup Tables
+Settings - Rule Engine, Ability to switch on to be applied on ingestion automatically - DONE, need to test
+Settings - User Add/Delete/Rename and Userlock to specific field with specific value - DONE, need to test
+Report Designer - Fix issues around conditional formatting - DONE
+Report Designer - Fix issues around Locked down User - DONE
+User - Groups/Roles - Groups to be used for notifications etc. - DONE
+Data Ingestion - Settings for SFTP, File System and will work for CSV, XML and JSON formats. - DONE, need to test
+Data Ingestion - Should stream and move processed files on the SFTP to processed folder, we don't want be moving data all over the place for no reason, if need be then these can be reprocessed at some point if required by pointing to that folder or moving files back. - DONE, need to test
+Data Ingestion - Log already processed files. Enrich data to show the source file of the transaction data. - DONE, need to test
+Data Ingestion - How many months retention do we want to keep? More data the slower it will go, so there should be a limit. - DONE, need to test - We should look at TTL for expiring documents(after say 3 months) 
+
+Nice to have - AI Configuration - Ability to set tokens, creativity configuration.
+
+Refactor - Clean up code, remove any YAGNI code and ensure DRY is adhered to.
+API - Permissions - Review - Ensure all are correct and present.  Remove features that the user does not have access to on the UI.
+Testing - We will need users to give feedback with reproducable steps.
+Logging/Auditing Section
+Security Hardening, CORS, HSTS, HTTPS etc.
+
+Documentation - User Guide and Videos.
+
+Suggested Deployment(Azure)
+Azure Functions - Spins up only when needed - reduces costs
+Mongo API for Cosmos or Container Apps(In Preview) - VCore I think is the best for this, costs can vary depending on load and what customer.
+Alternatively use Custom's/Customers Infrastructure or look at Atlas
+Load balancing - SOA - At least 2 applications for uptime.
+Separate Environments for Sales/UAT and Production. Development can be done locally to reduce costs.
+
+
+
+
+
+**Initial Roadmap - 3-6 Months**
+DB Seeding/Setup Wizard
+Consider license to drive the setup, hands off approach.
+Branching Strategy for ease of development
+Extend Functionality for Alerts and Notifications
+Login - Forgot Password, Will required an email service.
+Multi-Tenancy - Simplified Version, Need to know how this will work and where the settings would come from, i.e. appsettings, db etc or implied from the domain.
+Lookup Tables
+Devops setup - Automatic Deployments
+Unit Tests as part of pipeline.
+
+Ability to switch out branding and db based on client.
+Linked Reports(Switch Reports)
+Branding - URL Dependant.  Add/Edit/Delete(reset)
+SSO
+Extend Charting Capabilities
+Dashboard - Lock down to region/store/district, limit data shown based on rules.
+Action any feedback, bugs and improvements from customers - This may alter the timeframes and roadmap.
+
+**Suggested Next Steps - Enhance Functionality and offering with more USP's/Customers**
+Blueprint/workflow - Send reports etc.
+Case Management Tool - Need design and what is required.  We can have form editors for this, so the user can customise/extend as necessary
+Notifications - Data loading, User Messages and Store/Region/District specific Messages
+Summarised Data View
+Receipt View
+K-Nearest Neighbors (KNN), ensure functionality is working as expected.
+Behavioral Profiling
+Fluid investigation experience
+AI Dashboard Generation - To be defined i.e Executive dashboard, Store specific dashboard etc.

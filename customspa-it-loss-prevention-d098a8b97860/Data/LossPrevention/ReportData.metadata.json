@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"BeginDateTime":{"$numberInt":"1"}},"name":"ttl_BeginDateTime","expireAfterSeconds":{"$numberInt":"15552000"}}],"uuid":"f6e0346c09434806b1fab5a6e29783a0","collectionName":"ReportData","type":"collection"}
