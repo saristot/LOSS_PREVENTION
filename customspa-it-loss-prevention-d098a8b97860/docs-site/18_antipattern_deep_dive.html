@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="eng" data-layout="project">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="inlay-doc-site 2.1.0">
+<title>🔍 ANTIPATTERN ASSESSMENT REPORT · LOSS_PREVENTION · IMPACT how (FULL)</title>
+<link rel="icon" href="data:,">
+<style>/* inlay-doc-site 2.x - struttura e componenti comuni. I colori e le forme vengono
+   dalle variabili definite dal tema (assets/themes/<tema>/theme.css). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-h,64px) + 12px)}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-text);font-size:15px;line-height:var(--line-height)}
+a{color:var(--c-link)}
+a:hover{color:var(--c-link-hover)}
+:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+li::marker{font-variant-numeric:normal}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--c-primary);color:var(--c-primary-text);padding:10px 16px;font-weight:600;text-decoration:none;border-radius:var(--radius-btn)}
+.skip-link:focus{top:10px;color:var(--c-primary-text)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;gap:16px;background:var(--c-header-bg);color:var(--c-header-text);padding:10px 20px;position:sticky;top:0;z-index:50;min-height:64px}
+.topbar :focus-visible{outline-color:var(--c-focus-dark)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 1 auto;max-width:360px;text-decoration:none;color:var(--c-header-text)}
+.brand:hover{color:var(--c-header-text)}
+.brand-logo{display:block;height:30px;width:auto;flex:none}
+.brand-mark{width:42px;height:42px;flex:none;border-radius:var(--radius-btn);background:var(--c-primary);color:var(--c-primary-text);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-weight:700;font-size:15.5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{color:var(--c-header-muted);font-size:11.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnav{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.nav-item{color:var(--c-header-muted);font-size:13.5px;font-weight:500;padding:8px 11px;border-radius:var(--radius-btn);text-decoration:none;flex:none}
+.nav-item:hover{color:var(--c-header-text);background:var(--c-header-hover-bg)}
+.nav-item[aria-current="page"]{color:var(--c-header-text);background:var(--c-header-hover-bg);font-weight:600}
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;color:var(--c-header-text);border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);padding:7px 10px;font:inherit;font-size:13px;cursor:pointer;flex:none}
+.nav-toggle-icon{width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor;display:inline-block}
+.search{position:relative;flex:0 1 260px;min-width:160px}
+.search input{width:100%;font:inherit;font-size:13.5px;padding:8px 12px;border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);background:var(--c-header-input-bg);color:var(--c-header-text)}
+.search input::placeholder{color:var(--c-header-muted);opacity:1}
+.search-results{position:absolute;right:0;top:calc(100% + 6px);width:min(520px,92vw);max-height:70vh;overflow-y:auto;margin:0;padding:6px;list-style:none;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:60}
+.search-results li{border-radius:var(--radius-btn)}
+.search-results a{display:block;padding:8px 10px;color:var(--c-text);text-decoration:none;border-radius:var(--radius-btn)}
+.search-results li[aria-selected="true"] a,.search-results a:hover{background:var(--c-tree-active-bg);color:var(--c-tree-active-text)}
+.search-results .sr-title{display:block;font-weight:600;font-size:14px}
+.search-results .sr-path{display:block;font-size:12px;color:var(--c-muted)}
+.search-results .sr-snippet{display:block;font-size:12.5px;color:var(--c-muted);margin-top:2px}
+.search-results .sr-empty{padding:10px;color:var(--c-muted);font-size:13px}
+
+/* ---------- pagina ---------- */
+.page{max-width:1440px;margin:0 auto;padding:24px 28px 56px}
+.hero{margin:0 0 20px}
+.hero-title{font-size:28px;font-weight:800;color:var(--c-heading);line-height:1.25;margin:4px 0 6px}
+.hero-sub{color:var(--c-muted);font-size:15px;margin:0}
+.hero-sub:empty{display:none}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.layout{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:var(--card-shadow)}
+.card-head{padding:13px 18px;border-bottom:1px solid var(--c-border);margin:0}
+
+/* ---------- pulsanti ---------- */
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:var(--radius-btn);text-decoration:none;cursor:pointer;border:1px solid var(--c-primary);flex:none;line-height:1.3}
+.btn-primary{background:var(--c-primary);color:var(--c-primary-text)}
+.btn-primary:hover{background:var(--c-primary-hover-bg);color:var(--c-primary-hover-text);border-color:var(--c-primary-hover-border)}
+.btn-primary:active{background:var(--c-primary-active);color:var(--c-primary-text);border-color:var(--c-primary-active)}
+.btn-outline{background:var(--c-surface);color:var(--c-text);border-color:var(--c-border-strong)}
+.btn-outline:hover{border-color:var(--c-primary);color:var(--c-link-hover)}
+.btn-icon{font-size:15px;line-height:1}
+
+/* ---------- albero ---------- */
+.sidebar{position:sticky;top:calc(var(--header-h,64px) + 16px);max-height:calc(100vh - var(--header-h,64px) - 32px);display:flex;flex-direction:column}
+.side-head{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-muted)}
+.tree-scroll{flex:1 1 auto;overflow-y:auto;padding:8px 8px 12px;overscroll-behavior:contain}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:14px}
+.tree-row{display:flex;align-items:center;gap:2px;min-width:0}
+.tree-toggle{flex:none;width:26px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:var(--radius-btn);color:var(--c-muted);cursor:pointer;padding:0;font:inherit}
+.tree-toggle:hover{background:var(--c-hover-bg)}
+.tree-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.tree-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:6px;background:transparent;border:0;padding:6px 8px 6px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--c-heading);cursor:pointer;text-align:left;border-radius:var(--radius-btn)}
+.tree-group::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid var(--c-muted);border-bottom:2px solid var(--c-muted);transform:rotate(-45deg);transition:transform .15s;margin:0 6px 0 5px}
+.tree-group[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group:hover{background:var(--c-hover-bg)}
+.tree-node-phase>.tree-row .tree-group{font-weight:600;color:var(--c-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tree-link{display:block;flex:1 1 auto;min-width:0;font-size:13px;color:var(--c-text);padding:6px 10px;border-radius:var(--radius-btn);border-left:3px solid transparent;text-decoration:none;overflow-wrap:anywhere;line-height:1.4}
+.tree-link:hover{background:var(--c-hover-bg);color:var(--c-text)}
+.tree-link[aria-current="page"]{background:var(--c-tree-active-bg);color:var(--c-tree-active-text);font-weight:600;border-left-color:var(--c-tree-active-border)}
+.tree-node-root>.tree-row .tree-link,.tree-node-project>.tree-row .tree-link{font-weight:700;color:var(--c-heading)}
+.tree-node-root>.tree-row .tree-link[aria-current="page"],.tree-node-project>.tree-row .tree-link[aria-current="page"]{color:var(--c-tree-active-text)}
+.tree>li>ul{padding-left:6px}
+
+/* ---------- documento ---------- */
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.doc-title{font-size:15px;font-weight:700;color:var(--c-heading);margin:0;min-width:0;overflow-wrap:anywhere}
+.breadcrumbs{padding:10px 22px 0;font-size:12.5px;color:var(--c-muted)}
+.breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.breadcrumbs li{display:inline-flex;align-items:center;gap:4px}
+.breadcrumbs li+li::before{content:"/";color:var(--c-border-strong);margin-right:2px}
+.breadcrumbs a{color:var(--c-muted)}
+.breadcrumbs a:hover{color:var(--c-link-hover)}
+.doc-info{padding:12px 22px 0;display:flex;flex-direction:column;gap:10px}
+.doc-info details{border:1px solid var(--c-border);border-radius:var(--radius-card);background:var(--c-subtle-bg)}
+.doc-info summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--c-heading)}
+.doc-info dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;padding:4px 14px 12px;font-size:13px}
+.doc-info dt{color:var(--c-muted)}
+.doc-info dd{margin:0;overflow-wrap:anywhere}
+.toc ol{margin:0;padding:4px 14px 12px 34px;font-size:13px}
+.toc ol ol{padding:2px 0 2px 18px}
+.toc li{margin:2px 0}
+.doc-body{padding:24px 36px 52px;overflow-wrap:break-word}
+
+/* ---------- avvisi e stati ---------- */
+.notice{border:1px solid var(--c-border);border-left:4px solid var(--c-notice-info);background:var(--c-subtle-bg);padding:10px 14px;margin:12px 0;font-size:13.5px;border-radius:var(--radius-card)}
+.notice-warning{border-left-color:var(--c-notice-warning)}
+.notice-update{border-left-color:var(--c-primary)}
+.doc-info .notice{margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;border:1px solid transparent;vertical-align:baseline}
+.badge-complete,.badge-present{background:var(--c-ok-bg);color:var(--c-ok-text);border-color:var(--c-ok-border)}
+.badge-partial,.badge-incomplete,.badge-misplaced{background:var(--c-warn-bg);color:var(--c-warn-text);border-color:var(--c-warn-border)}
+.badge-missing,.badge-absent{background:var(--c-subtle-bg);color:var(--c-muted);border-color:var(--c-border-strong)}
+.cov{font-weight:600;font-size:12.5px}
+.cov-present{color:var(--c-ok-text)}
+.cov-absent{color:var(--c-muted)}
+.cov-excluded{color:var(--c-warn-text)}
+.muted{color:var(--c-muted)}
+.lead{font-size:15px;color:var(--c-muted)}
+.link-disabled,.link-broken{color:var(--c-muted);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.link-broken::after{content:" \26A0";color:var(--c-notice-warning)}
+.asset-missing{display:block;border:1px dashed var(--c-border-strong);background:var(--c-subtle-bg);color:var(--c-muted);padding:18px;text-align:center;font-size:13px;margin:16px 0}
+.extra-evidence{margin-top:32px}
+
+/* ---------- contenuto ---------- */
+.doc-body h1,.doc-body h2,.doc-body h3,.doc-body h4,.doc-body h5,.doc-body h6{color:var(--c-heading);line-height:1.3;position:relative}
+.doc-body h1{font-size:27px;font-weight:800;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--c-border)}
+.doc-body h2{font-size:21px;font-weight:700;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--c-border-soft)}
+.doc-body h1+h2{margin-top:22px;padding-top:0;border-top:0}
+.doc-body h3{font-size:17px;font-weight:700;margin:24px 0 10px}
+.doc-body h4{font-size:15px;font-weight:700;margin:18px 0 8px}
+.doc-body p,.doc-body li{font-size:15px}
+.doc-body p{margin:10px 0}
+.doc-body a{color:var(--c-link);text-underline-offset:2px}
+.doc-body a:hover{color:var(--c-link-hover)}
+.header-anchor{margin-left:8px;font-weight:400;color:var(--c-muted);text-decoration:none;opacity:0;transition:opacity .15s}
+.doc-body h1:hover .header-anchor,.doc-body h2:hover .header-anchor,.doc-body h3:hover .header-anchor,.doc-body h4:hover .header-anchor,.header-anchor:focus{opacity:1}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0}
+.doc-body hr{border:0;border-top:1px solid var(--c-border);margin:26px 0}
+.doc-body ul,.doc-body ol{padding-left:26px;margin:10px 0}
+.doc-body li{margin:4px 0}
+.doc-body blockquote{margin:14px 0;padding:4px 0 4px 16px;border-left:4px solid var(--c-border-strong);color:var(--c-muted)}
+.doc-body img{max-width:100%;height:auto}
+.doc-body :not(pre)>code{background:var(--c-code-inline-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:var(--font-mono)}
+.table-wrap{max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--c-border);border-radius:var(--radius-card)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;margin:0}
+.doc-body th{background:var(--c-subtle-bg);font-weight:600;color:var(--c-heading);text-align:left}
+.doc-body th,.doc-body td{border-bottom:1px solid var(--c-border);padding:8px 12px;vertical-align:top}
+.doc-body th+th,.doc-body td+td{border-left:1px solid var(--c-border)}
+.doc-body tbody tr:last-child td{border-bottom:0}
+.doc-body tbody tr:nth-child(2n){background:var(--c-zebra)}
+
+/* figure e diagrammi */
+.doc-body figure{margin:22px 0;text-align:center}
+.doc-body figcaption{font-size:13px;color:var(--c-muted);margin-top:6px}
+.zoom-trigger{display:inline-block;max-width:100%;padding:0;margin:0;border:1px solid transparent;background:var(--c-surface);cursor:zoom-in;border-radius:var(--radius-card)}
+.zoom-trigger:hover{border-color:var(--c-primary)}
+.zoom-trigger img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-source{text-align:left;margin-top:8px;font-size:13px}
+.diagram-source summary{cursor:pointer;color:var(--c-muted);display:inline-block}
+.diagram-fallback{margin:16px 0}
+.diagram-fallback .notice{margin:0 0 8px}
+
+/* blocchi di codice */
+.code-block{border:1px solid var(--c-code-border);background:var(--c-code-bg);border-radius:var(--radius-code);margin:16px 0;text-align:left}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 6px 4px 14px;border-bottom:1px solid var(--c-code-border)}
+.code-lang{font-size:11px;color:var(--c-muted);text-transform:uppercase;letter-spacing:.05em}
+.code-copy{font:inherit;font-size:12px;padding:3px 10px;border:1px solid var(--c-border-strong);border-radius:var(--radius-btn);background:var(--c-surface);color:var(--c-text);cursor:pointer}
+.code-copy:hover{border-color:var(--c-primary)}
+.code-copy.copied{border-color:var(--c-ok-border);color:var(--c-ok-text)}
+.code-block pre,.doc-body pre{margin:0;padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6}
+.doc-body pre{background:var(--c-code-bg)}
+.code-block pre{background:transparent}
+.doc-body pre code{font-family:var(--font-mono);font-size:13px;background:transparent;padding:0;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* ASCII-art: font embedded con metriche fisse per allineamento a griglia. */
+.code-block.ascii-art pre code{font-family:'InlayMono',var(--font-mono)}
+.doc-body .shiki span{color:var(--shiki-light)}
+
+/* lightbox */
+.inlay-lightbox{position:fixed;inset:0;background:rgba(9,9,9,.92);z-index:999;display:flex;flex-direction:column}
+.inlay-lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:12px 18px;flex:0 0 auto}
+.inlay-lightbox-hint{color:#d4d4d4;font-size:12.5px;margin-right:auto}
+.inlay-lightbox-bar button{background:#1f1f1f;color:#f5f5f5;border:1px solid #6b6b6b;border-radius:var(--radius-btn);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.inlay-lightbox-bar button:hover{background:#333}
+.inlay-lightbox-bar button:focus-visible{outline:2px solid #fcfcfc;outline-offset:2px}
+.inlay-lightbox-stage{flex:1 1 auto;overflow:auto;padding:0 24px 24px;cursor:grab}
+.inlay-lightbox-stage.grabbing{cursor:grabbing}
+.inlay-lightbox-stage:focus-visible{outline:2px solid #fcfcfc;outline-offset:-4px}
+.inlay-lightbox-stage img{background:#fff;display:block;margin:0 auto;max-width:none;user-select:none;-webkit-user-drag:none}
+
+.site-footer{max-width:1440px;margin:0 auto;padding:0 28px 32px;color:var(--c-muted);font-size:12.5px}
+html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
+.export-note{margin:12px 22px 0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .search{flex-basis:200px;min-width:140px}
+}
+@media (max-width:840px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 14px}
+  .brand{flex:1 1 auto;max-width:none}
+  .js .nav-toggle{display:inline-flex}
+  .topnav{order:3;flex-basis:100%}
+  .search{order:4;flex:1 1 100%}
+  .js .topnav,.js .search{display:none}
+  .js.nav-open .topnav{display:flex}
+  .js.nav-open .search{display:block}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;max-height:none}
+  .js .sidebar{display:none}
+  .js.nav-open .sidebar{display:flex}
+  .page{padding:16px 12px 40px}
+  .hero-title{font-size:22px}
+  .doc-body{padding:18px 16px 36px}
+  .doc-head{flex-wrap:wrap}
+  .breadcrumbs,.doc-info{padding-left:16px;padding-right:16px}
+}
+@media print{
+  .topbar,.sidebar,.hero,.btn-primary,.code-copy,.site-footer,.breadcrumbs{display:none!important}
+  .layout{display:block}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Tema ENG (Engineering, eng.it). Valori osservati sul sito ufficiale il 2026-10-02
+   (review/eng-it-profile.json): header #090909/#FCFCFC, base #FCFCFC/#202020,
+   pulsante primario #C51B88 -> hover #FCFCFC/#090909 -> active #770F53, raggio 0,
+   famiglia CocoEng. Le altre scelte (layout, stati, contenuti tecnici) sono decisioni
+   di prodotto documentate in references/eng-brand.md. */
+:root{
+  --font:"CocoEng","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --line-height:1.7;
+  --c-bg:#FCFCFC;--c-surface:#FFFFFF;--c-subtle-bg:#F6F6F6;--c-zebra:#FAFAFA;--c-hover-bg:#F1F1F1;
+  --c-border:#DEDEDE;--c-border-soft:#EDEDED;--c-border-strong:#8F8F8F;
+  --c-text:#202020;--c-heading:#090909;--c-muted:#4D4D4D;
+  --c-header-bg:#090909;--c-header-text:#FCFCFC;--c-header-muted:#BDBDBD;--c-header-hover-bg:#262626;--c-header-input-bg:#171717;
+  --c-primary:#C51B88;--c-primary-text:#FCFCFC;
+  --c-primary-hover-bg:#FCFCFC;--c-primary-hover-text:#090909;--c-primary-hover-border:#090909;
+  --c-primary-active:#770F53;
+  --c-link:#B0177A;--c-link-hover:#770F53;
+  --c-tree-active-bg:#F4D1E8;--c-tree-active-text:#770F53;--c-tree-active-border:#C51B88;
+  --c-focus:#C51B88;--c-focus-dark:#FCFCFC;
+  --c-code-bg:#F6F6F6;--c-code-border:#DEDEDE;--c-code-inline-bg:#EFEFEF;
+  --c-notice-info:#4D4D4D;--c-notice-warning:#A15C00;
+  --c-ok-bg:#E7F4EA;--c-ok-text:#1D6631;--c-ok-border:#9CCDA9;
+  --c-warn-bg:#FFF3DF;--c-warn-text:#7A4300;--c-warn-border:#E9B86A;
+  --radius-btn:0;--radius-card:0;--radius-code:0;
+  --card-shadow:none;
+  --sidebar-w:300px;
+}
+.topbar{border-bottom:1px solid #262626}
+.brand-logo{height:28px}
+.hero-title{font-weight:700;letter-spacing:-.01em}
+.side-head{color:#090909}
+.btn-primary{text-transform:none;letter-spacing:.01em}
+.doc-body h1{font-weight:700}
+.doc-body h2{border-top-color:#DEDEDE}
+.tree-link[aria-current="page"]{border-left-width:4px}
+.badge{border-radius:0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="topbar" id="top">
+  <a class="brand" href="index.html"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2Zw0KICAgICAgICAgICAgd2lkdGg9IjE0OSINCiAgICAgICAgICAgIGhlaWdodD0iNDYiDQogICAgICAgICAgICB2aWV3Qm94PSIwIDAgMTQ5IDQ2Ig0KICAgICAgICAgICAgZmlsbD0ibm9uZSINCiAgICAgICAgICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgICAgICA+DQogICAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc3XzIxMDEpIj4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjMuMTg3NCAzNy4xMzY3VjM5Ljc4OTVIMi4zNTYyNEMxLjg3NTM4IDM4Ljk2ODkgMS40OTg3IDM4LjA3OTkgMS4xNTA4NyAzNy4xMzk5TDIzLjE4NzQgMzcuMTM2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgNDIuMzA4NlY0NC43MzM1QzIzLjE4NzQgNDQuODU3OCAyMy4wODY0IDQ0Ljk1OTcgMjIuOTU5OCA0NC45NTk3SDExLjQ0OTRDOS4xMzQ4NSA0NC45NTk3IDYuNTA2MTIgNDQuMTU4MyA0LjQzNTE5IDQyLjMwODZIMjMuMTg3NFoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTI1LjcwMzkgMC4yMjYxMjFWMTUuODYyMkMyNS43MDM5IDE1Ljk1NzggMjUuNjczNCAxNi4wNTAyIDI1LjYxNzMgMTYuMTI4MkwxNS45ODcyIDI5LjI2NjFDMTUuOTAyMiAyOS4zODI0IDE1Ljc2NDQgMjkuNDUyNSAxNS42MjAxIDI5LjQ1MjVIMC42MDU4OTRDMC40NTY4MjYgMjkuNDUyNSAwLjM0NDYyNCAyOS4zMTA3IDAuMzg2Mjk5IDI5LjE2NzNDMC43Mzg5MzQgMjcuOTE1IDEuMzIzOTkgMjYuNzU4MyAyLjA5MDE3IDI1Ljc0MzRMMTguNzk3MSAzLjc3OTA0QzIxLjE4MzggMC44Mzk1MTggMjQuMjUxNyAwLjE3NjczIDI1LjQ0NTggMC4wMDMwNjcyOEMyNS41ODIxIC0wLjAxNzY0NDggMjUuNzAzOSAwLjA4OTEwMjIgMjUuNzAzOSAwLjIyNjEyMVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgMzIuMTA1MlYzNC42MjA5SDAuMzQ0NjIxQzAuMzM4MjA5IDM0LjYwMDIgMC4wMjg4NTIgMzMuNzczMyAwIDMyLjIwMDdDMCAzMi4wNzMzIDAuMDk5Mzc5IDMxLjk2OTcgMC4yMjc2MSAzMS45Njk3SDIzLjA1MTFDMjMuMTI2NSAzMS45Njk3IDIzLjE4NzQgMzIuMDMwMyAyMy4xODc0IDMyLjEwNTJaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik01Mi45NDQ5IDM3LjEzOTlDNTIuNTk3MSAzOC4wNzk5IDUyLjIyMDQgMzguOTY4OSA1MS43Mzk2IDM5Ljc4OTVIMzAuOTA4NVYzNy4xMzY3TDUyLjk0NDkgMzcuMTM5OVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTMwLjkwODUgNDIuMzA4NlY0NC43MzM1QzMwLjkwODUgNDQuODU3OCAzMS4wMDk0IDQ0Ljk1OTcgMzEuMTM2MSA0NC45NTk3SDQyLjY0NjRDNDQuOTYxIDQ0Ljk1OTcgNDcuNTg5NyA0NC4xNTgzIDQ5LjY2MDYgNDIuMzA4NkgzMC45MDg1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjguMzkxOSAwLjIyNjQ4MVYxNS44NjI1QzI4LjM5MTkgMTUuOTU4MSAyOC40MjI0IDE2LjA1MDUgMjguNDc4NSAxNi4xMjg2TDM4LjEwODYgMjkuMjY2NUMzOC4xOTM2IDI5LjM4MjggMzguMzMxNCAyOS40NTI5IDM4LjQ3NTcgMjkuNDUyOUg1My40ODk5QzUzLjYzOSAyOS40NTI5IDUzLjc1MTIgMjkuMzExMSA1My43MDk1IDI5LjE2NzdDNTMuMzU2OSAyNy45MTU0IDUyLjc3MTggMjYuNzU4NyA1Mi4wMDU3IDI1Ljc0MzhMMzUuMjk3MiAzLjc4MUMzMi45MTA1IDAuODQxNDcxIDI5Ljg0MjUgMC4xNzg2ODMgMjguNjQ4NCAwLjAwNTAyMDQxQzI4LjUxMjEgLTAuMDE1NjkxNyAyOC4zOTAzIDAuMDkxMDU1MyAyOC4zOTAzIDAuMjI4MDc0SDI4LjM5MTlWMC4yMjY0ODFaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik0zMC45MDg1IDMyLjE5NlYzNC42MjA5SDUzLjc1MTJDNTMuNzU3NiAzNC42MDAyIDU0LjA2NyAzMy43NzMzIDU0LjA5NTggMzIuMjAwN0M1NC4wOTc0IDMyLjA3MzMgNTMuOTk2NCAzMS45Njk3IDUzLjg2ODIgMzEuOTY5N0gzMS4xMzYxQzMxLjAxMSAzMS45Njk3IDMwLjkwODUgMzIuMDcwMSAzMC45MDg1IDMyLjE5NloiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTY5LjUyMzYgMzYuMDM0M0M2Ny41MDQgMzQuODM5NCA2NS45NDEyIDMzLjIzMDIgNjQuODM1MiAzMS4yMDY4QzYzLjcyOTIgMjkuMTgzNCA2My4xNzYyIDI2Ljk2MDggNjMuMTc2MiAyNC41MzkxQzYzLjE3NjIgMjIuMTE3NCA2My43MTMxIDE5Ljg0NyA2NC43ODcxIDE3LjgyMzZDNjUuODYxIDE1LjgwMDIgNjcuMzY3NyAxNC4xOTkgNjkuMzA3MiAxMy4wMkM3MS4yNDY3IDExLjg0MSA3My40ODI3IDExLjI1MTUgNzYuMDE1MyAxMS4yNTE1Qzc4LjU0NzkgMTEuMjUxNSA4MC44OTYxIDExLjgwOTEgODIuNzcxNSAxMi45MjQ0Qzg0LjY0NjggMTQuMDM5NiA4Ni4wNzM0IDE1LjU4NTEgODcuMDUxMiAxNy41NjA3Qzg4LjAyODkgMTkuNTM2MyA4OC41MTc4IDIxLjc5ODcgODguNTE3OCAyNC4zNDc5Qzg4LjUxNzggMjUuMjQwMSA4OC40NTM3IDI2LjExNjQgODguMzI1NSAyNi45NzY3SDcxLjAxNDNDNzEuNDMxIDI4LjMxNTEgNzIuMTM2MyAyOS4zNDI3IDczLjEzMDEgMzAuMDU5N0M3NC4xMjM5IDMwLjc3NjYgNzUuMzQyMSAzMS4xMzUxIDc2Ljc4NDcgMzEuMTM1MUM3Ny45NzA4IDMxLjEzNTEgNzkuMDEyNyAzMC45OTE3IDc5LjkxMDMgMzAuNzA0OUM4MC44MDc5IDMwLjQxODEgODEuNzIxNiAyOS45MjQyIDgyLjY1MTMgMjkuMjIzMkw4Ni40NTAxIDM0LjI0MTlDODUuMDA3NSAzNS40ODQ2IDgzLjQ5MjggMzYuMzkyOCA4MS45MDU5IDM2Ljk2NjNDODAuMzE5IDM3LjUzOTkgNzguNDk5OCAzNy44MjY3IDc2LjQ0ODEgMzcuODI2N0M3My44NTE0IDM3LjgyNjcgNzEuNTQzMiAzNy4yMjkyIDY5LjUyMzYgMzYuMDM0M1pNODEuMjU2NyAyMS44MTQ2QzgwLjkzNjIgMjAuNDQ0NSA4MC4zMzUxIDE5LjQwODggNzkuNDUzNSAxOC43MDc4Qzc4LjU3MTkgMTguMDA2OCA3Ny40NzM5IDE3LjY1NjMgNzYuMTU5NiAxNy42NTYzQzc0Ljg0NTIgMTcuNjU2MyA3My42OTkxIDE4LjAxNDggNzIuODE3NSAxOC43MzE3QzcxLjkzNiAxOS40NDg3IDcxLjMxODggMjAuNDc2MyA3MC45NjYyIDIxLjgxNDZIODEuMjU2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTkyLjc5NzUgMTEuNzc3Mkg5Ny42MDYyTDk5Ljc3MDEgMTQuNjkyOEMxMDIuMDE0IDEyLjM2NjcgMTA0Ljg1MSAxMS4yMDM2IDEwOC4yODEgMTEuMjAzNkMxMTEuMzU5IDExLjIwMzYgMTEzLjgxOSAxMi4xOTE0IDExNS42NjMgMTQuMTY3QzExNy41MDYgMTYuMTQyNyAxMTguNDI4IDE4Ljg1MTIgMTE4LjQyOCAyMi4yOTI2VjM3LjEwOTdIMTEwLjQ0NVYyMy42Nzg3QzExMC40NDUgMjIuMDIxNyAxMTAuMDQ1IDIwLjczOTIgMTA5LjI0MyAxOS44MzFDMTA4LjQ0MiAxOC45MjI5IDEwNy4zNTIgMTguNDY4OCAxMDUuOTczIDE4LjQ2ODhDMTA0LjQ5OSAxOC40Njg4IDEwMy4yNjQgMTguOTU0NyAxMDIuMjcxIDE5LjkyNjZDMTAxLjI3NyAyMC44OTg1IDEwMC43OCAyMi4wMzc2IDEwMC43OCAyMy4zNDQxVjM3LjEwOTdIOTIuNzk3NVYxMS43NzcyWiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMTQxLjQxMyAxNC41MDE2TDE0My40ODEgMTEuNzc3MkgxNDguMjg5VjMzLjE0MjVDMTQ4LjI4OSAzNS41MzI0IDE0Ny43MzYgMzcuNzA3MSAxNDYuNjMgMzkuNjY2OEMxNDUuNTI0IDQxLjYyNjUgMTQzLjkwNiA0My4xNzIgMTQxLjc3NCA0NC4zMDMyQzEzOS42NDIgNDUuNDM0NCAxMzcuMTAxIDQ2IDEzNC4xNTIgNDZDMTMwLjA4MSA0NiAxMjYuNDkgNDQuODA1IDEyMy4zODEgNDIuNDE1MkwxMjcuNTE2IDM2LjkxODVDMTI4LjU3NCAzNy43Nzg4IDEyOS42MTYgMzguMzg0MyAxMzAuNjQyIDM4LjczNDhDMTMxLjY2OCAzOS4wODUzIDEzMi43OSAzOS4yNjA2IDEzNC4wMDggMzkuMjYwNkMxMzYuMjIgMzkuMjYwNiAxMzcuODQ3IDM4Ljc1MDcgMTM4Ljg4OSAzNy43MzFDMTM5LjkzIDM2LjcxMTQgMTQwLjQ1MSAzNS4xOTc4IDE0MC40NTEgMzMuMTkwM0MxMzguNTYgMzQuNzUxNyAxMzYuMyAzNS41MzI0IDEzMy42NzEgMzUuNTMyNEMxMzEuNDI3IDM1LjUzMjQgMTI5LjQxNSAzNS4wMDY2IDEyNy42MzYgMzMuOTU1MUMxMjUuODU3IDMyLjkwMzUgMTI0LjQ2MyAzMS40NjE2IDEyMy40NTMgMjkuNjI5NEMxMjIuNDQzIDI3Ljc5NzIgMTIxLjkzOCAyNS43MTggMTIxLjkzOCAyMy4zOTE5QzEyMS45MzggMjEuMDY1OCAxMjIuNDQzIDE5LjAxODUgMTIzLjQ1MyAxNy4xNTQ0QzEyNC40NjMgMTUuMjkwMyAxMjUuODU3IDEzLjgzMjUgMTI3LjYzNiAxMi43ODA5QzEyOS40MTUgMTEuNzI5NCAxMzEuNDI3IDExLjIwMzYgMTMzLjY3MSAxMS4yMDM2QzEzNi43MTcgMTEuMjAzNiAxMzkuMjk3IDEyLjMwMjkgMTQxLjQxMyAxNC41MDE2Wk0xMzEuMzg3IDE5LjcxMTVDMTMwLjM3NyAyMC42OTkzIDEyOS44NzIgMjEuOTU4IDEyOS44NzIgMjMuNDg3NUMxMjkuODcyIDI1LjAxNyAxMzAuMzc3IDI2LjM3MTMgMTMxLjM4NyAyNy4zNTkxQzEzMi4zOTcgMjguMzQ2OSAxMzMuNzAzIDI4Ljg0MDggMTM1LjMwNiAyOC44NDA4QzEzNi45MDkgMjguODQwOCAxMzguMjE1IDI4LjM0NjkgMTM5LjIyNSAyNy4zNTkxQzE0MC4yMzUgMjYuMzcxMyAxNDAuNzQgMjUuMDk2NyAxNDAuNzQgMjMuNTM1M0MxNDAuNzQgMjEuOTczOSAxNDAuMjM1IDIwLjczOTIgMTM5LjIyNSAxOS43MzU0QzEzOC4yMTUgMTguNzMxNyAxMzYuOTA5IDE4LjIyOTggMTM1LjMwNiAxOC4yMjk4QzEzMy43MDMgMTguMjI5OCAxMzIuMzk3IDE4LjcyMzcgMTMxLjM4NyAxOS43MTE1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDxkZWZzPg0KICAgICAgICAgICAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3N18yMTAxIj4NCiAgICAgICAgICAgICAgICA8cmVjdCB3aWR0aD0iMTQ4LjI4OSIgaGVpZ2h0PSI0NiIgZmlsbD0id2hpdGUiIC8+DQogICAgICAgICAgICAgIDwvY2xpcFBhdGg+DQogICAgICAgICAgICA8L2RlZnM+DQogICAgICAgICAgPC9zdmc+" alt="Engineering" width="149" height="46"><span class="brand-text"><span class="brand-title">LOSS_PREVENTION · IMPACT how (FULL)</span><span class="brand-sub">Documentazione IMPACT how (FULL) · baseline fc7d820 (main) · portale offline</span></span></a>
+  <button type="button" class="nav-toggle" aria-controls="inlay-nav inlay-sidebar" aria-expanded="false" hidden><span class="nav-toggle-icon" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span></button>
+  <nav class="topnav" id="inlay-nav" aria-label="Navigazione principale"><a class="nav-item" href="index.html">Panoramica</a><a class="nav-item" href="index-doc.html">Indice IMPACT</a><a class="nav-item" href="00_deep_dive.html">Deep Dive</a><a class="nav-item" href="06_software_architecture.html">Architettura</a><a class="nav-item" href="14_metrics.html">Metriche</a></nav>
+  <div class="search" role="search" hidden>
+    <label class="visually-hidden" for="inlay-search">Cerca nella documentazione</label>
+    <input id="inlay-search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inlay-search-results" placeholder="Cerca nella documentazione" autocomplete="off" spellcheck="false">
+    <ul id="inlay-search-results" class="search-results" role="listbox" aria-label="Cerca nella documentazione" hidden></ul>
+  </div>
+</header>
+<div class="page">
+  <div class="hero">
+    <p class="hero-title">LOSS_PREVENTION — Documentazione IMPACT how (FULL)</p>
+    <p class="hero-sub">.NET 8 FastEndpoints + MongoDB · Vue 3 + Vite + Vuetify SPA · Data Ingestion Service — baseline fc7d820, revisione 1.1 (2026-10-08)</p>
+    <ul class="quicklinks"><li><a class="btn-primary" href="index-doc.html">Indice e valori canonici</a></li><li><a class="btn-outline" href="15_fp_cocomo.html">FP &amp; COCOMO II</a></li><li><a class="btn-outline" href="18_antipattern_deep_dive.html">Antipattern</a></li><li><a class="btn-outline" href="19_modernization_estimation_spec.html">Stima modernizzazione</a></li></ul>
+  </div>
+  <div class="layout">
+    <aside class="card sidebar" id="inlay-sidebar">
+      <p class="card-head side-head" id="inlay-tree-label">Struttura documenti</p>
+      <nav class="tree-scroll" id="inlay-tree" aria-labelledby="inlay-tree-label"><ul class="tree"><li class="tree-node tree-node-root"><div class="tree-row"><button type="button" class="tree-toggle" aria-expanded="true" aria-controls="inlay-t1" aria-label="LOSS_PREVENTION"></button><a class="tree-link" href="index.html">LOSS_PREVENTION</a></div><ul id="inlay-t1"><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t2">Architettura (HOW)</button></div><ul id="inlay-t2"><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t3">Foundation</button></div><ul id="inlay-t3"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="00_deep_dive.html">00 · Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="01_context.html">01 · Context Definition</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t6">Requirements</button></div><ul id="inlay-t6"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="02_functional_overview.html">02 · Functional Overview</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="03_non_functional_overview.html">03 · Non-Functional Requirements</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="04_constraints.html">04 · Constraints</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t10">Architecture</button></div><ul id="inlay-t10"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="05_principles.html">05 · Architectural Principles</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="06_software_architecture.html">06 · Software Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="07_code.html">07 · Code Implementation Details</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="08_data.html">08 · Data Architecture</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t15">Infrastructure &amp; Operations</button></div><ul id="inlay-t15"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="10_deployment.html">10 · Deployment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="11_development_environment.html">11 · Development Environment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="12_operation_and_support.html">12 · Operation and Support</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t20">Decisions &amp; Metrics</button></div><ul id="inlay-t20"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="13_decision_log.html">13 · Decision Log</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="14_metrics.html">14 · Metrics</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="15_fp_cocomo.html">15 · FP &amp; COCOMO II</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t24">Deep Assessments</button></div><ul id="inlay-t24"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="18_antipattern_deep_dive.html" aria-current="page">18 · Antipattern Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="19_modernization_estimation_spec.html">19 · Modernization Estimation Spec</a></div></li></ul></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></div></li></ul></li></ul></li></ul></nav>
+    </aside>
+    <main class="card docpane" id="main" tabindex="-1">
+      <div class="card-head doc-head"><p class="doc-title">🔍 ANTIPATTERN ASSESSMENT REPORT</p><a class="btn-primary btn-export" href="18_antipattern_deep_dive.html" download="18_antipattern_deep_dive.html" data-export="">Scarica</a></div>
+      <nav class="breadcrumbs" aria-label="Percorso"><ol><li><a href="index.html">LOSS_PREVENTION</a></li><li><span>Architettura (HOW)</span></li><li><span>Deep Assessments</span></li><li><span aria-current="page">18 · Antipattern Deep Dive</span></li></ol></nav>
+      <div class="doc-info"><details class="provenance"><summary>Provenienza del documento <span class="badge badge-present">metadati presenti</span></summary><dl><dt>Sorgente</dt><dd><code>18_antipattern_deep_dive.md</code></dd><dt>SHA-256 sorgente</dt><dd><code>a71bbc37585f76aa16a080752d221b8e6e247a66ba9df1b902b43202c6f16692</code></dd><dt>Modalità</dt><dd>how</dd><dt>Step</dt><dd>18_antipattern_deep_dive</dd><dt>Commit</dt><dd><code>fc7d820908b8b230fb47a2669920ba7efdb413a8</code></dd><dt>Branch</dt><dd>main</dd><dt>Worktree</dt><dd>dirty</dd><dt>Data baseline</dt><dd>2026-10-07T18:19:51+02:00</dd><dt>Generato il</dt><dd>2026-10-08T10:17:43+02:00</dd></dl></details><details class="toc" id="inlay-toc"><summary>In questa pagina</summary><ol><li><a href="#-riassunto-esecutivo">📊 RIASSUNTO ESECUTIVO</a><ol><li><a href="#derivazione-dellhealth-score">Derivazione dell&#x27;Health Score</a></li></ol></li><li><a href="#-tabella-priorit%C3%A0-top-findings">🚨 TABELLA PRIORITÀ (Top Findings)</a></li><li><a href="#-analisi-dettagliata-top-3-problemi-critici">🔍 ANALISI DETTAGLIATA (Top 3 Problemi Critici)</a><ol><li><a href="#1-trust-boundary-violation--golden-hammer-in-getreportdataendpointcs">1. Trust boundary violation / Golden Hammer in GetReportDataEndpoint.cs</a></li><li><a href="#2-god-object--the-blob-in-aistorets">2. God Object / The Blob in aiStore.ts</a></li><li><a href="#3-code-injection-via-eval--god-object-in-resultsgridvue">3. Code injection via eval + God Object in resultsGrid.vue</a></li></ol></li><li><a href="#-raccomandazioni-generali--next-steps">🛠️ RACCOMANDAZIONI GENERALI &amp; NEXT STEPS</a></li><li><a href="#appendice-a--checklist-di-analisi-per-fase">Appendice A — Checklist di analisi per fase</a><ol><li><a href="#fase-1--scansione-iniziale-e-metriche">Fase 1 — Scansione iniziale e metriche</a></li><li><a href="#fase-2--analisi-architetturale-macro-level">Fase 2 — Analisi architetturale (macro-level)</a></li><li><a href="#fase-3--analisi-design-pattern-classmodule-level">Fase 3 — Analisi design pattern (class/module level)</a></li><li><a href="#fase-4--analisi-codice-implementation-level">Fase 4 — Analisi codice (implementation level)</a></li></ol></li><li><a href="#appendice-b--catalogo-completo-dei-finding">Appendice B — Catalogo completo dei finding</a><ol><li><a href="#ap-04--security-by-obscurity-lock-applicato-solo-dal-client--critica">AP-04 — Security by obscurity: lock applicato solo dal client · Critica</a></li><li><a href="#ap-05--leaky-abstraction--n1-writes-nel-rule-engine--alta">AP-05 — Leaky abstraction + N+1 writes nel rule engine · Alta</a></li><li><a href="#ap-06--stovepipe--split-brain-della-logica-antifrode--alta">AP-06 — Stovepipe / split-brain della logica antifrode · Alta</a></li><li><a href="#ap-07--leaky-abstraction-collection-pubblica-nel-repository--media">AP-07 — Leaky abstraction: Collection pubblica nel repository · Media</a></li><li><a href="#ap-08--vendor-lock-in-mongodb-nel-dominio--inversione-delle-dipendenze--media">AP-08 — Vendor lock-in MongoDB nel dominio / inversione delle dipendenze · Media</a></li><li><a href="#ap-09--fat-endpoint--layer-skipping--media">AP-09 — Fat endpoint / layer skipping · Media</a></li><li><a href="#ap-10--copy-paste-programming--media">AP-10 — Copy-paste programming · Media</a></li><li><a href="#ap-11--anemic-domain-model--feature-envy--media">AP-11 — Anemic Domain Model + Feature Envy · Media</a></li><li><a href="#ap-12--shotgun-surgery-sulle-soglie-antifrode--media">AP-12 — Shotgun Surgery sulle soglie antifrode · Media</a></li><li><a href="#ap-13--vendorruntime-lock-in-ollama--golden-hammer-regex--media">AP-13 — Vendor/runtime lock-in Ollama + Golden Hammer regex · Media</a></li><li><a href="#ap-14--spaghetti--deeply-nested-code--media">AP-14 — Spaghetti / deeply nested code · Media</a></li><li><a href="#ap-15--error-swallowing--generic-exceptions--media">AP-15 — Error swallowing / generic exceptions · Media</a></li><li><a href="#ap-16--primitive-obsession--bassa">AP-16 — Primitive Obsession · Bassa</a></li><li><a href="#ap-17--magic-numbers--bassa">AP-17 — Magic Numbers · Bassa</a></li><li><a href="#ap-18--dead-code--speculative-generality--bassa">AP-18 — Dead code / Speculative generality · Bassa</a></li><li><a href="#ap-19--librerie-duplicate--dipendenze-inutilizzate--bassa">AP-19 — Librerie duplicate / dipendenze inutilizzate · Bassa</a></li><li><a href="#ap-20--service-locator-in-programcs--bassa">AP-20 — Service Locator in Program.cs · Bassa</a></li></ol></li><li><a href="#appendice-c--metodo">Appendice C — Metodo</a></li><li><a href="#reference-documents">Reference Documents</a></li><li><a href="#change-log">Change Log</a></li></ol></details></div>
+      <article class="doc-body" id="doc-body"><!-- IMPACT-META
+schema: 1
+mode: how
+step: 18_antipattern_deep_dive
+commit: fc7d820908b8b230fb47a2669920ba7efdb413a8
+commit_short: fc7d820
+branch: main
+worktree: dirty
+baseline_date: 2026-10-07T18:19:51+02:00
+generated_at: 2026-10-08T10:17:43+02:00
+--><h1 id="-antipattern-assessment-report"><span id="antipattern-assessment-report" class="anchor-alias" aria-hidden="true"></span><span id="🔍-antipattern-assessment-report" class="anchor-alias" aria-hidden="true"></span>🔍 ANTIPATTERN ASSESSMENT REPORT<a class="header-anchor" href="#-antipattern-assessment-report" aria-label="Collegamento alla sezione: 🔍 ANTIPATTERN ASSESSMENT REPORT">#</a></h1>
+<blockquote>
+<p><strong>Baseline commit:</strong> <code>fc7d820</code> (<code>main</code>) · worktree <code>dirty</code> (modifiche locali solo in <code>Docs/</code> e <code>.github/</code>; codice applicativo identico al commit)</p>
+</blockquote>
+<p><strong>Data</strong>: 2026-10-08
+<strong>Codebase</strong>: <code>customspa-it-loss-prevention-d098a8b97860</code> (LOSS_PREVENTION): backend .NET 8 / FastEndpoints / MongoDB (5 progetti) + SPA Vue 3 / Vite / Pinia (<code>LossPrevention.UI</code>)
+<strong>Health Score</strong>: <strong>45 / 100</strong>: 100 − Σ penalità dei 20 finding (vedi "Derivazione dell'Health Score")</p>
+<h2 id="-riassunto-esecutivo"><span id="riassunto-esecutivo" class="anchor-alias" aria-hidden="true"></span><span id="📊-riassunto-esecutivo" class="anchor-alias" aria-hidden="true"></span>📊 RIASSUNTO ESECUTIVO<a class="header-anchor" href="#-riassunto-esecutivo" aria-label="Collegamento alla sezione: 📊 RIASSUNTO ESECUTIVO">#</a></h2>
+<p>Il backend è ordinato a livello macro (layer riconoscibili, REPR, funzioni brevi, nessuna dipendenza circolare), ma ha un'astrazione MongoDB che "perde" e un dominio anemico. Il debito più grave è nel frontend: due god file incorporano logica di business e di sicurezza, generata ed eseguita dinamicamente (<code>eval</code>, <code>new Function</code>). Il debito tecnico è <strong>critico</strong>: 4 finding critici toccano la sicurezza dei dati e l'affidabilità delle decisioni antifrode, anche se il volume complessivo resta gestibile (≈ 20 interventi mirati).</p>
+<h3 id="derivazione-dellhealth-score"><span id="derivazione-dell-health-score" class="anchor-alias" aria-hidden="true"></span>Derivazione dell'Health Score<a class="header-anchor" href="#derivazione-dellhealth-score" aria-label="Collegamento alla sezione: Derivazione dell&#x27;Health Score">#</a></h3>
+<p>Penalità per finding: Critica = 6, Alta = 4, Media = 2, Bassa = 1. Ai pattern assenti (Big Ball of Mud, Circular Dependency) non si applica alcuna penalità.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 1"><table>
+<thead>
+<tr>
+<th>Severità</th>
+<th>N. finding</th>
+<th>Penalità unitaria</th>
+<th>Totale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Critica</td>
+<td>4</td>
+<td>6</td>
+<td>24</td>
+</tr>
+<tr>
+<td>Alta</td>
+<td>2</td>
+<td>4</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Media</td>
+<td>9</td>
+<td>2</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Bassa</td>
+<td>5</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td><strong>Totale</strong></td>
+<td><strong>20</strong></td>
+<td></td>
+<td><strong>55</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Health Score = 100 − 55 = 45 / 100.</strong></p>
+<blockquote>
+<p>Nota di versione: la v1.0 riportava 52/100 senza formula. Il valore è stato ricalcolato con la formula esplicita sopra, sui 20 finding verificati in questa versione.</p>
+</blockquote>
+<h2 id="-tabella-priorità-top-findings"><span id="tabella-priorita-top-findings" class="anchor-alias" aria-hidden="true"></span><span id="🚨-tabella-priorita-top-findings" class="anchor-alias" aria-hidden="true"></span>🚨 TABELLA PRIORITÀ (Top Findings)<a class="header-anchor" href="#-tabella-priorit%C3%A0-top-findings" aria-label="Collegamento alla sezione: 🚨 TABELLA PRIORITÀ (Top Findings)">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 2"><table>
+<thead>
+<tr>
+<th style="text-align: left;">File/Modulo</th>
+<th style="text-align: left;">Anti-Pattern</th>
+<th style="text-align: left;">Severità</th>
+<th style="text-align: left;">Impatto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>AP-01</strong> <code>LossPrevention.API/Endpoints/Data/GetReportDataEndpoint.cs:66-71</code></td>
+<td style="text-align: left;">Golden Hammer ("la pipeline Mongo dal client risolve tutto") / violazione del trust boundary</td>
+<td style="text-align: left;">Critica</td>
+<td style="text-align: left;">Query injection: lettura di altre collection via <code>$lookup</code>/<code>$unionWith</code> (utenti, token, password SFTP), DoS; impossibile applicare filtri di sicurezza</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-02</strong> <code>LossPrevention.UI/src/stores/aiStore.ts</code> (1.994 righe, 99 funzioni)</td>
+<td style="text-align: left;">God Object / The Blob + code generation (<code>new Function</code>, <code>:1769</code>)</td>
+<td style="text-align: left;">Critica</td>
+<td style="text-align: left;">LLM, classificazione, statistica, generazione ed esecuzione regole e stato UI in un solo store; non testabile, non riusabile dal backend</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-03</strong> <code>LossPrevention.UI/src/components/reports/resultsGrid.vue</code> (2.271 righe)</td>
+<td style="text-align: left;">God Object + <code>eval</code> (code injection, <code>:1377</code>)</td>
+<td style="text-align: left;">Critica</td>
+<td style="text-align: left;">Espressioni salvate nei workspace condivisi ed eseguite nel browser di altri utenti (XSS persistente con accesso al JWT in <code>localStorage</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-04</strong> <code>LossPrevention.UI/src/helpers/fieldLock.ts:1-48</code></td>
+<td style="text-align: left;">Security by obscurity (enforcement client-side)</td>
+<td style="text-align: left;">Critica</td>
+<td style="text-align: left;">Il row-level lock è applicato solo dal client; basta modificare la richiesta per leggere i dati di tutti i negozi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-05</strong> <code>LossPrevention.Application/Services/Data/Rules/RulesService.cs:34-58, 141-155</code></td>
+<td style="text-align: left;">Leaky abstraction + N+1 writes</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Full scan e <code>ReplaceOne</code> per documento; flag cancellati in massa prima del ricalcolo; <code>UpdateRuleAsync</code> scrive nel path sbagliato</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-06</strong> BE <code>RuleHelper</code> ↔ FE <code>aiStore.ts</code>/<code>fraudDetectionStore.ts:177</code></td>
+<td style="text-align: left;">Stovepipe / split-brain della logica antifrode</td>
+<td style="text-align: left;">Alta</td>
+<td style="text-align: left;">Due motori antifrode con modelli diversi; soglie di default definite solo nel frontend; risultati non riproducibili né auditabili lato server</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-07</strong> <code>LossPrevention.Infrastructure/Repositories/MongoRepository.cs:27</code></td>
+<td style="text-align: left;">Leaky abstraction (<code>Collection</code> pubblica)</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Servizi ed endpoint accoppiati al driver; accesso ad altre collection aggirando il repository</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-08</strong> <code>LossPrevention.Application.csproj</code> → Infrastructure; <code>Domain/Entities/*</code> con 22 attributi <code>[Bson*]</code></td>
+<td style="text-align: left;">Vendor lock-in (MongoDB nel dominio) / inversione delle dipendenze</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Dominio non portabile; test e cambi di persistenza costosi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-09</strong> 20 endpoint (Dashboard, Groups, Notifications, FraudDetection…)</td>
+<td style="text-align: left;">Fat endpoint / layer skipping</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Logica e mapping negli endpoint, duplicati e non testabili in isolamento</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-10</strong> <code>Create/UpdateFraudDetectionSettingsEndpoint.cs</code> (47-388 ≈ 66-407)</td>
+<td style="text-align: left;">Copy-paste programming</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">341 righe clonate; 5 metodi di mapping identici da 162 NLOC</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-11</strong> <code>Domain/Entities/*</code>; <code>AddMemberToGroupEndpoint.cs:56-63</code></td>
+<td style="text-align: left;">Anemic Domain Model + Feature Envy</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Invarianti sparse in endpoint e helper; lost update sui gruppi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-12</strong> soglia antifrode in 8 file (BE + FE)</td>
+<td style="text-align: left;">Shotgun Surgery</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Aggiungere una soglia richiede modifiche coordinate in 2 linguaggi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-13</strong> <code>aiStore.ts:8, 88, 111</code></td>
+<td style="text-align: left;">Vendor/runtime lock-in (Ollama) + Golden Hammer regex</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Provider LLM e URL hardcoded nel client; classificazione dei campi fragile</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-14</strong> <code>aiStore.ts:1203-1530</code> (CCN 87); <code>ReportDataservice.cs:126-150</code>; <code>MappingService.cs:269-288</code></td>
+<td style="text-align: left;">Spaghetti / Deeply nested code</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">20 funzioni con CCN &gt; 15; manutenzione e test molto costosi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-15</strong> 31 <code>catch (Exception)</code> + 4 catch vuoti (BE); 115 <code>catch</code> / 55 <code>console.error</code> (FE)</td>
+<td style="text-align: left;">Error swallowing / generic exceptions</td>
+<td style="text-align: left;">Media</td>
+<td style="text-align: left;">Errori nascosti, job "riusciti" con errori, messaggi interni esposti al client</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-16</strong> <code>DataIngestionConfiguration.cs:31,34</code>; <code>FileProcessingCoordinator.cs:94</code></td>
+<td style="text-align: left;">Primitive Obsession</td>
+<td style="text-align: left;">Bassa</td>
+<td style="text-align: left;">Stati e tipi come stringhe (<code>"one-time"</code>, <code>"daily"</code>, <code>"filesystem"</code>/<code>"file system"</code>), 0 enum nel backend</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-17</strong> <code>DataIngestionBackgroundService.cs:13,28,100-101</code>; <code>MongoRepository.cs:34</code>; <code>IndexSuggestionHelper.cs:23</code></td>
+<td style="text-align: left;">Magic Numbers</td>
+<td style="text-align: left;">Bassa</td>
+<td style="text-align: left;">Intervalli, limiti e campioni non configurabili né documentati</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-18</strong> <code>DapperRepository.cs</code>; <code>IXmlEnrichmentRule</code>; <code>XmlProcessingService.cs:43</code></td>
+<td style="text-align: left;">Dead code / Speculative generality</td>
+<td style="text-align: left;">Bassa</td>
+<td style="text-align: left;">Rumore, falsa percezione di funzionalità disponibili</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-19</strong> AG Grid + Tabulator; <code>vue-grid-layout-v3</code> + <code>grid-layout-plus</code>; <code>nuxt</code>; Newtonsoft + System.Text.Json</td>
+<td style="text-align: left;">Librerie duplicate / dipendenze inutilizzate</td>
+<td style="text-align: left;">Bassa</td>
+<td style="text-align: left;">Bundle più pesante, superficie di vulnerabilità più ampia</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AP-20</strong> <code>LossPrevention.API/Program.cs:42-47</code></td>
+<td style="text-align: left;">Service Locator</td>
+<td style="text-align: left;">Bassa</td>
+<td style="text-align: left;"><code>BuildServiceProvider()</code> durante la configurazione; dipendenze nascoste</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="-analisi-dettagliata-top-3-problemi-critici"><span id="analisi-dettagliata-top-3-problemi-critici" class="anchor-alias" aria-hidden="true"></span><span id="🔍-analisi-dettagliata-top-3-problemi-critici" class="anchor-alias" aria-hidden="true"></span>🔍 ANALISI DETTAGLIATA (Top 3 Problemi Critici)<a class="header-anchor" href="#-analisi-dettagliata-top-3-problemi-critici" aria-label="Collegamento alla sezione: 🔍 ANALISI DETTAGLIATA (Top 3 Problemi Critici)">#</a></h2>
+<p>Per l'analisi dettagliata sono stati scelti i tre finding critici con il maggiore impatto combinato su sicurezza e manutenibilità (AP-01, AP-02, AP-03). AP-04 è descritto nel catalogo (Appendice B) e si risolve insieme ad AP-01.</p>
+<h3 id="1-trust-boundary-violation--golden-hammer-in-getreportdataendpointcs"><span id="1-trust-boundary-violation-golden-hammer-in-getreportdataendpointcs" class="anchor-alias" aria-hidden="true"></span><span id="_1-trust-boundary-violation-golden-hammer-in-getreportdataendpoint-cs" class="anchor-alias" aria-hidden="true"></span>1. Trust boundary violation / Golden Hammer in <code>GetReportDataEndpoint.cs</code><a class="header-anchor" href="#1-trust-boundary-violation--golden-hammer-in-getreportdataendpointcs" aria-label="Collegamento alla sezione: 1. Trust boundary violation / Golden Hammer in GetReportDataEndpoint.cs">#</a></h3>
+<p><strong>Dove:</strong> <code>LossPrevention.API/Endpoints/Data/GetReportDataEndpoint.cs</code>, righe 66-71 (<code>HandleAsync</code>); esecuzione in <code>LossPrevention.Application/Services/Data/ReportDataservice.cs:25-86</code>.</p>
+<p><strong>Analisi:</strong>
+Il server delega al client la costruzione della query MongoDB e la esegue senza validazione, convertendo ogni stage con <code>BsonDocument.Parse</code>. Viola <em>least privilege</em> e <em>never trust the client</em> (OWASP A03 Injection, CWE-943):
+- un utente con <code>CAN_VIEW_REPORT</code> può usare <code>$lookup</code>/<code>$unionWith</code> per leggere <code>Users</code> (hash/salt), <code>PasswordResetTokens</code> e <code>DataIngestionConfigurations</code> (password SFTP);
+- stage pesanti senza limiti causano DoS;
+- il server non può anteporre il filtro di lock dell'utente, e la cache (chiave = hash della request, <code>:92-97</code>) non distingue gli utenti.</p>
+<p>Gli stage di scrittura <code>$out</code>/<code>$merge</code> non vanno a buon fine: il server accoda sempre <code>$count</code> oppure <code>$skip</code>/<code>$limit</code> (<code>ReportDataservice.cs:40-52</code>, con <code>Take &gt; 0</code> obbligatorio a <code>:45-50</code> dell'endpoint), e <code>$out</code>/<code>$merge</code> devono essere l'ultimo stage. È anche un <em>Golden Hammer</em>: la pipeline di aggregazione diventa l'unico linguaggio di query, persino per l'interfaccia di un form.</p>
+<p><strong>Codice Attuale (Snippet):</strong></p>
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">// GetReportDataEndpoint.cs:66-71
+var pipeline = req.QueryPipeline
+                  .Where(x =&gt; x != null)
+                  .Select(x =&gt; BsonDocument.Parse(x.ToString()))
+                  .ToArray();
+
+var result = await _reportDataService.QueryReportDataAsync(pipeline, req.Skip, req.Take);
+</code></pre></div>
+<p><strong>Soluzione Proposta:</strong>
+Il client invia il modello di query che già possiede (<code>Tab.SelectedFields</code>, <code>Query.Conditions</code>, <code>GroupByField</code>). Un <code>ReportQueryBuilder</code> server-side:
+1. valida i campi contro <code>Mappings</code>;
+2. ammette solo operatori noti;
+3. antepone il filtro di lock letto dai claim;
+4. impone <code>$limit</code> e <code>maxTimeMS</code>.</p>
+<p>Stage come <code>$lookup</code>, <code>$unionWith</code>, <code>$out</code>, <code>$merge</code>, <code>$function</code>, <code>$where</code> e <code>$accumulator</code> non sono generabili. La chiave di cache include utente e lock. Migrazione con feature flag e confronto dei risultati sui workspace salvati.</p>
+<p><strong>Esempio Refactoring:</strong></p>
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">public sealed record ReportQuery(IReadOnlyList&lt;FieldDTO&gt; Fields, QueryDTO Filter, string? GroupBy, int Skip, int Take);
+
+public BsonDocument[] Build(ReportQuery q, ClaimsPrincipal user, IReadOnlySet&lt;string&gt; knownFields)
+{
+    var stages = new List&lt;BsonDocument&gt;();
+    var lockField = user.FindFirst("LockField")?.Value;
+    var lockValue = user.FindFirst("LockValue")?.Value;
+    if (lockField is not null &amp;&amp; knownFields.Contains(lockField))
+        stages.Add(new("$match", new BsonDocument(lockField, lockValue)));
+    stages.Add(new("$match", ConditionTranslator.Translate(q.Filter, knownFields))); // whitelist: $eq,$ne,$gt,$gte,$lt,$lte,$in, $regex con escape
+    if (q.GroupBy is not null) stages.Add(GroupStage(q, knownFields));
+    stages.Add(new("$project", Projection(q.Fields, knownFields)));
+    return stages.ToArray(); // $skip/$limit e maxTimeMS aggiunti dal servizio
+}
+</code></pre></div>
+<h3 id="2-god-object--the-blob-in-aistorets"><span id="2-god-object-the-blob-in-aistorets" class="anchor-alias" aria-hidden="true"></span><span id="_2-god-object-the-blob-in-aistore-ts" class="anchor-alias" aria-hidden="true"></span>2. God Object / The Blob in <code>aiStore.ts</code><a class="header-anchor" href="#2-god-object--the-blob-in-aistorets" aria-label="Collegamento alla sezione: 2. God Object / The Blob in aiStore.ts">#</a></h3>
+<p><strong>Dove:</strong> <code>LossPrevention.UI/src/stores/aiStore.ts</code>: intero file (1.994 righe, 99 funzioni). Hotspot:
+- <code>buildGenericFraudRuleTemplates</code>, righe 1203-1530, CCN 87;
+- <code>enrichWithCrossTransactionMetrics</code>, righe 986-1142, CCN 43;
+- <code>analyzeFraudInData</code>, righe 1667-1922, CCN 34;
+- compilazione delle regole con <code>new Function</code>, righe 1768-1774.</p>
+<p><strong>Analisi:</strong>
+Lo store viola SRP: contiene client LLM (<code>:8</code>, <code>:88</code>), NLQ, classificazione semantica dei campi via regex (<code>SEMANTIC_PATTERNS</code>, <code>:111</code>), statistica descrittiva, generazione delle regole antifrode, compilazione ed esecuzione, stato UI e timer.</p>
+<p>Le regole sono stringhe JavaScript costruite interpolando i <strong>nomi dei campi</strong> dei dati (<code>row["${f}_total"]</code>) e compilate con <code>new Function</code>:
+- non sono tipizzate né testabili;
+- non sono riusabili dal backend;
+- un nome di campo costruito ad arte nei file ingeriti (es. contenente <code>"]</code>) diventa codice eseguito nel browser (CWE-95).</p>
+<p>Viola anche KISS e DRY rispetto al motore regole del backend (AP-06).</p>
+<p><strong>Codice Attuale (Snippet):</strong></p>
+<div class="code-block" data-lang="ts"><div class="code-toolbar"><span class="code-lang">ts</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-ts">// aiStore.ts:1224-1229 (dentro buildGenericFraudRuleTemplates)
+rules.push({
+  fraudType: "High Value Transaction",
+  fields: [f],
+  condition: `row["${f}_total"] &gt; ${p95}`,
+  severity: "medium",
+});
+
+// aiStore.ts:1768-1774 (dentro analyzeFraudInData)
+const compiled = rules.map((rule, index) =&gt; {
+  const fn = new Function(
+    "row",
+    `try { return (${rule.condition}) } catch { return false }`
+  );
+  return { ...rule, fn, index: index + 1 };
+});
+</code></pre></div>
+<p><strong>Soluzione Proposta:</strong>
+1. Introdurre un <strong>modello dichiarativo di regola</strong> (<code>{ field, op, threshold }</code>) valutato da un interprete con operatori in whitelist.
+2. Scomporre lo store in moduli puri e testabili:
+      - <code>llmClient</code>, dietro un'interfaccia (vedi AP-13);
+      - <code>fieldClassifier</code>;
+      - <code>statistics</code>;
+      - <code>ruleGenerator</code>;
+      - <code>ruleEvaluator</code>.
+3. Portare <code>computeStats</code> e i <code>build*Rules</code> in un servizio C# (<code>FraudAnalysisService</code>) eseguito come job, con risultati persistiti e auditabili.
+4. Lasciare nello store solo lo stato UI e le chiamate API.</p>
+<p>Prima del refactoring servono test di caratterizzazione (snapshot delle regole generate su un dataset fisso).</p>
+<p><strong>Esempio Refactoring:</strong></p>
+<div class="code-block" data-lang="ts"><div class="code-toolbar"><span class="code-lang">ts</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-ts">type Op = '&gt;' | '&lt;' | '&gt;=' | '&lt;=' | '==';
+type Rule = { fraudType: string; field: string; op: Op; threshold: number; severity: 'low' | 'medium' | 'high' };
+
+const ops: Record&lt;Op, (a: number, b: number) =&gt; boolean&gt; = {
+  '&gt;': (a, b) =&gt; a &gt; b, '&lt;': (a, b) =&gt; a &lt; b, '&gt;=': (a, b) =&gt; a &gt;= b, '&lt;=': (a, b) =&gt; a &lt;= b, '==': (a, b) =&gt; a === b,
+};
+
+export const evaluate = (row: Record&lt;string, unknown&gt;, r: Rule): boolean =&gt; {
+  const v = row[`${r.field}_total`];
+  return typeof v === 'number' &amp;&amp; ops[r.op](v, r.threshold);
+};
+</code></pre></div>
+<h3 id="3-code-injection-via-eval--god-object-in-resultsgridvue"><span id="3-code-injection-via-eval-god-object-in-resultsgridvue" class="anchor-alias" aria-hidden="true"></span><span id="_3-code-injection-via-eval-god-object-in-resultsgrid-vue" class="anchor-alias" aria-hidden="true"></span>3. Code injection via <code>eval</code> + God Object in <code>resultsGrid.vue</code><a class="header-anchor" href="#3-code-injection-via-eval--god-object-in-resultsgridvue" aria-label="Collegamento alla sezione: 3. Code injection via eval + God Object in resultsGrid.vue">#</a></h3>
+<p><strong>Dove:</strong> <code>LossPrevention.UI/src/components/reports/resultsGrid.vue</code>, righe 1360-1382 (<code>valueGetter</code> dei campi calcolati; <code>eval</code> a riga 1377), in un componente di 2.271 righe. Il componente gestisce anche griglia, export, drill-down, lock (<code>:1687</code>) e analisi antifrode.</p>
+<p><strong>Analisi:</strong>
+L'espressione del campo calcolato è scritta da un utente e salvata nel workspace, che è condivisibile. Quando un altro utente apre il report, <code>eval</code> la esegue nel suo browser con accesso al JWT in <code>localStorage</code> (<code>loginStore.ts:92</code>): è un XSS persistente (CWE-95).</p>
+<p>Il replace a riga 1371 sostituisce solo gli identificatori che coincidono con chiavi della riga e lascia passare tutto il resto, per esempio <code>fetch(...)</code> o <code>localStorage</code>. La dimensione del file viola SRP: ogni modifica alla griglia rischia regressioni su funzioni non correlate.</p>
+<p><strong>Codice Attuale (Snippet):</strong></p>
+<div class="code-block" data-lang="ts"><div class="code-toolbar"><span class="code-lang">ts</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-ts">// resultsGrid.vue:1371-1377
+const expr = expression.replace(/\b(\w+)\b/g, (m: any) =&gt; {
+  if (Object.prototype.hasOwnProperty.call(row, m)) {
+    return row[m] === undefined || row[m] === null ? '""' : `row["${m}"]`;
+  }
+  return m;
+});
+const result = eval(expr);
+</code></pre></div>
+<p><strong>Soluzione Proposta:</strong>
+- Sostituire <code>eval</code> con un parser di espressioni aritmetiche con whitelist (es. <code>expr-eval</code> con operatori logici, assegnazione e definizione di funzioni disabilitati, oppure <code>jsep</code> + interprete), compilando una volta per campo.
+- Validare le espressioni anche lato server al salvataggio del workspace.
+- Scomporre <code>resultsGrid.vue</code> in:
+    - <code>useGridColumns</code> (composable);
+    - <code>useCalculatedFields</code>;
+    - <code>useExport</code>;
+    - <code>FraudOverlay</code>, componente che consuma i risultati del backend (AP-02).
+- Aggiungere la regola ESLint <code>no-eval</code>.</p>
+<p><strong>Esempio Refactoring:</strong></p>
+<div class="code-block" data-lang="ts"><div class="code-toolbar"><span class="code-lang">ts</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-ts">import { Parser } from 'expr-eval';
+
+const parser = new Parser({ operators: { logical: false, assignment: false, fndef: false } });
+const compiled = parser.parse(expression);                  // una volta per campo calcolato
+valueGetter: (params) =&gt; {
+  const vars = numericFieldsOf(params.data);                // solo variabili numeriche note
+  const result = compiled.evaluate(vars);
+  return `${field.prefix ?? ''}${result.toFixed(2)}${field.suffix ?? ''}`;
+}
+</code></pre></div>
+<h2 id="-raccomandazioni-generali--next-steps"><span id="raccomandazioni-generali-next-steps" class="anchor-alias" aria-hidden="true"></span><span id="🛠️-raccomandazioni-generali-next-steps" class="anchor-alias" aria-hidden="true"></span>🛠️ RACCOMANDAZIONI GENERALI &amp; NEXT STEPS<a class="header-anchor" href="#-raccomandazioni-generali--next-steps" aria-label="Collegamento alla sezione: 🛠️ RACCOMANDAZIONI GENERALI &amp; NEXT STEPS">#</a></h2>
+<ul>
+<li>[ ] <strong>Settimana 1</strong>: eliminare <code>eval</code> (AP-03) e <code>new Function</code> (AP-02, interprete dichiarativo); bloccare la pipeline arbitraria con una whitelist provvisoria degli stage (AP-01).</li>
+<li>[ ] <strong>Mesi 1-2</strong>: Query DSL server-side con lock applicato dal server (AP-01, AP-04); motore antifrode unico nel backend con soglie persistite e audit (AP-06, AP-12); rule engine con update bulk (AP-05).</li>
+<li>[ ] Scrivere test di caratterizzazione, poi scomporre <code>aiStore.ts</code> e <code>resultsGrid.vue</code> (AP-02, AP-03, AP-14).</li>
+<li>[ ] Chiudere <code>Collection</code> del repository dietro metodi espliciti (<code>UpdateManyAsync</code>, <code>BulkWriteAsync</code>, <code>AggregateAsync</code>) e spostare la logica dei 20 endpoint nei servizi (AP-07, AP-09); mapping soglie unico (AP-10).</li>
+<li>[ ] Enum/value object per <code>ScheduleType</code>, <code>Recurrence</code>, <code>SourceType</code> e <code>FileType</code>; costanti/configurazione per intervalli e limiti (AP-16, AP-17).</li>
+<li>[ ] Gestione errori: <code>IExceptionHandler</code> + <code>ProblemDetails</code>, niente <code>ex.Message</code> al client, catch specifici (AP-15).</li>
+<li>[ ] Rimuovere dead code e librerie duplicate o inutilizzate: Dapper, <code>IXmlEnrichmentRule</code>, <code>grid-layout-plus</code>, <code>nuxt</code>, una delle due griglie (AP-18, AP-19); service locator in <code>Program.cs</code> (AP-20).</li>
+<li>[ ] Introdurre un adapter <code>LlmProvider</code> lato backend al posto della chiamata diretta a Ollama dal browser (AP-13).</li>
+<li>[ ] <strong>Strumenti da integrare in CI</strong>:<ul>
+<li>SonarQube/SonarCloud (C# + TS, quality gate su duplicazione &lt; 5 % e nuove issue critiche = 0);</li>
+<li>ESLint <code>plugin:vue/vue3-recommended</code> con <code>no-eval</code>, <code>no-new-func</code> e <code>no-implied-eval</code>;</li>
+<li>analizzatori Roslyn con <code>TreatWarningsAsErrors</code> sui nuovi progetti;</li>
+<li>ArchUnitNET (o NetArchTest) per vietare <code>IMongoRepository&lt;&gt;</code> e <code>MongoDB.Driver</code> negli endpoint e <code>MongoDB.Bson</code> nel Domain;</li>
+<li>jscpd (soglia di duplicazione);</li>
+<li>gitleaks (secret scanning).</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="appendice-a--checklist-di-analisi-per-fase"><span id="appendice-a-checklist-di-analisi-per-fase" class="anchor-alias" aria-hidden="true"></span><span id="appendice-a-—-checklist-di-analisi-per-fase" class="anchor-alias" aria-hidden="true"></span>Appendice A — Checklist di analisi per fase<a class="header-anchor" href="#appendice-a--checklist-di-analisi-per-fase" aria-label="Collegamento alla sezione: Appendice A — Checklist di analisi per fase">#</a></h2>
+<p>Esito di ogni controllo richiesto dal prompt (Fasi 1-4): ✅ = anti-pattern assente, ⚠️ = presente in forma parziale, ❌ = presente. Ogni voce riporta l'evidenza e il finding di riferimento.</p>
+<h3 id="fase-1--scansione-iniziale-e-metriche"><span id="fase-1-scansione-iniziale-e-metriche" class="anchor-alias" aria-hidden="true"></span><span id="fase-1-—-scansione-iniziale-e-metriche" class="anchor-alias" aria-hidden="true"></span>Fase 1 — Scansione iniziale e metriche<a class="header-anchor" href="#fase-1--scansione-iniziale-e-metriche" aria-label="Collegamento alla sezione: Fase 1 — Scansione iniziale e metriche">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 3"><table>
+<thead>
+<tr>
+<th>Controllo</th>
+<th>Risultato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stack tecnologico</td>
+<td>Backend: .NET 8, ASP.NET Core + FastEndpoints 6, MongoDB.Driver 3.4, FluentValidation, SSH.NET. Frontend: Vue 3 + Vite + Pinia + Vuetify, AG Grid, Tabulator, Chart.js, axios; LLM locale Ollama (<code>qwen2.5:14b</code>) chiamato dal browser</td>
+</tr>
+<tr>
+<td>Struttura directory</td>
+<td><code>LossPrevention.API</code> (Endpoints per feature), <code>LossPrevention.Application</code> (Services, DTO, Handlers, Helpers, Validators), <code>LossPrevention.Domain</code> (Entities, Exceptions), <code>LossPrevention.Infrastructure</code> (Repositories, DI), <code>LossPrevention.DataIngestionService</code> (console), <code>LossPrevention.UI/src</code> (components, stores, helpers, api, router)</td>
+</tr>
+<tr>
+<td>File sorgente</td>
+<td>232 C# + 41 Vue + 28 TS (in <code>LossPrevention.UI/src</code>)</td>
+</tr>
+<tr>
+<td>Righe non vuote</td>
+<td>Backend 10.760; frontend 15.836</td>
+</tr>
+<tr>
+<td>Classi / funzioni</td>
+<td>Backend 264 classi (0 enum), 475 funzioni; frontend 569 funzioni (lizard)</td>
+</tr>
+<tr>
+<td>God file (&gt; 500 righe)</td>
+<td><code>resultsGrid.vue</code> 2.271 · <code>aiStore.ts</code> 1.994 · <code>selectFields.vue</code> 823 · <code>fraudDetectionStore.ts</code> 728 · <code>queryBuilderTabs.vue</code> 694 · <code>FraudSettingsDialog.vue</code> 595 · <code>dataingestion.vue</code> 567 · <code>notifications.vue</code> 562; nessun file C# supera le 500 righe (max <code>MappingService.cs</code> 428, <code>FileProcessingCoordinator.cs</code> 424, <code>UpdateFraudDetectionSettingsEndpoint.cs</code> 407)</td>
+</tr>
+<tr>
+<td>Funzioni CCN &gt; 15</td>
+<td>20 (6 BE + 14 FE); max 87 (<code>aiStore.ts:1203-1530</code>)</td>
+</tr>
+<tr>
+<td>Duplicazione (jscpd)</td>
+<td>BE 8,58 % (56 cloni, 1.052 righe); FE vedi <a href="16_frontend_deep_assessment.html">16_frontend_deep_assessment.md</a></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="fase-2--analisi-architetturale-macro-level"><span id="fase-2-analisi-architetturale-macro-level" class="anchor-alias" aria-hidden="true"></span><span id="fase-2-—-analisi-architetturale-macro-level" class="anchor-alias" aria-hidden="true"></span>Fase 2 — Analisi architetturale (macro-level)<a class="header-anchor" href="#fase-2--analisi-architetturale-macro-level" aria-label="Collegamento alla sezione: Fase 2 — Analisi architetturale (macro-level)">#</a></h3>
+<p><strong>2.1 Big Ball of Mud &amp; Spaghetti Architecture</strong>
+- ✅ Struttura caotica senza layer: <strong>assente</strong>. Layer API/Application/Domain/Infrastructure riconoscibili; frontend organizzato per components/stores/helpers.
+- ✅ Dipendenze circolari tra moduli principali: <strong>assenti</strong>.
+    - Il grafo dei progetti .NET è aciclico (API → Application/Infrastructure, Application → Domain/Infrastructure, Infrastructure → Domain).
+    - Tra gli store Pinia ci sono solo dipendenze unidirezionali (<code>aiStore</code> → <code>fraudDetectionStore</code>, <code>notificationStore</code> → <code>groupStore</code>).
+    - Non è stata fatta un'analisi completa dei cicli di import tra componenti Vue (es. <code>madge</code>).
+- ⚠️ Flussi non lineari: la catena ingestione → mapping → regole è in parte sincrona (<code>FileProcessingCoordinator.cs:105-108</code>) e in parte manuale (<code>GET /rules/apply</code>). L'analisi statistica avviene nel browser. Vedi AP-05 e AP-06.</p>
+<p><strong>2.2 Stovepipe System (Silos)</strong>
+- ❌ Logica duplicata invece che condivisa:
+    - due motori antifrode (regole min/max nel backend, statistica e regole generate nel frontend);
+    - due pipeline di ingestione (API <code>FileProcessingCoordinator</code> e console <code>DataIngestionService/Program.cs:85-102</code>) con logiche diverse (batch vs singolo insert, regole ignorate). Vedi AP-06.
+- ⚠️ Integrazione point-to-point: il frontend chiama direttamente Ollama su <code>http://localhost:11434</code> (<code>aiStore.ts:88</code>) senza passare dal backend (AP-13); per SFTP e SMTP le chiamate dirette sono adeguate alla scala del sistema.</p>
+<p><strong>2.3 Golden Hammer</strong>
+- ❌ La pipeline di aggregazione MongoDB inviata dal client è usata come linguaggio di query universale (AP-01).
+- ❌ Classificazione semantica dei campi basata su regex sui nomi (<code>SEMANTIC_PATTERNS</code>, <code>aiStore.ts:111</code>) e generazione di codice JavaScript come motore regole (AP-02, AP-13).</p>
+<p><strong>2.4 Vendor Lock-in</strong>
+- ❌ MongoDB nel dominio: entità con 22 attributi <code>[Bson*]</code> e tipo <code>ObjectId</code> (es. <code>User.cs:1,7</code>); endpoint che usano <code>Builders&lt;T&gt;</code> del driver (es. <code>ListNotificationsEndpoint.cs:30</code>). Vedi AP-08.
+- ❌ LLM Ollama hardcoded (modello <code>aiStore.ts:8</code>, URL <code>:88</code>), senza adapter (AP-13).
+- ✅ Cloud: nessuna dipendenza da servizi cloud proprietari nel codice.</p>
+<h3 id="fase-3--analisi-design-pattern-classmodule-level"><span id="fase-3-analisi-design-pattern-classmodule-level" class="anchor-alias" aria-hidden="true"></span><span id="fase-3-—-analisi-design-pattern-class-module-level" class="anchor-alias" aria-hidden="true"></span>Fase 3 — Analisi design pattern (class/module level)<a class="header-anchor" href="#fase-3--analisi-design-pattern-classmodule-level" aria-label="Collegamento alla sezione: Fase 3 — Analisi design pattern (class/module level)">#</a></h3>
+<p><strong>3.1 God Object / The Blob</strong>
+- ❌ <code>aiStore.ts</code> (99 funzioni, 1.994 righe) e <code>resultsGrid.vue</code> (2.271 righe) superano tutte le soglie (AP-02, AP-03).
+- ⚠️ <code>fraudDetectionStore.ts</code> (29 funzioni, 728 righe) e <code>selectFields.vue</code> (823 righe).
+- ⚠️ Backend: <code>MappingService</code> (428 righe, scoperta schema + CRUD + batch) e <code>FileProcessingCoordinator</code> (424 righe: orchestrazione, SFTP, parsing, persistenza, idempotenza) sono al limite; nessuna classe ha più di 20 metodi pubblici.
+- ⚠️ Nomi generici: <code>BsonHelper</code>, <code>RuleHelper</code> e <code>DistanceHelper</code> sono helper statici. <code>IndexSuggestionHelper.cs</code> contiene la classe <code>IndexService</code>.</p>
+<p><strong>3.2 Circular Dependency</strong>
+- ✅ Assente, vedi 2.1.</p>
+<p><strong>3.3 Shotgun Surgery</strong>
+- ❌ Aggiungere o modificare una soglia antifrode richiede modifiche coordinate in <strong>8 file</strong>, in C# e TypeScript (AP-12):
+    - <code>FraudDetectionSettings.cs:29</code>;
+    - <code>FraudDetectionSettingsDTO.cs:15</code>;
+    - <code>CreateFraudDetectionSettingsEndpoint.cs</code> (24 occorrenze);
+    - <code>UpdateFraudDetectionSettingsEndpoint.cs</code> (24);
+    - <code>GetFraudDetectionSettingsEndpoint.cs</code> (12);
+    - <code>fraudDetectionStore.ts:10,177</code>;
+    - <code>FraudSettingsDialog.vue:417</code>;
+    - <code>aiStore.ts:1219</code>.</p>
+<p><strong>3.4 Feature Envy</strong>
+- ❌ <code>AddMemberToGroupEndpoint.cs:56-63</code> manipola direttamente <code>GroupDocument.Members</code> e <code>UpdatedAtUtc</code> (logica che appartiene a <code>Group.AddMember</code>).
+- ❌ <code>RuleHelper.EvaluateRule(doc, rule)</code> legge i campi di <code>RuleConfiguration</code> (comportamento che appartiene alla regola).
+- ❌ <code>BsonHelper</code> lavora interamente sui dati di <code>BsonValue</code>/<code>MappingItem</code>.
+- Vedi AP-11.</p>
+<p><strong>3.5 Anemic Domain Model</strong>
+- ❌ 19 entità con sole proprietà e 0 metodi di comportamento; 2 eccezioni di dominio mai usate (<code>DeleteUserRoleException</code>, <code>InvalidCustomerException</code>); stati come stringhe (AP-11, AP-16).</p>
+<h3 id="fase-4--analisi-codice-implementation-level"><span id="fase-4-analisi-codice-implementation-level" class="anchor-alias" aria-hidden="true"></span><span id="fase-4-—-analisi-codice-implementation-level" class="anchor-alias" aria-hidden="true"></span>Fase 4 — Analisi codice (implementation level)<a class="header-anchor" href="#fase-4--analisi-codice-implementation-level" aria-label="Collegamento alla sezione: Fase 4 — Analisi codice (implementation level)">#</a></h3>
+<p><strong>4.1 Complessità e leggibilità</strong>
+- ❌ Spaghetti code / metodi lunghi:
+    - 18 funzioni backend &gt; 50 NLOC, di cui 5 metodi di mapping da 162 NLOC;
+    - <code>buildGenericFraudRuleTemplates</code> con 254 NLOC e CCN 87;
+    - <code>DistanceDataService.GetDistanceAsync</code> con 122 NLOC e CCN 20 (AP-14).
+- ❌ Magic numbers/strings:
+    - intervalli (<code>FromMinutes(1)</code>, <code>FromSeconds(10)</code>, 50 s);
+    - limiti <code>.Take(20)</code>, campione 100, <code>ProcessMappings(1000)</code>/<code>int.MaxValue</code>, cache 1 h;
+    - stringhe <code>"sftp"</code>/<code>"filesystem"</code>/<code>"file system"</code> (AP-16, AP-17).
+- ❌ Deeply nested code: <code>ReportDataservice.cs:117-150</code> (8 livelli: if → foreach → if → if → foreach → else if → if → for); <code>MappingService.cs:269-288</code> (lambda async in <code>Parallel.ForEachAsync</code> → foreach → if → if) (AP-14).</p>
+<p><strong>4.2 Violazioni DRY</strong>
+- ❌ Copy-paste programming:
+    - FraudDetection Create/Update (341 righe);
+    - <code>MapThresholdsToDTO</code> ripetuto in 3 endpoint;
+    - 56 cloni backend in totale (AP-10).</p>
+<p><strong>4.3 Gestione errori</strong>
+- ❌ Error swallowing:
+    - 4 catch vuoti senza tipo (<code>BsonHelper.cs:221,280</code>, <code>XmlToBsonConverterHelper.cs:149</code>, <code>DashboardMapping.cs:89</code>);
+    - errori SFTP registrati nel risultato ma con job completato (<code>SftpFileProcessingService.cs:107-122</code>);
+    - frontend: 115 <code>catch</code>, 55 <code>console.error</code>, nessuna notifica centralizzata.
+- ❌ Generic exceptions: 31 <code>catch (Exception)</code> nel backend; <code>ex.Message</code> restituito al client in 13 punti (AP-15).</p>
+<p><strong>4.4 Primitive Obsession</strong>
+- ❌ <code>ScheduleType</code>, <code>Recurrence</code>, sorgenti e tipi file come stringhe; soglie e lock come primitive (<code>LockField</code>/<code>LockValue</code> stringhe in <code>User.cs:18-19</code>); <code>any</code> diffuso nel frontend (<code>buildGenericFraudRuleTemplates(classification: any, stats: any)</code>, <code>aiStore.ts:1203</code>) (AP-16).</p>
+<hr>
+<h2 id="appendice-b--catalogo-completo-dei-finding"><span id="appendice-b-catalogo-completo-dei-finding" class="anchor-alias" aria-hidden="true"></span><span id="appendice-b-—-catalogo-completo-dei-finding" class="anchor-alias" aria-hidden="true"></span>Appendice B — Catalogo completo dei finding<a class="header-anchor" href="#appendice-b--catalogo-completo-dei-finding" aria-label="Collegamento alla sezione: Appendice B — Catalogo completo dei finding">#</a></h2>
+<p>Ogni finding riporta location verificata (file:riga al commit <code>fc7d820</code>), evidenza, impatto, severità e refactoring raccomandato. AP-01…AP-03 sono dettagliati nella sezione "Analisi dettagliata".</p>
+<h3 id="ap-04--security-by-obscurity-lock-applicato-solo-dal-client--critica"><span id="ap-04-security-by-obscurity-lock-applicato-solo-dal-client-critica" class="anchor-alias" aria-hidden="true"></span><span id="ap-04-—-security-by-obscurity-lock-applicato-solo-dal-client-·-critica" class="anchor-alias" aria-hidden="true"></span>AP-04 — Security by obscurity: lock applicato solo dal client · <strong>Critica</strong><a class="header-anchor" href="#ap-04--security-by-obscurity-lock-applicato-solo-dal-client--critica" aria-label="Collegamento alla sezione: AP-04 — Security by obscurity: lock applicato solo dal client · Critica">#</a></h3>
+<ul>
+<li><strong>Location</strong>:<ul>
+<li><code>LossPrevention.UI/src/helpers/fieldLock.ts:1-48</code>;</li>
+<li>consumer in <code>resultsGrid.vue:1687</code>, <code>toolbar.vue:180</code>, <code>tabularBlock.vue:259</code> (quest'ultimo con mapping vuoti <code>[]</code>);</li>
+<li>claim emessi in <code>LoginEndpoint.cs:65-69</code> e mai letti dal backend.</li>
+</ul>
+</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="ts"><div class="code-toolbar"><span class="code-lang">ts</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-ts">// fieldLock.ts:2-8
+const token = localStorage.getItem('token');
+if (!token) return undefined;
+const payload = JSON.parse(atob(token.split('.')[1]));
+if (!payload.LockField || payload.LockValue == null) return undefined;
+</code></pre></div></li>
+<li><strong>Impatto</strong>: il filtro per negozio/area esiste solo nella query costruita dal browser. Un utente può rimuoverlo (DevTools o chiamata diretta all'API) e leggere tutti i dati (CWE-602, OWASP API1 BOLA).</li>
+<li><strong>Refactoring</strong>: applicare il lock server-side come primo <code>$match</code> nel Query DSL (AP-01), in distance ed export; mantenere <code>fieldLock.ts</code> solo per la UX (mostrare il filtro bloccato).</li>
+</ul>
+<h3 id="ap-05--leaky-abstraction--n1-writes-nel-rule-engine--alta"><span id="ap-05-leaky-abstraction-n1-writes-nel-rule-engine-alta" class="anchor-alias" aria-hidden="true"></span><span id="ap-05-—-leaky-abstraction-n-1-writes-nel-rule-engine-·-alta" class="anchor-alias" aria-hidden="true"></span>AP-05 — Leaky abstraction + N+1 writes nel rule engine · <strong>Alta</strong><a class="header-anchor" href="#ap-05--leaky-abstraction--n1-writes-nel-rule-engine--alta" aria-label="Collegamento alla sezione: AP-05 — Leaky abstraction + N+1 writes nel rule engine · Alta">#</a></h3>
+<ul>
+<li><strong>Location</strong>: <code>LossPrevention.Application/Services/Data/Rules/RulesService.cs:34-58</code> (<code>ApplyRulesAsync</code>), <code>:141-148</code> (<code>UpdateRuleAsync</code>).</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">var docs = (await _reportDataRepository.GetAllAsync()).ToList();                    // :34 full scan
+await _reportDataRepository.Collection.UpdateManyAsync(FilterDefinition&lt;BsonDocument&gt;.Empty, unsetUpdate); // :41 rimuove TUTTI i flag
+await _reportDataRepository.Collection.ReplaceOneAsync(filter, doc);                // :58 una scrittura per documento
+var docUpdate = Builders&lt;BsonDocument&gt;.Update.Set($"{rule.RuleName}", isMatch);     // :147 path errato (radice, non FraudFlags.*)
+</code></pre></div></li>
+<li><strong>Impatto</strong>:<ul>
+<li>memoria e tempo O(N) con N round-trip;</li>
+<li>durante il ricalcolo tutti i documenti restano senza flag (lo unset non è atomico rispetto alla riscrittura);</li>
+<li>dopo <code>UpdateRuleAsync</code> i flag sono incoerenti.</li>
+</ul>
+</li>
+<li><strong>Refactoring</strong>: una <code>UpdateMany</code> con pipeline update per regola (<code>$set: { "FraudFlags.&lt;rule&gt;": &lt;espressione $and/$gte/$lte&gt; }</code>), esecuzione come job asincrono post-ingestione e repository con metodi espliciti al posto di <code>Collection</code>.</li>
+</ul>
+<h3 id="ap-06--stovepipe--split-brain-della-logica-antifrode--alta"><span id="ap-06-stovepipe-split-brain-della-logica-antifrode-alta" class="anchor-alias" aria-hidden="true"></span><span id="ap-06-—-stovepipe-split-brain-della-logica-antifrode-·-alta" class="anchor-alias" aria-hidden="true"></span>AP-06 — Stovepipe / split-brain della logica antifrode · <strong>Alta</strong><a class="header-anchor" href="#ap-06--stovepipe--split-brain-della-logica-antifrode--alta" aria-label="Collegamento alla sezione: AP-06 — Stovepipe / split-brain della logica antifrode · Alta">#</a></h3>
+<ul>
+<li><strong>Location</strong>:<ul>
+<li>BE: <code>RuleHelper.EvaluateRule</code> (usato in <code>RulesService.cs:50</code>), console <code>DataIngestionService/Program.cs:38-47</code> (regole caricate e ignorate), <code>:85-102</code>;</li>
+<li>FE: <code>aiStore.ts:1203-1530</code> e <code>fraudDetectionStore.ts:177</code>.</li>
+</ul>
+</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="ts"><div class="code-toolbar"><span class="code-lang">ts</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-ts">// fraudDetectionStore.ts:177-181 — unica sorgente dei default delle soglie
+const DEFAULT_FRAUD_THRESHOLDS: FraudThresholdConfig = {
+  highValue: {
+    percentile: 0.95,
+    stdDevMultiplier: 2,
+    minimumValue: 500,
+</code></pre></div></li>
+<li><strong>Impatto</strong>:<ul>
+<li>le decisioni antifrode dipendono dal browser e dalla pagina di dati caricata, quindi non sono riproducibili, auditabili né eseguibili in batch;</li>
+<li>backend e frontend usano modelli di regola diversi;</li>
+<li>due pipeline di ingestione divergenti.</li>
+</ul>
+</li>
+<li><strong>Refactoring</strong>:<ul>
+<li>un solo <code>FraudAnalysisService</code> nel backend, con soglie persistite (default server-side) e risultati salvati con versione della regola;</li>
+<li>il frontend visualizza soltanto;</li>
+<li>la console riusa <code>FileProcessingCoordinator</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="ap-07--leaky-abstraction-collection-pubblica-nel-repository--media"><span id="ap-07-leaky-abstraction-collection-pubblica-nel-repository-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-07-—-leaky-abstraction-collection-pubblica-nel-repository-·-media" class="anchor-alias" aria-hidden="true"></span>AP-07 — Leaky abstraction: <code>Collection</code> pubblica nel repository · <strong>Media</strong><a class="header-anchor" href="#ap-07--leaky-abstraction-collection-pubblica-nel-repository--media" aria-label="Collegamento alla sezione: AP-07 — Leaky abstraction: Collection pubblica nel repository · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>: <code>LossPrevention.Infrastructure/Repositories/MongoRepository.cs:27</code>; usi in <code>RulesService.cs:41,58,148</code> e <code>FileProcessingCoordinator.cs:390-392,408-410</code>.</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">public IMongoCollection&lt;TDocument&gt; Collection =&gt; _collection;          // MongoRepository.cs:27
+await _reportDataRepository.Collection.Database
+    .GetCollection&lt;BsonDocument&gt;("ProcessedFiles")                      // FileProcessingCoordinator.cs:390-391
+</code></pre></div></li>
+<li><strong>Impatto</strong>: il repository non incapsula nulla. I servizi usano il driver direttamente e raggiungono altre collection (<code>ProcessedFiles</code> non configurata), rendendo impossibili mock e cambi di persistenza.</li>
+<li><strong>Refactoring</strong>: rendere <code>Collection</code> <code>internal</code>/privata; aggiungere <code>UpdateManyAsync</code>, <code>BulkWriteAsync</code> e <code>AggregateAsync</code> tipizzati; creare un <code>IProcessedFileRepository</code> dedicato.</li>
+</ul>
+<h3 id="ap-08--vendor-lock-in-mongodb-nel-dominio--inversione-delle-dipendenze--media"><span id="ap-08-vendor-lock-in-mongodb-nel-dominio-inversione-delle-dipendenze-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-08-—-vendor-lock-in-mongodb-nel-dominio-inversione-delle-dipendenze-·-media" class="anchor-alias" aria-hidden="true"></span>AP-08 — Vendor lock-in MongoDB nel dominio / inversione delle dipendenze · <strong>Media</strong><a class="header-anchor" href="#ap-08--vendor-lock-in-mongodb-nel-dominio--inversione-delle-dipendenze--media" aria-label="Collegamento alla sezione: AP-08 — Vendor lock-in MongoDB nel dominio / inversione delle dipendenze · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>: <code>LossPrevention.Application.csproj</code> (ProjectReference → Infrastructure); <code>LossPrevention.Domain/Entities/**</code> (22 attributi <code>[Bson*]</code>, <code>ObjectId</code> in <code>User.cs:1,7,16</code>); <code>Builders&lt;T&gt;</code> negli endpoint (es. <code>ListNotificationsEndpoint.cs:30</code>).</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">using MongoDB.Bson;                    // User.cs:1
+public ObjectId _id { get; set; }      // User.cs:7
+</code></pre></div></li>
+<li><strong>Impatto</strong>: il dominio dipende dal driver. Application dipende da Infrastructure invece del contrario, quindi test e sostituzione della persistenza costano di più.</li>
+<li><strong>Refactoring</strong>:<ul>
+<li>spostare le interfacce dei repository in Application/Domain e invertire la reference;</li>
+<li>usare id <code>string</code> nel dominio e mapping con <code>BsonClassMap</code> in Infrastructure;</li>
+<li>regola ArchUnitNET che vieta <code>MongoDB.*</code> nel Domain e negli endpoint.</li>
+</ul>
+</li>
+</ul>
+<h3 id="ap-09--fat-endpoint--layer-skipping--media"><span id="ap-09-fat-endpoint-layer-skipping-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-09-—-fat-endpoint-layer-skipping-·-media" class="anchor-alias" aria-hidden="true"></span>AP-09 — Fat endpoint / layer skipping · <strong>Media</strong><a class="header-anchor" href="#ap-09--fat-endpoint--layer-skipping--media" aria-label="Collegamento alla sezione: AP-09 — Fat endpoint / layer skipping · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>: 20 endpoint che iniettano <code>IMongoRepository&lt;T&gt;</code>, es. <code>ListNotificationsEndpoint.cs:30</code>, <code>CreateGroupEndpoint.cs:34</code>, <code>CreateDashboardEndpoint.cs:35</code>, <code>CreateFraudDetectionSettingsEndpoint.cs:44</code>.</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">var filter = Builders&lt;NotificationDocument&gt;.Filter.Empty;   // ListNotificationsEndpoint.cs:30 — query, nessun filtro per destinatario
+</code></pre></div></li>
+<li><strong>Impatto</strong>: logica di business e di autorizzazione negli endpoint, non riusabile e non testabile in isolamento. Nell'esempio, la mancanza del filtro per destinatario è un bug di sicurezza.</li>
+<li><strong>Refactoring</strong>: servizi applicativi per Groups, Notifications, Dashboard e FraudSettings; gli endpoint si limitano a binding, validazione e mapping HTTP.</li>
+</ul>
+<h3 id="ap-10--copy-paste-programming--media"><span id="ap-10-copy-paste-programming-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-10-—-copy-paste-programming-·-media" class="anchor-alias" aria-hidden="true"></span>AP-10 — Copy-paste programming · <strong>Media</strong><a class="header-anchor" href="#ap-10--copy-paste-programming--media" aria-label="Collegamento alla sezione: AP-10 — Copy-paste programming · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>:<ul>
+<li><code>CreateFraudDetectionSettingsEndpoint.cs:47-388</code> ≈ <code>UpdateFraudDetectionSettingsEndpoint.cs:66-407</code> (341 righe, jscpd);</li>
+<li><code>MapThresholdsToDTO</code> in Create <code>:226-387</code>, Get <code>:60-221</code>, Update <code>:245-406</code>;</li>
+<li><code>MapToEntity</code> in Create <code>:50-211</code> e Update <code>:69-230</code>.</li>
+</ul>
+</li>
+<li><strong>Evidenza</strong>: 5 metodi da 162 NLOC ciascuno, con CCN 1 (mapping campo per campo).</li>
+<li><strong>Impatto</strong>: ogni nuova soglia va aggiunta 5 volte (alimenta AP-12); divergenze silenziose tra create e update.</li>
+<li><strong>Refactoring</strong>: un solo mapper (es. Mapperly, source generator, oppure un <code>FraudSettingsMapper</code> statico) usato dai 3 endpoint; soglie come dizionario tipizzato o value object.</li>
+</ul>
+<h3 id="ap-11--anemic-domain-model--feature-envy--media"><span id="ap-11-anemic-domain-model-feature-envy-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-11-—-anemic-domain-model-feature-envy-·-media" class="anchor-alias" aria-hidden="true"></span>AP-11 — Anemic Domain Model + Feature Envy · <strong>Media</strong><a class="header-anchor" href="#ap-11--anemic-domain-model--feature-envy--media" aria-label="Collegamento alla sezione: AP-11 — Anemic Domain Model + Feature Envy · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>: <code>LossPrevention.Domain/Entities/**</code> (19 entità senza metodi); <code>AddMemberToGroupEndpoint.cs:56-63</code>.</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">if (!existing.Members.Contains(userOid))
+{
+    existing.Members.Add(userOid);
+    existing.UpdatedAtUtc = DateTime.UtcNow;
+    var updateDefinition = Builders&lt;GroupDocument&gt;.Update
+        .Set(g =&gt; g.Members, existing.Members)       // riscrive l'intera lista
+</code></pre></div></li>
+<li><strong>Impatto</strong>: invarianti sparse in endpoint e helper. Il read-modify-write senza concorrenza ottimistica causa lost update con richieste concorrenti.</li>
+<li><strong>Refactoring</strong>: <code>Group.AddMember(userId)</code> nel dominio; persistenza con <code>$addToSet</code> atomico; <code>Rule.Evaluate(doc)</code> al posto di <code>RuleHelper.EvaluateRule</code>.</li>
+</ul>
+<h3 id="ap-12--shotgun-surgery-sulle-soglie-antifrode--media"><span id="ap-12-shotgun-surgery-sulle-soglie-antifrode-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-12-—-shotgun-surgery-sulle-soglie-antifrode-·-media" class="anchor-alias" aria-hidden="true"></span>AP-12 — Shotgun Surgery sulle soglie antifrode · <strong>Media</strong><a class="header-anchor" href="#ap-12--shotgun-surgery-sulle-soglie-antifrode--media" aria-label="Collegamento alla sezione: AP-12 — Shotgun Surgery sulle soglie antifrode · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>: 8 file (vedi Fase 3.3): <code>FraudDetectionSettings.cs:29</code>, <code>FraudDetectionSettingsDTO.cs:15</code>, 3 endpoint FraudDetection, <code>fraudDetectionStore.ts:10,177</code>, <code>FraudSettingsDialog.vue:417</code>, <code>aiStore.ts:1219</code>.</li>
+<li><strong>Evidenza</strong>: <code>highValue</code>/<code>HighValue</code> compare in 8 file e 75 righe tra C# e TypeScript.</li>
+<li><strong>Impatto</strong>: modifiche lente e rischiose; facile dimenticare uno dei punti (es. il default esiste solo nel frontend).</li>
+<li><strong>Refactoring</strong>: schema di soglie data-driven (lista di <code>ThresholdDefinition</code> con chiave, tipo e default) servito dal backend; UI generata dallo schema; mapper unico (AP-10).</li>
+</ul>
+<h3 id="ap-13--vendorruntime-lock-in-ollama--golden-hammer-regex--media"><span id="ap-13-vendorruntime-lock-in-ollama-golden-hammer-regex-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-13-—-vendor-runtime-lock-in-ollama-golden-hammer-regex-·-media" class="anchor-alias" aria-hidden="true"></span>AP-13 — Vendor/runtime lock-in Ollama + Golden Hammer regex · <strong>Media</strong><a class="header-anchor" href="#ap-13--vendorruntime-lock-in-ollama--golden-hammer-regex--media" aria-label="Collegamento alla sezione: AP-13 — Vendor/runtime lock-in Ollama + Golden Hammer regex · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>: <code>LossPrevention.UI/src/stores/aiStore.ts:8</code> (modello), <code>:88</code> (URL), <code>:111</code> (<code>SEMANTIC_PATTERNS</code>).</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="ts"><div class="code-toolbar"><span class="code-lang">ts</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-ts">const MODEL = "qwen2.5:14b";                                      // :8
+const res = await fetch("http://localhost:11434/api/generate", {  // :88
+export const SEMANTIC_PATTERNS: Record&lt;string, RegExp[]&gt; = {      // :111
+</code></pre></div></li>
+<li><strong>Impatto</strong>:<ul>
+<li>ogni postazione richiede Ollama locale;</li>
+<li>cambiare provider o modello richiede una release del frontend;</li>
+<li>nessun controllo di accesso, quota o logging sulle richieste LLM;</li>
+<li>la classificazione dei campi dipende dai nomi usati dal POS.</li>
+</ul>
+</li>
+<li><strong>Refactoring</strong>: endpoint backend <code>/ai/*</code> dietro un'interfaccia <code>ILlmProvider</code> (Ollama, Azure OpenAI…) configurabile; classificazione basata sui <code>Mappings</code> (tipi dichiarati) con regex solo come fallback.</li>
+</ul>
+<h3 id="ap-14--spaghetti--deeply-nested-code--media"><span id="ap-14-spaghetti-deeply-nested-code-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-14-—-spaghetti-deeply-nested-code-·-media" class="anchor-alias" aria-hidden="true"></span>AP-14 — Spaghetti / deeply nested code · <strong>Media</strong><a class="header-anchor" href="#ap-14--spaghetti--deeply-nested-code--media" aria-label="Collegamento alla sezione: AP-14 — Spaghetti / deeply nested code · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>:<ul>
+<li><code>aiStore.ts:1203-1530</code> (CCN 87), <code>:986-1142</code> (CCN 43), <code>:1667-1922</code> (CCN 34);</li>
+<li><code>dataIngestionStore.ts:164-228</code> (CCN 36);</li>
+<li><code>UpdateDataIngestionConfigurationEndpoint.cs:23-101</code> (CCN 24);</li>
+<li><code>ReportDataservice.cs:126-150</code>;</li>
+<li><code>MappingService.cs:269-288</code>.</li>
+</ul>
+</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">// ReportDataservice.cs:126-146 — livelli 3-8 di 8 (si parte da if :117 e foreach :121)
+if (dateFields.Contains(name))
+{
+    if (val.IsBsonDocument)
+    {
+        foreach (var opName in opDoc.Names.ToList())
+        {
+            if (opName is "$gt" or "$gte" or "$lt" or "$lte" or "$eq" or "$ne") { ... }
+            else if (opName is "$in" or "$nin")
+            {
+                if (opVal.IsBsonArray)
+                {
+                    for (int i = 0; i &lt; arr.Count; i++)
+                        if (TryCoerceDateValue(arr[i], out var coerced)) arr[i] = coerced;
+</code></pre></div></li>
+<li><strong>Impatto</strong>: 20 funzioni con CCN &gt; 15 sono quasi impossibili da coprire con test e ad alto rischio di regressione.</li>
+<li><strong>Refactoring</strong>: guard clause ed early return; estrazione di metodi (<code>CoerceOperatorDocument</code>, <code>CoerceArray</code>); tabelle di strategie al posto delle catene <code>if</code> nel generatore di regole; limite CCN ≤ 15 nel quality gate.</li>
+</ul>
+<h3 id="ap-15--error-swallowing--generic-exceptions--media"><span id="ap-15-error-swallowing-generic-exceptions-media" class="anchor-alias" aria-hidden="true"></span><span id="ap-15-—-error-swallowing-generic-exceptions-·-media" class="anchor-alias" aria-hidden="true"></span>AP-15 — Error swallowing / generic exceptions · <strong>Media</strong><a class="header-anchor" href="#ap-15--error-swallowing--generic-exceptions--media" aria-label="Collegamento alla sezione: AP-15 — Error swallowing / generic exceptions · Media">#</a></h3>
+<ul>
+<li><strong>Location</strong>:<ul>
+<li>BE: 31 <code>catch (Exception)</code>; catch vuoti in <code>BsonHelper.cs:221,280</code>, <code>XmlToBsonConverterHelper.cs:149</code>, <code>DashboardMapping.cs:89</code>; <code>SftpFileProcessingService.cs:107-122</code>; <code>ex.Message</code> al client (es. <code>GetReportDataEndpoint.cs:87</code>);</li>
+<li>FE: 115 <code>catch</code>, 55 <code>console.error</code>.</li>
+</ul>
+</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">try { result = Convert.ToDecimal(v.AsDouble, CultureInfo.InvariantCulture); return true; }
+catch { /* avoid throw */ }                                   // BsonHelper.cs:220-221
+AddError("query", "Invalid query pipeline: " + ex.Message);  // GetReportDataEndpoint.cs:87
+</code></pre></div></li>
+<li><strong>Impatto</strong>: bug mascherati (conversioni fallite in silenzio), job di ingestione "completati" con errori, informazioni interne esposte al client (CWE-209).</li>
+<li><strong>Refactoring</strong>: catch di eccezioni specifiche (<code>OverflowException</code>, <code>MongoException</code>, <code>SshException</code>); <code>IExceptionHandler</code> + <code>ProblemDetails</code> globali; esito del job <code>PartialSuccess</code> con metriche; nel frontend, interceptor axios e notifiche centralizzate.</li>
+</ul>
+<h3 id="ap-16--primitive-obsession--bassa"><span id="ap-16-primitive-obsession-bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-16-—-primitive-obsession-·-bassa" class="anchor-alias" aria-hidden="true"></span>AP-16 — Primitive Obsession · <strong>Bassa</strong><a class="header-anchor" href="#ap-16--primitive-obsession--bassa" aria-label="Collegamento alla sezione: AP-16 — Primitive Obsession · Bassa">#</a></h3>
+<ul>
+<li><strong>Location</strong>: <code>DataIngestionConfiguration.cs:31,34</code>; <code>FileProcessingCoordinator.cs:94</code>; <code>UpdateDataIngestionConfigurationEndpoint.cs:37,45</code>; <code>User.cs:18-19</code>; <code>aiStore.ts:1203</code>.</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">public string ScheduleType { get; set; } = "one-time"; // "one-time" | "recurring"   (:31)
+public string Recurrence { get; set; } = "daily";      // "daily" | "weekly"          (:34) — ma "monthly" è gestito in DataIngestionBackgroundService.cs:140
+if (normalizedSource == "filesystem" || normalizedSource == "file system")          // FileProcessingCoordinator.cs:94
+</code></pre></div></li>
+<li><strong>Impatto</strong>: valori non validati (il commento del modello non include <code>monthly</code>, che invece è gestito); confronti fragili.</li>
+<li><strong>Refactoring</strong>: enum <code>ScheduleType</code>, <code>Recurrence</code> e <code>SourceType</code> con serializzazione stringa (<code>[BsonRepresentation(BsonType.String)]</code>/<code>JsonStringEnumConverter</code>); value object <code>RowLock(Field, Value)</code>; tipi TypeScript al posto di <code>any</code>.</li>
+</ul>
+<h3 id="ap-17--magic-numbers--bassa"><span id="ap-17-magic-numbers-bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-17-—-magic-numbers-·-bassa" class="anchor-alias" aria-hidden="true"></span>AP-17 — Magic Numbers · <strong>Bassa</strong><a class="header-anchor" href="#ap-17--magic-numbers--bassa" aria-label="Collegamento alla sezione: AP-17 — Magic Numbers · Bassa">#</a></h3>
+<ul>
+<li><strong>Location</strong>:<ul>
+<li><code>DataIngestionBackgroundService.cs:13</code> (<code>FromMinutes(1)</code>), <code>:28</code> (<code>FromSeconds(10)</code>), <code>:100-101</code> (50 s);</li>
+<li><code>MongoRepository.cs:34</code> (<code>.Take(20)</code>);</li>
+<li><code>IndexSuggestionHelper.cs:23</code> (campione 100);</li>
+<li><code>RulesService.cs:78</code> (<code>ProcessMappings(1000)</code>);</li>
+<li><code>GetReportDataEndpoint.cs:81</code> (cache 1 h).</li>
+</ul>
+</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">var now = DateTime.Now;                                                    // :97 ora locale
+if (config.LastRunAt.HasValue &amp;&amp; (now - config.LastRunAt.Value).TotalSeconds &lt; 50)  // :100-101, LastRunAt impostato in UTC (:86) e mai persistito (commento :87)
+</code></pre></div></li>
+<li><strong>Impatto</strong>: comportamento non configurabile. Nell'esempio, il numero magico si combina con un confronto tra ora locale e UTC che rende inaffidabile la guardia anti-doppia esecuzione sui server con fuso diverso da UTC.</li>
+<li><strong>Refactoring</strong>: <code>IngestionSchedulerOptions</code>, <code>IndexingOptions</code> e <code>ReportCacheOptions</code> via <code>IOptions&lt;T&gt;</code>; <code>TimeProvider</code>/<code>DateTime.UtcNow</code> ovunque.</li>
+</ul>
+<h3 id="ap-18--dead-code--speculative-generality--bassa"><span id="ap-18-dead-code-speculative-generality-bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-18-—-dead-code-speculative-generality-·-bassa" class="anchor-alias" aria-hidden="true"></span>AP-18 — Dead code / Speculative generality · <strong>Bassa</strong><a class="header-anchor" href="#ap-18--dead-code--speculative-generality--bassa" aria-label="Collegamento alla sezione: AP-18 — Dead code / Speculative generality · Bassa">#</a></h3>
+<ul>
+<li><strong>Location</strong>:<ul>
+<li><code>LossPrevention.Infrastructure/Repositories/DapperRepository.cs</code> (205 righe commentate);</li>
+<li><code>IXmlEnrichmentRule</code> (0 implementazioni);</li>
+<li><code>XmlProcessingService.cs:40-44</code>;</li>
+<li><code>GetReportDataEndpoint.cs:64</code> (<code>GetAllMappings()</code> inutilizzato);</li>
+<li><code>DataIngestionService/Program.cs:24-25</code> (costanti non usate);</li>
+<li>eccezioni di dominio mai lanciate;</li>
+<li>cartella <code>Endpoints\Login\</code> vuota nel csproj.</li>
+</ul>
+</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">public Task InsertManyAsync(IEnumerable&lt;BsonDocument&gt; docs)
+{
+    // This method is deprecated - FileProcessingCoordinator handles insertion now
+    throw new NotImplementedException("Use FileProcessingCoordinator.RunIngestionAsync instead");   // XmlProcessingService.cs:43
+}
+</code></pre></div></li>
+<li><strong>Impatto</strong>: rumore e falsa percezione di funzionalità disponibili. L'interfaccia promette un metodo che lancia eccezione (viola LSP).</li>
+<li><strong>Refactoring</strong>: rimozione (la cronologia resta in Git); separare l'interfaccia di parsing da quella di persistenza.</li>
+</ul>
+<h3 id="ap-19--librerie-duplicate--dipendenze-inutilizzate--bassa"><span id="ap-19-librerie-duplicate-dipendenze-inutilizzate-bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-19-—-librerie-duplicate-dipendenze-inutilizzate-·-bassa" class="anchor-alias" aria-hidden="true"></span>AP-19 — Librerie duplicate / dipendenze inutilizzate · <strong>Bassa</strong><a class="header-anchor" href="#ap-19--librerie-duplicate--dipendenze-inutilizzate--bassa" aria-label="Collegamento alla sezione: AP-19 — Librerie duplicate / dipendenze inutilizzate · Bassa">#</a></h3>
+<ul>
+<li>
+<p><strong>Location</strong>: <code>LossPrevention.UI/package.json</code>:</p>
+<ul>
+<li><code>ag-grid-community</code>/<code>ag-grid-vue3</code> (<code>:13-14</code>, usati in <code>resultsGrid.vue:504</code> e <code>tabularBlock.vue:44</code>) <strong>e</strong> <code>tabulator-tables</code> (<code>:26</code>, usato solo in <code>distanceTable.vue:25</code>);</li>
+<li><code>vue-grid-layout-v3</code> (<code>:28</code>, usato in <code>dashboardGrid.vue:84</code>) <strong>e</strong> <code>grid-layout-plus</code> (<code>:18</code>, mai importato);</li>
+<li><code>nuxt</code> (<code>:22</code>) e <code>@nuxt/devtools</code> (<code>:35</code>), mai usati in un progetto Vite.</li>
+</ul>
+<p>Backend: <code>Newtonsoft.Json</code> (3 file) e <code>System.Text.Json</code> (4 file).
+- <strong>Evidenza</strong>: grep degli import in <code>LossPrevention.UI/src</code>: nessun import di <code>grid-layout-plus</code> né di <code>nuxt</code>.
+- <strong>Impatto</strong>: bundle più pesante; superficie CVE più ampia (<code>nuxt</code> porta con sé molte dipendenze transitive vulnerabili, vedi doc 16); due API da conoscere per lo stesso compito.
+- <strong>Refactoring</strong>: rimuovere <code>grid-layout-plus</code>, <code>nuxt</code> e <code>@nuxt/devtools</code>; migrare <code>distanceTable.vue</code> ad AG Grid; consolidare il backend su System.Text.Json.</p>
+</li>
+</ul>
+<h3 id="ap-20--service-locator-in-programcs--bassa"><span id="ap-20-service-locator-in-programcs-bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-20-—-service-locator-in-program-cs-·-bassa" class="anchor-alias" aria-hidden="true"></span>AP-20 — Service Locator in <code>Program.cs</code> · <strong>Bassa</strong><a class="header-anchor" href="#ap-20--service-locator-in-programcs--bassa" aria-label="Collegamento alla sezione: AP-20 — Service Locator in Program.cs · Bassa">#</a></h3>
+<ul>
+<li><strong>Location</strong>: <code>LossPrevention.API/Program.cs:42-47</code>.</li>
+<li><strong>Evidenza</strong>:
+    
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">var tempServices = new ServiceCollection();
+tempServices.AddInfrastructureServices(builder.Configuration);
+tempServices.AddRepositoryServiceCollection(builder.Configuration);
+using var tempProvider = tempServices.BuildServiceProvider();
+var settings = tempProvider.GetRequiredService&lt;IOptions&lt;JwtSettings&gt;&gt;().Value;
+</code></pre></div></li>
+<li><strong>Impatto</strong>: un secondo container DI (con eventuali singleton duplicati) costruito solo per leggere una sezione di configurazione; il commento a riga 41 ("Load rules from MongoDB") non corrisponde al codice.</li>
+<li><strong>Refactoring</strong>: <code>builder.Configuration.GetSection("JwtSettings").Get&lt;JwtSettings&gt;()</code>, oppure <code>IConfigureNamedOptions&lt;JwtBearerOptions&gt;</code>.</li>
+</ul>
+<hr>
+<h2 id="appendice-c--metodo"><span id="appendice-c-metodo" class="anchor-alias" aria-hidden="true"></span><span id="appendice-c-—-metodo" class="anchor-alias" aria-hidden="true"></span>Appendice C — Metodo<a class="header-anchor" href="#appendice-c--metodo" aria-label="Collegamento alla sezione: Appendice C — Metodo">#</a></h2>
+<ul>
+<li>
+<p><strong>Strumenti</strong>:</p>
+<ul>
+<li><code>lizard</code> (CCN, NLOC, funzioni) su C#, TS e Vue;</li>
+<li><code>jscpd</code> (duplicazione);</li>
+<li>conteggio di righe e file con PowerShell;</li>
+<li>grep/ripgrep per pattern (<code>eval</code>, <code>new Function</code>, <code>catch</code>, <code>Collection</code>, <code>Builders&lt;</code>, import);</li>
+<li>lettura manuale dei file citati.</li>
+</ul>
+<p>Tutti i numeri di riga sono verificati al commit <code>fc7d820</code>.
+- <strong>Limiti</strong>:
+- analisi completa dei cicli di import tra componenti Vue non eseguita;
+- Maintainability Index non calcolato: N/A — non ricavabile dal codice senza analizzatori Roslyn/SonarQube.
+- <strong>Documentazione vendor storica</strong>: presente solo nel commit <code>593f6de</code> e rimossa in <code>d768cd9</code> (<code>git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/&lt;file&gt;</code>, da <code>C:\repository\LOSS_PREVENTION</code>). Non usata come evidenza: tutti i finding derivano dal codice.</p>
+</li>
+</ul>
+<hr>
+<h2 id="reference-documents">Reference Documents<a class="header-anchor" href="#reference-documents" aria-label="Collegamento alla sezione: Reference Documents">#</a></h2>
+<ul>
+<li><a href="00_deep_dive.html">00_deep_dive.md</a></li>
+<li><a href="01_context.html">01_context.md</a></li>
+<li><a href="02_functional_overview.html">02_functional_overview.md</a></li>
+<li><a href="03_non_functional_overview.html">03_non_functional_overview.md</a></li>
+<li><a href="04_constraints.html">04_constraints.md</a></li>
+<li><a href="05_principles.html">05_principles.md</a></li>
+<li><a href="06_software_architecture.html">06_software_architecture.md</a></li>
+<li><a href="07_code.html">07_code.md</a></li>
+<li><a href="08_data.html">08_data.md</a></li>
+<li><a href="09_infrastructure_architecture.html">09_infrastructure_architecture.md</a></li>
+<li><a href="10_deployment.html">10_deployment.md</a></li>
+<li><a href="11_development_environment.html">11_development_environment.md</a></li>
+<li><a href="12_operation_and_support.html">12_operation_and_support.md</a></li>
+<li><a href="13_decision_log.html">13_decision_log.md</a></li>
+<li><a href="14_metrics.html">14_metrics.md</a></li>
+<li><a href="15_fp_cocomo.html">15_fp_cocomo.md</a></li>
+<li><a href="16_frontend_deep_assessment.html">16_frontend_deep_assessment.md</a></li>
+<li><a href="17_backend_deep_assessment.html">17_backend_deep_assessment.md</a></li>
+<li><a href="19_modernization_estimation_spec.html">19_modernization_estimation_spec.md</a></li>
+</ul>
+<h2 id="change-log">Change Log<a class="header-anchor" href="#change-log" aria-label="Collegamento alla sezione: Change Log">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 4"><table>
+<thead>
+<tr>
+<th>Versione</th>
+<th>Data</th>
+<th>Autore</th>
+<th>Modifiche</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-10-07</td>
+<td>REVERSE how (FULL)</td>
+<td>Creazione documento (sostituisce run 2026-10-05)</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>2026-10-08</td>
+<td>IMPACT verify</td>
+<td>Health Score ricalcolato con formula esplicita (52 → 45/100, 20 finding: 4 Critica, 2 Alta, 9 Media, 5 Bassa); tabella priorità con ID e file:riga verificati; analisi dettagliate con righe esatte (<code>eval</code> <code>resultsGrid.vue:1377</code>, <code>new Function</code> <code>aiStore.ts:1769</code>, pipeline <code>GetReportDataEndpoint.cs:66-71</code>) e rischio di injection via nomi di campo; checklist Fasi 1-4 con esito ed evidenza; catalogo AP-04…AP-20 con snippet, impatto e refactoring; correzioni: file TS 29 → 28, <code>queryBuilderTabs.vue</code> 693 → 694 e <code>dataingestion.vue</code> 566 → 567 righe; nuovi finding: unset massivo non atomico dei flag, confronto ora locale/UTC nello scheduler, lost update sui gruppi, <code>grid-layout-plus</code>/<code>nuxt</code> inutilizzati; riferimenti completi</td>
+</tr>
+</tbody>
+</table></div></article>
+    </main>
+  </div>
+</div>
+<footer class="site-footer">LOSS_PREVENTION · IMPACT how (FULL) · baseline fc7d820 · generato offline con inlay-doc-site</footer>
+<div id="inlay-status" class="visually-hidden" role="status" aria-live="polite"></div>
+<script type="application/json" id="inlay-config">{"lang": "it", "root": "", "route": "18_antipattern_deep_dive.html", "search": "_inlay/search-index.js", "theme": "eng", "version": "2.1.0"}</script>
+<script>/* inlay-doc-site 2.x - comportamento del portale (offline, nessuna dipendenza). */
+(function () {
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var cfg = {};
+  try { cfg = JSON.parse(doc.getElementById('inlay-config').textContent) || {}; } catch (e) { cfg = {}; }
+  var LANG = String(cfg.lang || root.lang || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+  var TEXT = {
+    it: {
+      copy: 'Copia', copied: 'Copiato', copyFail: 'Copia non riuscita: testo selezionato, premi Ctrl+C',
+      close: 'Chiudi', zoomIn: 'Ingrandisci', zoomOut: 'Riduci', fit: 'Adatta', dialog: 'Immagine ingrandita',
+      hint: 'Ctrl+rotella o +/- per lo zoom, trascina per spostare, Esc per chiudere',
+      noResults: 'Nessun risultato', results: '{n} risultati', unavailable: 'Indice di ricerca non disponibile',
+      exportNote: 'Copia esportata della pagina "{t}": i collegamenti verso altre pagine del portale sono disattivati.',
+      linkDisabled: 'Collegamento disponibile solo nel portale', menuOpen: 'Mostra struttura documenti',
+      menuClose: 'Nascondi struttura documenti'
+    },
+    en: {
+      copy: 'Copy', copied: 'Copied', copyFail: 'Copy failed: text selected, press Ctrl+C',
+      close: 'Close', zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit', dialog: 'Enlarged image',
+      hint: 'Ctrl+wheel or +/- to zoom, drag to pan, Esc to close',
+      noResults: 'No results', results: '{n} results', unavailable: 'Search index not available',
+      exportNote: 'Exported copy of the page "{t}": links to other portal pages are disabled.',
+      linkDisabled: 'Link available only inside the portal', menuOpen: 'Show document structure',
+      menuClose: 'Hide document structure'
+    }
+  };
+  function tr(key, vars) {
+    var s = TEXT[LANG][key] || key;
+    if (vars) { Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); }); }
+    return s;
+  }
+  var statusEl = doc.getElementById('inlay-status');
+  function announce(msg) {
+    if (!statusEl) { return; }
+    statusEl.textContent = '';
+    setTimeout(function () { statusEl.textContent = msg; }, 40);
+  }
+
+  /* altezza dell'header per sticky e ancore */
+  var header = doc.querySelector('.topbar');
+  function setHeaderHeight() { if (header) { root.style.setProperty('--header-h', header.offsetHeight + 'px'); } queueFit(); }
+  setHeaderHeight();
+  if (window.ResizeObserver && header) { new ResizeObserver(setHeaderHeight).observe(header); }
+  else { window.addEventListener('resize', setHeaderHeight); }
+
+  /* albero: espandi/comprimi */
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.tree-toggle, .tree-group') : null;
+    if (!btn) { return; }
+    var list = doc.getElementById(btn.getAttribute('aria-controls'));
+    if (!list) { return; }
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    list.hidden = open;
+  });
+  /* barra laterale: altezza limitata alla parte visibile (all'apertura la testata della pagina la spinge in basso) */
+  var sidebar = doc.getElementById('inlay-sidebar'), fitQueued = false;
+  function fitSidebar() {
+    fitQueued = false;
+    if (!sidebar) { return; }
+    if (window.getComputedStyle(sidebar).position !== 'sticky') { sidebar.style.maxHeight = ''; return; }
+    var top = Math.max(sidebar.getBoundingClientRect().top, 0);
+    sidebar.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + 'px';
+  }
+  function queueFit() { if (!fitQueued) { fitQueued = true; window.requestAnimationFrame(fitSidebar); } }
+  fitSidebar();
+  window.addEventListener('scroll', queueFit, { passive: true });
+  window.addEventListener('resize', queueFit);
+  var treeScroll = doc.getElementById('inlay-tree');
+  var current = treeScroll && treeScroll.querySelector('[aria-current="page"]');
+  if (current) {
+    var r = current.getBoundingClientRect(), s = treeScroll.getBoundingClientRect();
+    if (r.top < s.top || r.bottom > s.bottom) { treeScroll.scrollTop += (r.top - s.top) - treeScroll.clientHeight / 3; }
+  }
+
+  /* menu mobile */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle && doc.getElementById('inlay-sidebar')) {
+    navToggle.hidden = false;
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      root.classList.toggle('nav-open', !open);
+    });
+  }
+
+  /* copia dei blocchi di codice */
+  function copied(btn) {
+    btn.textContent = tr('copied');
+    btn.classList.add('copied');
+    announce(tr('copied'));
+    setTimeout(function () { btn.textContent = tr('copy'); btn.classList.remove('copied'); }, 1800);
+  }
+  function copyFallback(text, pre, btn) {
+    var ta = doc.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    doc.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    if (ok) { copied(btn); return; }
+    var range = doc.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = tr('copyFail');
+    announce(tr('copyFail'));
+    setTimeout(function () { btn.textContent = tr('copy'); }, 4000);
+  }
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.code-copy') : null;
+    if (!btn) { return; }
+    var block = btn.closest('.code-block');
+    var pre = block && block.querySelector('pre');
+    if (!pre) { return; }
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { copied(btn); }, function () { copyFallback(text, pre, btn); });
+    } else { copyFallback(text, pre, btn); }
+  });
+
+  /* lightbox accessibile per immagini e diagrammi */
+  var lb = null, lbImg, lbStage, lbClose, lbTrigger = null, scale = 1, inerted = [];
+  function setScale(v) {
+    scale = Math.max(0.1, Math.min(8, v));
+    if (lbImg.naturalWidth) { lbImg.style.width = Math.round(lbImg.naturalWidth * scale) + 'px'; }
+  }
+  function fitScale() {
+    var w = lbImg.naturalWidth || 1;
+    var sw = Math.max(lbStage.clientWidth - 48, 50);
+    setScale(Math.min(sw / w, 2));
+  }
+  function buildLightbox() {
+    if (lb) { return; }
+    lb = doc.createElement('div');
+    lb.className = 'inlay-lightbox';
+    lb.id = 'inlay-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', tr('dialog'));
+    lb.hidden = true;
+    var bar = doc.createElement('div');
+    bar.className = 'inlay-lightbox-bar';
+    var hint = doc.createElement('span');
+    hint.className = 'inlay-lightbox-hint';
+    hint.textContent = tr('hint');
+    bar.appendChild(hint);
+    [['out', tr('zoomOut'), '\u2212'], ['fit', tr('fit'), tr('fit')], ['in', tr('zoomIn'), '+'], ['close', tr('close'), tr('close')]].forEach(function (b) {
+      var btn = doc.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zoom', b[0]);
+      btn.setAttribute('aria-label', b[1]);
+      btn.textContent = b[2];
+      bar.appendChild(btn);
+      if (b[0] === 'close') { lbClose = btn; }
+    });
+    lbStage = doc.createElement('div');
+    lbStage.className = 'inlay-lightbox-stage';
+    lbStage.tabIndex = 0;
+    lbImg = doc.createElement('img');
+    lbImg.alt = '';
+    lbStage.appendChild(lbImg);
+    lb.appendChild(bar);
+    lb.appendChild(lbStage);
+    doc.body.appendChild(lb);
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) { return; }
+      var a = b.getAttribute('data-zoom');
+      if (a === 'close') { closeLightbox(); } else if (a === 'in') { setScale(scale * 1.25); }
+      else if (a === 'out') { setScale(scale / 1.25); } else { fitScale(); }
+    });
+    lb.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); closeLightbox(); return; }
+      if (ev.key === '+' || ev.key === '=') { ev.preventDefault(); setScale(scale * 1.25); return; }
+      if (ev.key === '-') { ev.preventDefault(); setScale(scale / 1.25); return; }
+      if (ev.key === '0') { ev.preventDefault(); fitScale(); return; }
+      if (ev.key === 'Tab') {
+        var f = Array.prototype.slice.call(lb.querySelectorAll('button, [tabindex="0"]'));
+        var first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    });
+    lbStage.addEventListener('wheel', function (ev) {
+      if (!ev.ctrlKey) { return; }
+      ev.preventDefault();
+      setScale(scale * (ev.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    var drag = null;
+    lbStage.addEventListener('pointerdown', function (ev) {
+      drag = { x: ev.clientX, y: ev.clientY, l: lbStage.scrollLeft, t: lbStage.scrollTop };
+      lbStage.classList.add('grabbing');
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!drag) { return; }
+      lbStage.scrollLeft = drag.l - (ev.clientX - drag.x);
+      lbStage.scrollTop = drag.t - (ev.clientY - drag.y);
+    });
+    window.addEventListener('pointerup', function () { drag = null; if (lbStage) { lbStage.classList.remove('grabbing'); } });
+  }
+  function openLightbox(trigger) {
+    var img = trigger.querySelector('img');
+    if (!img) { return; }
+    buildLightbox();
+    lbTrigger = trigger;
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbImg.onload = function () { fitScale(); };
+    lbImg.src = img.getAttribute('src');
+    Array.prototype.forEach.call(doc.body.children, function (child) {
+      if (child !== lb && !child.inert) { child.inert = true; child.setAttribute('aria-hidden', 'true'); inerted.push(child); }
+    });
+    lb.hidden = false;
+    if (lbImg.complete && lbImg.naturalWidth) { fitScale(); }
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (!lb || lb.hidden) { return; }
+    lb.hidden = true;
+    inerted.forEach(function (child) { child.inert = false; child.removeAttribute('aria-hidden'); });
+    inerted = [];
+    if (lbTrigger) { lbTrigger.focus(); }
+  }
+  doc.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('.zoom-trigger') : null;
+    if (trigger) { ev.preventDefault(); openLightbox(trigger); }
+  });
+
+  /* ricerca offline (indice caricato su richiesta da _inlay/search-index.js) */
+  var input = doc.getElementById('inlay-search');
+  var results = doc.getElementById('inlay-search-results');
+  if (input && results && cfg.search) {
+    input.closest('.search').hidden = false;
+    var index = null, loading = false, active = -1, timer = null, pending = null;
+    var fold = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var loadIndex = function (cb) {
+      if (index) { cb(); return; }
+      pending = cb;
+      if (loading) { return; }
+      loading = true;
+      var sc = doc.createElement('script');
+      sc.src = cfg.root + cfg.search;
+      sc.onload = function () { index = window.INLAY_SEARCH_INDEX || []; if (pending) { pending(); } };
+      sc.onerror = function () { index = []; announce(tr('unavailable')); if (pending) { pending(); } };
+      doc.head.appendChild(sc);
+    };
+    var search = function (q) {
+      var terms = fold(q).split(/\s+/).filter(Boolean);
+      if (!terms.length) { return []; }
+      var out = [];
+      index.forEach(function (e) {
+        if (e._t === undefined) { e._t = fold(e.t + ' ' + (e.l || '')); e._x = fold(e.x); }
+        var score = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var inTitle = e._t.indexOf(terms[i]) >= 0, pos = e._x.indexOf(terms[i]);
+          if (!inTitle && pos < 0) { return; }
+          score += inTitle ? 10 : 1;
+        }
+        out.push({ e: e, score: score, term: terms[0] });
+      });
+      out.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+      return out.slice(0, 15);
+    };
+    var snippet = function (e, term) {
+      var pos = e._x.indexOf(term);
+      if (pos < 0) { return ''; }
+      var start = Math.max(0, pos - 50);
+      return (start > 0 ? '\u2026' : '') + e.x.substr(start, 150) + '\u2026';
+    };
+    var setActive = function (i) {
+      var opts = results.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      Array.prototype.forEach.call(opts, function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    var close = function () {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    var render = function () {
+      var q = input.value.trim();
+      results.textContent = '';
+      if (!q) { close(); return; }
+      var found = search(q);
+      if (!found.length) {
+        var li = doc.createElement('li');
+        li.className = 'sr-empty';
+        li.textContent = tr('noResults');
+        results.appendChild(li);
+      }
+      found.forEach(function (r, k) {
+        var li = doc.createElement('li');
+        li.id = 'inlay-sr-' + k;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var a = doc.createElement('a');
+        a.href = cfg.root + r.e.r;
+        a.tabIndex = -1;
+        var t = doc.createElement('span'); t.className = 'sr-title'; t.textContent = r.e.t; a.appendChild(t);
+        if (r.e.l) { var p = doc.createElement('span'); p.className = 'sr-path'; p.textContent = r.e.l; a.appendChild(p); }
+        var sn = snippet(r.e, r.term);
+        if (sn) { var x = doc.createElement('span'); x.className = 'sr-snippet'; x.textContent = sn; a.appendChild(x); }
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      active = -1;
+      announce(found.length ? tr('results', { n: found.length }) : tr('noResults'));
+    };
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { loadIndex(render); }, 120);
+    });
+    input.addEventListener('focus', function () { loadIndex(function () {}); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); if (results.hidden) { loadIndex(render); } else { setActive(active + 1); } }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+      else if (ev.key === 'Enter') {
+        var opts = results.querySelectorAll('[role="option"] a');
+        if (!results.hidden && opts.length) { ev.preventDefault(); window.location.href = opts[Math.max(active, 0)].href; }
+      } else if (ev.key === 'Escape') {
+        if (!results.hidden) { ev.preventDefault(); close(); } else { input.value = ''; }
+      }
+    });
+    doc.addEventListener('click', function (ev) {
+      if (!ev.target.closest || !ev.target.closest('.search')) { close(); }
+    });
+  }
+
+  /* esportazione della pagina corrente come HTML autonomo */
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[data-export]') : null;
+    if (!a || !window.Blob || !window.URL || !URL.createObjectURL) { return; }
+    ev.preventDefault();
+    var clone = root.cloneNode(true);
+    var drop = ['.topnav', '.search', '.nav-toggle', '.hero', '#inlay-sidebar', '.breadcrumbs', 'a[data-export]',
+      '#inlay-lightbox', 'script[src]', '.site-footer'];
+    drop.forEach(function (sel) { Array.prototype.forEach.call(clone.querySelectorAll(sel), function (n) { n.parentNode.removeChild(n); }); });
+    Array.prototype.forEach.call(clone.querySelectorAll('[inert]'), function (n) { n.removeAttribute('inert'); n.removeAttribute('aria-hidden'); });
+    clone.classList.remove('js', 'nav-open');
+    clone.style.removeProperty('--header-h');
+    clone.setAttribute('data-exported', 'true');
+    var brand = clone.querySelector('.brand');
+    if (brand) { brand.removeAttribute('href'); }
+    Array.prototype.forEach.call(clone.querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      if (href.charAt(0) === '#' || /^[a-z][a-z0-9+.\-]*:/i.test(href) || href.indexOf('//') === 0) { return; }
+      var span = doc.createElement('span');
+      span.className = 'link-disabled';
+      span.title = tr('linkDisabled');
+      span.setAttribute('data-inlay-export', 'disabled');
+      while (link.firstChild) { span.appendChild(link.firstChild); }
+      link.parentNode.replaceChild(span, link);
+    });
+    var status = clone.querySelector('#inlay-status');
+    if (status) { status.textContent = ''; }
+    var title = (doc.querySelector('.doc-title') || {}).textContent || doc.title;
+    var main = clone.querySelector('#main');
+    if (main) {
+      var note = doc.createElement('p');
+      note.className = 'notice export-note';
+      note.setAttribute('role', 'note');
+      note.textContent = tr('exportNote', { t: title });
+      var head = main.querySelector('.doc-head');
+      main.insertBefore(note, head ? head.nextSibling : main.firstChild);
+    }
+    var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var tmp = doc.createElement('a');
+    tmp.href = url;
+    tmp.download = a.getAttribute('download') || 'documento.html';
+    tmp.style.display = 'none';
+    doc.body.appendChild(tmp);
+    tmp.click();
+    doc.body.removeChild(tmp);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>

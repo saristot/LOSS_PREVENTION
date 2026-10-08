@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="eng" data-layout="project">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="inlay-doc-site 2.1.0">
+<title>LOSS_PREVENTION · IMPACT how (FULL)</title>
+<link rel="icon" href="data:,">
+<style>/* inlay-doc-site 2.x - struttura e componenti comuni. I colori e le forme vengono
+   dalle variabili definite dal tema (assets/themes/<tema>/theme.css). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-h,64px) + 12px)}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-text);font-size:15px;line-height:var(--line-height)}
+a{color:var(--c-link)}
+a:hover{color:var(--c-link-hover)}
+:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+li::marker{font-variant-numeric:normal}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--c-primary);color:var(--c-primary-text);padding:10px 16px;font-weight:600;text-decoration:none;border-radius:var(--radius-btn)}
+.skip-link:focus{top:10px;color:var(--c-primary-text)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;gap:16px;background:var(--c-header-bg);color:var(--c-header-text);padding:10px 20px;position:sticky;top:0;z-index:50;min-height:64px}
+.topbar :focus-visible{outline-color:var(--c-focus-dark)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 1 auto;max-width:360px;text-decoration:none;color:var(--c-header-text)}
+.brand:hover{color:var(--c-header-text)}
+.brand-logo{display:block;height:30px;width:auto;flex:none}
+.brand-mark{width:42px;height:42px;flex:none;border-radius:var(--radius-btn);background:var(--c-primary);color:var(--c-primary-text);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-weight:700;font-size:15.5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{color:var(--c-header-muted);font-size:11.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnav{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.nav-item{color:var(--c-header-muted);font-size:13.5px;font-weight:500;padding:8px 11px;border-radius:var(--radius-btn);text-decoration:none;flex:none}
+.nav-item:hover{color:var(--c-header-text);background:var(--c-header-hover-bg)}
+.nav-item[aria-current="page"]{color:var(--c-header-text);background:var(--c-header-hover-bg);font-weight:600}
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;color:var(--c-header-text);border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);padding:7px 10px;font:inherit;font-size:13px;cursor:pointer;flex:none}
+.nav-toggle-icon{width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor;display:inline-block}
+.search{position:relative;flex:0 1 260px;min-width:160px}
+.search input{width:100%;font:inherit;font-size:13.5px;padding:8px 12px;border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);background:var(--c-header-input-bg);color:var(--c-header-text)}
+.search input::placeholder{color:var(--c-header-muted);opacity:1}
+.search-results{position:absolute;right:0;top:calc(100% + 6px);width:min(520px,92vw);max-height:70vh;overflow-y:auto;margin:0;padding:6px;list-style:none;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:60}
+.search-results li{border-radius:var(--radius-btn)}
+.search-results a{display:block;padding:8px 10px;color:var(--c-text);text-decoration:none;border-radius:var(--radius-btn)}
+.search-results li[aria-selected="true"] a,.search-results a:hover{background:var(--c-tree-active-bg);color:var(--c-tree-active-text)}
+.search-results .sr-title{display:block;font-weight:600;font-size:14px}
+.search-results .sr-path{display:block;font-size:12px;color:var(--c-muted)}
+.search-results .sr-snippet{display:block;font-size:12.5px;color:var(--c-muted);margin-top:2px}
+.search-results .sr-empty{padding:10px;color:var(--c-muted);font-size:13px}
+
+/* ---------- pagina ---------- */
+.page{max-width:1440px;margin:0 auto;padding:24px 28px 56px}
+.hero{margin:0 0 20px}
+.hero-title{font-size:28px;font-weight:800;color:var(--c-heading);line-height:1.25;margin:4px 0 6px}
+.hero-sub{color:var(--c-muted);font-size:15px;margin:0}
+.hero-sub:empty{display:none}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.layout{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:var(--card-shadow)}
+.card-head{padding:13px 18px;border-bottom:1px solid var(--c-border);margin:0}
+
+/* ---------- pulsanti ---------- */
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:var(--radius-btn);text-decoration:none;cursor:pointer;border:1px solid var(--c-primary);flex:none;line-height:1.3}
+.btn-primary{background:var(--c-primary);color:var(--c-primary-text)}
+.btn-primary:hover{background:var(--c-primary-hover-bg);color:var(--c-primary-hover-text);border-color:var(--c-primary-hover-border)}
+.btn-primary:active{background:var(--c-primary-active);color:var(--c-primary-text);border-color:var(--c-primary-active)}
+.btn-outline{background:var(--c-surface);color:var(--c-text);border-color:var(--c-border-strong)}
+.btn-outline:hover{border-color:var(--c-primary);color:var(--c-link-hover)}
+.btn-icon{font-size:15px;line-height:1}
+
+/* ---------- albero ---------- */
+.sidebar{position:sticky;top:calc(var(--header-h,64px) + 16px);max-height:calc(100vh - var(--header-h,64px) - 32px);display:flex;flex-direction:column}
+.side-head{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-muted)}
+.tree-scroll{flex:1 1 auto;overflow-y:auto;padding:8px 8px 12px;overscroll-behavior:contain}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:14px}
+.tree-row{display:flex;align-items:center;gap:2px;min-width:0}
+.tree-toggle{flex:none;width:26px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:var(--radius-btn);color:var(--c-muted);cursor:pointer;padding:0;font:inherit}
+.tree-toggle:hover{background:var(--c-hover-bg)}
+.tree-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.tree-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:6px;background:transparent;border:0;padding:6px 8px 6px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--c-heading);cursor:pointer;text-align:left;border-radius:var(--radius-btn)}
+.tree-group::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid var(--c-muted);border-bottom:2px solid var(--c-muted);transform:rotate(-45deg);transition:transform .15s;margin:0 6px 0 5px}
+.tree-group[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group:hover{background:var(--c-hover-bg)}
+.tree-node-phase>.tree-row .tree-group{font-weight:600;color:var(--c-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tree-link{display:block;flex:1 1 auto;min-width:0;font-size:13px;color:var(--c-text);padding:6px 10px;border-radius:var(--radius-btn);border-left:3px solid transparent;text-decoration:none;overflow-wrap:anywhere;line-height:1.4}
+.tree-link:hover{background:var(--c-hover-bg);color:var(--c-text)}
+.tree-link[aria-current="page"]{background:var(--c-tree-active-bg);color:var(--c-tree-active-text);font-weight:600;border-left-color:var(--c-tree-active-border)}
+.tree-node-root>.tree-row .tree-link,.tree-node-project>.tree-row .tree-link{font-weight:700;color:var(--c-heading)}
+.tree-node-root>.tree-row .tree-link[aria-current="page"],.tree-node-project>.tree-row .tree-link[aria-current="page"]{color:var(--c-tree-active-text)}
+.tree>li>ul{padding-left:6px}
+
+/* ---------- documento ---------- */
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.doc-title{font-size:15px;font-weight:700;color:var(--c-heading);margin:0;min-width:0;overflow-wrap:anywhere}
+.breadcrumbs{padding:10px 22px 0;font-size:12.5px;color:var(--c-muted)}
+.breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.breadcrumbs li{display:inline-flex;align-items:center;gap:4px}
+.breadcrumbs li+li::before{content:"/";color:var(--c-border-strong);margin-right:2px}
+.breadcrumbs a{color:var(--c-muted)}
+.breadcrumbs a:hover{color:var(--c-link-hover)}
+.doc-info{padding:12px 22px 0;display:flex;flex-direction:column;gap:10px}
+.doc-info details{border:1px solid var(--c-border);border-radius:var(--radius-card);background:var(--c-subtle-bg)}
+.doc-info summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--c-heading)}
+.doc-info dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;padding:4px 14px 12px;font-size:13px}
+.doc-info dt{color:var(--c-muted)}
+.doc-info dd{margin:0;overflow-wrap:anywhere}
+.toc ol{margin:0;padding:4px 14px 12px 34px;font-size:13px}
+.toc ol ol{padding:2px 0 2px 18px}
+.toc li{margin:2px 0}
+.doc-body{padding:24px 36px 52px;overflow-wrap:break-word}
+
+/* ---------- avvisi e stati ---------- */
+.notice{border:1px solid var(--c-border);border-left:4px solid var(--c-notice-info);background:var(--c-subtle-bg);padding:10px 14px;margin:12px 0;font-size:13.5px;border-radius:var(--radius-card)}
+.notice-warning{border-left-color:var(--c-notice-warning)}
+.notice-update{border-left-color:var(--c-primary)}
+.doc-info .notice{margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;border:1px solid transparent;vertical-align:baseline}
+.badge-complete,.badge-present{background:var(--c-ok-bg);color:var(--c-ok-text);border-color:var(--c-ok-border)}
+.badge-partial,.badge-incomplete,.badge-misplaced{background:var(--c-warn-bg);color:var(--c-warn-text);border-color:var(--c-warn-border)}
+.badge-missing,.badge-absent{background:var(--c-subtle-bg);color:var(--c-muted);border-color:var(--c-border-strong)}
+.cov{font-weight:600;font-size:12.5px}
+.cov-present{color:var(--c-ok-text)}
+.cov-absent{color:var(--c-muted)}
+.cov-excluded{color:var(--c-warn-text)}
+.muted{color:var(--c-muted)}
+.lead{font-size:15px;color:var(--c-muted)}
+.link-disabled,.link-broken{color:var(--c-muted);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.link-broken::after{content:" \26A0";color:var(--c-notice-warning)}
+.asset-missing{display:block;border:1px dashed var(--c-border-strong);background:var(--c-subtle-bg);color:var(--c-muted);padding:18px;text-align:center;font-size:13px;margin:16px 0}
+.extra-evidence{margin-top:32px}
+
+/* ---------- contenuto ---------- */
+.doc-body h1,.doc-body h2,.doc-body h3,.doc-body h4,.doc-body h5,.doc-body h6{color:var(--c-heading);line-height:1.3;position:relative}
+.doc-body h1{font-size:27px;font-weight:800;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--c-border)}
+.doc-body h2{font-size:21px;font-weight:700;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--c-border-soft)}
+.doc-body h1+h2{margin-top:22px;padding-top:0;border-top:0}
+.doc-body h3{font-size:17px;font-weight:700;margin:24px 0 10px}
+.doc-body h4{font-size:15px;font-weight:700;margin:18px 0 8px}
+.doc-body p,.doc-body li{font-size:15px}
+.doc-body p{margin:10px 0}
+.doc-body a{color:var(--c-link);text-underline-offset:2px}
+.doc-body a:hover{color:var(--c-link-hover)}
+.header-anchor{margin-left:8px;font-weight:400;color:var(--c-muted);text-decoration:none;opacity:0;transition:opacity .15s}
+.doc-body h1:hover .header-anchor,.doc-body h2:hover .header-anchor,.doc-body h3:hover .header-anchor,.doc-body h4:hover .header-anchor,.header-anchor:focus{opacity:1}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0}
+.doc-body hr{border:0;border-top:1px solid var(--c-border);margin:26px 0}
+.doc-body ul,.doc-body ol{padding-left:26px;margin:10px 0}
+.doc-body li{margin:4px 0}
+.doc-body blockquote{margin:14px 0;padding:4px 0 4px 16px;border-left:4px solid var(--c-border-strong);color:var(--c-muted)}
+.doc-body img{max-width:100%;height:auto}
+.doc-body :not(pre)>code{background:var(--c-code-inline-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:var(--font-mono)}
+.table-wrap{max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--c-border);border-radius:var(--radius-card)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;margin:0}
+.doc-body th{background:var(--c-subtle-bg);font-weight:600;color:var(--c-heading);text-align:left}
+.doc-body th,.doc-body td{border-bottom:1px solid var(--c-border);padding:8px 12px;vertical-align:top}
+.doc-body th+th,.doc-body td+td{border-left:1px solid var(--c-border)}
+.doc-body tbody tr:last-child td{border-bottom:0}
+.doc-body tbody tr:nth-child(2n){background:var(--c-zebra)}
+
+/* figure e diagrammi */
+.doc-body figure{margin:22px 0;text-align:center}
+.doc-body figcaption{font-size:13px;color:var(--c-muted);margin-top:6px}
+.zoom-trigger{display:inline-block;max-width:100%;padding:0;margin:0;border:1px solid transparent;background:var(--c-surface);cursor:zoom-in;border-radius:var(--radius-card)}
+.zoom-trigger:hover{border-color:var(--c-primary)}
+.zoom-trigger img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-source{text-align:left;margin-top:8px;font-size:13px}
+.diagram-source summary{cursor:pointer;color:var(--c-muted);display:inline-block}
+.diagram-fallback{margin:16px 0}
+.diagram-fallback .notice{margin:0 0 8px}
+
+/* blocchi di codice */
+.code-block{border:1px solid var(--c-code-border);background:var(--c-code-bg);border-radius:var(--radius-code);margin:16px 0;text-align:left}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 6px 4px 14px;border-bottom:1px solid var(--c-code-border)}
+.code-lang{font-size:11px;color:var(--c-muted);text-transform:uppercase;letter-spacing:.05em}
+.code-copy{font:inherit;font-size:12px;padding:3px 10px;border:1px solid var(--c-border-strong);border-radius:var(--radius-btn);background:var(--c-surface);color:var(--c-text);cursor:pointer}
+.code-copy:hover{border-color:var(--c-primary)}
+.code-copy.copied{border-color:var(--c-ok-border);color:var(--c-ok-text)}
+.code-block pre,.doc-body pre{margin:0;padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6}
+.doc-body pre{background:var(--c-code-bg)}
+.code-block pre{background:transparent}
+.doc-body pre code{font-family:var(--font-mono);font-size:13px;background:transparent;padding:0;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* ASCII-art: font embedded con metriche fisse per allineamento a griglia. */
+.code-block.ascii-art pre code{font-family:'InlayMono',var(--font-mono)}
+.doc-body .shiki span{color:var(--shiki-light)}
+
+/* lightbox */
+.inlay-lightbox{position:fixed;inset:0;background:rgba(9,9,9,.92);z-index:999;display:flex;flex-direction:column}
+.inlay-lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:12px 18px;flex:0 0 auto}
+.inlay-lightbox-hint{color:#d4d4d4;font-size:12.5px;margin-right:auto}
+.inlay-lightbox-bar button{background:#1f1f1f;color:#f5f5f5;border:1px solid #6b6b6b;border-radius:var(--radius-btn);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.inlay-lightbox-bar button:hover{background:#333}
+.inlay-lightbox-bar button:focus-visible{outline:2px solid #fcfcfc;outline-offset:2px}
+.inlay-lightbox-stage{flex:1 1 auto;overflow:auto;padding:0 24px 24px;cursor:grab}
+.inlay-lightbox-stage.grabbing{cursor:grabbing}
+.inlay-lightbox-stage:focus-visible{outline:2px solid #fcfcfc;outline-offset:-4px}
+.inlay-lightbox-stage img{background:#fff;display:block;margin:0 auto;max-width:none;user-select:none;-webkit-user-drag:none}
+
+.site-footer{max-width:1440px;margin:0 auto;padding:0 28px 32px;color:var(--c-muted);font-size:12.5px}
+html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
+.export-note{margin:12px 22px 0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .search{flex-basis:200px;min-width:140px}
+}
+@media (max-width:840px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 14px}
+  .brand{flex:1 1 auto;max-width:none}
+  .js .nav-toggle{display:inline-flex}
+  .topnav{order:3;flex-basis:100%}
+  .search{order:4;flex:1 1 100%}
+  .js .topnav,.js .search{display:none}
+  .js.nav-open .topnav{display:flex}
+  .js.nav-open .search{display:block}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;max-height:none}
+  .js .sidebar{display:none}
+  .js.nav-open .sidebar{display:flex}
+  .page{padding:16px 12px 40px}
+  .hero-title{font-size:22px}
+  .doc-body{padding:18px 16px 36px}
+  .doc-head{flex-wrap:wrap}
+  .breadcrumbs,.doc-info{padding-left:16px;padding-right:16px}
+}
+@media print{
+  .topbar,.sidebar,.hero,.btn-primary,.code-copy,.site-footer,.breadcrumbs{display:none!important}
+  .layout{display:block}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Tema ENG (Engineering, eng.it). Valori osservati sul sito ufficiale il 2026-10-02
+   (review/eng-it-profile.json): header #090909/#FCFCFC, base #FCFCFC/#202020,
+   pulsante primario #C51B88 -> hover #FCFCFC/#090909 -> active #770F53, raggio 0,
+   famiglia CocoEng. Le altre scelte (layout, stati, contenuti tecnici) sono decisioni
+   di prodotto documentate in references/eng-brand.md. */
+:root{
+  --font:"CocoEng","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --line-height:1.7;
+  --c-bg:#FCFCFC;--c-surface:#FFFFFF;--c-subtle-bg:#F6F6F6;--c-zebra:#FAFAFA;--c-hover-bg:#F1F1F1;
+  --c-border:#DEDEDE;--c-border-soft:#EDEDED;--c-border-strong:#8F8F8F;
+  --c-text:#202020;--c-heading:#090909;--c-muted:#4D4D4D;
+  --c-header-bg:#090909;--c-header-text:#FCFCFC;--c-header-muted:#BDBDBD;--c-header-hover-bg:#262626;--c-header-input-bg:#171717;
+  --c-primary:#C51B88;--c-primary-text:#FCFCFC;
+  --c-primary-hover-bg:#FCFCFC;--c-primary-hover-text:#090909;--c-primary-hover-border:#090909;
+  --c-primary-active:#770F53;
+  --c-link:#B0177A;--c-link-hover:#770F53;
+  --c-tree-active-bg:#F4D1E8;--c-tree-active-text:#770F53;--c-tree-active-border:#C51B88;
+  --c-focus:#C51B88;--c-focus-dark:#FCFCFC;
+  --c-code-bg:#F6F6F6;--c-code-border:#DEDEDE;--c-code-inline-bg:#EFEFEF;
+  --c-notice-info:#4D4D4D;--c-notice-warning:#A15C00;
+  --c-ok-bg:#E7F4EA;--c-ok-text:#1D6631;--c-ok-border:#9CCDA9;
+  --c-warn-bg:#FFF3DF;--c-warn-text:#7A4300;--c-warn-border:#E9B86A;
+  --radius-btn:0;--radius-card:0;--radius-code:0;
+  --card-shadow:none;
+  --sidebar-w:300px;
+}
+.topbar{border-bottom:1px solid #262626}
+.brand-logo{height:28px}
+.hero-title{font-weight:700;letter-spacing:-.01em}
+.side-head{color:#090909}
+.btn-primary{text-transform:none;letter-spacing:.01em}
+.doc-body h1{font-weight:700}
+.doc-body h2{border-top-color:#DEDEDE}
+.tree-link[aria-current="page"]{border-left-width:4px}
+.badge{border-radius:0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="topbar" id="top">
+  <a class="brand" href="index.html"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2Zw0KICAgICAgICAgICAgd2lkdGg9IjE0OSINCiAgICAgICAgICAgIGhlaWdodD0iNDYiDQogICAgICAgICAgICB2aWV3Qm94PSIwIDAgMTQ5IDQ2Ig0KICAgICAgICAgICAgZmlsbD0ibm9uZSINCiAgICAgICAgICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgICAgICA+DQogICAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc3XzIxMDEpIj4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjMuMTg3NCAzNy4xMzY3VjM5Ljc4OTVIMi4zNTYyNEMxLjg3NTM4IDM4Ljk2ODkgMS40OTg3IDM4LjA3OTkgMS4xNTA4NyAzNy4xMzk5TDIzLjE4NzQgMzcuMTM2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgNDIuMzA4NlY0NC43MzM1QzIzLjE4NzQgNDQuODU3OCAyMy4wODY0IDQ0Ljk1OTcgMjIuOTU5OCA0NC45NTk3SDExLjQ0OTRDOS4xMzQ4NSA0NC45NTk3IDYuNTA2MTIgNDQuMTU4MyA0LjQzNTE5IDQyLjMwODZIMjMuMTg3NFoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTI1LjcwMzkgMC4yMjYxMjFWMTUuODYyMkMyNS43MDM5IDE1Ljk1NzggMjUuNjczNCAxNi4wNTAyIDI1LjYxNzMgMTYuMTI4MkwxNS45ODcyIDI5LjI2NjFDMTUuOTAyMiAyOS4zODI0IDE1Ljc2NDQgMjkuNDUyNSAxNS42MjAxIDI5LjQ1MjVIMC42MDU4OTRDMC40NTY4MjYgMjkuNDUyNSAwLjM0NDYyNCAyOS4zMTA3IDAuMzg2Mjk5IDI5LjE2NzNDMC43Mzg5MzQgMjcuOTE1IDEuMzIzOTkgMjYuNzU4MyAyLjA5MDE3IDI1Ljc0MzRMMTguNzk3MSAzLjc3OTA0QzIxLjE4MzggMC44Mzk1MTggMjQuMjUxNyAwLjE3NjczIDI1LjQ0NTggMC4wMDMwNjcyOEMyNS41ODIxIC0wLjAxNzY0NDggMjUuNzAzOSAwLjA4OTEwMjIgMjUuNzAzOSAwLjIyNjEyMVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgMzIuMTA1MlYzNC42MjA5SDAuMzQ0NjIxQzAuMzM4MjA5IDM0LjYwMDIgMC4wMjg4NTIgMzMuNzczMyAwIDMyLjIwMDdDMCAzMi4wNzMzIDAuMDk5Mzc5IDMxLjk2OTcgMC4yMjc2MSAzMS45Njk3SDIzLjA1MTFDMjMuMTI2NSAzMS45Njk3IDIzLjE4NzQgMzIuMDMwMyAyMy4xODc0IDMyLjEwNTJaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik01Mi45NDQ5IDM3LjEzOTlDNTIuNTk3MSAzOC4wNzk5IDUyLjIyMDQgMzguOTY4OSA1MS43Mzk2IDM5Ljc4OTVIMzAuOTA4NVYzNy4xMzY3TDUyLjk0NDkgMzcuMTM5OVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTMwLjkwODUgNDIuMzA4NlY0NC43MzM1QzMwLjkwODUgNDQuODU3OCAzMS4wMDk0IDQ0Ljk1OTcgMzEuMTM2MSA0NC45NTk3SDQyLjY0NjRDNDQuOTYxIDQ0Ljk1OTcgNDcuNTg5NyA0NC4xNTgzIDQ5LjY2MDYgNDIuMzA4NkgzMC45MDg1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjguMzkxOSAwLjIyNjQ4MVYxNS44NjI1QzI4LjM5MTkgMTUuOTU4MSAyOC40MjI0IDE2LjA1MDUgMjguNDc4NSAxNi4xMjg2TDM4LjEwODYgMjkuMjY2NUMzOC4xOTM2IDI5LjM4MjggMzguMzMxNCAyOS40NTI5IDM4LjQ3NTcgMjkuNDUyOUg1My40ODk5QzUzLjYzOSAyOS40NTI5IDUzLjc1MTIgMjkuMzExMSA1My43MDk1IDI5LjE2NzdDNTMuMzU2OSAyNy45MTU0IDUyLjc3MTggMjYuNzU4NyA1Mi4wMDU3IDI1Ljc0MzhMMzUuMjk3MiAzLjc4MUMzMi45MTA1IDAuODQxNDcxIDI5Ljg0MjUgMC4xNzg2ODMgMjguNjQ4NCAwLjAwNTAyMDQxQzI4LjUxMjEgLTAuMDE1NjkxNyAyOC4zOTAzIDAuMDkxMDU1MyAyOC4zOTAzIDAuMjI4MDc0SDI4LjM5MTlWMC4yMjY0ODFaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik0zMC45MDg1IDMyLjE5NlYzNC42MjA5SDUzLjc1MTJDNTMuNzU3NiAzNC42MDAyIDU0LjA2NyAzMy43NzMzIDU0LjA5NTggMzIuMjAwN0M1NC4wOTc0IDMyLjA3MzMgNTMuOTk2NCAzMS45Njk3IDUzLjg2ODIgMzEuOTY5N0gzMS4xMzYxQzMxLjAxMSAzMS45Njk3IDMwLjkwODUgMzIuMDcwMSAzMC45MDg1IDMyLjE5NloiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTY5LjUyMzYgMzYuMDM0M0M2Ny41MDQgMzQuODM5NCA2NS45NDEyIDMzLjIzMDIgNjQuODM1MiAzMS4yMDY4QzYzLjcyOTIgMjkuMTgzNCA2My4xNzYyIDI2Ljk2MDggNjMuMTc2MiAyNC41MzkxQzYzLjE3NjIgMjIuMTE3NCA2My43MTMxIDE5Ljg0NyA2NC43ODcxIDE3LjgyMzZDNjUuODYxIDE1LjgwMDIgNjcuMzY3NyAxNC4xOTkgNjkuMzA3MiAxMy4wMkM3MS4yNDY3IDExLjg0MSA3My40ODI3IDExLjI1MTUgNzYuMDE1MyAxMS4yNTE1Qzc4LjU0NzkgMTEuMjUxNSA4MC44OTYxIDExLjgwOTEgODIuNzcxNSAxMi45MjQ0Qzg0LjY0NjggMTQuMDM5NiA4Ni4wNzM0IDE1LjU4NTEgODcuMDUxMiAxNy41NjA3Qzg4LjAyODkgMTkuNTM2MyA4OC41MTc4IDIxLjc5ODcgODguNTE3OCAyNC4zNDc5Qzg4LjUxNzggMjUuMjQwMSA4OC40NTM3IDI2LjExNjQgODguMzI1NSAyNi45NzY3SDcxLjAxNDNDNzEuNDMxIDI4LjMxNTEgNzIuMTM2MyAyOS4zNDI3IDczLjEzMDEgMzAuMDU5N0M3NC4xMjM5IDMwLjc3NjYgNzUuMzQyMSAzMS4xMzUxIDc2Ljc4NDcgMzEuMTM1MUM3Ny45NzA4IDMxLjEzNTEgNzkuMDEyNyAzMC45OTE3IDc5LjkxMDMgMzAuNzA0OUM4MC44MDc5IDMwLjQxODEgODEuNzIxNiAyOS45MjQyIDgyLjY1MTMgMjkuMjIzMkw4Ni40NTAxIDM0LjI0MTlDODUuMDA3NSAzNS40ODQ2IDgzLjQ5MjggMzYuMzkyOCA4MS45MDU5IDM2Ljk2NjNDODAuMzE5IDM3LjUzOTkgNzguNDk5OCAzNy44MjY3IDc2LjQ0ODEgMzcuODI2N0M3My44NTE0IDM3LjgyNjcgNzEuNTQzMiAzNy4yMjkyIDY5LjUyMzYgMzYuMDM0M1pNODEuMjU2NyAyMS44MTQ2QzgwLjkzNjIgMjAuNDQ0NSA4MC4zMzUxIDE5LjQwODggNzkuNDUzNSAxOC43MDc4Qzc4LjU3MTkgMTguMDA2OCA3Ny40NzM5IDE3LjY1NjMgNzYuMTU5NiAxNy42NTYzQzc0Ljg0NTIgMTcuNjU2MyA3My42OTkxIDE4LjAxNDggNzIuODE3NSAxOC43MzE3QzcxLjkzNiAxOS40NDg3IDcxLjMxODggMjAuNDc2MyA3MC45NjYyIDIxLjgxNDZIODEuMjU2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTkyLjc5NzUgMTEuNzc3Mkg5Ny42MDYyTDk5Ljc3MDEgMTQuNjkyOEMxMDIuMDE0IDEyLjM2NjcgMTA0Ljg1MSAxMS4yMDM2IDEwOC4yODEgMTEuMjAzNkMxMTEuMzU5IDExLjIwMzYgMTEzLjgxOSAxMi4xOTE0IDExNS42NjMgMTQuMTY3QzExNy41MDYgMTYuMTQyNyAxMTguNDI4IDE4Ljg1MTIgMTE4LjQyOCAyMi4yOTI2VjM3LjEwOTdIMTEwLjQ0NVYyMy42Nzg3QzExMC40NDUgMjIuMDIxNyAxMTAuMDQ1IDIwLjczOTIgMTA5LjI0MyAxOS44MzFDMTA4LjQ0MiAxOC45MjI5IDEwNy4zNTIgMTguNDY4OCAxMDUuOTczIDE4LjQ2ODhDMTA0LjQ5OSAxOC40Njg4IDEwMy4yNjQgMTguOTU0NyAxMDIuMjcxIDE5LjkyNjZDMTAxLjI3NyAyMC44OTg1IDEwMC43OCAyMi4wMzc2IDEwMC43OCAyMy4zNDQxVjM3LjEwOTdIOTIuNzk3NVYxMS43NzcyWiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMTQxLjQxMyAxNC41MDE2TDE0My40ODEgMTEuNzc3MkgxNDguMjg5VjMzLjE0MjVDMTQ4LjI4OSAzNS41MzI0IDE0Ny43MzYgMzcuNzA3MSAxNDYuNjMgMzkuNjY2OEMxNDUuNTI0IDQxLjYyNjUgMTQzLjkwNiA0My4xNzIgMTQxLjc3NCA0NC4zMDMyQzEzOS42NDIgNDUuNDM0NCAxMzcuMTAxIDQ2IDEzNC4xNTIgNDZDMTMwLjA4MSA0NiAxMjYuNDkgNDQuODA1IDEyMy4zODEgNDIuNDE1MkwxMjcuNTE2IDM2LjkxODVDMTI4LjU3NCAzNy43Nzg4IDEyOS42MTYgMzguMzg0MyAxMzAuNjQyIDM4LjczNDhDMTMxLjY2OCAzOS4wODUzIDEzMi43OSAzOS4yNjA2IDEzNC4wMDggMzkuMjYwNkMxMzYuMjIgMzkuMjYwNiAxMzcuODQ3IDM4Ljc1MDcgMTM4Ljg4OSAzNy43MzFDMTM5LjkzIDM2LjcxMTQgMTQwLjQ1MSAzNS4xOTc4IDE0MC40NTEgMzMuMTkwM0MxMzguNTYgMzQuNzUxNyAxMzYuMyAzNS41MzI0IDEzMy42NzEgMzUuNTMyNEMxMzEuNDI3IDM1LjUzMjQgMTI5LjQxNSAzNS4wMDY2IDEyNy42MzYgMzMuOTU1MUMxMjUuODU3IDMyLjkwMzUgMTI0LjQ2MyAzMS40NjE2IDEyMy40NTMgMjkuNjI5NEMxMjIuNDQzIDI3Ljc5NzIgMTIxLjkzOCAyNS43MTggMTIxLjkzOCAyMy4zOTE5QzEyMS45MzggMjEuMDY1OCAxMjIuNDQzIDE5LjAxODUgMTIzLjQ1MyAxNy4xNTQ0QzEyNC40NjMgMTUuMjkwMyAxMjUuODU3IDEzLjgzMjUgMTI3LjYzNiAxMi43ODA5QzEyOS40MTUgMTEuNzI5NCAxMzEuNDI3IDExLjIwMzYgMTMzLjY3MSAxMS4yMDM2QzEzNi43MTcgMTEuMjAzNiAxMzkuMjk3IDEyLjMwMjkgMTQxLjQxMyAxNC41MDE2Wk0xMzEuMzg3IDE5LjcxMTVDMTMwLjM3NyAyMC42OTkzIDEyOS44NzIgMjEuOTU4IDEyOS44NzIgMjMuNDg3NUMxMjkuODcyIDI1LjAxNyAxMzAuMzc3IDI2LjM3MTMgMTMxLjM4NyAyNy4zNTkxQzEzMi4zOTcgMjguMzQ2OSAxMzMuNzAzIDI4Ljg0MDggMTM1LjMwNiAyOC44NDA4QzEzNi45MDkgMjguODQwOCAxMzguMjE1IDI4LjM0NjkgMTM5LjIyNSAyNy4zNTkxQzE0MC4yMzUgMjYuMzcxMyAxNDAuNzQgMjUuMDk2NyAxNDAuNzQgMjMuNTM1M0MxNDAuNzQgMjEuOTczOSAxNDAuMjM1IDIwLjczOTIgMTM5LjIyNSAxOS43MzU0QzEzOC4yMTUgMTguNzMxNyAxMzYuOTA5IDE4LjIyOTggMTM1LjMwNiAxOC4yMjk4QzEzMy43MDMgMTguMjI5OCAxMzIuMzk3IDE4LjcyMzcgMTMxLjM4NyAxOS43MTE1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDxkZWZzPg0KICAgICAgICAgICAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3N18yMTAxIj4NCiAgICAgICAgICAgICAgICA8cmVjdCB3aWR0aD0iMTQ4LjI4OSIgaGVpZ2h0PSI0NiIgZmlsbD0id2hpdGUiIC8+DQogICAgICAgICAgICAgIDwvY2xpcFBhdGg+DQogICAgICAgICAgICA8L2RlZnM+DQogICAgICAgICAgPC9zdmc+" alt="Engineering" width="149" height="46"><span class="brand-text"><span class="brand-title">LOSS_PREVENTION · IMPACT how (FULL)</span><span class="brand-sub">Documentazione IMPACT how (FULL) · baseline fc7d820 (main) · portale offline</span></span></a>
+  <button type="button" class="nav-toggle" aria-controls="inlay-nav inlay-sidebar" aria-expanded="false" hidden><span class="nav-toggle-icon" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span></button>
+  <nav class="topnav" id="inlay-nav" aria-label="Navigazione principale"><a class="nav-item" href="index.html" aria-current="page">Panoramica</a><a class="nav-item" href="index-doc.html">Indice IMPACT</a><a class="nav-item" href="00_deep_dive.html">Deep Dive</a><a class="nav-item" href="06_software_architecture.html">Architettura</a><a class="nav-item" href="14_metrics.html">Metriche</a></nav>
+  <div class="search" role="search" hidden>
+    <label class="visually-hidden" for="inlay-search">Cerca nella documentazione</label>
+    <input id="inlay-search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inlay-search-results" placeholder="Cerca nella documentazione" autocomplete="off" spellcheck="false">
+    <ul id="inlay-search-results" class="search-results" role="listbox" aria-label="Cerca nella documentazione" hidden></ul>
+  </div>
+</header>
+<div class="page">
+  <div class="hero">
+    <p class="hero-title">LOSS_PREVENTION — Documentazione IMPACT how (FULL)</p>
+    <p class="hero-sub">.NET 8 FastEndpoints + MongoDB · Vue 3 + Vite + Vuetify SPA · Data Ingestion Service — baseline fc7d820, revisione 1.1 (2026-10-08)</p>
+    <ul class="quicklinks"><li><a class="btn-primary" href="index-doc.html">Indice e valori canonici</a></li><li><a class="btn-outline" href="15_fp_cocomo.html">FP &amp; COCOMO II</a></li><li><a class="btn-outline" href="18_antipattern_deep_dive.html">Antipattern</a></li><li><a class="btn-outline" href="19_modernization_estimation_spec.html">Stima modernizzazione</a></li></ul>
+  </div>
+  <div class="layout">
+    <aside class="card sidebar" id="inlay-sidebar">
+      <p class="card-head side-head" id="inlay-tree-label">Struttura documenti</p>
+      <nav class="tree-scroll" id="inlay-tree" aria-labelledby="inlay-tree-label"><ul class="tree"><li class="tree-node tree-node-root"><div class="tree-row"><button type="button" class="tree-toggle" aria-expanded="true" aria-controls="inlay-t1" aria-label="LOSS_PREVENTION"></button><a class="tree-link" href="index.html" aria-current="page">LOSS_PREVENTION</a></div><ul id="inlay-t1"><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t2">Architettura (HOW)</button></div><ul id="inlay-t2"><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t3">Foundation</button></div><ul id="inlay-t3"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="00_deep_dive.html">00 · Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="01_context.html">01 · Context Definition</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t6">Requirements</button></div><ul id="inlay-t6"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="02_functional_overview.html">02 · Functional Overview</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="03_non_functional_overview.html">03 · Non-Functional Requirements</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="04_constraints.html">04 · Constraints</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t10">Architecture</button></div><ul id="inlay-t10"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="05_principles.html">05 · Architectural Principles</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="06_software_architecture.html">06 · Software Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="07_code.html">07 · Code Implementation Details</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="08_data.html">08 · Data Architecture</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t15">Infrastructure &amp; Operations</button></div><ul id="inlay-t15"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="10_deployment.html">10 · Deployment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="11_development_environment.html">11 · Development Environment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="12_operation_and_support.html">12 · Operation and Support</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t20">Decisions &amp; Metrics</button></div><ul id="inlay-t20"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="13_decision_log.html">13 · Decision Log</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="14_metrics.html">14 · Metrics</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="15_fp_cocomo.html">15 · FP &amp; COCOMO II</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t24">Deep Assessments</button></div><ul id="inlay-t24"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="18_antipattern_deep_dive.html">18 · Antipattern Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="19_modernization_estimation_spec.html">19 · Modernization Estimation Spec</a></div></li></ul></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></div></li></ul></li></ul></li></ul></nav>
+    </aside>
+    <main class="card docpane" id="main" tabindex="-1">
+      <div class="card-head doc-head"><p class="doc-title">LOSS_PREVENTION · IMPACT how (FULL)</p><a class="btn-primary btn-export" href="index.html" download="index.html" data-export="">Scarica</a></div>
+      
+      <div class="doc-info"><details class="toc" id="inlay-toc" open><summary>In questa pagina</summary><ol><li><a href="#cruscotto-valori-canonici">Cruscotto valori canonici</a></li><li><a href="#principali-evidenze">Principali evidenze</a></li><li><a href="#note-di-validazione-impact">Note di validazione IMPACT</a></li><li><a href="#copertura-how">Copertura HOW</a></li><li><a href="#provenienza-e-baseline">Provenienza e baseline</a></li><li><a href="#elementi-esclusi">Elementi esclusi</a></li></ol></details></div>
+      <article class="doc-body" id="doc-body"><h1 id="loss_prevention"><span id="loss-prevention" class="anchor-alias" aria-hidden="true"></span>LOSS_PREVENTION<a class="header-anchor" href="#loss_prevention" aria-label="Collegamento alla sezione: LOSS_PREVENTION">#</a></h1><p class="lead">Panoramica progetto · Stato HOW: <span class="badge badge-complete">completo</span></p><section id="cruscotto" class="overview-section"><h2 id="cruscotto-valori-canonici">Cruscotto valori canonici<a class="header-anchor" href="#cruscotto-valori-canonici" aria-label="Collegamento alla sezione: Cruscotto valori canonici">#</a></h2><p>Valori canonici della revisione 1.1 estratti da <a href="index-doc.html">Indice documentazione (index.md)</a> · baseline commit fc7d820 (main) · worktree dirty · baseline 2026-10-07T18:19:51+02:00.</p><div class="kpi-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;margin:14px 0"><a class="card kpi-card" href="17_backend_deep_assessment.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">78</span><span style="display:block;font-weight:600;margin-top:4px">Endpoint FastEndpoints</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">4 anonimi · 74 con permesso</span></a><a class="card kpi-card" href="16_frontend_deep_assessment.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">41</span><span style="display:block;font-weight:600;margin-top:4px">SFC Vue (.vue)</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">15 store Pinia · 17 route</span></a><a class="card kpi-card" href="16_frontend_deep_assessment.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">15</span><span style="display:block;font-weight:600;margin-top:4px">Store Pinia</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">stato e chiamate API del frontend</span></a><a class="card kpi-card" href="14_metrics.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">25.261</span><span style="display:block;font-weight:600;margin-top:4px">SLOC (cloc 2.10)</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">C# + Vue + TypeScript</span></a><a class="card kpi-card" href="15_fp_cocomo.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">435</span><span style="display:block;font-weight:600;margin-top:4px">UFP (Function Point)</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">IFPUG non pesati</span></a><a class="card kpi-card" href="15_fp_cocomo.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">78,3 PM</span><span style="display:block;font-weight:600;margin-top:4px">COCOMO II</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">14,7 mesi · ≈626 k€</span></a><a class="card kpi-card" href="16_frontend_deep_assessment.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">3,4/10</span><span style="display:block;font-weight:600;margin-top:4px">Health frontend</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">deep assessment FE</span></a><a class="card kpi-card" href="17_backend_deep_assessment.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">3,9/10</span><span style="display:block;font-weight:600;margin-top:4px">Health backend</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">deep assessment BE</span></a><a class="card kpi-card" href="18_antipattern_deep_dive.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">45/100</span><span style="display:block;font-weight:600;margin-top:4px">Antipattern score</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">deep dive antipattern</span></a><a class="card kpi-card" href="14_metrics.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">71</span><span style="display:block;font-weight:600;margin-top:4px">Vulnerabilità npm audit</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">6 critical · 46 high</span></a><a class="card kpi-card" href="08_data.html" style="display:block;padding:12px 14px;text-decoration:none;color:inherit;border-top:3px solid var(--c-primary)"><span style="display:block;font-size:24px;font-weight:700;line-height:1.2;color:var(--c-primary)">13</span><span style="display:block;font-weight:600;margin-top:4px">Collezioni MongoDB configurate</span><span style="display:block;font-size:12.5px;color:var(--c-muted)">appsettings.json</span></a></div><div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 1"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Valore</th>
+<th>Fonte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stack backend</td>
+<td>.NET 8, FastEndpoints 6.0.0, MongoDB.Driver 3.4.0, FluentValidation 11.11.0, SSH.NET</td>
+<td><code>*.csproj</code></td>
+</tr>
+<tr>
+<td>Stack frontend</td>
+<td>Vue 3.5 + Vite 6 + Vuetify + Pinia (SPA; <code>nuxt</code> presente ma inutilizzato)</td>
+<td><code>LossPrevention.UI/package.json</code></td>
+</tr>
+<tr>
+<td>Endpoint</td>
+<td>78 (4 anonimi, 74 con permesso); 20 iniettano <code>IMongoRepository</code> direttamente</td>
+<td><code>LossPrevention.API/Endpoints/</code></td>
+</tr>
+<tr>
+<td>Permessi</td>
+<td>37 <code>CAN_*</code> usati dagli endpoint, 41 negli script di seed</td>
+<td><a href="04_constraints.html">04_constraints.md</a>, <a href="17_backend_deep_assessment.html">17_backend_deep_assessment.md</a></td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>41 SFC <code>.vue</code>, 15 store Pinia, 17 route + 1 alias di redirect</td>
+<td><a href="16_frontend_deep_assessment.html">16_frontend_deep_assessment.md</a></td>
+</tr>
+<tr>
+<td>Collezioni MongoDB</td>
+<td>13 configurate in <code>appsettings.json</code>, 15 referenziate dal codice, 12 nel dump <code>Data/LossPrevention</code> (10 + <code>Mappings_old</code>, <code>ReportData_old</code>)</td>
+<td><a href="08_data.html">08_data.md</a></td>
+</tr>
+<tr>
+<td>Import FE</td>
+<td>12 con maiuscole/minuscole errate (build rotta su FS case-sensitive) + 1 irrisolvibile nell'orfano <code>ScheduleForm.vue</code></td>
+<td><a href="16_frontend_deep_assessment.html">16_frontend_deep_assessment.md</a></td>
+</tr>
+<tr>
+<td>Dimensione</td>
+<td>25.261 SLOC (cloc 2.10): C# 10.143, Vue 10.773, TS 3.868; baseline di stima 19.774</td>
+<td><a href="14_metrics.html">14_metrics.md</a></td>
+</tr>
+<tr>
+<td>Stima</td>
+<td>435 UFP; COCOMO II 78,3 PM, 14,7 mesi, ≈626 k€</td>
+<td><a href="15_fp_cocomo.html">15_fp_cocomo.md</a>, <a href="19_modernization_estimation_spec.html">19_modernization_estimation_spec.md</a></td>
+</tr>
+<tr>
+<td>Salute</td>
+<td>FE 3,4/10, BE 3,9/10, antipattern 45/100; debito BE 67,5–97,5 gg</td>
+<td><a href="16_frontend_deep_assessment.html">16</a>, <a href="17_backend_deep_assessment.html">17</a>, <a href="18_antipattern_deep_dive.html">18</a></td>
+</tr>
+<tr>
+<td>Dipendenze FE</td>
+<td><code>npm audit</code>: 71 vulnerabilità (6 critical, 46 high, 15 moderate, 4 low)</td>
+<td><a href="14_metrics.html">14_metrics.md</a></td>
+</tr>
+</tbody>
+</table></div></section><section id="evidenze" class="overview-section"><h2 id="principali-evidenze">Principali evidenze<a class="header-anchor" href="#principali-evidenze" aria-label="Collegamento alla sezione: Principali evidenze">#</a></h2><ul>
+<li><strong>Architettura</strong>: monolite .NET 8 a strati (API → Application/Infrastructure → Domain) più un <code>DataIngestionService</code> separato; il Domain dipende da <code>MongoDB.Bson</code>, quindi non è indipendente dalla persistenza.</li>
+<li><strong>Persistenza</strong>: <code>IMongoClient</code> registrato Scoped e <code>new MongoClient</code> per ogni repository; indice TTL su <code>BeginDateTime</code>, campo assente nel dump.</li>
+<li><strong>Configurazione</strong>: <code>Program.cs:36-38</code> ricarica <code>appsettings</code> per ultimo, quindi le variabili d'ambiente non possono sovrascriverlo.</li>
+<li><strong>Sicurezza</strong>: password SFTP salvata in chiaro e restituita dall'API; segreti in <code>appsettings.json</code> (non riportati nei documenti).</li>
+<li><strong>Ingestion e regole</strong>: lo scheduler confronta l'ora locale con UTC; le regole antifrode si applicano solo manualmente.</li>
+<li><strong>AI e analytics</strong>: NLQ e generazione assistita via Ollama locale (<code>http://localhost:11434</code>); analisi statistiche lato browser.</li>
+<li><strong>Qualità</strong>: nessun test, lint o CI; <code>npm ci</code> fallisce per il lockfile non allineato (usare <code>npm install</code>).</li>
+</ul></section><section id="note-validazione" class="overview-section"><h2 id="note-di-validazione-impact">Note di validazione IMPACT<a class="header-anchor" href="#note-di-validazione-impact" aria-label="Collegamento alla sezione: Note di validazione IMPACT">#</a></h2><ul>
+<li>Presenti tutti i 20 deliverable HOW più questo indice; ognuno inizia con il blocco <code>IMPACT-META</code> (commit <code>fc7d820…</code>), la riga Baseline e un Change Log con la revisione 1.1.</li>
+<li>Nessun link relativo <code>.md</code> interrotto; sezione Reference Documents con i collegamenti 00–19 in ogni documento.</li>
+<li>52 diagrammi Mermaid validati con il parser <code>mermaid@11</code>: 0 errori.</li>
+<li>Numeri incrociati tra documenti verificati (endpoint, permessi, SFC, collezioni, import, SLOC, FP/COCOMO, health score).</li>
+<li>Nessun segreto riportato: l'unica stringa di connessione citata è <code>mongodb://localhost:27017</code>; la <code>SecretKey</code> JWT non compare.</li>
+<li><strong>Documenti vendor storici</strong>: i riferimenti a <code>Docs/01_EXECUTIVE_OVERVIEW.md</code>, <code>roadmap.txt</code>, <code>04_DEPLOYMENT_GUIDE.md</code> e simili riguardano file presenti solo nel commit <code>593f6de</code> e rimossi in <code>d768cd9</code>. Sono marcati come storici e consultabili con <code>git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/&lt;file&gt;</code>.</li>
+<li><strong>Non ricavabili dal codice</strong> (marcati N/A o come ipotesi): SLA/RPO/RTO, owner e budget, volumi di produzione, metriche runtime, CVE NuGet (serve il .NET SDK, non disponibile nell'ambiente di analisi).</li>
+<li><strong>Ipotesi da confermare</strong>: tariffa 400 €/gg e risposte al Wizard di stima in <a href="15_fp_cocomo.html">15_fp_cocomo.md</a> e <a href="19_modernization_estimation_spec.html">19_modernization_estimation_spec.md</a>.</li>
+</ul></section><section id="fam-how" class="overview-section"><h2 id="copertura-how">Copertura HOW<a class="header-anchor" href="#copertura-how" aria-label="Collegamento alla sezione: Copertura HOW">#</a></h2><p>Stato HOW: <span class="badge badge-complete">completo</span> · 17/17</p><div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 2"><table class="coverage"><thead><tr><th scope="col">Step</th><th scope="col">Documento</th><th scope="col">Fase</th><th scope="col">Stato</th></tr></thead><tbody><tr><td><code>00_deep_dive</code></td><td><a href="00_deep_dive.html">Deep Dive</a></td><td>Foundation</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>01_context</code></td><td><a href="01_context.html">Context Definition</a></td><td>Foundation</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>02_functional_overview</code></td><td><a href="02_functional_overview.html">Functional Overview</a></td><td>Requirements</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>03_non_functional_overview</code></td><td><a href="03_non_functional_overview.html">Non-Functional Requirements</a></td><td>Requirements</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>04_constraints</code></td><td><a href="04_constraints.html">Constraints</a></td><td>Requirements</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>05_principles</code></td><td><a href="05_principles.html">Architectural Principles</a></td><td>Architecture</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>06_software_architecture</code></td><td><a href="06_software_architecture.html">Software Architecture</a></td><td>Architecture</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>07_code</code></td><td><a href="07_code.html">Code Implementation Details</a></td><td>Architecture</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>08_data</code></td><td><a href="08_data.html">Data Architecture</a></td><td>Architecture</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>09_infrastructure_architecture</code></td><td><a href="09_infrastructure_architecture.html">Infrastructure Architecture</a></td><td>Infrastructure &amp; Operations</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>10_deployment</code></td><td><a href="10_deployment.html">Deployment</a></td><td>Infrastructure &amp; Operations</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>11_development_environment</code></td><td><a href="11_development_environment.html">Development Environment</a></td><td>Infrastructure &amp; Operations</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>12_operation_and_support</code></td><td><a href="12_operation_and_support.html">Operation and Support</a></td><td>Infrastructure &amp; Operations</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>13_decision_log</code></td><td><a href="13_decision_log.html">Decision Log</a></td><td>Decisions &amp; Metrics</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>14_metrics</code></td><td><a href="14_metrics.html">Metrics</a></td><td>Decisions &amp; Metrics</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>15_fp_cocomo</code></td><td><a href="15_fp_cocomo.html">FP &amp; COCOMO II</a></td><td>Decisions &amp; Metrics</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>16_frontend_deep_assessment</code></td><td><a href="16_frontend_deep_assessment.html">Frontend Deep Assessment</a></td><td>Deep Assessments</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>17_backend_deep_assessment</code></td><td><a href="17_backend_deep_assessment.html">Backend Deep Assessment</a></td><td>Deep Assessments</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>18_antipattern_deep_dive</code></td><td><a href="18_antipattern_deep_dive.html">Antipattern Deep Dive</a></td><td>Deep Assessments</td><td><span class="cov cov-present">presente</span></td></tr><tr><td><code>19_modernization_estimation_spec</code></td><td><a href="19_modernization_estimation_spec.html">Modernization Estimation Spec</a></td><td>Deep Assessments</td><td><span class="cov cov-present">presente</span></td></tr></tbody></table></div><p class="notice notice-info" role="note">Gli scenari HOW ridotti (BROWNFIELD, AUDIT, ONBOARDING, PRE-REFACTORING) producono sottoinsiemi del catalogo: un documento non presente non indica necessariamente un errore.</p><p class="notice notice-info" role="note">Regola di stato della modalità enterprise: completo = 00_deep_dive presente e almeno 12 dei 17 documenti attesi; parziale = 00_deep_dive presente; assente altrimenti.</p></section><section id="provenance" class="overview-section"><h2 id="provenienza-e-baseline">Provenienza e baseline<a class="header-anchor" href="#provenienza-e-baseline" aria-label="Collegamento alla sezione: Provenienza e baseline">#</a></h2><div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 3"><table class="provenance"><thead><tr><th scope="col">Documento</th><th scope="col">Modalità</th><th scope="col">Commit</th><th scope="col">Branch</th><th scope="col">Worktree</th><th scope="col">Data baseline</th><th scope="col">Generato il</th><th scope="col">IMPACT-META</th></tr></thead><tbody><tr><td><a href="00_deep_dive.html">00 · Deep Dive</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:33:09+02:00</td><td>metadati presenti</td></tr><tr><td><a href="01_context.html">01 · Context Definition</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:37:27+02:00</td><td>metadati presenti</td></tr><tr><td><a href="02_functional_overview.html">02 · Functional Overview</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:38:00+02:00</td><td>metadati presenti</td></tr><tr><td><a href="03_non_functional_overview.html">03 · Non-Functional Requirements</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:38:00+02:00</td><td>metadati presenti</td></tr><tr><td><a href="04_constraints.html">04 · Constraints</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:38:00+02:00</td><td>metadati presenti</td></tr><tr><td><a href="05_principles.html">05 · Architectural Principles</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:38:00+02:00</td><td>metadati presenti</td></tr><tr><td><a href="06_software_architecture.html">06 · Software Architecture</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:21:30+02:00</td><td>metadati presenti</td></tr><tr><td><a href="07_code.html">07 · Code Implementation Details</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:25:30+02:00</td><td>metadati presenti</td></tr><tr><td><a href="08_data.html">08 · Data Architecture</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:29:30+02:00</td><td>metadati presenti</td></tr><tr><td><a href="09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:41:39.009+02:00</td><td>metadati presenti</td></tr><tr><td><a href="10_deployment.html">10 · Deployment</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:41:39.009+02:00</td><td>metadati presenti</td></tr><tr><td><a href="11_development_environment.html">11 · Development Environment</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:41:39.009+02:00</td><td>metadati presenti</td></tr><tr><td><a href="12_operation_and_support.html">12 · Operation and Support</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:41:39.009+02:00</td><td>metadati presenti</td></tr><tr><td><a href="13_decision_log.html">13 · Decision Log</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:36:49+02:00</td><td>metadati presenti</td></tr><tr><td><a href="14_metrics.html">14 · Metrics</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:26:01+02:00</td><td>metadati presenti</td></tr><tr><td><a href="15_fp_cocomo.html">15 · FP &amp; COCOMO II</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:34:49+02:00</td><td>metadati presenti</td></tr><tr><td><a href="16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:41:25+02:00</td><td>metadati presenti</td></tr><tr><td><a href="17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T10:05:26+02:00</td><td>metadati presenti</td></tr><tr><td><a href="18_antipattern_deep_dive.html">18 · Antipattern Deep Dive</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T10:17:43+02:00</td><td>metadati presenti</td></tr><tr><td><a href="19_modernization_estimation_spec.html">19 · Modernization Estimation Spec</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T09:32:07+02:00</td><td>metadati presenti</td></tr><tr><td><a href="index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></td><td>how</td><td><code>fc7d820</code></td><td>main</td><td>dirty</td><td>2026-10-07T18:19:51+02:00</td><td>2026-10-08T10:48:09.375+02:00</td><td>metadati presenti</td></tr></tbody></table></div></section><section id="excluded" class="overview-section"><h2 id="elementi-esclusi">Elementi esclusi<a class="header-anchor" href="#elementi-esclusi" aria-label="Collegamento alla sezione: Elementi esclusi">#</a></h2><p class="muted">Nessun elemento escluso.</p></section><p class="muted scope-note">Layout: project (impostato esplicitamente) · Perimetro analizzato: ./</p></article>
+    </main>
+  </div>
+</div>
+<footer class="site-footer">LOSS_PREVENTION · IMPACT how (FULL) · baseline fc7d820 · generato offline con inlay-doc-site</footer>
+<div id="inlay-status" class="visually-hidden" role="status" aria-live="polite"></div>
+<script type="application/json" id="inlay-config">{"lang": "it", "root": "", "route": "index.html", "search": "_inlay/search-index.js", "theme": "eng", "version": "2.1.0"}</script>
+<script>/* inlay-doc-site 2.x - comportamento del portale (offline, nessuna dipendenza). */
+(function () {
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var cfg = {};
+  try { cfg = JSON.parse(doc.getElementById('inlay-config').textContent) || {}; } catch (e) { cfg = {}; }
+  var LANG = String(cfg.lang || root.lang || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+  var TEXT = {
+    it: {
+      copy: 'Copia', copied: 'Copiato', copyFail: 'Copia non riuscita: testo selezionato, premi Ctrl+C',
+      close: 'Chiudi', zoomIn: 'Ingrandisci', zoomOut: 'Riduci', fit: 'Adatta', dialog: 'Immagine ingrandita',
+      hint: 'Ctrl+rotella o +/- per lo zoom, trascina per spostare, Esc per chiudere',
+      noResults: 'Nessun risultato', results: '{n} risultati', unavailable: 'Indice di ricerca non disponibile',
+      exportNote: 'Copia esportata della pagina "{t}": i collegamenti verso altre pagine del portale sono disattivati.',
+      linkDisabled: 'Collegamento disponibile solo nel portale', menuOpen: 'Mostra struttura documenti',
+      menuClose: 'Nascondi struttura documenti'
+    },
+    en: {
+      copy: 'Copy', copied: 'Copied', copyFail: 'Copy failed: text selected, press Ctrl+C',
+      close: 'Close', zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit', dialog: 'Enlarged image',
+      hint: 'Ctrl+wheel or +/- to zoom, drag to pan, Esc to close',
+      noResults: 'No results', results: '{n} results', unavailable: 'Search index not available',
+      exportNote: 'Exported copy of the page "{t}": links to other portal pages are disabled.',
+      linkDisabled: 'Link available only inside the portal', menuOpen: 'Show document structure',
+      menuClose: 'Hide document structure'
+    }
+  };
+  function tr(key, vars) {
+    var s = TEXT[LANG][key] || key;
+    if (vars) { Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); }); }
+    return s;
+  }
+  var statusEl = doc.getElementById('inlay-status');
+  function announce(msg) {
+    if (!statusEl) { return; }
+    statusEl.textContent = '';
+    setTimeout(function () { statusEl.textContent = msg; }, 40);
+  }
+
+  /* altezza dell'header per sticky e ancore */
+  var header = doc.querySelector('.topbar');
+  function setHeaderHeight() { if (header) { root.style.setProperty('--header-h', header.offsetHeight + 'px'); } queueFit(); }
+  setHeaderHeight();
+  if (window.ResizeObserver && header) { new ResizeObserver(setHeaderHeight).observe(header); }
+  else { window.addEventListener('resize', setHeaderHeight); }
+
+  /* albero: espandi/comprimi */
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.tree-toggle, .tree-group') : null;
+    if (!btn) { return; }
+    var list = doc.getElementById(btn.getAttribute('aria-controls'));
+    if (!list) { return; }
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    list.hidden = open;
+  });
+  /* barra laterale: altezza limitata alla parte visibile (all'apertura la testata della pagina la spinge in basso) */
+  var sidebar = doc.getElementById('inlay-sidebar'), fitQueued = false;
+  function fitSidebar() {
+    fitQueued = false;
+    if (!sidebar) { return; }
+    if (window.getComputedStyle(sidebar).position !== 'sticky') { sidebar.style.maxHeight = ''; return; }
+    var top = Math.max(sidebar.getBoundingClientRect().top, 0);
+    sidebar.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + 'px';
+  }
+  function queueFit() { if (!fitQueued) { fitQueued = true; window.requestAnimationFrame(fitSidebar); } }
+  fitSidebar();
+  window.addEventListener('scroll', queueFit, { passive: true });
+  window.addEventListener('resize', queueFit);
+  var treeScroll = doc.getElementById('inlay-tree');
+  var current = treeScroll && treeScroll.querySelector('[aria-current="page"]');
+  if (current) {
+    var r = current.getBoundingClientRect(), s = treeScroll.getBoundingClientRect();
+    if (r.top < s.top || r.bottom > s.bottom) { treeScroll.scrollTop += (r.top - s.top) - treeScroll.clientHeight / 3; }
+  }
+
+  /* menu mobile */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle && doc.getElementById('inlay-sidebar')) {
+    navToggle.hidden = false;
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      root.classList.toggle('nav-open', !open);
+    });
+  }
+
+  /* copia dei blocchi di codice */
+  function copied(btn) {
+    btn.textContent = tr('copied');
+    btn.classList.add('copied');
+    announce(tr('copied'));
+    setTimeout(function () { btn.textContent = tr('copy'); btn.classList.remove('copied'); }, 1800);
+  }
+  function copyFallback(text, pre, btn) {
+    var ta = doc.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    doc.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    if (ok) { copied(btn); return; }
+    var range = doc.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = tr('copyFail');
+    announce(tr('copyFail'));
+    setTimeout(function () { btn.textContent = tr('copy'); }, 4000);
+  }
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.code-copy') : null;
+    if (!btn) { return; }
+    var block = btn.closest('.code-block');
+    var pre = block && block.querySelector('pre');
+    if (!pre) { return; }
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { copied(btn); }, function () { copyFallback(text, pre, btn); });
+    } else { copyFallback(text, pre, btn); }
+  });
+
+  /* lightbox accessibile per immagini e diagrammi */
+  var lb = null, lbImg, lbStage, lbClose, lbTrigger = null, scale = 1, inerted = [];
+  function setScale(v) {
+    scale = Math.max(0.1, Math.min(8, v));
+    if (lbImg.naturalWidth) { lbImg.style.width = Math.round(lbImg.naturalWidth * scale) + 'px'; }
+  }
+  function fitScale() {
+    var w = lbImg.naturalWidth || 1;
+    var sw = Math.max(lbStage.clientWidth - 48, 50);
+    setScale(Math.min(sw / w, 2));
+  }
+  function buildLightbox() {
+    if (lb) { return; }
+    lb = doc.createElement('div');
+    lb.className = 'inlay-lightbox';
+    lb.id = 'inlay-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', tr('dialog'));
+    lb.hidden = true;
+    var bar = doc.createElement('div');
+    bar.className = 'inlay-lightbox-bar';
+    var hint = doc.createElement('span');
+    hint.className = 'inlay-lightbox-hint';
+    hint.textContent = tr('hint');
+    bar.appendChild(hint);
+    [['out', tr('zoomOut'), '\u2212'], ['fit', tr('fit'), tr('fit')], ['in', tr('zoomIn'), '+'], ['close', tr('close'), tr('close')]].forEach(function (b) {
+      var btn = doc.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zoom', b[0]);
+      btn.setAttribute('aria-label', b[1]);
+      btn.textContent = b[2];
+      bar.appendChild(btn);
+      if (b[0] === 'close') { lbClose = btn; }
+    });
+    lbStage = doc.createElement('div');
+    lbStage.className = 'inlay-lightbox-stage';
+    lbStage.tabIndex = 0;
+    lbImg = doc.createElement('img');
+    lbImg.alt = '';
+    lbStage.appendChild(lbImg);
+    lb.appendChild(bar);
+    lb.appendChild(lbStage);
+    doc.body.appendChild(lb);
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) { return; }
+      var a = b.getAttribute('data-zoom');
+      if (a === 'close') { closeLightbox(); } else if (a === 'in') { setScale(scale * 1.25); }
+      else if (a === 'out') { setScale(scale / 1.25); } else { fitScale(); }
+    });
+    lb.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); closeLightbox(); return; }
+      if (ev.key === '+' || ev.key === '=') { ev.preventDefault(); setScale(scale * 1.25); return; }
+      if (ev.key === '-') { ev.preventDefault(); setScale(scale / 1.25); return; }
+      if (ev.key === '0') { ev.preventDefault(); fitScale(); return; }
+      if (ev.key === 'Tab') {
+        var f = Array.prototype.slice.call(lb.querySelectorAll('button, [tabindex="0"]'));
+        var first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    });
+    lbStage.addEventListener('wheel', function (ev) {
+      if (!ev.ctrlKey) { return; }
+      ev.preventDefault();
+      setScale(scale * (ev.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    var drag = null;
+    lbStage.addEventListener('pointerdown', function (ev) {
+      drag = { x: ev.clientX, y: ev.clientY, l: lbStage.scrollLeft, t: lbStage.scrollTop };
+      lbStage.classList.add('grabbing');
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!drag) { return; }
+      lbStage.scrollLeft = drag.l - (ev.clientX - drag.x);
+      lbStage.scrollTop = drag.t - (ev.clientY - drag.y);
+    });
+    window.addEventListener('pointerup', function () { drag = null; if (lbStage) { lbStage.classList.remove('grabbing'); } });
+  }
+  function openLightbox(trigger) {
+    var img = trigger.querySelector('img');
+    if (!img) { return; }
+    buildLightbox();
+    lbTrigger = trigger;
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbImg.onload = function () { fitScale(); };
+    lbImg.src = img.getAttribute('src');
+    Array.prototype.forEach.call(doc.body.children, function (child) {
+      if (child !== lb && !child.inert) { child.inert = true; child.setAttribute('aria-hidden', 'true'); inerted.push(child); }
+    });
+    lb.hidden = false;
+    if (lbImg.complete && lbImg.naturalWidth) { fitScale(); }
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (!lb || lb.hidden) { return; }
+    lb.hidden = true;
+    inerted.forEach(function (child) { child.inert = false; child.removeAttribute('aria-hidden'); });
+    inerted = [];
+    if (lbTrigger) { lbTrigger.focus(); }
+  }
+  doc.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('.zoom-trigger') : null;
+    if (trigger) { ev.preventDefault(); openLightbox(trigger); }
+  });
+
+  /* ricerca offline (indice caricato su richiesta da _inlay/search-index.js) */
+  var input = doc.getElementById('inlay-search');
+  var results = doc.getElementById('inlay-search-results');
+  if (input && results && cfg.search) {
+    input.closest('.search').hidden = false;
+    var index = null, loading = false, active = -1, timer = null, pending = null;
+    var fold = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var loadIndex = function (cb) {
+      if (index) { cb(); return; }
+      pending = cb;
+      if (loading) { return; }
+      loading = true;
+      var sc = doc.createElement('script');
+      sc.src = cfg.root + cfg.search;
+      sc.onload = function () { index = window.INLAY_SEARCH_INDEX || []; if (pending) { pending(); } };
+      sc.onerror = function () { index = []; announce(tr('unavailable')); if (pending) { pending(); } };
+      doc.head.appendChild(sc);
+    };
+    var search = function (q) {
+      var terms = fold(q).split(/\s+/).filter(Boolean);
+      if (!terms.length) { return []; }
+      var out = [];
+      index.forEach(function (e) {
+        if (e._t === undefined) { e._t = fold(e.t + ' ' + (e.l || '')); e._x = fold(e.x); }
+        var score = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var inTitle = e._t.indexOf(terms[i]) >= 0, pos = e._x.indexOf(terms[i]);
+          if (!inTitle && pos < 0) { return; }
+          score += inTitle ? 10 : 1;
+        }
+        out.push({ e: e, score: score, term: terms[0] });
+      });
+      out.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+      return out.slice(0, 15);
+    };
+    var snippet = function (e, term) {
+      var pos = e._x.indexOf(term);
+      if (pos < 0) { return ''; }
+      var start = Math.max(0, pos - 50);
+      return (start > 0 ? '\u2026' : '') + e.x.substr(start, 150) + '\u2026';
+    };
+    var setActive = function (i) {
+      var opts = results.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      Array.prototype.forEach.call(opts, function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    var close = function () {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    var render = function () {
+      var q = input.value.trim();
+      results.textContent = '';
+      if (!q) { close(); return; }
+      var found = search(q);
+      if (!found.length) {
+        var li = doc.createElement('li');
+        li.className = 'sr-empty';
+        li.textContent = tr('noResults');
+        results.appendChild(li);
+      }
+      found.forEach(function (r, k) {
+        var li = doc.createElement('li');
+        li.id = 'inlay-sr-' + k;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var a = doc.createElement('a');
+        a.href = cfg.root + r.e.r;
+        a.tabIndex = -1;
+        var t = doc.createElement('span'); t.className = 'sr-title'; t.textContent = r.e.t; a.appendChild(t);
+        if (r.e.l) { var p = doc.createElement('span'); p.className = 'sr-path'; p.textContent = r.e.l; a.appendChild(p); }
+        var sn = snippet(r.e, r.term);
+        if (sn) { var x = doc.createElement('span'); x.className = 'sr-snippet'; x.textContent = sn; a.appendChild(x); }
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      active = -1;
+      announce(found.length ? tr('results', { n: found.length }) : tr('noResults'));
+    };
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { loadIndex(render); }, 120);
+    });
+    input.addEventListener('focus', function () { loadIndex(function () {}); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); if (results.hidden) { loadIndex(render); } else { setActive(active + 1); } }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+      else if (ev.key === 'Enter') {
+        var opts = results.querySelectorAll('[role="option"] a');
+        if (!results.hidden && opts.length) { ev.preventDefault(); window.location.href = opts[Math.max(active, 0)].href; }
+      } else if (ev.key === 'Escape') {
+        if (!results.hidden) { ev.preventDefault(); close(); } else { input.value = ''; }
+      }
+    });
+    doc.addEventListener('click', function (ev) {
+      if (!ev.target.closest || !ev.target.closest('.search')) { close(); }
+    });
+  }
+
+  /* esportazione della pagina corrente come HTML autonomo */
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[data-export]') : null;
+    if (!a || !window.Blob || !window.URL || !URL.createObjectURL) { return; }
+    ev.preventDefault();
+    var clone = root.cloneNode(true);
+    var drop = ['.topnav', '.search', '.nav-toggle', '.hero', '#inlay-sidebar', '.breadcrumbs', 'a[data-export]',
+      '#inlay-lightbox', 'script[src]', '.site-footer'];
+    drop.forEach(function (sel) { Array.prototype.forEach.call(clone.querySelectorAll(sel), function (n) { n.parentNode.removeChild(n); }); });
+    Array.prototype.forEach.call(clone.querySelectorAll('[inert]'), function (n) { n.removeAttribute('inert'); n.removeAttribute('aria-hidden'); });
+    clone.classList.remove('js', 'nav-open');
+    clone.style.removeProperty('--header-h');
+    clone.setAttribute('data-exported', 'true');
+    var brand = clone.querySelector('.brand');
+    if (brand) { brand.removeAttribute('href'); }
+    Array.prototype.forEach.call(clone.querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      if (href.charAt(0) === '#' || /^[a-z][a-z0-9+.\-]*:/i.test(href) || href.indexOf('//') === 0) { return; }
+      var span = doc.createElement('span');
+      span.className = 'link-disabled';
+      span.title = tr('linkDisabled');
+      span.setAttribute('data-inlay-export', 'disabled');
+      while (link.firstChild) { span.appendChild(link.firstChild); }
+      link.parentNode.replaceChild(span, link);
+    });
+    var status = clone.querySelector('#inlay-status');
+    if (status) { status.textContent = ''; }
+    var title = (doc.querySelector('.doc-title') || {}).textContent || doc.title;
+    var main = clone.querySelector('#main');
+    if (main) {
+      var note = doc.createElement('p');
+      note.className = 'notice export-note';
+      note.setAttribute('role', 'note');
+      note.textContent = tr('exportNote', { t: title });
+      var head = main.querySelector('.doc-head');
+      main.insertBefore(note, head ? head.nextSibling : main.firstChild);
+    }
+    var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var tmp = doc.createElement('a');
+    tmp.href = url;
+    tmp.download = a.getAttribute('download') || 'documento.html';
+    tmp.style.display = 'none';
+    doc.body.appendChild(tmp);
+    tmp.click();
+    doc.body.removeChild(tmp);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>

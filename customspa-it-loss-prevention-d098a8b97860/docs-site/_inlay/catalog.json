@@ -1,0 +1,666 @@
+{
+ "generator": "inlay-doc-site",
+ "version": "2.1.0",
+ "layout": "project",
+ "detected_by": "impostato esplicitamente",
+ "theme": "eng",
+ "lang": "it",
+ "scope": [
+  "./"
+ ],
+ "allow_degraded": [],
+ "projects": [
+  {
+   "id": "",
+   "name": "LOSS_PREVENTION",
+   "docs": true,
+   "how_status": "complete",
+   "how_count": 17,
+   "overview": "index.html"
+  }
+ ],
+ "enterprise": false,
+ "counts": {
+  "page": 21,
+  "found": 21
+ },
+ "items": [
+  {
+   "rel": "00_deep_dive.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "00_deep_dive",
+   "route": "00_deep_dive.html",
+   "sha256": "c87c77d53ac567c519e0eab7a5a6e7302a9d0d52e84863cd1568a7832221162e",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:33:09+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "00_deep_dive",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "01_context.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "01_context",
+   "route": "01_context.html",
+   "sha256": "4ffd6b524fb4ca9ba19828babe0ad630f3834588e47a4fe4a90049a963346163",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:37:27+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "01_context",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "02_functional_overview.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "02_functional_overview",
+   "route": "02_functional_overview.html",
+   "sha256": "b582511ce5b756684ea70b69dae4fa70bc75d1f551c106903f76b818d1565aa3",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:38:00+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "02_functional_overview",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "03_non_functional_overview.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "03_non_functional_overview",
+   "route": "03_non_functional_overview.html",
+   "sha256": "a0a7f4569bfc1a97c21cc60bc7c63e551f8241053c007184e45e826f6b30ec3f",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:38:00+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "03_non_functional_overview",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "04_constraints.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "04_constraints",
+   "route": "04_constraints.html",
+   "sha256": "beacca52d9469ef30704cf2dc0a0e2517bf2af2ee5e4cb4d1bfa25c8a2d24277",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:38:00+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "04_constraints",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "05_principles.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "05_principles",
+   "route": "05_principles.html",
+   "sha256": "43aef0c1c8a759e84e73237efd8e3613220781c46df3394ab6f40d2afdb686e5",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:38:00+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "05_principles",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "06_software_architecture.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "06_software_architecture",
+   "route": "06_software_architecture.html",
+   "sha256": "c6278ab07787856f39d3aa2348e9440efa95d88a7ed8eac0f5aa98bd192c0116",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:21:30+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "06_software_architecture",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "07_code.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "07_code",
+   "route": "07_code.html",
+   "sha256": "e60d5ec198740d4f5e9a3b0063f230f5ca42c7d2c38a3a714339a4afd045a64b",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:25:30+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "07_code",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "08_data.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "08_data",
+   "route": "08_data.html",
+   "sha256": "7b06a053d43c23cd6ddcf3e46c591b3fb38574329f74bdcd8244101dd77271cd",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:29:30+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "08_data",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "09_infrastructure_architecture.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "09_infrastructure_architecture",
+   "route": "09_infrastructure_architecture.html",
+   "sha256": "2c29c8baff7855812e73246bf4dd0423b3ff13dc95bb62bd97ad7402aa63cef3",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:41:39.009+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "09_infrastructure_architecture",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "10_deployment.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "10_deployment",
+   "route": "10_deployment.html",
+   "sha256": "2eb92aa50842f5ee29f1e12133ce71970e7c68bf9934baa1eea46f66ce58d311",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:41:39.009+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "10_deployment",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "11_development_environment.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "11_development_environment",
+   "route": "11_development_environment.html",
+   "sha256": "af4bf4963754b29d40159bf896eea72d613760ac69895a566cd9e2af1cb89304",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:41:39.009+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "11_development_environment",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "12_operation_and_support.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "12_operation_and_support",
+   "route": "12_operation_and_support.html",
+   "sha256": "4cd5cbf511ad807d7e59ee19e8b6a9b2fde14bfe648032b6c9de782d32c7cff7",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:41:39.009+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "12_operation_and_support",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "13_decision_log.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "13_decision_log",
+   "route": "13_decision_log.html",
+   "sha256": "289801976f31fafd126fae765e52259b2869c97baec30c6179ae9a3187ee251d",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:36:49+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "13_decision_log",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "14_metrics.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "14_metrics",
+   "route": "14_metrics.html",
+   "sha256": "a216c8f0d627acb137e9d251702def4a6821de4ae8e335a221fd87c55aaf2bd4",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:26:01+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "14_metrics",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "15_fp_cocomo.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "15_fp_cocomo",
+   "route": "15_fp_cocomo.html",
+   "sha256": "01662141bc1dc04567a0dccfc74a6b89b8305373e0676bdfbedc9fb6453c249c",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:34:49+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "15_fp_cocomo",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "16_frontend_deep_assessment.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "16_frontend_deep_assessment",
+   "route": "16_frontend_deep_assessment.html",
+   "sha256": "6cf99716e65daba87eb542b6d318e61ddfcacb2b14fd6eef1569cabeb783e4c2",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:41:25+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "16_frontend_deep_assessment",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "17_backend_deep_assessment.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "17_backend_deep_assessment",
+   "route": "17_backend_deep_assessment.html",
+   "sha256": "22723c706885ba41104a44c617b4df9ea29214a5a927cf661b9a07a5f9ca0c06",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T10:05:26+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "17_backend_deep_assessment",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "18_antipattern_deep_dive.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "18_antipattern_deep_dive",
+   "route": "18_antipattern_deep_dive.html",
+   "sha256": "a71bbc37585f76aa16a080752d221b8e6e247a66ba9df1b902b43202c6f16692",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T10:17:43+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "18_antipattern_deep_dive",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "19_modernization_estimation_spec.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "19_modernization_estimation_spec",
+   "route": "19_modernization_estimation_spec.html",
+   "sha256": "0cf2ae85d8772ea41f68339604710e20faa2db00a9e74e711755ce902f0f16dc",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T09:32:07+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "19_modernization_estimation_spec",
+    "worktree": "dirty"
+   }
+  },
+  {
+   "rel": "index.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "how",
+   "mode": "how",
+   "step": "index",
+   "route": "index-doc.html",
+   "sha256": "d483768a624da01f677957fd0bc6837588ce1ee1ad94c7bf026a94788014ca37",
+   "meta": {
+    "baseline_date": "2026-10-07T18:19:51+02:00",
+    "branch": "main",
+    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
+    "commit_short": "fc7d820",
+    "generated_at": "2026-10-08T10:48:09.375+02:00",
+    "mode": "how",
+    "schema": "1",
+    "step": "index",
+    "worktree": "dirty"
+   }
+  }
+ ],
+ "pages": [
+  {
+   "route": "00_deep_dive.html",
+   "title": "Deep Dive - Progetto LOSS_PREVENTION (Loss Prevention Tool)",
+   "kind": "doc",
+   "source": "00_deep_dive.md",
+   "added": null
+  },
+  {
+   "route": "01_context.html",
+   "title": "Context - Progetto LOSS_PREVENTION (Loss Prevention Tool)",
+   "kind": "doc",
+   "source": "01_context.md",
+   "added": null
+  },
+  {
+   "route": "02_functional_overview.html",
+   "title": "Functional Overview - Progetto LOSS_PREVENTION (Loss Prevention Tool)",
+   "kind": "doc",
+   "source": "02_functional_overview.md",
+   "added": null
+  },
+  {
+   "route": "03_non_functional_overview.html",
+   "title": "Non-Functional Overview - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "03_non_functional_overview.md",
+   "added": null
+  },
+  {
+   "route": "04_constraints.html",
+   "title": "Constraints - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "04_constraints.md",
+   "added": null
+  },
+  {
+   "route": "05_principles.html",
+   "title": "Principles - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "05_principles.md",
+   "added": null
+  },
+  {
+   "route": "06_software_architecture.html",
+   "title": "Software Architecture - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "06_software_architecture.md",
+   "added": null
+  },
+  {
+   "route": "07_code.html",
+   "title": "Code - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "07_code.md",
+   "added": null
+  },
+  {
+   "route": "08_data.html",
+   "title": "Data - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "08_data.md",
+   "added": null
+  },
+  {
+   "route": "09_infrastructure_architecture.html",
+   "title": "Infrastructure Architecture - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "09_infrastructure_architecture.md",
+   "added": null
+  },
+  {
+   "route": "10_deployment.html",
+   "title": "Deployment - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "10_deployment.md",
+   "added": null
+  },
+  {
+   "route": "11_development_environment.html",
+   "title": "Development Environment - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "11_development_environment.md",
+   "added": null
+  },
+  {
+   "route": "12_operation_and_support.html",
+   "title": "Operation and Support - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "12_operation_and_support.md",
+   "added": null
+  },
+  {
+   "route": "13_decision_log.html",
+   "title": "Decision Log - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "13_decision_log.md",
+   "added": null
+  },
+  {
+   "route": "14_metrics.html",
+   "title": "Metrics - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "14_metrics.md",
+   "added": null
+  },
+  {
+   "route": "15_fp_cocomo.html",
+   "title": "FP & COCOMO II - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "15_fp_cocomo.md",
+   "added": null
+  },
+  {
+   "route": "16_frontend_deep_assessment.html",
+   "title": "Frontend Deep Assessment - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "16_frontend_deep_assessment.md",
+   "added": null
+  },
+  {
+   "route": "17_backend_deep_assessment.html",
+   "title": "Backend Deep Assessment - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "17_backend_deep_assessment.md",
+   "added": null
+  },
+  {
+   "route": "18_antipattern_deep_dive.html",
+   "title": "🔍 ANTIPATTERN ASSESSMENT REPORT",
+   "kind": "doc",
+   "source": "18_antipattern_deep_dive.md",
+   "added": null
+  },
+  {
+   "route": "19_modernization_estimation_spec.html",
+   "title": "Modernization Estimation - Progetto LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "19_modernization_estimation_spec.md",
+   "added": null
+  },
+  {
+   "route": "index-doc.html",
+   "title": "IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION",
+   "kind": "doc",
+   "source": "index.md",
+   "added": null
+  },
+  {
+   "route": "index.html",
+   "title": "LOSS_PREVENTION · IMPACT how (FULL)",
+   "kind": "overview",
+   "source": null,
+   "added": null
+  }
+ ],
+ "diagnostics": [
+  {
+   "severity": "warning",
+   "code": "impact-meta",
+   "message": "IMPACT-META dichiara mode 'how' ma il percorso non rispetta il contratto di output di quella modalita'",
+   "source": "index.md"
+  },
+  {
+   "severity": "info",
+   "code": "route",
+   "message": "route riservata index.html: pubblicato come index-doc.html",
+   "source": "index.md"
+  },
+  {
+   "severity": "info",
+   "code": "font",
+   "message": "font CocoEng non fornito (chiave 'fonts' in configurazione): viene usato il fallback Segoe UI/system-ui"
+  }
+ ]
+}

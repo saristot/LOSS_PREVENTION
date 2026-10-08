@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="eng" data-layout="project">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="inlay-doc-site 2.1.0">
+<title>Modernization Estimation - Progetto LOSS_PREVENTION · LOSS_PREVENTION · IMPACT how (FULL)</title>
+<link rel="icon" href="data:,">
+<style>/* inlay-doc-site 2.x - struttura e componenti comuni. I colori e le forme vengono
+   dalle variabili definite dal tema (assets/themes/<tema>/theme.css). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-h,64px) + 12px)}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-text);font-size:15px;line-height:var(--line-height)}
+a{color:var(--c-link)}
+a:hover{color:var(--c-link-hover)}
+:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+li::marker{font-variant-numeric:normal}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--c-primary);color:var(--c-primary-text);padding:10px 16px;font-weight:600;text-decoration:none;border-radius:var(--radius-btn)}
+.skip-link:focus{top:10px;color:var(--c-primary-text)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;gap:16px;background:var(--c-header-bg);color:var(--c-header-text);padding:10px 20px;position:sticky;top:0;z-index:50;min-height:64px}
+.topbar :focus-visible{outline-color:var(--c-focus-dark)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 1 auto;max-width:360px;text-decoration:none;color:var(--c-header-text)}
+.brand:hover{color:var(--c-header-text)}
+.brand-logo{display:block;height:30px;width:auto;flex:none}
+.brand-mark{width:42px;height:42px;flex:none;border-radius:var(--radius-btn);background:var(--c-primary);color:var(--c-primary-text);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-weight:700;font-size:15.5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{color:var(--c-header-muted);font-size:11.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnav{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.nav-item{color:var(--c-header-muted);font-size:13.5px;font-weight:500;padding:8px 11px;border-radius:var(--radius-btn);text-decoration:none;flex:none}
+.nav-item:hover{color:var(--c-header-text);background:var(--c-header-hover-bg)}
+.nav-item[aria-current="page"]{color:var(--c-header-text);background:var(--c-header-hover-bg);font-weight:600}
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;color:var(--c-header-text);border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);padding:7px 10px;font:inherit;font-size:13px;cursor:pointer;flex:none}
+.nav-toggle-icon{width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor;display:inline-block}
+.search{position:relative;flex:0 1 260px;min-width:160px}
+.search input{width:100%;font:inherit;font-size:13.5px;padding:8px 12px;border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);background:var(--c-header-input-bg);color:var(--c-header-text)}
+.search input::placeholder{color:var(--c-header-muted);opacity:1}
+.search-results{position:absolute;right:0;top:calc(100% + 6px);width:min(520px,92vw);max-height:70vh;overflow-y:auto;margin:0;padding:6px;list-style:none;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:60}
+.search-results li{border-radius:var(--radius-btn)}
+.search-results a{display:block;padding:8px 10px;color:var(--c-text);text-decoration:none;border-radius:var(--radius-btn)}
+.search-results li[aria-selected="true"] a,.search-results a:hover{background:var(--c-tree-active-bg);color:var(--c-tree-active-text)}
+.search-results .sr-title{display:block;font-weight:600;font-size:14px}
+.search-results .sr-path{display:block;font-size:12px;color:var(--c-muted)}
+.search-results .sr-snippet{display:block;font-size:12.5px;color:var(--c-muted);margin-top:2px}
+.search-results .sr-empty{padding:10px;color:var(--c-muted);font-size:13px}
+
+/* ---------- pagina ---------- */
+.page{max-width:1440px;margin:0 auto;padding:24px 28px 56px}
+.hero{margin:0 0 20px}
+.hero-title{font-size:28px;font-weight:800;color:var(--c-heading);line-height:1.25;margin:4px 0 6px}
+.hero-sub{color:var(--c-muted);font-size:15px;margin:0}
+.hero-sub:empty{display:none}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.layout{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:var(--card-shadow)}
+.card-head{padding:13px 18px;border-bottom:1px solid var(--c-border);margin:0}
+
+/* ---------- pulsanti ---------- */
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:var(--radius-btn);text-decoration:none;cursor:pointer;border:1px solid var(--c-primary);flex:none;line-height:1.3}
+.btn-primary{background:var(--c-primary);color:var(--c-primary-text)}
+.btn-primary:hover{background:var(--c-primary-hover-bg);color:var(--c-primary-hover-text);border-color:var(--c-primary-hover-border)}
+.btn-primary:active{background:var(--c-primary-active);color:var(--c-primary-text);border-color:var(--c-primary-active)}
+.btn-outline{background:var(--c-surface);color:var(--c-text);border-color:var(--c-border-strong)}
+.btn-outline:hover{border-color:var(--c-primary);color:var(--c-link-hover)}
+.btn-icon{font-size:15px;line-height:1}
+
+/* ---------- albero ---------- */
+.sidebar{position:sticky;top:calc(var(--header-h,64px) + 16px);max-height:calc(100vh - var(--header-h,64px) - 32px);display:flex;flex-direction:column}
+.side-head{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-muted)}
+.tree-scroll{flex:1 1 auto;overflow-y:auto;padding:8px 8px 12px;overscroll-behavior:contain}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:14px}
+.tree-row{display:flex;align-items:center;gap:2px;min-width:0}
+.tree-toggle{flex:none;width:26px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:var(--radius-btn);color:var(--c-muted);cursor:pointer;padding:0;font:inherit}
+.tree-toggle:hover{background:var(--c-hover-bg)}
+.tree-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.tree-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:6px;background:transparent;border:0;padding:6px 8px 6px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--c-heading);cursor:pointer;text-align:left;border-radius:var(--radius-btn)}
+.tree-group::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid var(--c-muted);border-bottom:2px solid var(--c-muted);transform:rotate(-45deg);transition:transform .15s;margin:0 6px 0 5px}
+.tree-group[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group:hover{background:var(--c-hover-bg)}
+.tree-node-phase>.tree-row .tree-group{font-weight:600;color:var(--c-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tree-link{display:block;flex:1 1 auto;min-width:0;font-size:13px;color:var(--c-text);padding:6px 10px;border-radius:var(--radius-btn);border-left:3px solid transparent;text-decoration:none;overflow-wrap:anywhere;line-height:1.4}
+.tree-link:hover{background:var(--c-hover-bg);color:var(--c-text)}
+.tree-link[aria-current="page"]{background:var(--c-tree-active-bg);color:var(--c-tree-active-text);font-weight:600;border-left-color:var(--c-tree-active-border)}
+.tree-node-root>.tree-row .tree-link,.tree-node-project>.tree-row .tree-link{font-weight:700;color:var(--c-heading)}
+.tree-node-root>.tree-row .tree-link[aria-current="page"],.tree-node-project>.tree-row .tree-link[aria-current="page"]{color:var(--c-tree-active-text)}
+.tree>li>ul{padding-left:6px}
+
+/* ---------- documento ---------- */
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.doc-title{font-size:15px;font-weight:700;color:var(--c-heading);margin:0;min-width:0;overflow-wrap:anywhere}
+.breadcrumbs{padding:10px 22px 0;font-size:12.5px;color:var(--c-muted)}
+.breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.breadcrumbs li{display:inline-flex;align-items:center;gap:4px}
+.breadcrumbs li+li::before{content:"/";color:var(--c-border-strong);margin-right:2px}
+.breadcrumbs a{color:var(--c-muted)}
+.breadcrumbs a:hover{color:var(--c-link-hover)}
+.doc-info{padding:12px 22px 0;display:flex;flex-direction:column;gap:10px}
+.doc-info details{border:1px solid var(--c-border);border-radius:var(--radius-card);background:var(--c-subtle-bg)}
+.doc-info summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--c-heading)}
+.doc-info dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;padding:4px 14px 12px;font-size:13px}
+.doc-info dt{color:var(--c-muted)}
+.doc-info dd{margin:0;overflow-wrap:anywhere}
+.toc ol{margin:0;padding:4px 14px 12px 34px;font-size:13px}
+.toc ol ol{padding:2px 0 2px 18px}
+.toc li{margin:2px 0}
+.doc-body{padding:24px 36px 52px;overflow-wrap:break-word}
+
+/* ---------- avvisi e stati ---------- */
+.notice{border:1px solid var(--c-border);border-left:4px solid var(--c-notice-info);background:var(--c-subtle-bg);padding:10px 14px;margin:12px 0;font-size:13.5px;border-radius:var(--radius-card)}
+.notice-warning{border-left-color:var(--c-notice-warning)}
+.notice-update{border-left-color:var(--c-primary)}
+.doc-info .notice{margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;border:1px solid transparent;vertical-align:baseline}
+.badge-complete,.badge-present{background:var(--c-ok-bg);color:var(--c-ok-text);border-color:var(--c-ok-border)}
+.badge-partial,.badge-incomplete,.badge-misplaced{background:var(--c-warn-bg);color:var(--c-warn-text);border-color:var(--c-warn-border)}
+.badge-missing,.badge-absent{background:var(--c-subtle-bg);color:var(--c-muted);border-color:var(--c-border-strong)}
+.cov{font-weight:600;font-size:12.5px}
+.cov-present{color:var(--c-ok-text)}
+.cov-absent{color:var(--c-muted)}
+.cov-excluded{color:var(--c-warn-text)}
+.muted{color:var(--c-muted)}
+.lead{font-size:15px;color:var(--c-muted)}
+.link-disabled,.link-broken{color:var(--c-muted);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.link-broken::after{content:" \26A0";color:var(--c-notice-warning)}
+.asset-missing{display:block;border:1px dashed var(--c-border-strong);background:var(--c-subtle-bg);color:var(--c-muted);padding:18px;text-align:center;font-size:13px;margin:16px 0}
+.extra-evidence{margin-top:32px}
+
+/* ---------- contenuto ---------- */
+.doc-body h1,.doc-body h2,.doc-body h3,.doc-body h4,.doc-body h5,.doc-body h6{color:var(--c-heading);line-height:1.3;position:relative}
+.doc-body h1{font-size:27px;font-weight:800;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--c-border)}
+.doc-body h2{font-size:21px;font-weight:700;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--c-border-soft)}
+.doc-body h1+h2{margin-top:22px;padding-top:0;border-top:0}
+.doc-body h3{font-size:17px;font-weight:700;margin:24px 0 10px}
+.doc-body h4{font-size:15px;font-weight:700;margin:18px 0 8px}
+.doc-body p,.doc-body li{font-size:15px}
+.doc-body p{margin:10px 0}
+.doc-body a{color:var(--c-link);text-underline-offset:2px}
+.doc-body a:hover{color:var(--c-link-hover)}
+.header-anchor{margin-left:8px;font-weight:400;color:var(--c-muted);text-decoration:none;opacity:0;transition:opacity .15s}
+.doc-body h1:hover .header-anchor,.doc-body h2:hover .header-anchor,.doc-body h3:hover .header-anchor,.doc-body h4:hover .header-anchor,.header-anchor:focus{opacity:1}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0}
+.doc-body hr{border:0;border-top:1px solid var(--c-border);margin:26px 0}
+.doc-body ul,.doc-body ol{padding-left:26px;margin:10px 0}
+.doc-body li{margin:4px 0}
+.doc-body blockquote{margin:14px 0;padding:4px 0 4px 16px;border-left:4px solid var(--c-border-strong);color:var(--c-muted)}
+.doc-body img{max-width:100%;height:auto}
+.doc-body :not(pre)>code{background:var(--c-code-inline-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:var(--font-mono)}
+.table-wrap{max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--c-border);border-radius:var(--radius-card)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;margin:0}
+.doc-body th{background:var(--c-subtle-bg);font-weight:600;color:var(--c-heading);text-align:left}
+.doc-body th,.doc-body td{border-bottom:1px solid var(--c-border);padding:8px 12px;vertical-align:top}
+.doc-body th+th,.doc-body td+td{border-left:1px solid var(--c-border)}
+.doc-body tbody tr:last-child td{border-bottom:0}
+.doc-body tbody tr:nth-child(2n){background:var(--c-zebra)}
+
+/* figure e diagrammi */
+.doc-body figure{margin:22px 0;text-align:center}
+.doc-body figcaption{font-size:13px;color:var(--c-muted);margin-top:6px}
+.zoom-trigger{display:inline-block;max-width:100%;padding:0;margin:0;border:1px solid transparent;background:var(--c-surface);cursor:zoom-in;border-radius:var(--radius-card)}
+.zoom-trigger:hover{border-color:var(--c-primary)}
+.zoom-trigger img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-source{text-align:left;margin-top:8px;font-size:13px}
+.diagram-source summary{cursor:pointer;color:var(--c-muted);display:inline-block}
+.diagram-fallback{margin:16px 0}
+.diagram-fallback .notice{margin:0 0 8px}
+
+/* blocchi di codice */
+.code-block{border:1px solid var(--c-code-border);background:var(--c-code-bg);border-radius:var(--radius-code);margin:16px 0;text-align:left}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 6px 4px 14px;border-bottom:1px solid var(--c-code-border)}
+.code-lang{font-size:11px;color:var(--c-muted);text-transform:uppercase;letter-spacing:.05em}
+.code-copy{font:inherit;font-size:12px;padding:3px 10px;border:1px solid var(--c-border-strong);border-radius:var(--radius-btn);background:var(--c-surface);color:var(--c-text);cursor:pointer}
+.code-copy:hover{border-color:var(--c-primary)}
+.code-copy.copied{border-color:var(--c-ok-border);color:var(--c-ok-text)}
+.code-block pre,.doc-body pre{margin:0;padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6}
+.doc-body pre{background:var(--c-code-bg)}
+.code-block pre{background:transparent}
+.doc-body pre code{font-family:var(--font-mono);font-size:13px;background:transparent;padding:0;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* ASCII-art: font embedded con metriche fisse per allineamento a griglia. */
+.code-block.ascii-art pre code{font-family:'InlayMono',var(--font-mono)}
+.doc-body .shiki span{color:var(--shiki-light)}
+
+/* lightbox */
+.inlay-lightbox{position:fixed;inset:0;background:rgba(9,9,9,.92);z-index:999;display:flex;flex-direction:column}
+.inlay-lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:12px 18px;flex:0 0 auto}
+.inlay-lightbox-hint{color:#d4d4d4;font-size:12.5px;margin-right:auto}
+.inlay-lightbox-bar button{background:#1f1f1f;color:#f5f5f5;border:1px solid #6b6b6b;border-radius:var(--radius-btn);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.inlay-lightbox-bar button:hover{background:#333}
+.inlay-lightbox-bar button:focus-visible{outline:2px solid #fcfcfc;outline-offset:2px}
+.inlay-lightbox-stage{flex:1 1 auto;overflow:auto;padding:0 24px 24px;cursor:grab}
+.inlay-lightbox-stage.grabbing{cursor:grabbing}
+.inlay-lightbox-stage:focus-visible{outline:2px solid #fcfcfc;outline-offset:-4px}
+.inlay-lightbox-stage img{background:#fff;display:block;margin:0 auto;max-width:none;user-select:none;-webkit-user-drag:none}
+
+.site-footer{max-width:1440px;margin:0 auto;padding:0 28px 32px;color:var(--c-muted);font-size:12.5px}
+html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
+.export-note{margin:12px 22px 0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .search{flex-basis:200px;min-width:140px}
+}
+@media (max-width:840px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 14px}
+  .brand{flex:1 1 auto;max-width:none}
+  .js .nav-toggle{display:inline-flex}
+  .topnav{order:3;flex-basis:100%}
+  .search{order:4;flex:1 1 100%}
+  .js .topnav,.js .search{display:none}
+  .js.nav-open .topnav{display:flex}
+  .js.nav-open .search{display:block}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;max-height:none}
+  .js .sidebar{display:none}
+  .js.nav-open .sidebar{display:flex}
+  .page{padding:16px 12px 40px}
+  .hero-title{font-size:22px}
+  .doc-body{padding:18px 16px 36px}
+  .doc-head{flex-wrap:wrap}
+  .breadcrumbs,.doc-info{padding-left:16px;padding-right:16px}
+}
+@media print{
+  .topbar,.sidebar,.hero,.btn-primary,.code-copy,.site-footer,.breadcrumbs{display:none!important}
+  .layout{display:block}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Tema ENG (Engineering, eng.it). Valori osservati sul sito ufficiale il 2026-10-02
+   (review/eng-it-profile.json): header #090909/#FCFCFC, base #FCFCFC/#202020,
+   pulsante primario #C51B88 -> hover #FCFCFC/#090909 -> active #770F53, raggio 0,
+   famiglia CocoEng. Le altre scelte (layout, stati, contenuti tecnici) sono decisioni
+   di prodotto documentate in references/eng-brand.md. */
+:root{
+  --font:"CocoEng","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --line-height:1.7;
+  --c-bg:#FCFCFC;--c-surface:#FFFFFF;--c-subtle-bg:#F6F6F6;--c-zebra:#FAFAFA;--c-hover-bg:#F1F1F1;
+  --c-border:#DEDEDE;--c-border-soft:#EDEDED;--c-border-strong:#8F8F8F;
+  --c-text:#202020;--c-heading:#090909;--c-muted:#4D4D4D;
+  --c-header-bg:#090909;--c-header-text:#FCFCFC;--c-header-muted:#BDBDBD;--c-header-hover-bg:#262626;--c-header-input-bg:#171717;
+  --c-primary:#C51B88;--c-primary-text:#FCFCFC;
+  --c-primary-hover-bg:#FCFCFC;--c-primary-hover-text:#090909;--c-primary-hover-border:#090909;
+  --c-primary-active:#770F53;
+  --c-link:#B0177A;--c-link-hover:#770F53;
+  --c-tree-active-bg:#F4D1E8;--c-tree-active-text:#770F53;--c-tree-active-border:#C51B88;
+  --c-focus:#C51B88;--c-focus-dark:#FCFCFC;
+  --c-code-bg:#F6F6F6;--c-code-border:#DEDEDE;--c-code-inline-bg:#EFEFEF;
+  --c-notice-info:#4D4D4D;--c-notice-warning:#A15C00;
+  --c-ok-bg:#E7F4EA;--c-ok-text:#1D6631;--c-ok-border:#9CCDA9;
+  --c-warn-bg:#FFF3DF;--c-warn-text:#7A4300;--c-warn-border:#E9B86A;
+  --radius-btn:0;--radius-card:0;--radius-code:0;
+  --card-shadow:none;
+  --sidebar-w:300px;
+}
+.topbar{border-bottom:1px solid #262626}
+.brand-logo{height:28px}
+.hero-title{font-weight:700;letter-spacing:-.01em}
+.side-head{color:#090909}
+.btn-primary{text-transform:none;letter-spacing:.01em}
+.doc-body h1{font-weight:700}
+.doc-body h2{border-top-color:#DEDEDE}
+.tree-link[aria-current="page"]{border-left-width:4px}
+.badge{border-radius:0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="topbar" id="top">
+  <a class="brand" href="index.html"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2Zw0KICAgICAgICAgICAgd2lkdGg9IjE0OSINCiAgICAgICAgICAgIGhlaWdodD0iNDYiDQogICAgICAgICAgICB2aWV3Qm94PSIwIDAgMTQ5IDQ2Ig0KICAgICAgICAgICAgZmlsbD0ibm9uZSINCiAgICAgICAgICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgICAgICA+DQogICAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc3XzIxMDEpIj4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjMuMTg3NCAzNy4xMzY3VjM5Ljc4OTVIMi4zNTYyNEMxLjg3NTM4IDM4Ljk2ODkgMS40OTg3IDM4LjA3OTkgMS4xNTA4NyAzNy4xMzk5TDIzLjE4NzQgMzcuMTM2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgNDIuMzA4NlY0NC43MzM1QzIzLjE4NzQgNDQuODU3OCAyMy4wODY0IDQ0Ljk1OTcgMjIuOTU5OCA0NC45NTk3SDExLjQ0OTRDOS4xMzQ4NSA0NC45NTk3IDYuNTA2MTIgNDQuMTU4MyA0LjQzNTE5IDQyLjMwODZIMjMuMTg3NFoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTI1LjcwMzkgMC4yMjYxMjFWMTUuODYyMkMyNS43MDM5IDE1Ljk1NzggMjUuNjczNCAxNi4wNTAyIDI1LjYxNzMgMTYuMTI4MkwxNS45ODcyIDI5LjI2NjFDMTUuOTAyMiAyOS4zODI0IDE1Ljc2NDQgMjkuNDUyNSAxNS42MjAxIDI5LjQ1MjVIMC42MDU4OTRDMC40NTY4MjYgMjkuNDUyNSAwLjM0NDYyNCAyOS4zMTA3IDAuMzg2Mjk5IDI5LjE2NzNDMC43Mzg5MzQgMjcuOTE1IDEuMzIzOTkgMjYuNzU4MyAyLjA5MDE3IDI1Ljc0MzRMMTguNzk3MSAzLjc3OTA0QzIxLjE4MzggMC44Mzk1MTggMjQuMjUxNyAwLjE3NjczIDI1LjQ0NTggMC4wMDMwNjcyOEMyNS41ODIxIC0wLjAxNzY0NDggMjUuNzAzOSAwLjA4OTEwMjIgMjUuNzAzOSAwLjIyNjEyMVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgMzIuMTA1MlYzNC42MjA5SDAuMzQ0NjIxQzAuMzM4MjA5IDM0LjYwMDIgMC4wMjg4NTIgMzMuNzczMyAwIDMyLjIwMDdDMCAzMi4wNzMzIDAuMDk5Mzc5IDMxLjk2OTcgMC4yMjc2MSAzMS45Njk3SDIzLjA1MTFDMjMuMTI2NSAzMS45Njk3IDIzLjE4NzQgMzIuMDMwMyAyMy4xODc0IDMyLjEwNTJaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik01Mi45NDQ5IDM3LjEzOTlDNTIuNTk3MSAzOC4wNzk5IDUyLjIyMDQgMzguOTY4OSA1MS43Mzk2IDM5Ljc4OTVIMzAuOTA4NVYzNy4xMzY3TDUyLjk0NDkgMzcuMTM5OVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTMwLjkwODUgNDIuMzA4NlY0NC43MzM1QzMwLjkwODUgNDQuODU3OCAzMS4wMDk0IDQ0Ljk1OTcgMzEuMTM2MSA0NC45NTk3SDQyLjY0NjRDNDQuOTYxIDQ0Ljk1OTcgNDcuNTg5NyA0NC4xNTgzIDQ5LjY2MDYgNDIuMzA4NkgzMC45MDg1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjguMzkxOSAwLjIyNjQ4MVYxNS44NjI1QzI4LjM5MTkgMTUuOTU4MSAyOC40MjI0IDE2LjA1MDUgMjguNDc4NSAxNi4xMjg2TDM4LjEwODYgMjkuMjY2NUMzOC4xOTM2IDI5LjM4MjggMzguMzMxNCAyOS40NTI5IDM4LjQ3NTcgMjkuNDUyOUg1My40ODk5QzUzLjYzOSAyOS40NTI5IDUzLjc1MTIgMjkuMzExMSA1My43MDk1IDI5LjE2NzdDNTMuMzU2OSAyNy45MTU0IDUyLjc3MTggMjYuNzU4NyA1Mi4wMDU3IDI1Ljc0MzhMMzUuMjk3MiAzLjc4MUMzMi45MTA1IDAuODQxNDcxIDI5Ljg0MjUgMC4xNzg2ODMgMjguNjQ4NCAwLjAwNTAyMDQxQzI4LjUxMjEgLTAuMDE1NjkxNyAyOC4zOTAzIDAuMDkxMDU1MyAyOC4zOTAzIDAuMjI4MDc0SDI4LjM5MTlWMC4yMjY0ODFaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik0zMC45MDg1IDMyLjE5NlYzNC42MjA5SDUzLjc1MTJDNTMuNzU3NiAzNC42MDAyIDU0LjA2NyAzMy43NzMzIDU0LjA5NTggMzIuMjAwN0M1NC4wOTc0IDMyLjA3MzMgNTMuOTk2NCAzMS45Njk3IDUzLjg2ODIgMzEuOTY5N0gzMS4xMzYxQzMxLjAxMSAzMS45Njk3IDMwLjkwODUgMzIuMDcwMSAzMC45MDg1IDMyLjE5NloiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTY5LjUyMzYgMzYuMDM0M0M2Ny41MDQgMzQuODM5NCA2NS45NDEyIDMzLjIzMDIgNjQuODM1MiAzMS4yMDY4QzYzLjcyOTIgMjkuMTgzNCA2My4xNzYyIDI2Ljk2MDggNjMuMTc2MiAyNC41MzkxQzYzLjE3NjIgMjIuMTE3NCA2My43MTMxIDE5Ljg0NyA2NC43ODcxIDE3LjgyMzZDNjUuODYxIDE1LjgwMDIgNjcuMzY3NyAxNC4xOTkgNjkuMzA3MiAxMy4wMkM3MS4yNDY3IDExLjg0MSA3My40ODI3IDExLjI1MTUgNzYuMDE1MyAxMS4yNTE1Qzc4LjU0NzkgMTEuMjUxNSA4MC44OTYxIDExLjgwOTEgODIuNzcxNSAxMi45MjQ0Qzg0LjY0NjggMTQuMDM5NiA4Ni4wNzM0IDE1LjU4NTEgODcuMDUxMiAxNy41NjA3Qzg4LjAyODkgMTkuNTM2MyA4OC41MTc4IDIxLjc5ODcgODguNTE3OCAyNC4zNDc5Qzg4LjUxNzggMjUuMjQwMSA4OC40NTM3IDI2LjExNjQgODguMzI1NSAyNi45NzY3SDcxLjAxNDNDNzEuNDMxIDI4LjMxNTEgNzIuMTM2MyAyOS4zNDI3IDczLjEzMDEgMzAuMDU5N0M3NC4xMjM5IDMwLjc3NjYgNzUuMzQyMSAzMS4xMzUxIDc2Ljc4NDcgMzEuMTM1MUM3Ny45NzA4IDMxLjEzNTEgNzkuMDEyNyAzMC45OTE3IDc5LjkxMDMgMzAuNzA0OUM4MC44MDc5IDMwLjQxODEgODEuNzIxNiAyOS45MjQyIDgyLjY1MTMgMjkuMjIzMkw4Ni40NTAxIDM0LjI0MTlDODUuMDA3NSAzNS40ODQ2IDgzLjQ5MjggMzYuMzkyOCA4MS45MDU5IDM2Ljk2NjNDODAuMzE5IDM3LjUzOTkgNzguNDk5OCAzNy44MjY3IDc2LjQ0ODEgMzcuODI2N0M3My44NTE0IDM3LjgyNjcgNzEuNTQzMiAzNy4yMjkyIDY5LjUyMzYgMzYuMDM0M1pNODEuMjU2NyAyMS44MTQ2QzgwLjkzNjIgMjAuNDQ0NSA4MC4zMzUxIDE5LjQwODggNzkuNDUzNSAxOC43MDc4Qzc4LjU3MTkgMTguMDA2OCA3Ny40NzM5IDE3LjY1NjMgNzYuMTU5NiAxNy42NTYzQzc0Ljg0NTIgMTcuNjU2MyA3My42OTkxIDE4LjAxNDggNzIuODE3NSAxOC43MzE3QzcxLjkzNiAxOS40NDg3IDcxLjMxODggMjAuNDc2MyA3MC45NjYyIDIxLjgxNDZIODEuMjU2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTkyLjc5NzUgMTEuNzc3Mkg5Ny42MDYyTDk5Ljc3MDEgMTQuNjkyOEMxMDIuMDE0IDEyLjM2NjcgMTA0Ljg1MSAxMS4yMDM2IDEwOC4yODEgMTEuMjAzNkMxMTEuMzU5IDExLjIwMzYgMTEzLjgxOSAxMi4xOTE0IDExNS42NjMgMTQuMTY3QzExNy41MDYgMTYuMTQyNyAxMTguNDI4IDE4Ljg1MTIgMTE4LjQyOCAyMi4yOTI2VjM3LjEwOTdIMTEwLjQ0NVYyMy42Nzg3QzExMC40NDUgMjIuMDIxNyAxMTAuMDQ1IDIwLjczOTIgMTA5LjI0MyAxOS44MzFDMTA4LjQ0MiAxOC45MjI5IDEwNy4zNTIgMTguNDY4OCAxMDUuOTczIDE4LjQ2ODhDMTA0LjQ5OSAxOC40Njg4IDEwMy4yNjQgMTguOTU0NyAxMDIuMjcxIDE5LjkyNjZDMTAxLjI3NyAyMC44OTg1IDEwMC43OCAyMi4wMzc2IDEwMC43OCAyMy4zNDQxVjM3LjEwOTdIOTIuNzk3NVYxMS43NzcyWiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMTQxLjQxMyAxNC41MDE2TDE0My40ODEgMTEuNzc3MkgxNDguMjg5VjMzLjE0MjVDMTQ4LjI4OSAzNS41MzI0IDE0Ny43MzYgMzcuNzA3MSAxNDYuNjMgMzkuNjY2OEMxNDUuNTI0IDQxLjYyNjUgMTQzLjkwNiA0My4xNzIgMTQxLjc3NCA0NC4zMDMyQzEzOS42NDIgNDUuNDM0NCAxMzcuMTAxIDQ2IDEzNC4xNTIgNDZDMTMwLjA4MSA0NiAxMjYuNDkgNDQuODA1IDEyMy4zODEgNDIuNDE1MkwxMjcuNTE2IDM2LjkxODVDMTI4LjU3NCAzNy43Nzg4IDEyOS42MTYgMzguMzg0MyAxMzAuNjQyIDM4LjczNDhDMTMxLjY2OCAzOS4wODUzIDEzMi43OSAzOS4yNjA2IDEzNC4wMDggMzkuMjYwNkMxMzYuMjIgMzkuMjYwNiAxMzcuODQ3IDM4Ljc1MDcgMTM4Ljg4OSAzNy43MzFDMTM5LjkzIDM2LjcxMTQgMTQwLjQ1MSAzNS4xOTc4IDE0MC40NTEgMzMuMTkwM0MxMzguNTYgMzQuNzUxNyAxMzYuMyAzNS41MzI0IDEzMy42NzEgMzUuNTMyNEMxMzEuNDI3IDM1LjUzMjQgMTI5LjQxNSAzNS4wMDY2IDEyNy42MzYgMzMuOTU1MUMxMjUuODU3IDMyLjkwMzUgMTI0LjQ2MyAzMS40NjE2IDEyMy40NTMgMjkuNjI5NEMxMjIuNDQzIDI3Ljc5NzIgMTIxLjkzOCAyNS43MTggMTIxLjkzOCAyMy4zOTE5QzEyMS45MzggMjEuMDY1OCAxMjIuNDQzIDE5LjAxODUgMTIzLjQ1MyAxNy4xNTQ0QzEyNC40NjMgMTUuMjkwMyAxMjUuODU3IDEzLjgzMjUgMTI3LjYzNiAxMi43ODA5QzEyOS40MTUgMTEuNzI5NCAxMzEuNDI3IDExLjIwMzYgMTMzLjY3MSAxMS4yMDM2QzEzNi43MTcgMTEuMjAzNiAxMzkuMjk3IDEyLjMwMjkgMTQxLjQxMyAxNC41MDE2Wk0xMzEuMzg3IDE5LjcxMTVDMTMwLjM3NyAyMC42OTkzIDEyOS44NzIgMjEuOTU4IDEyOS44NzIgMjMuNDg3NUMxMjkuODcyIDI1LjAxNyAxMzAuMzc3IDI2LjM3MTMgMTMxLjM4NyAyNy4zNTkxQzEzMi4zOTcgMjguMzQ2OSAxMzMuNzAzIDI4Ljg0MDggMTM1LjMwNiAyOC44NDA4QzEzNi45MDkgMjguODQwOCAxMzguMjE1IDI4LjM0NjkgMTM5LjIyNSAyNy4zNTkxQzE0MC4yMzUgMjYuMzcxMyAxNDAuNzQgMjUuMDk2NyAxNDAuNzQgMjMuNTM1M0MxNDAuNzQgMjEuOTczOSAxNDAuMjM1IDIwLjczOTIgMTM5LjIyNSAxOS43MzU0QzEzOC4yMTUgMTguNzMxNyAxMzYuOTA5IDE4LjIyOTggMTM1LjMwNiAxOC4yMjk4QzEzMy43MDMgMTguMjI5OCAxMzIuMzk3IDE4LjcyMzcgMTMxLjM4NyAxOS43MTE1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDxkZWZzPg0KICAgICAgICAgICAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3N18yMTAxIj4NCiAgICAgICAgICAgICAgICA8cmVjdCB3aWR0aD0iMTQ4LjI4OSIgaGVpZ2h0PSI0NiIgZmlsbD0id2hpdGUiIC8+DQogICAgICAgICAgICAgIDwvY2xpcFBhdGg+DQogICAgICAgICAgICA8L2RlZnM+DQogICAgICAgICAgPC9zdmc+" alt="Engineering" width="149" height="46"><span class="brand-text"><span class="brand-title">LOSS_PREVENTION · IMPACT how (FULL)</span><span class="brand-sub">Documentazione IMPACT how (FULL) · baseline fc7d820 (main) · portale offline</span></span></a>
+  <button type="button" class="nav-toggle" aria-controls="inlay-nav inlay-sidebar" aria-expanded="false" hidden><span class="nav-toggle-icon" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span></button>
+  <nav class="topnav" id="inlay-nav" aria-label="Navigazione principale"><a class="nav-item" href="index.html">Panoramica</a><a class="nav-item" href="index-doc.html">Indice IMPACT</a><a class="nav-item" href="00_deep_dive.html">Deep Dive</a><a class="nav-item" href="06_software_architecture.html">Architettura</a><a class="nav-item" href="14_metrics.html">Metriche</a></nav>
+  <div class="search" role="search" hidden>
+    <label class="visually-hidden" for="inlay-search">Cerca nella documentazione</label>
+    <input id="inlay-search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inlay-search-results" placeholder="Cerca nella documentazione" autocomplete="off" spellcheck="false">
+    <ul id="inlay-search-results" class="search-results" role="listbox" aria-label="Cerca nella documentazione" hidden></ul>
+  </div>
+</header>
+<div class="page">
+  <div class="hero">
+    <p class="hero-title">LOSS_PREVENTION — Documentazione IMPACT how (FULL)</p>
+    <p class="hero-sub">.NET 8 FastEndpoints + MongoDB · Vue 3 + Vite + Vuetify SPA · Data Ingestion Service — baseline fc7d820, revisione 1.1 (2026-10-08)</p>
+    <ul class="quicklinks"><li><a class="btn-primary" href="index-doc.html">Indice e valori canonici</a></li><li><a class="btn-outline" href="15_fp_cocomo.html">FP &amp; COCOMO II</a></li><li><a class="btn-outline" href="18_antipattern_deep_dive.html">Antipattern</a></li><li><a class="btn-outline" href="19_modernization_estimation_spec.html">Stima modernizzazione</a></li></ul>
+  </div>
+  <div class="layout">
+    <aside class="card sidebar" id="inlay-sidebar">
+      <p class="card-head side-head" id="inlay-tree-label">Struttura documenti</p>
+      <nav class="tree-scroll" id="inlay-tree" aria-labelledby="inlay-tree-label"><ul class="tree"><li class="tree-node tree-node-root"><div class="tree-row"><button type="button" class="tree-toggle" aria-expanded="true" aria-controls="inlay-t1" aria-label="LOSS_PREVENTION"></button><a class="tree-link" href="index.html">LOSS_PREVENTION</a></div><ul id="inlay-t1"><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t2">Architettura (HOW)</button></div><ul id="inlay-t2"><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t3">Foundation</button></div><ul id="inlay-t3"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="00_deep_dive.html">00 · Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="01_context.html">01 · Context Definition</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t6">Requirements</button></div><ul id="inlay-t6"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="02_functional_overview.html">02 · Functional Overview</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="03_non_functional_overview.html">03 · Non-Functional Requirements</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="04_constraints.html">04 · Constraints</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t10">Architecture</button></div><ul id="inlay-t10"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="05_principles.html">05 · Architectural Principles</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="06_software_architecture.html">06 · Software Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="07_code.html">07 · Code Implementation Details</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="08_data.html">08 · Data Architecture</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t15">Infrastructure &amp; Operations</button></div><ul id="inlay-t15"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="10_deployment.html">10 · Deployment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="11_development_environment.html">11 · Development Environment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="12_operation_and_support.html">12 · Operation and Support</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t20">Decisions &amp; Metrics</button></div><ul id="inlay-t20"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="13_decision_log.html">13 · Decision Log</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="14_metrics.html">14 · Metrics</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="15_fp_cocomo.html">15 · FP &amp; COCOMO II</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t24">Deep Assessments</button></div><ul id="inlay-t24"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="18_antipattern_deep_dive.html">18 · Antipattern Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="19_modernization_estimation_spec.html" aria-current="page">19 · Modernization Estimation Spec</a></div></li></ul></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></div></li></ul></li></ul></li></ul></nav>
+    </aside>
+    <main class="card docpane" id="main" tabindex="-1">
+      <div class="card-head doc-head"><p class="doc-title">Modernization Estimation - Progetto LOSS_PREVENTION</p><a class="btn-primary btn-export" href="19_modernization_estimation_spec.html" download="19_modernization_estimation_spec.html" data-export="">Scarica</a></div>
+      <nav class="breadcrumbs" aria-label="Percorso"><ol><li><a href="index.html">LOSS_PREVENTION</a></li><li><span>Architettura (HOW)</span></li><li><span>Deep Assessments</span></li><li><span aria-current="page">19 · Modernization Estimation Spec</span></li></ol></nav>
+      <div class="doc-info"><details class="provenance"><summary>Provenienza del documento <span class="badge badge-present">metadati presenti</span></summary><dl><dt>Sorgente</dt><dd><code>19_modernization_estimation_spec.md</code></dd><dt>SHA-256 sorgente</dt><dd><code>0cf2ae85d8772ea41f68339604710e20faa2db00a9e74e711755ce902f0f16dc</code></dd><dt>Modalità</dt><dd>how</dd><dt>Step</dt><dd>19_modernization_estimation_spec</dd><dt>Commit</dt><dd><code>fc7d820908b8b230fb47a2669920ba7efdb413a8</code></dd><dt>Branch</dt><dd>main</dd><dt>Worktree</dt><dd>dirty</dd><dt>Data baseline</dt><dd>2026-10-07T18:19:51+02:00</dd><dt>Generato il</dt><dd>2026-10-08T09:32:07+02:00</dd></dl></details><details class="toc" id="inlay-toc"><summary>In questa pagina</summary><ol><li><a href="#indice">Indice</a></li><li><a href="#1-module-1--the-scanner-as-is">1. Module 1 — The Scanner (AS-IS)</a></li><li><a href="#2-module-2--the-wizard-ipotesi">2. Module 2 — The Wizard (ipotesi)</a></li><li><a href="#3-module-3--the-engine">3. Module 3 — The Engine</a></li><li><a href="#4-module-4--the-strategist">4. Module 4 — The Strategist</a><ol><li><a href="#41-card-di-confronto">4.1 Card di confronto</a></li><li><a href="#42-strangler-fig-generator-budget-6-mesi-scenario-b">4.2 Strangler Fig Generator (budget 6 mesi, Scenario B)</a></li></ol></li><li><a href="#5-scenario-c--piano-di-remediation">5. Scenario C — piano di remediation</a></li><li><a href="#6-integrazione-dependency-graph">6. Integrazione Dependency Graph</a></li><li><a href="#7-effort-di-completamento-funzionalit%C3%A0-in-sviluppo-e-pianificate">7. Effort di completamento funzionalità in sviluppo e pianificate</a><ol><li><a href="#71-gap-da-colmare-perch%C3%A9-le-funzionalit%C3%A0-dichiarate-siano-realmente-utilizzabili">7.1 Gap da colmare perché le funzionalità dichiarate siano realmente utilizzabili</a></li><li><a href="#72-funzionalit%C3%A0-in-development-fonte-storica-01_executive_overviewmd--593f6de">7.2 Funzionalità &quot;In Development&quot; (fonte storica: 01_EXECUTIVE_OVERVIEW.md @ 593f6de)</a></li><li><a href="#73-funzionalit%C3%A0-planned-fonte-storica-01_executive_overviewmd--593f6de">7.3 Funzionalità &quot;Planned&quot; (fonte storica: 01_EXECUTIVE_OVERVIEW.md @ 593f6de)</a></li><li><a href="#74-totali">7.4 Totali</a></li><li><a href="#75-ulteriori-voci-di-roadmaptxt-storico-593f6de-non-incluse-nei-totali">7.5 Ulteriori voci di roadmap.txt (storico, 593f6de) non incluse nei totali</a></li><li><a href="#76-assunzioni-e-limiti">7.6 Assunzioni e limiti</a></li></ol></li><li><a href="#reference-documents">Reference Documents</a></li><li><a href="#change-log">Change Log</a></li></ol></details></div>
+      <article class="doc-body" id="doc-body"><!-- IMPACT-META
+schema: 1
+mode: how
+step: 19_modernization_estimation_spec
+commit: fc7d820908b8b230fb47a2669920ba7efdb413a8
+commit_short: fc7d820
+branch: main
+worktree: dirty
+baseline_date: 2026-10-07T18:19:51+02:00
+generated_at: 2026-10-08T09:32:07+02:00
+--><h1 id="modernization-estimation---progetto-loss_prevention"><span id="modernization-estimation-progetto-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="modernization-estimation-progetto-loss-prevention" class="anchor-alias" aria-hidden="true"></span>Modernization Estimation - Progetto LOSS_PREVENTION<a class="header-anchor" href="#modernization-estimation---progetto-loss_prevention" aria-label="Collegamento alla sezione: Modernization Estimation - Progetto LOSS_PREVENTION">#</a></h1>
+<blockquote>
+<p><strong>Baseline commit:</strong> <code>fc7d820</code> (<code>main</code>) · worktree <code>dirty</code> (modifiche locali solo in <code>Docs/</code> e <code>.github/</code>; codice applicativo identico al commit)</p>
+</blockquote>
+<p><strong>Data</strong>: 2026-10-08<br>
+<strong>Versione</strong>: 1.1<br>
+<strong>Autori</strong>: REVERSE how (IMPACT) · verifica IMPACT 2026-10-08<br>
+<strong>Audience</strong>: committente, PM, procurement, architetti</p>
+<blockquote>
+<p>Il documento applica i quattro moduli della specifica <em>Modernization Estimation Engine</em> (Scanner → Wizard → Engine → Strategist) a LOSS_PREVENTION. Il Wizard richiede risposte del committente: in loro assenza sono state adottate <strong>ipotesi esplicite</strong> (§2), sostituibili; tutti i numeri sono ricalcolabili con le formule di §3. Baseline dimensionale <strong>identica</strong> a <a href="14_metrics.html">14_metrics.md</a> §1.5 e <a href="15_fp_cocomo.html">15_fp_cocomo.md</a>: <strong>19.774 SLOC logiche</strong>, <strong>FP_AsIs 401,5</strong> (backfiring), <strong>UFP 435</strong> (conteggio IFPUG). Convenzioni economiche (parametriche): 1 PM = 20 gg = 160 h; tariffa blended <strong>400 €/gg</strong> (8.000 €/PM). Arrotondamenti: half-up.</p>
+</blockquote>
+<hr>
+<h2 id="indice">Indice<a class="header-anchor" href="#indice" aria-label="Collegamento alla sezione: Indice">#</a></h2>
+<ol>
+<li><a href="#1-module-1--the-scanner-as-is">Module 1 — The Scanner (AS-IS)</a></li>
+<li><a href="#2-module-2--the-wizard-ipotesi">Module 2 — The Wizard (ipotesi)</a></li>
+<li><a href="#3-module-3--the-engine">Module 3 — The Engine</a></li>
+<li><a href="#4-module-4--the-strategist">Module 4 — The Strategist</a></li>
+<li><a href="#5-scenario-c--piano-di-remediation">Scenario C — piano di remediation</a></li>
+<li><a href="#6-integrazione-dependency-graph">Integrazione Dependency Graph</a></li>
+<li><a href="#7-effort-di-completamento-funzionalità-in-sviluppo-e-pianificate">Effort di completamento funzionalità in sviluppo e pianificate</a></li>
+</ol>
+<hr>
+<h2 id="1-module-1--the-scanner-as-is"><span id="1-module-1-the-scanner-as-is" class="anchor-alias" aria-hidden="true"></span><span id="_1-module-1-—-the-scanner-as-is" class="anchor-alias" aria-hidden="true"></span>1. Module 1 — The Scanner (AS-IS)<a class="header-anchor" href="#1-module-1--the-scanner-as-is" aria-label="Collegamento alla sezione: 1. Module 1 — The Scanner (AS-IS)">#</a></h2>
+<p>Lo Scanner converte le SLOC logiche del commit <code>fc7d820</code> in Function Point tramite backfiring: risultato <strong>FP_AsIs = 401,5</strong>.</p>
+<p><strong>Ingestione e noise reduction</strong> (cloc 2.10 su <code>git archive fc7d820</code>, comandi in <a href="14_metrics.html">14_metrics.md</a> §0):
+- cartelle escluse: <code>node_modules</code>, <code>bin</code>, <code>obj</code>, <code>.git</code> (non versionate), <code>.vite</code> (cache generata), <code>Docs/</code> (Markdown), dump BSON <code>Data/LossPrevention</code> (binario);
+- file esclusi: <code>package-lock.json</code> e tutti i JSON/MSBuild/<code>.sln</code> (configurazione), nessun <code>*.min.js</code> presente (nessuna libreria copiata nel sorgente, vedi 14 §1.2);
+- codice generato: nessun header <code>Generated by…</code> nel sorgente; <code>DapperRepository.cs</code> è interamente commentato → 0 SLOC logiche;
+- per i <code>.vue</code> si contano solo i blocchi <code>&lt;script&gt;</code> (template e style trattati come HTML/CSS = ignorati, come da tabella di backfiring).</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 1"><table>
+<thead>
+<tr>
+<th>Linguaggio</th>
+<th>Logical SLOC</th>
+<th>LOC/FP</th>
+<th>FP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C#</td>
+<td>10.143</td>
+<td>54</td>
+<td>187,83</td>
+</tr>
+<tr>
+<td>TypeScript (<code>.ts</code>)</td>
+<td>3.868</td>
+<td>45</td>
+<td>85,96</td>
+</tr>
+<tr>
+<td>Vue <code>&lt;script lang="ts"&gt;</code></td>
+<td>5.395</td>
+<td>45</td>
+<td>119,89</td>
+</tr>
+<tr>
+<td>JavaScript (script Mongo + <code>vite.config.js</code>)</td>
+<td>368</td>
+<td>47</td>
+<td>7,83</td>
+</tr>
+<tr>
+<td>Template/style Vue + CSS + HTML</td>
+<td>5.487</td>
+<td>ignorato</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>FP_AsIs</strong></td>
+<td><strong>19.774</strong></td>
+<td>49,25 (medio effettivo)</td>
+<td><strong>401,51 ≈ 401,5</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>$$FP_{AsIs} = \frac{10143}{54} + \frac{3868}{45} + \frac{5395}{45} + \frac{368}{47} = 401{,}51$$</p>
+<p>Controllo incrociato: il conteggio IFPUG diretto (<a href="15_fp_cocomo.html">15_fp_cocomo.md</a> §1) dà <strong>435 UFP</strong> (+8,3%); il backfiring resta l'input formale del motore, l'UFP è usato per la ripartizione per modulo (§4.2).</p>
+<hr>
+<h2 id="2-module-2--the-wizard-ipotesi"><span id="2-module-2-the-wizard-ipotesi" class="anchor-alias" aria-hidden="true"></span><span id="_2-module-2-—-the-wizard-ipotesi" class="anchor-alias" aria-hidden="true"></span>2. Module 2 — The Wizard (ipotesi)<a class="header-anchor" href="#2-module-2--the-wizard-ipotesi" aria-label="Collegamento alla sezione: 2. Module 2 — The Wizard (ipotesi)">#</a></h2>
+<p>Le risposte sono ipotesi dell'analista motivate da evidenze nel codice; il committente può sostituirle e ricalcolare.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 2"><table>
+<thead>
+<tr>
+<th>Q</th>
+<th>Domanda</th>
+<th>Risposta ipotizzata</th>
+<th>Valore</th>
+<th>Motivazione (evidenza)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1</td>
+<td>Salute del codice</td>
+<td>B – funzionante ma difficile da modificare</td>
+<td>1,15</td>
+<td>0 test, 2 file &gt; 1.900 righe (<code>resultsGrid.vue</code>, <code>aiStore.ts</code>), duplicazione soglie 648 NLOC; CCN medio basso (2,5 BE / 3,1 FE) — 14 §3, §6</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td>Scalabilità</td>
+<td>B – picchi prevedibili</td>
+<td>1,10</td>
+<td>Ingestione batch schedulata (<code>DataIngestionBackgroundService</code>, tick 1 min), crescita per numero negozi</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>Astrazione infrastrutturale</td>
+<td>B – Container</td>
+<td>1,15</td>
+<td>Nessun Dockerfile oggi; container è il passo minimo per CI/CD (G10)</td>
+</tr>
+<tr>
+<td>Q4</td>
+<td>Conoscenza dominio</td>
+<td>C – team nuovo / fornitore esterno</td>
+<td>1,30</td>
+<td>Contesto di acquisizione/valutazione; nessun team originale disponibile</td>
+</tr>
+<tr>
+<td>Q5</td>
+<td>Conoscenza tecnologia target</td>
+<td>A – esperti</td>
+<td>0,90</td>
+<td>Stack mainstream .NET 8 / Vue 3 / MongoDB</td>
+</tr>
+<tr>
+<td>Q6</td>
+<td>DevOps maturity</td>
+<td>C – tutto manuale</td>
+<td>1,20</td>
+<td>Nessuna CI/CD, nessun test, nessun ambiente di test (14 §7)</td>
+</tr>
+<tr>
+<td>Q7</td>
+<td>RELY</td>
+<td>B – nominale</td>
+<td>1,00</td>
+<td>Perdita economica recuperabile</td>
+</tr>
+<tr>
+<td>Q8</td>
+<td>CPLX</td>
+<td>B nominale (Scen. A) / C molto alta (Scen. B)</td>
+<td>1,00 / 1,34</td>
+<td>Re-architecting a servizi introduce calcolo distribuito</td>
+</tr>
+<tr>
+<td>Q9</td>
+<td>TEAM</td>
+<td>B – team appena formato</td>
+<td>Addendo E +0,05</td>
+<td>Coerente con Q4</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Target_Complexity_Factor</strong> (media Q1–Q3) = (1,15 + 1,10 + 1,15) / 3 = <strong>1,133</strong> &gt; 1,10 → la regola della specifica suggerisce <em>Re-architecting</em>. <strong>Valutazione dell'analista</strong>: lo stack è già moderno (.NET 8, Vue 3, MongoDB) e il monolite è stratificato senza cicli (14 §5.1): né re-platform né re-architect sono giustificati come obiettivo primario. Lo scenario raccomandato è <strong>C – Remediation &amp; Completion</strong> (§4, §5, §7); A e B sono riportati come benchmark.</p>
+<hr>
+<h2 id="3-module-3--the-engine"><span id="3-module-3-the-engine" class="anchor-alias" aria-hidden="true"></span><span id="_3-module-3-—-the-engine" class="anchor-alias" aria-hidden="true"></span>3. Module 3 — The Engine<a class="header-anchor" href="#3-module-3--the-engine" aria-label="Collegamento alla sezione: 3. Module 3 — The Engine">#</a></h2>
+<p>Il motore applica le formule 3.1–3.3 della specifica; i risultati sono ricalcolati in Python con i valori esatti e arrotondati solo in tabella.</p>
+<p><strong>Parametri comuni</strong>
+- PDR base 14 h/FP; <code>Team_PDR_Multiplier</code> = Q4 × Q5 × Q6.
+- <strong>Fattore_Linguaggio_Target</strong> = 49,25 LOC/FP: stack target invariato (.NET/Vue), si usa il fattore medio effettivo AS-IS (19.774 / 401,51).
+- <strong>Esponente E</strong>: 0,91 + 0,01 × (PREC 3,72 + FLEX 3,04 + RESL 4,24 + PMAT 4,68 = 15,68) <strong>+ 0,05</strong> (Q9, addendo diretto su E che sostituisce lo scale factor TEAM) = <strong>1,1168</strong>. <em>(Versione 1.0: E = 1,0997 con l'addendo TEAM ridotto a +0,0005 — errato: la specifica definisce Q9 come "Addendo E".)</em>
+- Esponente durata F = 0,28 + 0,2 × (E − 0,91) = <strong>0,32136</strong>.
+- Formule: $FP_{T} = FP_{AsIs} \times TCF$; $Effort_{h} = FP_{T} \times PDR_{Final}$; $KSLOC = FP_{T} \times 49{,}25 / 1000$; $PM = 2{,}94 \times KSLOC^{E} \times EM$; $TDEV = 3{,}67 \times PM^{F}$.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 3"><table>
+<thead>
+<tr>
+<th>Grandezza</th>
+<th>Scenario A — Re-platforming</th>
+<th>Scenario B — Re-architecting</th>
+<th>Wizard puro (TCF 1,133)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCF</td>
+<td>1,05 (specifica)</td>
+<td>1,25 (specifica)</td>
+<td>1,133</td>
+</tr>
+<tr>
+<td>FP_Target</td>
+<td>401,5 × 1,05 = <strong>421,6</strong></td>
+<td>401,5 × 1,25 = <strong>501,9</strong></td>
+<td><strong>454,9</strong></td>
+</tr>
+<tr>
+<td>PDR_Final</td>
+<td>14 × 1,3 × 0,9 × <strong>0,85</strong> = <strong>13,92 h/FP</strong> (Q6 → A: CI/CD introdotta come prima attività)</td>
+<td>14 × 1,3 × 0,9 × 1,2 = <strong>19,66 h/FP</strong></td>
+<td>19,66 h/FP</td>
+</tr>
+<tr>
+<td>Effort lineare</td>
+<td>5.870 h = <strong>733,7 gg = 36,7 PM</strong></td>
+<td>9.865 h = <strong>1.233,1 gg = 61,7 PM</strong></td>
+<td>8.942 h = 1.117,7 gg = 55,9 PM</td>
+</tr>
+<tr>
+<td>Costo lineare</td>
+<td><strong>293,5 k€</strong></td>
+<td><strong>493,3 k€</strong></td>
+<td>447,1 k€</td>
+</tr>
+<tr>
+<td>KSLOC_equiv</td>
+<td>20,76</td>
+<td>24,72</td>
+<td>22,40</td>
+</tr>
+<tr>
+<td>EM_Total (RELY × CPLX)</td>
+<td>1,00 × 1,00 = 1,00</td>
+<td>1,00 × 1,34 = 1,34</td>
+<td>1,00</td>
+</tr>
+<tr>
+<td>COCOMO PM</td>
+<td><strong>87,0 PM</strong></td>
+<td><strong>141,6 PM</strong></td>
+<td>94,7 PM</td>
+</tr>
+<tr>
+<td>TDEV</td>
+<td><strong>15,4 mesi</strong></td>
+<td><strong>18,0 mesi</strong></td>
+<td>15,8 mesi</td>
+</tr>
+<tr>
+<td>Staff medio (PM/TDEV)</td>
+<td>5,6 FTE</td>
+<td>7,9 FTE</td>
+<td>6,0 FTE</td>
+</tr>
+<tr>
+<td>Costo COCOMO</td>
+<td><strong>696,0 k€</strong></td>
+<td><strong>1.133,1 k€</strong></td>
+<td>757,7 k€</td>
+</tr>
+<tr>
+<td><strong>Forchetta costo (PDR – COCOMO)</strong></td>
+<td><strong>0,29 – 0,70 M€</strong></td>
+<td><strong>0,49 – 1,13 M€</strong></td>
+<td>0,45 – 0,76 M€</td>
+</tr>
+</tbody>
+</table></div>
+<p>Lettura: il metodo PDR misura lo sforzo di sviluppo "netto" per FP, COCOMO II include diseconomia di scala, gestione e integrazione; la forchetta esprime l'incertezza. Le assunzioni sono: requisiti stabili, stack target invariato, team di 3–8 persone, nessuna migrazione dati complessa (MongoDB resta MongoDB).</p>
+<hr>
+<h2 id="4-module-4--the-strategist"><span id="4-module-4-the-strategist" class="anchor-alias" aria-hidden="true"></span><span id="_4-module-4-—-the-strategist" class="anchor-alias" aria-hidden="true"></span>4. Module 4 — The Strategist<a class="header-anchor" href="#4-module-4--the-strategist" aria-label="Collegamento alla sezione: 4. Module 4 — The Strategist">#</a></h2>
+<p>Il confronto tra le tre opzioni mostra che la remediation (C) costa circa la metà del più economico scenario della specifica e chiude i rischi di sicurezza e funzionali; A e B restano benchmark.</p>
+<h3 id="41-card-di-confronto"><span id="_4-1-card-di-confronto" class="anchor-alias" aria-hidden="true"></span>4.1 Card di confronto<a class="header-anchor" href="#41-card-di-confronto" aria-label="Collegamento alla sezione: 4.1 Card di confronto">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 4"><table>
+<thead>
+<tr>
+<th></th>
+<th>Scenario A: Re-platforming</th>
+<th>Scenario B: Re-architecting</th>
+<th><strong>Scenario C: Remediation &amp; Completion (raccomandato)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target size</td>
+<td>421,6 FP</td>
+<td>501,9 FP</td>
+<td>435 UFP AS-IS + 94–139 FP nuovi (voci stimate in FP in §7.2–7.3) + interventi bottom-up</td>
+</tr>
+<tr>
+<td>Strategia</td>
+<td>Containerizzazione API/SPA, MongoDB gestito (lift &amp; shift), CI/CD; codice invariato</td>
+<td>Strangler Fig verso servizi (Identity, Notifications &amp; Groups, Ingestion, Fraud Analysis, Reporting)</td>
+<td>Mantiene stack e monolite; corregge sicurezza, sposta motore antifrode e AI sul server, introduce test/CI, completa le feature dichiarate e in roadmap</td>
+</tr>
+<tr>
+<td>Costo</td>
+<td>0,29–0,70 M€</td>
+<td>0,49–1,13 M€</td>
+<td><strong>0,14–0,22 M€</strong> (§7.4)</td>
+</tr>
+<tr>
+<td>Durata</td>
+<td>12–15 mesi (PDR con 3 FTE: 12,2; COCOMO: 15,4)</td>
+<td>15–18 mesi (PDR con 4 FTE: 15,4; COCOMO: 18,0)</td>
+<td><strong>6–9 mesi</strong> con 3–4 FTE (§5)</td>
+</tr>
+<tr>
+<td>Pro</td>
+<td>Rischio infrastrutturale basso, veloce da avviare</td>
+<td>Scalabilità orizzontale, manutenibilità futura</td>
+<td>Massimo valore per euro; riusa 100% dello stack; risolve i difetti che bloccano la produzione</td>
+</tr>
+<tr>
+<td>Contro</td>
+<td>Il debito resta (pipeline Mongo arbitraria, lock lato client, motore antifrode nel browser)</td>
+<td>Over-engineering per i volumi attesi; costo e rischio di delivery alti</td>
+<td>Richiede disciplina (test prima dei refactoring); forchette ampie su Case management/Workflow</td>
+</tr>
+<tr>
+<td>Assunzioni</td>
+<td>Q6 portato ad A dopo la CI/CD; nessuna modifica funzionale</td>
+<td>CPLX molto alta; team nuovo</td>
+<td>Tariffa 400 €/gg; requisiti di dettaglio da definire per le voci Planned</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="42-strangler-fig-generator-budget-6-mesi-scenario-b"><span id="_4-2-strangler-fig-generator-budget-6-mesi-scenario-b" class="anchor-alias" aria-hidden="true"></span>4.2 Strangler Fig Generator (budget 6 mesi, Scenario B)<a class="header-anchor" href="#42-strangler-fig-generator-budget-6-mesi-scenario-b" aria-label="Collegamento alla sezione: 4.2 Strangler Fig Generator (budget 6 mesi, Scenario B)">#</a></h3>
+<p><strong>Capacità</strong>: 3 FTE × 6 mesi × 160 h = 2.880 h; 2.880 / 19,656 h/FP = <strong>146,5 FP target</strong> realizzabili.</p>
+<p><strong>Moduli</strong> (FP AS-IS da conteggio IFPUG, <a href="15_fp_cocomo.html">15_fp_cocomo.md</a> §1.6; target = × 1,25; +20% effort se il modulo dipende dall'hub <code>IMappingService</code>, §6):</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 5"><table>
+<thead>
+<tr>
+<th>Ordine (coupling crescente)</th>
+<th>Modulo</th>
+<th>Contenuto</th>
+<th>UFP AS-IS</th>
+<th>FP target</th>
+<th>Fattore coupling</th>
+<th>FP equivalenti</th>
+<th>Cumulato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Notifications &amp; Groups</strong></td>
+<td>12 endpoint (5 <code>/notifications</code>, 7 <code>/groups</code>) + ILF Notifications, Groups; dipendono solo da <code>IMongoRepository&lt;GroupDocument/NotificationDocument&gt;</code>, nessun servizio condiviso</td>
+<td>50</td>
+<td>62,5</td>
+<td>1,0</td>
+<td>62,5</td>
+<td>62,5</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Ingestion worker</strong></td>
+<td>8 endpoint <code>/api/data-ingestion/*</code> + <code>create-transactions</code>; <code>FileProcessingCoordinator</code>, SFTP, 3 processori; ILF config/schedule/ProcessedFiles. Ce: <code>IMappingService</code>, ReportData</td>
+<td>54</td>
+<td>67,5</td>
+<td>1,2</td>
+<td>81,0</td>
+<td><strong>143,5</strong> ✅</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Identity</td>
+<td>32 endpoint Users/Roles/Permissions/reset + 4 ILF; Ca massimo (JWT e <code>Permissions(...)</code> usati da tutti i 78 endpoint)</td>
+<td>128</td>
+<td>160,0</td>
+<td>1,0</td>
+<td>160,0</td>
+<td>303,5 ✗</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Fraud Analysis</td>
+<td>Rules (6), FraudDetection (3), <code>/distance</code> + 3 funzioni FE; 2 ILF</td>
+<td>79</td>
+<td>98,75</td>
+<td>1,2</td>
+<td>118,5</td>
+<td>422,0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Reporting</td>
+<td>15 endpoint (query, mappings, workspaces, dashboard) + 7 funzioni FE; 4 ILF (incl. ReportData)</td>
+<td>124</td>
+<td>155,0</td>
+<td>1,2</td>
+<td>186,0</td>
+<td>608,0</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Output</strong>: <em>"Nei primi 6 mesi modernizzeremo il modulo Notifications &amp; Groups e il worker di Ingestion"</em> (143,5 FP equivalenti su 146,5 disponibili). Identity, pur essendo funzionalmente isolato, è estratto per terzo perché tutti gli altri moduli dipendono dal suo token/permessi (Ca alto): va estratto quando i consumatori sono già dietro il facade.</p>
+<hr>
+<h2 id="5-scenario-c--piano-di-remediation"><span id="5-scenario-c-piano-di-remediation" class="anchor-alias" aria-hidden="true"></span><span id="_5-scenario-c-—-piano-di-remediation" class="anchor-alias" aria-hidden="true"></span>5. Scenario C — piano di remediation<a class="header-anchor" href="#5-scenario-c--piano-di-remediation" aria-label="Collegamento alla sezione: 5. Scenario C — piano di remediation">#</a></h2>
+<p>Piano indicativo con 3–4 FTE: prima la sicurezza, poi le fondamenta (test, CI/CD), poi le funzioni dichiarate ma incomplete, infine le voci di roadmap prioritarie.</p>
+<figure class="diagram" data-diagram="gantt"><button type="button" class="zoom-trigger" aria-label="Ingrandisci: Diagramma gantt 1"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iNzg0IiBoZWlnaHQ9IjQxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDc4NCA0MTIiIHN0eWxlPSIgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IiByb2xlPSJncmFwaGljcy1kb2N1bWVudCBkb2N1bWVudCIgYXJpYS1yb2xlZGVzY3JpcHRpb249ImdhbnR0Ij48c3R5bGU+I215LXN2Z3tmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7ZmlsbDojMzMzO31Aa2V5ZnJhbWVzIGVkZ2UtYW5pbWF0aW9uLWZyYW1le2Zyb217c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fUBrZXlmcmFtZXMgZGFzaHt0b3tzdHJva2UtZGFzaG9mZnNldDowO319I215LXN2ZyAuZWRnZS1hbmltYXRpb24tc2xvd3tzdHJva2UtZGFzaGFycmF5OjksNSFpbXBvcnRhbnQ7c3Ryb2tlLWRhc2hvZmZzZXQ6OTAwO2FuaW1hdGlvbjpkYXNoIDUwcyBsaW5lYXIgaW5maW5pdGU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fSNteS1zdmcgLmVkZ2UtYW5pbWF0aW9uLWZhc3R7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCAyMHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jbXktc3ZnIC5lcnJvci1pY29ue2ZpbGw6IzU1MjIyMjt9I215LXN2ZyAuZXJyb3ItdGV4dHtmaWxsOiM1NTIyMjI7c3Ryb2tlOiM1NTIyMjI7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLW5vcm1hbHtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy10aGlja3tzdHJva2Utd2lkdGg6My41cHg7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1zb2xpZHtzdHJva2UtZGFzaGFycmF5OjA7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLWludmlzaWJsZXtzdHJva2Utd2lkdGg6MDtmaWxsOm5vbmU7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1kYXNoZWR7c3Ryb2tlLWRhc2hhcnJheTozO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZG90dGVke3N0cm9rZS1kYXNoYXJyYXk6Mjt9I215LXN2ZyAubWFya2Vye2ZpbGw6IzMzMzMzMztzdHJva2U6IzMzMzMzMzt9I215LXN2ZyAubWFya2VyLmNyb3Nze3N0cm9rZTojMzMzMzMzO30jbXktc3ZnIHN2Z3tmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7fSNteS1zdmcgcHttYXJnaW46MDt9I215LXN2ZyAubWVybWFpZC1tYWluLWZvbnR7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO30jbXktc3ZnIC5leGNsdWRlLXJhbmdle2ZpbGw6I2VlZWVlZTt9I215LXN2ZyAuc2VjdGlvbntzdHJva2U6bm9uZTtvcGFjaXR5OjAuMjt9I215LXN2ZyAuc2VjdGlvbjB7ZmlsbDpyZ2JhKDEwMiwgMTAyLCAyNTUsIDAuNDkpO30jbXktc3ZnIC5zZWN0aW9uMntmaWxsOiNmZmY0MDA7fSNteS1zdmcgLnNlY3Rpb24xLCNteS1zdmcgLnNlY3Rpb24ze2ZpbGw6d2hpdGU7b3BhY2l0eTowLjI7fSNteS1zdmcgLnNlY3Rpb25UaXRsZTB7ZmlsbDojMzMzO30jbXktc3ZnIC5zZWN0aW9uVGl0bGUxe2ZpbGw6IzMzMzt9I215LXN2ZyAuc2VjdGlvblRpdGxlMntmaWxsOiMzMzM7fSNteS1zdmcgLnNlY3Rpb25UaXRsZTN7ZmlsbDojMzMzO30jbXktc3ZnIC5zZWN0aW9uVGl0bGV7dGV4dC1hbmNob3I6c3RhcnQ7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO30jbXktc3ZnIC5ncmlkIC50aWNre3N0cm9rZTpsaWdodGdyZXk7b3BhY2l0eTowLjg7c2hhcGUtcmVuZGVyaW5nOmNyaXNwRWRnZXM7fSNteS1zdmcgLmdyaWQgLnRpY2sgdGV4dHtmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7ZmlsbDojMzMzO30jbXktc3ZnIC5ncmlkIHBhdGh7c3Ryb2tlLXdpZHRoOjA7fSNteS1zdmcgLnRvZGF5e2ZpbGw6bm9uZTtzdHJva2U6cmVkO3N0cm9rZS13aWR0aDoycHg7fSNteS1zdmcgLnRhc2t7c3Ryb2tlLXdpZHRoOjI7fSNteS1zdmcgLnRhc2tUZXh0e3RleHQtYW5jaG9yOm1pZGRsZTtmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7fSNteS1zdmcgLnRhc2tUZXh0T3V0c2lkZVJpZ2h0e2ZpbGw6YmxhY2s7dGV4dC1hbmNob3I6c3RhcnQ7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGVMZWZ0e2ZpbGw6YmxhY2s7dGV4dC1hbmNob3I6ZW5kO30jbXktc3ZnIC50YXNrLmNsaWNrYWJsZXtjdXJzb3I6cG9pbnRlcjt9I215LXN2ZyAudGFza1RleHQuY2xpY2thYmxle2N1cnNvcjpwb2ludGVyO2ZpbGw6IzAwMzE2MyFpbXBvcnRhbnQ7Zm9udC13ZWlnaHQ6Ym9sZDt9I215LXN2ZyAudGFza1RleHRPdXRzaWRlTGVmdC5jbGlja2FibGV7Y3Vyc29yOnBvaW50ZXI7ZmlsbDojMDAzMTYzIWltcG9ydGFudDtmb250LXdlaWdodDpib2xkO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGVSaWdodC5jbGlja2FibGV7Y3Vyc29yOnBvaW50ZXI7ZmlsbDojMDAzMTYzIWltcG9ydGFudDtmb250LXdlaWdodDpib2xkO30jbXktc3ZnIC50YXNrVGV4dDAsI215LXN2ZyAudGFza1RleHQxLCNteS1zdmcgLnRhc2tUZXh0MiwjbXktc3ZnIC50YXNrVGV4dDN7ZmlsbDp3aGl0ZTt9I215LXN2ZyAudGFzazAsI215LXN2ZyAudGFzazEsI215LXN2ZyAudGFzazIsI215LXN2ZyAudGFzazN7ZmlsbDojOGE5MGRkO3N0cm9rZTojNTM0ZmJjO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGUwLCNteS1zdmcgLnRhc2tUZXh0T3V0c2lkZTJ7ZmlsbDpibGFjazt9I215LXN2ZyAudGFza1RleHRPdXRzaWRlMSwjbXktc3ZnIC50YXNrVGV4dE91dHNpZGUze2ZpbGw6YmxhY2s7fSNteS1zdmcgLmFjdGl2ZTAsI215LXN2ZyAuYWN0aXZlMSwjbXktc3ZnIC5hY3RpdmUyLCNteS1zdmcgLmFjdGl2ZTN7ZmlsbDojYmZjN2ZmO3N0cm9rZTojNTM0ZmJjO30jbXktc3ZnIC5hY3RpdmVUZXh0MCwjbXktc3ZnIC5hY3RpdmVUZXh0MSwjbXktc3ZnIC5hY3RpdmVUZXh0MiwjbXktc3ZnIC5hY3RpdmVUZXh0M3tmaWxsOmJsYWNrIWltcG9ydGFudDt9I215LXN2ZyAuZG9uZTAsI215LXN2ZyAuZG9uZTEsI215LXN2ZyAuZG9uZTIsI215LXN2ZyAuZG9uZTN7c3Ryb2tlOmdyZXk7ZmlsbDpsaWdodGdyZXk7c3Ryb2tlLXdpZHRoOjI7fSNteS1zdmcgLmRvbmVUZXh0MCwjbXktc3ZnIC5kb25lVGV4dDEsI215LXN2ZyAuZG9uZVRleHQyLCNteS1zdmcgLmRvbmVUZXh0M3tmaWxsOmJsYWNrIWltcG9ydGFudDt9I215LXN2ZyAuZG9uZVRleHQwLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZVRleHQwLnRhc2tUZXh0T3V0c2lkZVJpZ2h0LCNteS1zdmcgLmRvbmVUZXh0MS50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVUZXh0MS50YXNrVGV4dE91dHNpZGVSaWdodCwjbXktc3ZnIC5kb25lVGV4dDIudGFza1RleHRPdXRzaWRlTGVmdCwjbXktc3ZnIC5kb25lVGV4dDIudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZVRleHQzLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZVRleHQzLnRhc2tUZXh0T3V0c2lkZVJpZ2h0e2ZpbGw6YmxhY2shaW1wb3J0YW50O30jbXktc3ZnIC5jcml0MCwjbXktc3ZnIC5jcml0MSwjbXktc3ZnIC5jcml0MiwjbXktc3ZnIC5jcml0M3tzdHJva2U6I2ZmODg4ODtmaWxsOnJlZDtzdHJva2Utd2lkdGg6Mjt9I215LXN2ZyAuYWN0aXZlQ3JpdDAsI215LXN2ZyAuYWN0aXZlQ3JpdDEsI215LXN2ZyAuYWN0aXZlQ3JpdDIsI215LXN2ZyAuYWN0aXZlQ3JpdDN7c3Ryb2tlOiNmZjg4ODg7ZmlsbDojYmZjN2ZmO3N0cm9rZS13aWR0aDoyO30jbXktc3ZnIC5kb25lQ3JpdDAsI215LXN2ZyAuZG9uZUNyaXQxLCNteS1zdmcgLmRvbmVDcml0MiwjbXktc3ZnIC5kb25lQ3JpdDN7c3Ryb2tlOiNmZjg4ODg7ZmlsbDpsaWdodGdyZXk7c3Ryb2tlLXdpZHRoOjI7Y3Vyc29yOnBvaW50ZXI7c2hhcGUtcmVuZGVyaW5nOmNyaXNwRWRnZXM7fSNteS1zdmcgLm1pbGVzdG9uZXt0cmFuc2Zvcm06cm90YXRlKDQ1ZGVnKSBzY2FsZSgwLjgsMC44KTt9I215LXN2ZyAubWlsZXN0b25lVGV4dHtmb250LXN0eWxlOml0YWxpYzt9I215LXN2ZyAuZG9uZUNyaXRUZXh0MCwjbXktc3ZnIC5kb25lQ3JpdFRleHQxLCNteS1zdmcgLmRvbmVDcml0VGV4dDIsI215LXN2ZyAuZG9uZUNyaXRUZXh0M3tmaWxsOmJsYWNrIWltcG9ydGFudDt9I215LXN2ZyAuZG9uZUNyaXRUZXh0MC50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDAudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZUNyaXRUZXh0MS50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDEudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZUNyaXRUZXh0Mi50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDIudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZUNyaXRUZXh0My50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDMudGFza1RleHRPdXRzaWRlUmlnaHR7ZmlsbDpibGFjayFpbXBvcnRhbnQ7fSNteS1zdmcgLnZlcnR7c3Ryb2tlOm5hdnk7fSNteS1zdmcgLnZlcnRUZXh0e2ZvbnQtc2l6ZToxNXB4O3RleHQtYW5jaG9yOm1pZGRsZTtmaWxsOm5hdnkhaW1wb3J0YW50O30jbXktc3ZnIC5hY3RpdmVDcml0VGV4dDAsI215LXN2ZyAuYWN0aXZlQ3JpdFRleHQxLCNteS1zdmcgLmFjdGl2ZUNyaXRUZXh0MiwjbXktc3ZnIC5hY3RpdmVDcml0VGV4dDN7ZmlsbDpibGFjayFpbXBvcnRhbnQ7fSNteS1zdmcgLnRpdGxlVGV4dHt0ZXh0LWFuY2hvcjptaWRkbGU7Zm9udC1zaXplOjE4cHg7ZmlsbDojMzMzO2ZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjt9I215LXN2ZyAubm9kZSAubmVvLW5vZGV7c3Ryb2tlOiM5MzcwREI7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uY2x1c3RlciByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwb2x5Z29ue3N0cm9rZTojOTM3MERCO2ZpbHRlcjpkcm9wLXNoYWRvdygxcHggMnB4IDJweCByZ2JhKDE4NSwgMTg1LCAxODUsIDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zd2ltbGFuZS5jbHVzdGVyIHJlY3R7ZmlsdGVyOm5vbmU7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwYXRoe3N0cm9rZTojOTM3MERCO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSAub3V0ZXItcGF0aHtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSAubmVvLWxpbmUgcGF0aHtzdHJva2U6IzkzNzBEQjtmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZXtzdHJva2U6IzkzNzBEQjtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBjaXJjbGUgLnN0YXRlLXN0YXJ0e2ZpbGw6IzAwMDAwMDt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29ue2ZpbGw6IzkzNzBEQjtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uaWNvbi1zaGFwZSAuaWNvbi1uZW8gcGF0aHtzdHJva2U6IzkzNzBEQjtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgOnJvb3R7LS1tZXJtYWlkLWZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjt9PC9zdHlsZT48Zy8+PGcgY2xhc3M9ImdyaWQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc1LCAzNjIpIiBmaWxsPSJub25lIiBmb250LXNpemU9IjEwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+PHBhdGggY2xhc3M9ImRvbWFpbiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGQ9Ik0wLjUsLTMyN1YwLjVINjM0LjVWLTMyNyIvPjxnIGNsYXNzPSJ0aWNrIiBvcGFjaXR5PSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MS41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNi0xMjwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyNy41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wMTwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5Mi41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wMjwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI1Mi41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wMzwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxNy41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNDwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM4MC41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNTwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ0Ni41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNjwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUwOS41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNzwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU3NS41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0zMjciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wODwvdGV4dD48L2c+PC9nPjxnPjxyZWN0IHg9IjAiIHk9IjQ4IiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24wIi8+PHJlY3QgeD0iMCIgeT0iNzIiIHdpZHRoPSI3NDYuNSIgaGVpZ2h0PSIyNCIgY2xhc3M9InNlY3Rpb24gc2VjdGlvbjEiLz48cmVjdCB4PSIwIiB5PSI5NiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMSIvPjxyZWN0IHg9IjAiIHk9IjE0NCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMiIvPjxyZWN0IHg9IjAiIHk9IjE2OCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMiIvPjxyZWN0IHg9IjAiIHk9IjEyMCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMiIvPjxyZWN0IHg9IjAiIHk9IjE5MiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMyIvPjxyZWN0IHg9IjAiIHk9IjIxNiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMyIvPjxyZWN0IHg9IjAiIHk9IjI0MCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMyIvPjxyZWN0IHg9IjAiIHk9IjI2NCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMCIvPjxyZWN0IHg9IjAiIHk9IjI4OCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMCIvPjxyZWN0IHg9IjAiIHk9IjMxMiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMCIvPjxyZWN0IHg9IjAiIHk9IjMzNiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMCIvPjwvZz48Zz48cmVjdCBpZD0ibXktc3ZnLWYwIiByeD0iMyIgcnk9IjMiIHg9Ijc1IiB5PSI1MCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSI5MXB4IDYwcHgiIGNsYXNzPSJ0YXNrIHRhc2swIi8+PHJlY3QgaWQ9Im15LXN2Zy1mMSIgcng9IjMiIHJ5PSIzIiB4PSI5MCIgeT0iNzQiIHdpZHRoPSI3NCIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iMTI3cHggODRweCIgY2xhc3M9InRhc2sgdGFzazEiLz48cmVjdCBpZD0ibXktc3ZnLWYxYiIgcng9IjMiIHJ5PSIzIiB4PSIxMDciIHk9Ijk4IiB3aWR0aD0iMzEiIGhlaWdodD0iMjAiIHRyYW5zZm9ybS1vcmlnaW49IjEyMi41cHggMTA4cHgiIGNsYXNzPSJ0YXNrIHRhc2sxIi8+PHJlY3QgaWQ9Im15LXN2Zy1mMmIiIHJ4PSIzIiByeT0iMyIgeD0iMTA3IiB5PSIxNDYiIHdpZHRoPSIzMSIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iMTIyLjVweCAxNTZweCIgY2xhc3M9InRhc2sgdGFzazIiLz48cmVjdCBpZD0ibXktc3ZnLWYyYyIgcng9IjMiIHJ5PSIzIiB4PSIxMDciIHk9IjE3MCIgd2lkdGg9IjE3IiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIxMTUuNXB4IDE4MHB4IiBjbGFzcz0idGFzayB0YXNrMiIvPjxyZWN0IGlkPSJteS1zdmctZjIiIHJ4PSIzIiByeT0iMyIgeD0iMTQ5IiB5PSIxMjIiIHdpZHRoPSI4NSIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iMTkxLjVweCAxMzJweCIgY2xhc3M9InRhc2sgdGFzazIiLz48cmVjdCBpZD0ibXktc3ZnLWYzYSIgcng9IjMiIHJ5PSIzIiB4PSIyMjMiIHk9IjE5NCIgd2lkdGg9IjM4IiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIyNDJweCAyMDRweCIgY2xhc3M9InRhc2sgdGFzazMiLz48cmVjdCBpZD0ibXktc3ZnLWYzYiIgcng9IjMiIHJ5PSIzIiB4PSIyMzgiIHk9IjIxOCIgd2lkdGg9IjUzIiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIyNjQuNXB4IDIyOHB4IiBjbGFzcz0idGFzayB0YXNrMyIvPjxyZWN0IGlkPSJteS1zdmctZjNjIiByeD0iMyIgcnk9IjMiIHg9IjI5NyIgeT0iMjQyIiB3aWR0aD0iNDIiIGhlaWdodD0iMjAiIHRyYW5zZm9ybS1vcmlnaW49IjMxOHB4IDI1MnB4IiBjbGFzcz0idGFzayB0YXNrMyIvPjxyZWN0IGlkPSJteS1zdmctZjRhIiByeD0iMyIgcnk9IjMiIHg9IjMyNyIgeT0iMjY2IiB3aWR0aD0iNTkiIGhlaWdodD0iMjAiIHRyYW5zZm9ybS1vcmlnaW49IjM1Ni41cHggMjc2cHgiIGNsYXNzPSJ0YXNrIHRhc2swIi8+PHJlY3QgaWQ9Im15LXN2Zy1mNGIiIHJ4PSIzIiByeT0iMyIgeD0iMzU2IiB5PSIyOTAiIHdpZHRoPSI5NSIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNDAzLjVweCAzMDBweCIgY2xhc3M9InRhc2sgdGFzazAiLz48cmVjdCBpZD0ibXktc3ZnLWY0YyIgcng9IjMiIHJ5PSIzIiB4PSIzOTIiIHk9IjMxNCIgd2lkdGg9IjEyNyIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNDU1LjVweCAzMjRweCIgY2xhc3M9InRhc2sgdGFzazAiLz48cmVjdCBpZD0ibXktc3ZnLWY0ZCIgcng9IjMiIHJ5PSIzIiB4PSI0NTUiIHk9IjMzOCIgd2lkdGg9IjI1NCIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNTgycHggMzQ4cHgiIGNsYXNzPSJ0YXNrIHRhc2swIi8+PHRleHQgaWQ9Im15LXN2Zy1mMC10ZXh0IiBmb250LXNpemU9IjExIiB4PSIxMTIiIHk9IjYzLjUiIGNsYXNzPSJ0YXNrVGV4dE91dHNpZGVSaWdodCB0YXNrVGV4dE91dHNpZGUwICB3aWR0aC0xNjcuODQ3MTY3OTY4NzUiPlF1aWNrIHdpbnMgc2ljdXJlenphIEcxIEcyIEczIEc4IDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLWYxLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjE2OSIgeT0iODcuNSIgY2xhc3M9InRhc2tUZXh0T3V0c2lkZVJpZ2h0IHRhc2tUZXh0T3V0c2lkZTEgIHdpZHRoLTE0Mi44NDU3MDMxMjUiPlRlc3QgYmFzZWxpbmUgZSBDSSBDRCBHOSBHMTAgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctZjFiLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjE0MyIgeT0iMTExLjUiIGNsYXNzPSJ0YXNrVGV4dE91dHNpZGVSaWdodCB0YXNrVGV4dE91dHNpZGUxICB3aWR0aC02MS44NjAzNTE1NjI1Ij5BdWRpdCBsb2cgRzYgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctZjJiLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjE0MyIgeT0iMTU5LjUiIGNsYXNzPSJ0YXNrVGV4dE91dHNpZGVSaWdodCB0YXNrVGV4dE91dHNpZGUyICB3aWR0aC03MS42Njc5Njg3NSI+QUkgZ2F0ZXdheSBHNSA8L3RleHQ+PHRleHQgaWQ9Im15LXN2Zy1mMmMtdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iMTI5IiB5PSIxODMuNSIgY2xhc3M9InRhc2tUZXh0T3V0c2lkZVJpZ2h0IHRhc2tUZXh0T3V0c2lkZTIgIHdpZHRoLTEzMy4yMDg5ODQzNzUiPlJ1bGUgZW5naW5lIGF1dG9tYXRpY28gRzcgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctZjItdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iMjM5IiB5PSIxMzUuNSIgY2xhc3M9InRhc2tUZXh0T3V0c2lkZVJpZ2h0IHRhc2tUZXh0T3V0c2lkZTIgIHdpZHRoLTEzNC40MDc3MTQ4NDM3NSI+TW90b3JlIHN0YXRpc3RpY28gc2VydmVyIEc0IDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLWYzYS10ZXh0IiBmb250LXNpemU9IjExIiB4PSIyNjYiIHk9IjIwNy41IiBjbGFzcz0idGFza1RleHRPdXRzaWRlUmlnaHQgdGFza1RleHRPdXRzaWRlMyAgd2lkdGgtNjguODg5MTYwMTU2MjUiPkxvb2t1cCB0YWJsZXMgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctZjNiLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjI5NiIgeT0iMjMxLjUiIGNsYXNzPSJ0YXNrVGV4dE91dHNpZGVSaWdodCB0YXNrVGV4dE91dHNpZGUzICB3aWR0aC0xMzUuODEyOTg4MjgxMjUiPlBlcmZvcm1hbmNlIGxhcmdlIGRhdGFzZXRzIDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLWYzYy10ZXh0IiBmb250LXNpemU9IjExIiB4PSIzNDQiIHk9IjI1NS41IiBjbGFzcz0idGFza1RleHRPdXRzaWRlUmlnaHQgdGFza1RleHRPdXRzaWRlMyAgd2lkdGgtMTI5LjU3ODEyNSI+UmVhbCB3b3JsZCBkYXRhIHZhbGlkYXRpb24gPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctZjRhLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjM5MSIgeT0iMjc5LjUiIGNsYXNzPSJ0YXNrVGV4dE91dHNpZGVSaWdodCB0YXNrVGV4dE91dHNpZGUwICB3aWR0aC05NC40ODYzMjgxMjUiPlNTTyBlIFJlY2VpcHQgdmlldyA8L3RleHQ+PHRleHQgaWQ9Im15LXN2Zy1mNGItdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iNDAzLjUiIHk9IjMwMy41IiBjbGFzcz0idGFza1RleHQgdGFza1RleHQwICB3aWR0aC02OC40Nzc1MzkwNjI1Ij5NdWx0aSB0ZW5hbmN5IDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLWY0Yy10ZXh0IiBmb250LXNpemU9IjExIiB4PSI1MjQiIHk9IjMyNy41IiBjbGFzcz0idGFza1RleHRPdXRzaWRlUmlnaHQgdGFza1RleHRPdXRzaWRlMCAgd2lkdGgtMTc2Ljk0NDgyNDIxODc1Ij5CZWhhdmlvcmFsIHByb2ZpbGluZyBlIEFJIGRhc2hib2FyZHMgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctZjRkLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjU4MiIgeT0iMzUxLjUiIGNsYXNzPSJ0YXNrVGV4dCB0YXNrVGV4dDAgIHdpZHRoLTE1MC4xMDY0NDUzMTI1Ij5Xb3JrZmxvdyBlIENhc2UgbWFuYWdlbWVudCA8L3RleHQ+PC9nPjxnPjx0ZXh0IGR5PSIwZW0iIHg9IjEwIiB5PSI2MiIgZm9udC1zaXplPSIxMSIgY2xhc3M9InNlY3Rpb25UaXRsZSBzZWN0aW9uVGl0bGUwIj48dHNwYW4gYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIiB4PSIxMCI+RmFzZSAwIFNpY3VyZXp6YTwvdHNwYW4+PC90ZXh0Pjx0ZXh0IGR5PSIwZW0iIHg9IjEwIiB5PSI5OCIgZm9udC1zaXplPSIxMSIgY2xhc3M9InNlY3Rpb25UaXRsZSBzZWN0aW9uVGl0bGUxIj48dHNwYW4gYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIiB4PSIxMCI+RmFzZSAxIEZvbmRhbWVudGE8L3RzcGFuPjwvdGV4dD48dGV4dCBkeT0iMGVtIiB4PSIxMCIgeT0iMTU4IiBmb250LXNpemU9IjExIiBjbGFzcz0ic2VjdGlvblRpdGxlIHNlY3Rpb25UaXRsZTIiPjx0c3BhbiBhbGlnbm1lbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHg9IjEwIj5GYXNlIDIgRnVuemlvbmkgZGljaGlhcmF0ZTwvdHNwYW4+PC90ZXh0Pjx0ZXh0IGR5PSIwZW0iIHg9IjEwIiB5PSIyMzAiIGZvbnQtc2l6ZT0iMTEiIGNsYXNzPSJzZWN0aW9uVGl0bGUgc2VjdGlvblRpdGxlMyI+PHRzcGFuIGFsaWdubWVudC1iYXNlbGluZT0iY2VudHJhbCIgeD0iMTAiPkZhc2UgMyBJbiBzdmlsdXBwbzwvdHNwYW4+PC90ZXh0Pjx0ZXh0IGR5PSIwZW0iIHg9IjEwIiB5PSIzMTQiIGZvbnQtc2l6ZT0iMTEiIGNsYXNzPSJzZWN0aW9uVGl0bGUgc2VjdGlvblRpdGxlMCI+PHRzcGFuIGFsaWdubWVudC1iYXNlbGluZT0iY2VudHJhbCIgeD0iMTAiPkZhc2UgNCBQaWFuaWZpY2F0ZTwvdHNwYW4+PC90ZXh0PjwvZz48ZyBjbGFzcz0idG9kYXkiPjxsaW5lIHgxPSIyMyIgeDI9IjIzIiB5MT0iMjUiIHkyPSIzODciIGNsYXNzPSJ0b2RheSIvPjwvZz48dGV4dCB4PSIzOTIiIHk9IjI1IiBjbGFzcz0idGl0bGVUZXh0Ij5TY2VuYXJpbyBDIC0gUmVtZWRpYXRpb24gYW5kIENvbXBsZXRpb24gLSBpbmRpY2F0aXZvIDMtNCBGVEU8L3RleHQ+PC9zdmc+" alt="Diagramma gantt 1"></button><details class="diagram-source"><summary>Sorgente Mermaid</summary><pre><code class="language-mermaid">gantt
+  title Scenario C - Remediation and Completion - indicativo 3-4 FTE
+  dateFormat YYYY-MM-DD
+  axisFormat %Y-%m
+  section Fase 0 Sicurezza
+  Quick wins sicurezza G1 G2 G3 G8 :f0, 2026-11-02, 15d
+  section Fase 1 Fondamenta
+  Test baseline e CI CD G9 G10 :f1, 2026-11-09, 35d
+  Audit log G6 :f1b, after f0, 15d
+  section Fase 2 Funzioni dichiarate
+  Motore statistico server G4 :f2, 2026-12-07, 40d
+  AI gateway G5 :f2b, after f0, 15d
+  Rule engine automatico G7 :f2c, after f0, 8d
+  section Fase 3 In sviluppo
+  Lookup tables :f3a, 2027-01-11, 18d
+  Performance large datasets :f3b, 2027-01-18, 25d
+  Real world data validation :f3c, 2027-02-15, 20d
+  section Fase 4 Pianificate
+  SSO e Receipt view :f4a, 2027-03-01, 28d
+  Multi tenancy :f4b, 2027-03-15, 45d
+  Behavioral profiling e AI dashboards :f4c, 2027-04-01, 60d
+  Workflow e Case management :f4d, 2027-05-01, 120d</code></pre></details></figure>
+<p>Le durate sono in giorni di calendario con attività in parallelo; Fasi 0–3 (≈ 4,5 mesi) coprono G + In Development (149–237 gg/persona incl. PM: 129,5–206 × 1,15), la Fase 4 è subordinata alla definizione dei requisiti.</p>
+<hr>
+<h2 id="6-integrazione-dependency-graph"><span id="_6-integrazione-dependency-graph" class="anchor-alias" aria-hidden="true"></span>6. Integrazione Dependency Graph<a class="header-anchor" href="#6-integrazione-dependency-graph" aria-label="Collegamento alla sezione: 6. Integrazione Dependency Graph">#</a></h2>
+<p>L'accoppiamento è stato misurato a livello di progetto (riferimenti <code>.csproj</code>) e di servizio (iniezioni nel costruttore); la regola +20% si applica ai moduli che dipendono da <code>IMappingService</code>.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 6"><table>
+<thead>
+<tr>
+<th>Nodo</th>
+<th>Ca</th>
+<th>Ce</th>
+<th>Ca + Ce</th>
+<th>Evidenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LossPrevention.Domain</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>referenziato da Application, Infrastructure, DataIngestionService</td>
+</tr>
+<tr>
+<td>LossPrevention.Infrastructure</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>da API, Application, DataIngestionService; → Domain</td>
+</tr>
+<tr>
+<td>LossPrevention.Application</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>da API, DataIngestionService; → Domain, Infrastructure (inversione di livello)</td>
+</tr>
+<tr>
+<td>LossPrevention.API</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>→ Application, Infrastructure</td>
+</tr>
+<tr>
+<td>LossPrevention.DataIngestionService</td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+<td>→ Application, Domain, Infrastructure</td>
+</tr>
+<tr>
+<td><strong><code>IMappingService</code></strong> (servizio)</td>
+<td><strong>10</strong></td>
+<td>1</td>
+<td><strong>11</strong></td>
+<td>iniettato in <code>RulesService</code>, <code>ReportDataservice</code>, <code>DistanceDataService</code>, <code>FileProcessingCoordinator</code> + 6 endpoint (<code>GetReportData</code>, <code>GetDistance</code>, CRUD mappings)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Soglia adottata</strong>: Ca + Ce &gt; 5 a livello di servizio → +20% effort sui moduli che lo usano (Ingestion, Fraud Analysis, Reporting in §4.2; interventi G1, G4, G7 e Lookup tables in §7, già inclusi nelle forchette). Nessun ciclo tra progetti.</p>
+<hr>
+<h2 id="7-effort-di-completamento-funzionalità-in-sviluppo-e-pianificate"><span id="7-effort-di-completamento-funzionalita-in-sviluppo-e-pianificate" class="anchor-alias" aria-hidden="true"></span><span id="_7-effort-di-completamento-funzionalita-in-sviluppo-e-pianificate" class="anchor-alias" aria-hidden="true"></span>7. Effort di completamento funzionalità in sviluppo e pianificate<a class="header-anchor" href="#7-effort-di-completamento-funzionalit%C3%A0-in-sviluppo-e-pianificate" aria-label="Collegamento alla sezione: 7. Effort di completamento funzionalità in sviluppo e pianificate">#</a></h2>
+<p>Questa sezione stima quanto serve per rendere affidabili le funzionalità dichiarate e completare quelle in sviluppo e pianificate: <strong>312,5–478 gg di sviluppo, 359–550 gg incluso PM, 144–220 k€</strong>.</p>
+<p><strong>Fonte dell'elenco</strong>: documentazione del fornitore <strong>storica</strong> — <code>Docs/01_EXECUTIVE_OVERVIEW.md</code>, sezione <em>Current Status (As of February 2026)</em>: <strong>In Development</strong> (3 voci) e <strong>Planned Enhancements</strong> (7 voci), e <code>Docs/roadmap.txt</code>. Entrambi i file erano presenti solo nel commit <code>593f6de</code> e sono stati rimossi in <code>d768cd9</code>; <strong>non esistono alla baseline <code>fc7d820</code></strong> e sono consultabili con <code>git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/01_EXECUTIVE_OVERVIEW.md</code> (idem per <code>roadmap.txt</code>). Le voci sono state verificate su quel commit. L'elenco è integrato con le lacune emerse dalla verifica delle funzionalità dichiarate (<a href="02_functional_overview.html">02_functional_overview.md</a>, <a href="17_backend_deep_assessment.html">17_backend_deep_assessment.md</a>, <a href="18_antipattern_deep_dive.html">18_antipattern_deep_dive.md</a>).</p>
+<p><strong>Metodo</strong>: voci funzionali → stima in FP (IFPUG semplificato) × PDR 14 h/FP = <strong>1,75 gg/FP</strong>, arrotondato half-up; voci tecniche → stima bottom-up. L'effort comprende analisi di dettaglio, sviluppo, unit test e test funzionale; <strong>esclude</strong> PM/coordinamento (+15%, applicato nei totali) e contingency. Le forchette riflettono l'assenza di requisiti dettagliati.</p>
+<h3 id="71-gap-da-colmare-perché-le-funzionalità-dichiarate-siano-realmente-utilizzabili"><span id="71-gap-da-colmare-perche-le-funzionalita-dichiarate-siano-realmente-utilizzabili" class="anchor-alias" aria-hidden="true"></span><span id="_7-1-gap-da-colmare-perche-le-funzionalita-dichiarate-siano-realmente-utilizzabili" class="anchor-alias" aria-hidden="true"></span>7.1 Gap da colmare perché le funzionalità dichiarate siano realmente utilizzabili<a class="header-anchor" href="#71-gap-da-colmare-perch%C3%A9-le-funzionalit%C3%A0-dichiarate-siano-realmente-utilizzabili" aria-label="Collegamento alla sezione: 7.1 Gap da colmare perché le funzionalità dichiarate siano realmente utilizzabili">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 7"><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Intervento</th>
+<th>Evidenza nel codice</th>
+<th>Collegamento alla dichiarazione</th>
+<th>Effort (gg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G1</td>
+<td>Row-level lock applicato dal server (query, distance, export, regole)</td>
+<td>lock decodificato solo nel browser: <code>helpers/fieldLock.ts:1-30</code>; il server non filtra</td>
+<td>"Field-level access control"</td>
+<td>8–12</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Query DSL / whitelist pipeline</td>
+<td><code>GetReportDataEndpoint</code> esegue una pipeline Mongo arbitraria inviata dal client; cache 1 h con chiave non legata all'utente</td>
+<td>Sicurezza report</td>
+<td>5–8</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>DTO utente senza hash/salt</td>
+<td><code>GetUsersEndpoint.cs:36</code> restituisce <code>PasswordHash</code>/<code>PasswordSalt</code></td>
+<td>Sicurezza</td>
+<td>0,5–1</td>
+</tr>
+<tr>
+<td>G4</td>
+<td><strong>Motore statistico antifrode server-side</strong> con persistenza risultati, job asincrono, explainability</td>
+<td>analisi solo nel browser: <code>aiStore.ts:1535</code> <code>generateFraudRules</code>, <code>:1667</code> <code>analyzeFraudInData</code>, <code>:1769</code> <code>new Function</code></td>
+<td>"Real-time fraud analysis", "Statistical anomaly detection", "Audit trail"</td>
+<td>25–40</td>
+</tr>
+<tr>
+<td>G5</td>
+<td><strong>AI gateway backend</strong> (Ollama server o Azure OpenAI), config modello/token/temperatura, logging prompt</td>
+<td>chiamata diretta dal browser a <code>localhost:11434</code> (<code>aiStore.ts:88</code>, modello fisso <code>qwen2.5:14b</code> <code>:8</code>)</td>
+<td>"AI-Powered NLQ", "AI Configuration" (roadmap: <em>Nice to have</em>)</td>
+<td>10–15</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>Audit log (accessi, export, modifiche regole/soglie, esiti analisi)</td>
+<td>assente (nessuna collezione/servizio di audit)</td>
+<td>"Audit logging", "Compliance"</td>
+<td>10–15</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>Rule engine: applicazione automatica post-ingestione + bulk update + fix <code>UpdateRuleAsync</code></td>
+<td><code>ApplyRulesAsync</code> invocato solo da <code>GET /rules/apply</code>; <code>ReplaceOneAsync</code> per documento (<code>RulesService.cs:58</code>); <code>UpdateRuleAsync</code> scrive il flag in radice (<code>RulesService.cs:147</code>, non in <code>FraudFlags.</code>) e cerca la mapping col nome senza prefisso (<code>:155</code>)</td>
+<td>roadmap: "Rule Engine … applied on ingestion automatically - DONE, need to test"</td>
+<td>5–8</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>Fix <code>create-transactions</code> e contratto token login</td>
+<td><code>CreateTransactionEndpoint</code> converte l'XML ma non inserisce il documento (<code>XmlProcessingService.ProcessAsync</code> non persiste); <code>LoginEndpoint.cs:39</code> <code>CreateTokenAsync</code> non atteso</td>
+<td>Upload transazioni, login</td>
+<td>1–2</td>
+</tr>
+<tr>
+<td>G9</td>
+<td>Test automatici baseline (BE + FE + E2E)</td>
+<td>0 test (14 §7)</td>
+<td>Qualità / "need to test"</td>
+<td>20–30</td>
+</tr>
+<tr>
+<td>G10</td>
+<td>CI/CD + containerizzazione + config per ambiente</td>
+<td>nessuna pipeline, nessun Dockerfile, <code>JwtSettings.SecretKey</code> in <code>appsettings.json</code></td>
+<td>Deploy</td>
+<td>8–12</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Subtotale G</strong></td>
+<td></td>
+<td></td>
+<td><strong>92,5–143</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="72-funzionalità-in-development-fonte-storica-01_executive_overviewmd--593f6de"><span id="72-funzionalita-in-development-fonte-storica-01_executive_overviewmd-593f6de" class="anchor-alias" aria-hidden="true"></span><span id="_7-2-funzionalita-in-development-fonte-storica-01-executive-overview-md-593f6de" class="anchor-alias" aria-hidden="true"></span>7.2 Funzionalità "In Development" (fonte storica: <code>01_EXECUTIVE_OVERVIEW.md</code> @ <code>593f6de</code>)<a class="header-anchor" href="#72-funzionalit%C3%A0-in-development-fonte-storica-01_executive_overviewmd--593f6de" aria-label="Collegamento alla sezione: 7.2 Funzionalità &quot;In Development&quot; (fonte storica: 01_EXECUTIVE_OVERVIEW.md @ 593f6de)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 8"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Stato nel codice (<code>fc7d820</code>)</th>
+<th>Stima</th>
+<th>Effort (gg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lookup tables</strong></td>
+<td>Solo flag <code>IsLookup</code> su <code>MappingItem</code> (CRUD mapping e switch in <code>mappings.vue:60</code>); nessuna logica di lookup/join</td>
+<td>7–10 FP (ILF lookup, CRUD, join in query, UI) × 1,75</td>
+<td><strong>12–18</strong></td>
+</tr>
+<tr>
+<td><strong>Performance optimization for large datasets (1000+ rows)</strong></td>
+<td>Full scan in regole (<code>GetAllAsync</code> + update per documento) e distance; doppio <code>MongoClient</code>; l'API crea solo l'indice TTL su <code>BeginDateTime</code> (<code>DatabaseInitializationService.cs:98-105</code>), gli indici suggeriti (<code>IndexService.ProcessIndexesAsync</code>) sono creati solo dalla console DIS</td>
+<td>bottom-up (indici gestiti, bulk ops, paginazione server, cache invalidabile, profiling)</td>
+<td><strong>15–25</strong></td>
+</tr>
+<tr>
+<td><strong>Real-world data testing &amp; validation</strong></td>
+<td>Bloccato (roadmap: "Real world data … Waiting for Custom[er]")</td>
+<td>bottom-up (3 dataset, tuning soglie/mapping, fix)</td>
+<td><strong>10–20</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Subtotale In Development</strong></td>
+<td></td>
+<td><strong>37–63</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="73-funzionalità-planned-fonte-storica-01_executive_overviewmd--593f6de"><span id="73-funzionalita-planned-fonte-storica-01_executive_overviewmd-593f6de" class="anchor-alias" aria-hidden="true"></span><span id="_7-3-funzionalita-planned-fonte-storica-01-executive-overview-md-593f6de" class="anchor-alias" aria-hidden="true"></span>7.3 Funzionalità "Planned" (fonte storica: <code>01_EXECUTIVE_OVERVIEW.md</code> @ <code>593f6de</code>)<a class="header-anchor" href="#73-funzionalit%C3%A0-planned-fonte-storica-01_executive_overviewmd--593f6de" aria-label="Collegamento alla sezione: 7.3 Funzionalità &quot;Planned&quot; (fonte storica: 01_EXECUTIVE_OVERVIEW.md @ 593f6de)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 9"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Stato nel codice</th>
+<th>Stima</th>
+<th>Effort (gg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Multi-tenancy</strong> (versione semplificata, roadmap 3–6 mesi)</td>
+<td>Assente; database unico da <code>MongoDbSettings</code></td>
+<td>bottom-up (risoluzione tenant, DB-per-tenant, config, seed, test)</td>
+<td><strong>30–45</strong></td>
+</tr>
+<tr>
+<td><strong>SSO</strong></td>
+<td>Assente; JWT simmetrico locale</td>
+<td>6–9 FP × 1,75 = 10,5–15,75</td>
+<td><strong>11–16</strong></td>
+</tr>
+<tr>
+<td><strong>Case management tool</strong> (con form editor)</td>
+<td>Assente; richiede design</td>
+<td>35–50 FP × 1,75 = 61,25–87,5</td>
+<td><strong>61–88</strong></td>
+</tr>
+<tr>
+<td><strong>Blueprint / workflow automation</strong></td>
+<td>Assente</td>
+<td>18–26 FP × 1,75 = 31,5–45,5</td>
+<td><strong>32–46</strong></td>
+</tr>
+<tr>
+<td><strong>Receipt view</strong></td>
+<td>Assente</td>
+<td>4–7 FP × 1,75 = 7–12,25</td>
+<td><strong>7–12</strong></td>
+</tr>
+<tr>
+<td><strong>Behavioral profiling enhancements</strong> (incl. KNN, normalizzazione feature, profili operatore/negozio)</td>
+<td>Distanza euclidea senza normalizzazione (<code>DistanceDataService.GetDistanceAsync</code>)</td>
+<td>15–23 FP × 1,75 = 26,25–40,25</td>
+<td><strong>26–40</strong></td>
+</tr>
+<tr>
+<td><strong>AI dashboard generation</strong></td>
+<td>Assente (esiste solo la generazione di template report, <code>aiStore.ts:308</code>)</td>
+<td>9–14 FP × 1,75 = 15,75–24,5</td>
+<td><strong>16–25</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Subtotale Planned</strong></td>
+<td></td>
+<td><strong>183–272</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="74-totali"><span id="_7-4-totali" class="anchor-alias" aria-hidden="true"></span>7.4 Totali<a class="header-anchor" href="#74-totali" aria-label="Collegamento alla sezione: 7.4 Totali">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 10"><table>
+<thead>
+<tr>
+<th>Blocco</th>
+<th>Effort sviluppo (gg)</th>
+<th>+ PM 15% (gg)</th>
+<th>Costo @ 400 €/gg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G – Gap funzionalità dichiarate + hardening</td>
+<td>92,5–143</td>
+<td>106–164</td>
+<td><strong>43–66 k€</strong></td>
+</tr>
+<tr>
+<td>In Development</td>
+<td>37–63</td>
+<td>43–72</td>
+<td><strong>17–29 k€</strong></td>
+</tr>
+<tr>
+<td>Planned</td>
+<td>183–272</td>
+<td>210–313</td>
+<td><strong>84–125 k€</strong></td>
+</tr>
+<tr>
+<td><strong>Totale</strong></td>
+<td><strong>312,5–478</strong></td>
+<td><strong>359–550</strong></td>
+<td><strong>144–220 k€</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Lettura per decisione:
+- <strong>Completare solo ciò che è "in sviluppo"</strong>: 43–72 gg (≈ 2–3,5 mesi con 1 FTE; ≈ 1 mese con 3 FTE), 17–29 k€.
+- <strong>Rendere affidabili le funzionalità già dichiarate come complete</strong> (antifrode, statistica, AI, sicurezza): 106–164 gg, 43–66 k€ — <strong>prerequisito</strong> per l'uso in produzione su dati reali.
+- <strong>Roadmap "Planned" completa</strong>: 210–313 gg, 84–125 k€; circa metà (93–134 gg di sviluppo su 183–272) è legata a Case management e Workflow, i cui requisiti non sono definiti (contingency consigliata +20%).</p>
+<h3 id="75-ulteriori-voci-di-roadmaptxt-storico-593f6de-non-incluse-nei-totali"><span id="_7-5-ulteriori-voci-di-roadmap-txt-storico-593f6de-non-incluse-nei-totali" class="anchor-alias" aria-hidden="true"></span>7.5 Ulteriori voci di <code>roadmap.txt</code> (storico, <code>593f6de</code>) non incluse nei totali<a class="header-anchor" href="#75-ulteriori-voci-di-roadmaptxt-storico-593f6de-non-incluse-nei-totali" aria-label="Collegamento alla sezione: 7.5 Ulteriori voci di roadmap.txt (storico, 593f6de) non incluse nei totali">#</a></h3>
+<p>DB seeding/setup wizard (8–12 gg), licensing (10–20 gg), branding URL-dependent (8–12 gg), linked reports (8–12 gg), estensione charting (10–15 gg), restrizione dashboard per regione/negozio/distretto (coperta in gran parte da G1: 0 gg aggiuntivi), estensione alert &amp; notifiche (15–20 gg). <strong>Subtotale aggiuntivo: 59–91 gg</strong> (68–105 gg incl. PM 15%, ≈ 27–42 k€). Le voci "Next steps" (Summarised Data View, Fluid investigation, KNN) sono assorbite da Behavioral profiling o non stimabili: N/A — non ricavabile dal codice: nessun requisito oltre al titolo.</p>
+<h3 id="76-assunzioni-e-limiti"><span id="_7-6-assunzioni-e-limiti" class="anchor-alias" aria-hidden="true"></span>7.6 Assunzioni e limiti<a class="header-anchor" href="#76-assunzioni-e-limiti" aria-label="Collegamento alla sezione: 7.6 Assunzioni e limiti">#</a></h3>
+<ul>
+<li>Stime da analisi statica del codice al commit <code>fc7d820</code>; nessuna esecuzione o benchmark.</li>
+<li>Team con competenze .NET/Vue senior; tariffa blended 400 €/gg (parametrica, da sostituire con il listino reale).</li>
+<li>Requisiti di dettaglio non disponibili per Case management, Workflow, Multi-tenancy: forchette ampie.</li>
+<li>Esclusi: licenze/infrastruttura cloud (la vecchia documentazione suggeriva Azure Functions, Cosmos DB/Atlas, Container Apps), GPU per LLM, compliance legale (DPIA, accordi sindacali).</li>
+<li>Effort storico realmente speso: N/A — non ricavabile dal codice (13 commit senza metadati di effort).</li>
+</ul>
+<hr>
+<h2 id="reference-documents">Reference Documents<a class="header-anchor" href="#reference-documents" aria-label="Collegamento alla sezione: Reference Documents">#</a></h2>
+<ul>
+<li><strong>Deep Dive Analysis</strong>: <a href="00_deep_dive.html">00_deep_dive.md</a></li>
+<li><strong>Context</strong>: <a href="01_context.html">01_context.md</a></li>
+<li><strong>Functional Overview</strong>: <a href="02_functional_overview.html">02_functional_overview.md</a></li>
+<li><strong>Non-Functional Overview</strong>: <a href="03_non_functional_overview.html">03_non_functional_overview.md</a></li>
+<li><strong>Constraints</strong>: <a href="04_constraints.html">04_constraints.md</a></li>
+<li><strong>Principles</strong>: <a href="05_principles.html">05_principles.md</a></li>
+<li><strong>Software Architecture</strong>: <a href="06_software_architecture.html">06_software_architecture.md</a></li>
+<li><strong>Code</strong>: <a href="07_code.html">07_code.md</a></li>
+<li><strong>Data</strong>: <a href="08_data.html">08_data.md</a></li>
+<li><strong>Infrastructure Architecture</strong>: <a href="09_infrastructure_architecture.html">09_infrastructure_architecture.md</a></li>
+<li><strong>Deployment</strong>: <a href="10_deployment.html">10_deployment.md</a></li>
+<li><strong>Development Environment</strong>: <a href="11_development_environment.html">11_development_environment.md</a></li>
+<li><strong>Operation and Support</strong>: <a href="12_operation_and_support.html">12_operation_and_support.md</a></li>
+<li><strong>Decision Log</strong>: <a href="13_decision_log.html">13_decision_log.md</a></li>
+<li><strong>Metrics</strong>: <a href="14_metrics.html">14_metrics.md</a></li>
+<li><strong>FP &amp; COCOMO</strong>: <a href="15_fp_cocomo.html">15_fp_cocomo.md</a></li>
+<li><strong>Frontend Deep Assessment</strong>: <a href="16_frontend_deep_assessment.html">16_frontend_deep_assessment.md</a></li>
+<li><strong>Backend Deep Assessment</strong>: <a href="17_backend_deep_assessment.html">17_backend_deep_assessment.md</a></li>
+<li><strong>Antipattern Deep Dive</strong>: <a href="18_antipattern_deep_dive.html">18_antipattern_deep_dive.md</a></li>
+</ul>
+<hr>
+<h2 id="change-log">Change Log<a class="header-anchor" href="#change-log" aria-label="Collegamento alla sezione: Change Log">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 11"><table>
+<thead>
+<tr>
+<th>Versione</th>
+<th>Data</th>
+<th>Autore</th>
+<th>Modifiche</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-10-07</td>
+<td>REVERSE how (FULL)</td>
+<td>Creazione documento (sostituisce run 2026-10-05)</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>2026-10-08</td>
+<td>IMPACT verify</td>
+<td>Baseline allineata a 14/15 (script Vue 5.600→5.395, FP_AsIs 406→401,5, fattore target 50→49,25); E corretto 1,0997→1,1168 (Q9 addendo diretto) e Scenari A/B ricalcolati (A 85,0→87,0 PM, 15,1→15,4 mesi; B 138,0→141,6 PM, 17,6→18,0 mesi), aggiunta colonna Wizard puro; Strangler ricalcolato su UFP per modulo con regola +20% (ordine Notifications&amp;Groups → Ingestion → Identity); SSO 10–16→11–16 gg, Planned 182→183, totali 311→312,5 / 358→359 / 143→144 k€; evidenze di codice per G1–G10 e voci In Development; documentazione fornitore citata come storica (<code>593f6de</code>, rimossa in <code>d768cd9</code>); gantt senza caratteri speciali; Reference Documents completi</td>
+</tr>
+</tbody>
+</table></div></article>
+    </main>
+  </div>
+</div>
+<footer class="site-footer">LOSS_PREVENTION · IMPACT how (FULL) · baseline fc7d820 · generato offline con inlay-doc-site</footer>
+<div id="inlay-status" class="visually-hidden" role="status" aria-live="polite"></div>
+<script type="application/json" id="inlay-config">{"lang": "it", "root": "", "route": "19_modernization_estimation_spec.html", "search": "_inlay/search-index.js", "theme": "eng", "version": "2.1.0"}</script>
+<script>/* inlay-doc-site 2.x - comportamento del portale (offline, nessuna dipendenza). */
+(function () {
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var cfg = {};
+  try { cfg = JSON.parse(doc.getElementById('inlay-config').textContent) || {}; } catch (e) { cfg = {}; }
+  var LANG = String(cfg.lang || root.lang || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+  var TEXT = {
+    it: {
+      copy: 'Copia', copied: 'Copiato', copyFail: 'Copia non riuscita: testo selezionato, premi Ctrl+C',
+      close: 'Chiudi', zoomIn: 'Ingrandisci', zoomOut: 'Riduci', fit: 'Adatta', dialog: 'Immagine ingrandita',
+      hint: 'Ctrl+rotella o +/- per lo zoom, trascina per spostare, Esc per chiudere',
+      noResults: 'Nessun risultato', results: '{n} risultati', unavailable: 'Indice di ricerca non disponibile',
+      exportNote: 'Copia esportata della pagina "{t}": i collegamenti verso altre pagine del portale sono disattivati.',
+      linkDisabled: 'Collegamento disponibile solo nel portale', menuOpen: 'Mostra struttura documenti',
+      menuClose: 'Nascondi struttura documenti'
+    },
+    en: {
+      copy: 'Copy', copied: 'Copied', copyFail: 'Copy failed: text selected, press Ctrl+C',
+      close: 'Close', zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit', dialog: 'Enlarged image',
+      hint: 'Ctrl+wheel or +/- to zoom, drag to pan, Esc to close',
+      noResults: 'No results', results: '{n} results', unavailable: 'Search index not available',
+      exportNote: 'Exported copy of the page "{t}": links to other portal pages are disabled.',
+      linkDisabled: 'Link available only inside the portal', menuOpen: 'Show document structure',
+      menuClose: 'Hide document structure'
+    }
+  };
+  function tr(key, vars) {
+    var s = TEXT[LANG][key] || key;
+    if (vars) { Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); }); }
+    return s;
+  }
+  var statusEl = doc.getElementById('inlay-status');
+  function announce(msg) {
+    if (!statusEl) { return; }
+    statusEl.textContent = '';
+    setTimeout(function () { statusEl.textContent = msg; }, 40);
+  }
+
+  /* altezza dell'header per sticky e ancore */
+  var header = doc.querySelector('.topbar');
+  function setHeaderHeight() { if (header) { root.style.setProperty('--header-h', header.offsetHeight + 'px'); } queueFit(); }
+  setHeaderHeight();
+  if (window.ResizeObserver && header) { new ResizeObserver(setHeaderHeight).observe(header); }
+  else { window.addEventListener('resize', setHeaderHeight); }
+
+  /* albero: espandi/comprimi */
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.tree-toggle, .tree-group') : null;
+    if (!btn) { return; }
+    var list = doc.getElementById(btn.getAttribute('aria-controls'));
+    if (!list) { return; }
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    list.hidden = open;
+  });
+  /* barra laterale: altezza limitata alla parte visibile (all'apertura la testata della pagina la spinge in basso) */
+  var sidebar = doc.getElementById('inlay-sidebar'), fitQueued = false;
+  function fitSidebar() {
+    fitQueued = false;
+    if (!sidebar) { return; }
+    if (window.getComputedStyle(sidebar).position !== 'sticky') { sidebar.style.maxHeight = ''; return; }
+    var top = Math.max(sidebar.getBoundingClientRect().top, 0);
+    sidebar.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + 'px';
+  }
+  function queueFit() { if (!fitQueued) { fitQueued = true; window.requestAnimationFrame(fitSidebar); } }
+  fitSidebar();
+  window.addEventListener('scroll', queueFit, { passive: true });
+  window.addEventListener('resize', queueFit);
+  var treeScroll = doc.getElementById('inlay-tree');
+  var current = treeScroll && treeScroll.querySelector('[aria-current="page"]');
+  if (current) {
+    var r = current.getBoundingClientRect(), s = treeScroll.getBoundingClientRect();
+    if (r.top < s.top || r.bottom > s.bottom) { treeScroll.scrollTop += (r.top - s.top) - treeScroll.clientHeight / 3; }
+  }
+
+  /* menu mobile */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle && doc.getElementById('inlay-sidebar')) {
+    navToggle.hidden = false;
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      root.classList.toggle('nav-open', !open);
+    });
+  }
+
+  /* copia dei blocchi di codice */
+  function copied(btn) {
+    btn.textContent = tr('copied');
+    btn.classList.add('copied');
+    announce(tr('copied'));
+    setTimeout(function () { btn.textContent = tr('copy'); btn.classList.remove('copied'); }, 1800);
+  }
+  function copyFallback(text, pre, btn) {
+    var ta = doc.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    doc.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    if (ok) { copied(btn); return; }
+    var range = doc.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = tr('copyFail');
+    announce(tr('copyFail'));
+    setTimeout(function () { btn.textContent = tr('copy'); }, 4000);
+  }
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.code-copy') : null;
+    if (!btn) { return; }
+    var block = btn.closest('.code-block');
+    var pre = block && block.querySelector('pre');
+    if (!pre) { return; }
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { copied(btn); }, function () { copyFallback(text, pre, btn); });
+    } else { copyFallback(text, pre, btn); }
+  });
+
+  /* lightbox accessibile per immagini e diagrammi */
+  var lb = null, lbImg, lbStage, lbClose, lbTrigger = null, scale = 1, inerted = [];
+  function setScale(v) {
+    scale = Math.max(0.1, Math.min(8, v));
+    if (lbImg.naturalWidth) { lbImg.style.width = Math.round(lbImg.naturalWidth * scale) + 'px'; }
+  }
+  function fitScale() {
+    var w = lbImg.naturalWidth || 1;
+    var sw = Math.max(lbStage.clientWidth - 48, 50);
+    setScale(Math.min(sw / w, 2));
+  }
+  function buildLightbox() {
+    if (lb) { return; }
+    lb = doc.createElement('div');
+    lb.className = 'inlay-lightbox';
+    lb.id = 'inlay-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', tr('dialog'));
+    lb.hidden = true;
+    var bar = doc.createElement('div');
+    bar.className = 'inlay-lightbox-bar';
+    var hint = doc.createElement('span');
+    hint.className = 'inlay-lightbox-hint';
+    hint.textContent = tr('hint');
+    bar.appendChild(hint);
+    [['out', tr('zoomOut'), '\u2212'], ['fit', tr('fit'), tr('fit')], ['in', tr('zoomIn'), '+'], ['close', tr('close'), tr('close')]].forEach(function (b) {
+      var btn = doc.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zoom', b[0]);
+      btn.setAttribute('aria-label', b[1]);
+      btn.textContent = b[2];
+      bar.appendChild(btn);
+      if (b[0] === 'close') { lbClose = btn; }
+    });
+    lbStage = doc.createElement('div');
+    lbStage.className = 'inlay-lightbox-stage';
+    lbStage.tabIndex = 0;
+    lbImg = doc.createElement('img');
+    lbImg.alt = '';
+    lbStage.appendChild(lbImg);
+    lb.appendChild(bar);
+    lb.appendChild(lbStage);
+    doc.body.appendChild(lb);
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) { return; }
+      var a = b.getAttribute('data-zoom');
+      if (a === 'close') { closeLightbox(); } else if (a === 'in') { setScale(scale * 1.25); }
+      else if (a === 'out') { setScale(scale / 1.25); } else { fitScale(); }
+    });
+    lb.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); closeLightbox(); return; }
+      if (ev.key === '+' || ev.key === '=') { ev.preventDefault(); setScale(scale * 1.25); return; }
+      if (ev.key === '-') { ev.preventDefault(); setScale(scale / 1.25); return; }
+      if (ev.key === '0') { ev.preventDefault(); fitScale(); return; }
+      if (ev.key === 'Tab') {
+        var f = Array.prototype.slice.call(lb.querySelectorAll('button, [tabindex="0"]'));
+        var first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    });
+    lbStage.addEventListener('wheel', function (ev) {
+      if (!ev.ctrlKey) { return; }
+      ev.preventDefault();
+      setScale(scale * (ev.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    var drag = null;
+    lbStage.addEventListener('pointerdown', function (ev) {
+      drag = { x: ev.clientX, y: ev.clientY, l: lbStage.scrollLeft, t: lbStage.scrollTop };
+      lbStage.classList.add('grabbing');
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!drag) { return; }
+      lbStage.scrollLeft = drag.l - (ev.clientX - drag.x);
+      lbStage.scrollTop = drag.t - (ev.clientY - drag.y);
+    });
+    window.addEventListener('pointerup', function () { drag = null; if (lbStage) { lbStage.classList.remove('grabbing'); } });
+  }
+  function openLightbox(trigger) {
+    var img = trigger.querySelector('img');
+    if (!img) { return; }
+    buildLightbox();
+    lbTrigger = trigger;
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbImg.onload = function () { fitScale(); };
+    lbImg.src = img.getAttribute('src');
+    Array.prototype.forEach.call(doc.body.children, function (child) {
+      if (child !== lb && !child.inert) { child.inert = true; child.setAttribute('aria-hidden', 'true'); inerted.push(child); }
+    });
+    lb.hidden = false;
+    if (lbImg.complete && lbImg.naturalWidth) { fitScale(); }
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (!lb || lb.hidden) { return; }
+    lb.hidden = true;
+    inerted.forEach(function (child) { child.inert = false; child.removeAttribute('aria-hidden'); });
+    inerted = [];
+    if (lbTrigger) { lbTrigger.focus(); }
+  }
+  doc.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('.zoom-trigger') : null;
+    if (trigger) { ev.preventDefault(); openLightbox(trigger); }
+  });
+
+  /* ricerca offline (indice caricato su richiesta da _inlay/search-index.js) */
+  var input = doc.getElementById('inlay-search');
+  var results = doc.getElementById('inlay-search-results');
+  if (input && results && cfg.search) {
+    input.closest('.search').hidden = false;
+    var index = null, loading = false, active = -1, timer = null, pending = null;
+    var fold = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var loadIndex = function (cb) {
+      if (index) { cb(); return; }
+      pending = cb;
+      if (loading) { return; }
+      loading = true;
+      var sc = doc.createElement('script');
+      sc.src = cfg.root + cfg.search;
+      sc.onload = function () { index = window.INLAY_SEARCH_INDEX || []; if (pending) { pending(); } };
+      sc.onerror = function () { index = []; announce(tr('unavailable')); if (pending) { pending(); } };
+      doc.head.appendChild(sc);
+    };
+    var search = function (q) {
+      var terms = fold(q).split(/\s+/).filter(Boolean);
+      if (!terms.length) { return []; }
+      var out = [];
+      index.forEach(function (e) {
+        if (e._t === undefined) { e._t = fold(e.t + ' ' + (e.l || '')); e._x = fold(e.x); }
+        var score = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var inTitle = e._t.indexOf(terms[i]) >= 0, pos = e._x.indexOf(terms[i]);
+          if (!inTitle && pos < 0) { return; }
+          score += inTitle ? 10 : 1;
+        }
+        out.push({ e: e, score: score, term: terms[0] });
+      });
+      out.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+      return out.slice(0, 15);
+    };
+    var snippet = function (e, term) {
+      var pos = e._x.indexOf(term);
+      if (pos < 0) { return ''; }
+      var start = Math.max(0, pos - 50);
+      return (start > 0 ? '\u2026' : '') + e.x.substr(start, 150) + '\u2026';
+    };
+    var setActive = function (i) {
+      var opts = results.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      Array.prototype.forEach.call(opts, function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    var close = function () {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    var render = function () {
+      var q = input.value.trim();
+      results.textContent = '';
+      if (!q) { close(); return; }
+      var found = search(q);
+      if (!found.length) {
+        var li = doc.createElement('li');
+        li.className = 'sr-empty';
+        li.textContent = tr('noResults');
+        results.appendChild(li);
+      }
+      found.forEach(function (r, k) {
+        var li = doc.createElement('li');
+        li.id = 'inlay-sr-' + k;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var a = doc.createElement('a');
+        a.href = cfg.root + r.e.r;
+        a.tabIndex = -1;
+        var t = doc.createElement('span'); t.className = 'sr-title'; t.textContent = r.e.t; a.appendChild(t);
+        if (r.e.l) { var p = doc.createElement('span'); p.className = 'sr-path'; p.textContent = r.e.l; a.appendChild(p); }
+        var sn = snippet(r.e, r.term);
+        if (sn) { var x = doc.createElement('span'); x.className = 'sr-snippet'; x.textContent = sn; a.appendChild(x); }
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      active = -1;
+      announce(found.length ? tr('results', { n: found.length }) : tr('noResults'));
+    };
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { loadIndex(render); }, 120);
+    });
+    input.addEventListener('focus', function () { loadIndex(function () {}); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); if (results.hidden) { loadIndex(render); } else { setActive(active + 1); } }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+      else if (ev.key === 'Enter') {
+        var opts = results.querySelectorAll('[role="option"] a');
+        if (!results.hidden && opts.length) { ev.preventDefault(); window.location.href = opts[Math.max(active, 0)].href; }
+      } else if (ev.key === 'Escape') {
+        if (!results.hidden) { ev.preventDefault(); close(); } else { input.value = ''; }
+      }
+    });
+    doc.addEventListener('click', function (ev) {
+      if (!ev.target.closest || !ev.target.closest('.search')) { close(); }
+    });
+  }
+
+  /* esportazione della pagina corrente come HTML autonomo */
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[data-export]') : null;
+    if (!a || !window.Blob || !window.URL || !URL.createObjectURL) { return; }
+    ev.preventDefault();
+    var clone = root.cloneNode(true);
+    var drop = ['.topnav', '.search', '.nav-toggle', '.hero', '#inlay-sidebar', '.breadcrumbs', 'a[data-export]',
+      '#inlay-lightbox', 'script[src]', '.site-footer'];
+    drop.forEach(function (sel) { Array.prototype.forEach.call(clone.querySelectorAll(sel), function (n) { n.parentNode.removeChild(n); }); });
+    Array.prototype.forEach.call(clone.querySelectorAll('[inert]'), function (n) { n.removeAttribute('inert'); n.removeAttribute('aria-hidden'); });
+    clone.classList.remove('js', 'nav-open');
+    clone.style.removeProperty('--header-h');
+    clone.setAttribute('data-exported', 'true');
+    var brand = clone.querySelector('.brand');
+    if (brand) { brand.removeAttribute('href'); }
+    Array.prototype.forEach.call(clone.querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      if (href.charAt(0) === '#' || /^[a-z][a-z0-9+.\-]*:/i.test(href) || href.indexOf('//') === 0) { return; }
+      var span = doc.createElement('span');
+      span.className = 'link-disabled';
+      span.title = tr('linkDisabled');
+      span.setAttribute('data-inlay-export', 'disabled');
+      while (link.firstChild) { span.appendChild(link.firstChild); }
+      link.parentNode.replaceChild(span, link);
+    });
+    var status = clone.querySelector('#inlay-status');
+    if (status) { status.textContent = ''; }
+    var title = (doc.querySelector('.doc-title') || {}).textContent || doc.title;
+    var main = clone.querySelector('#main');
+    if (main) {
+      var note = doc.createElement('p');
+      note.className = 'notice export-note';
+      note.setAttribute('role', 'note');
+      note.textContent = tr('exportNote', { t: title });
+      var head = main.querySelector('.doc-head');
+      main.insertBefore(note, head ? head.nextSibling : main.firstChild);
+    }
+    var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var tmp = doc.createElement('a');
+    tmp.href = url;
+    tmp.download = a.getAttribute('download') || 'documento.html';
+    tmp.style.display = 'none';
+    doc.body.appendChild(tmp);
+    tmp.click();
+    doc.body.removeChild(tmp);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="eng" data-layout="project">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="inlay-doc-site 2.1.0">
+<title>FP &amp; COCOMO II - Progetto LOSS_PREVENTION · LOSS_PREVENTION · IMPACT how (FULL)</title>
+<link rel="icon" href="data:,">
+<style>/* inlay-doc-site 2.x - struttura e componenti comuni. I colori e le forme vengono
+   dalle variabili definite dal tema (assets/themes/<tema>/theme.css). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-h,64px) + 12px)}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-text);font-size:15px;line-height:var(--line-height)}
+a{color:var(--c-link)}
+a:hover{color:var(--c-link-hover)}
+:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+li::marker{font-variant-numeric:normal}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--c-primary);color:var(--c-primary-text);padding:10px 16px;font-weight:600;text-decoration:none;border-radius:var(--radius-btn)}
+.skip-link:focus{top:10px;color:var(--c-primary-text)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;gap:16px;background:var(--c-header-bg);color:var(--c-header-text);padding:10px 20px;position:sticky;top:0;z-index:50;min-height:64px}
+.topbar :focus-visible{outline-color:var(--c-focus-dark)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 1 auto;max-width:360px;text-decoration:none;color:var(--c-header-text)}
+.brand:hover{color:var(--c-header-text)}
+.brand-logo{display:block;height:30px;width:auto;flex:none}
+.brand-mark{width:42px;height:42px;flex:none;border-radius:var(--radius-btn);background:var(--c-primary);color:var(--c-primary-text);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-weight:700;font-size:15.5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{color:var(--c-header-muted);font-size:11.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnav{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.nav-item{color:var(--c-header-muted);font-size:13.5px;font-weight:500;padding:8px 11px;border-radius:var(--radius-btn);text-decoration:none;flex:none}
+.nav-item:hover{color:var(--c-header-text);background:var(--c-header-hover-bg)}
+.nav-item[aria-current="page"]{color:var(--c-header-text);background:var(--c-header-hover-bg);font-weight:600}
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;color:var(--c-header-text);border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);padding:7px 10px;font:inherit;font-size:13px;cursor:pointer;flex:none}
+.nav-toggle-icon{width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor;display:inline-block}
+.search{position:relative;flex:0 1 260px;min-width:160px}
+.search input{width:100%;font:inherit;font-size:13.5px;padding:8px 12px;border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);background:var(--c-header-input-bg);color:var(--c-header-text)}
+.search input::placeholder{color:var(--c-header-muted);opacity:1}
+.search-results{position:absolute;right:0;top:calc(100% + 6px);width:min(520px,92vw);max-height:70vh;overflow-y:auto;margin:0;padding:6px;list-style:none;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:60}
+.search-results li{border-radius:var(--radius-btn)}
+.search-results a{display:block;padding:8px 10px;color:var(--c-text);text-decoration:none;border-radius:var(--radius-btn)}
+.search-results li[aria-selected="true"] a,.search-results a:hover{background:var(--c-tree-active-bg);color:var(--c-tree-active-text)}
+.search-results .sr-title{display:block;font-weight:600;font-size:14px}
+.search-results .sr-path{display:block;font-size:12px;color:var(--c-muted)}
+.search-results .sr-snippet{display:block;font-size:12.5px;color:var(--c-muted);margin-top:2px}
+.search-results .sr-empty{padding:10px;color:var(--c-muted);font-size:13px}
+
+/* ---------- pagina ---------- */
+.page{max-width:1440px;margin:0 auto;padding:24px 28px 56px}
+.hero{margin:0 0 20px}
+.hero-title{font-size:28px;font-weight:800;color:var(--c-heading);line-height:1.25;margin:4px 0 6px}
+.hero-sub{color:var(--c-muted);font-size:15px;margin:0}
+.hero-sub:empty{display:none}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.layout{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:var(--card-shadow)}
+.card-head{padding:13px 18px;border-bottom:1px solid var(--c-border);margin:0}
+
+/* ---------- pulsanti ---------- */
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:var(--radius-btn);text-decoration:none;cursor:pointer;border:1px solid var(--c-primary);flex:none;line-height:1.3}
+.btn-primary{background:var(--c-primary);color:var(--c-primary-text)}
+.btn-primary:hover{background:var(--c-primary-hover-bg);color:var(--c-primary-hover-text);border-color:var(--c-primary-hover-border)}
+.btn-primary:active{background:var(--c-primary-active);color:var(--c-primary-text);border-color:var(--c-primary-active)}
+.btn-outline{background:var(--c-surface);color:var(--c-text);border-color:var(--c-border-strong)}
+.btn-outline:hover{border-color:var(--c-primary);color:var(--c-link-hover)}
+.btn-icon{font-size:15px;line-height:1}
+
+/* ---------- albero ---------- */
+.sidebar{position:sticky;top:calc(var(--header-h,64px) + 16px);max-height:calc(100vh - var(--header-h,64px) - 32px);display:flex;flex-direction:column}
+.side-head{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-muted)}
+.tree-scroll{flex:1 1 auto;overflow-y:auto;padding:8px 8px 12px;overscroll-behavior:contain}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:14px}
+.tree-row{display:flex;align-items:center;gap:2px;min-width:0}
+.tree-toggle{flex:none;width:26px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:var(--radius-btn);color:var(--c-muted);cursor:pointer;padding:0;font:inherit}
+.tree-toggle:hover{background:var(--c-hover-bg)}
+.tree-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.tree-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:6px;background:transparent;border:0;padding:6px 8px 6px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--c-heading);cursor:pointer;text-align:left;border-radius:var(--radius-btn)}
+.tree-group::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid var(--c-muted);border-bottom:2px solid var(--c-muted);transform:rotate(-45deg);transition:transform .15s;margin:0 6px 0 5px}
+.tree-group[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group:hover{background:var(--c-hover-bg)}
+.tree-node-phase>.tree-row .tree-group{font-weight:600;color:var(--c-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tree-link{display:block;flex:1 1 auto;min-width:0;font-size:13px;color:var(--c-text);padding:6px 10px;border-radius:var(--radius-btn);border-left:3px solid transparent;text-decoration:none;overflow-wrap:anywhere;line-height:1.4}
+.tree-link:hover{background:var(--c-hover-bg);color:var(--c-text)}
+.tree-link[aria-current="page"]{background:var(--c-tree-active-bg);color:var(--c-tree-active-text);font-weight:600;border-left-color:var(--c-tree-active-border)}
+.tree-node-root>.tree-row .tree-link,.tree-node-project>.tree-row .tree-link{font-weight:700;color:var(--c-heading)}
+.tree-node-root>.tree-row .tree-link[aria-current="page"],.tree-node-project>.tree-row .tree-link[aria-current="page"]{color:var(--c-tree-active-text)}
+.tree>li>ul{padding-left:6px}
+
+/* ---------- documento ---------- */
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.doc-title{font-size:15px;font-weight:700;color:var(--c-heading);margin:0;min-width:0;overflow-wrap:anywhere}
+.breadcrumbs{padding:10px 22px 0;font-size:12.5px;color:var(--c-muted)}
+.breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.breadcrumbs li{display:inline-flex;align-items:center;gap:4px}
+.breadcrumbs li+li::before{content:"/";color:var(--c-border-strong);margin-right:2px}
+.breadcrumbs a{color:var(--c-muted)}
+.breadcrumbs a:hover{color:var(--c-link-hover)}
+.doc-info{padding:12px 22px 0;display:flex;flex-direction:column;gap:10px}
+.doc-info details{border:1px solid var(--c-border);border-radius:var(--radius-card);background:var(--c-subtle-bg)}
+.doc-info summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--c-heading)}
+.doc-info dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;padding:4px 14px 12px;font-size:13px}
+.doc-info dt{color:var(--c-muted)}
+.doc-info dd{margin:0;overflow-wrap:anywhere}
+.toc ol{margin:0;padding:4px 14px 12px 34px;font-size:13px}
+.toc ol ol{padding:2px 0 2px 18px}
+.toc li{margin:2px 0}
+.doc-body{padding:24px 36px 52px;overflow-wrap:break-word}
+
+/* ---------- avvisi e stati ---------- */
+.notice{border:1px solid var(--c-border);border-left:4px solid var(--c-notice-info);background:var(--c-subtle-bg);padding:10px 14px;margin:12px 0;font-size:13.5px;border-radius:var(--radius-card)}
+.notice-warning{border-left-color:var(--c-notice-warning)}
+.notice-update{border-left-color:var(--c-primary)}
+.doc-info .notice{margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;border:1px solid transparent;vertical-align:baseline}
+.badge-complete,.badge-present{background:var(--c-ok-bg);color:var(--c-ok-text);border-color:var(--c-ok-border)}
+.badge-partial,.badge-incomplete,.badge-misplaced{background:var(--c-warn-bg);color:var(--c-warn-text);border-color:var(--c-warn-border)}
+.badge-missing,.badge-absent{background:var(--c-subtle-bg);color:var(--c-muted);border-color:var(--c-border-strong)}
+.cov{font-weight:600;font-size:12.5px}
+.cov-present{color:var(--c-ok-text)}
+.cov-absent{color:var(--c-muted)}
+.cov-excluded{color:var(--c-warn-text)}
+.muted{color:var(--c-muted)}
+.lead{font-size:15px;color:var(--c-muted)}
+.link-disabled,.link-broken{color:var(--c-muted);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.link-broken::after{content:" \26A0";color:var(--c-notice-warning)}
+.asset-missing{display:block;border:1px dashed var(--c-border-strong);background:var(--c-subtle-bg);color:var(--c-muted);padding:18px;text-align:center;font-size:13px;margin:16px 0}
+.extra-evidence{margin-top:32px}
+
+/* ---------- contenuto ---------- */
+.doc-body h1,.doc-body h2,.doc-body h3,.doc-body h4,.doc-body h5,.doc-body h6{color:var(--c-heading);line-height:1.3;position:relative}
+.doc-body h1{font-size:27px;font-weight:800;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--c-border)}
+.doc-body h2{font-size:21px;font-weight:700;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--c-border-soft)}
+.doc-body h1+h2{margin-top:22px;padding-top:0;border-top:0}
+.doc-body h3{font-size:17px;font-weight:700;margin:24px 0 10px}
+.doc-body h4{font-size:15px;font-weight:700;margin:18px 0 8px}
+.doc-body p,.doc-body li{font-size:15px}
+.doc-body p{margin:10px 0}
+.doc-body a{color:var(--c-link);text-underline-offset:2px}
+.doc-body a:hover{color:var(--c-link-hover)}
+.header-anchor{margin-left:8px;font-weight:400;color:var(--c-muted);text-decoration:none;opacity:0;transition:opacity .15s}
+.doc-body h1:hover .header-anchor,.doc-body h2:hover .header-anchor,.doc-body h3:hover .header-anchor,.doc-body h4:hover .header-anchor,.header-anchor:focus{opacity:1}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0}
+.doc-body hr{border:0;border-top:1px solid var(--c-border);margin:26px 0}
+.doc-body ul,.doc-body ol{padding-left:26px;margin:10px 0}
+.doc-body li{margin:4px 0}
+.doc-body blockquote{margin:14px 0;padding:4px 0 4px 16px;border-left:4px solid var(--c-border-strong);color:var(--c-muted)}
+.doc-body img{max-width:100%;height:auto}
+.doc-body :not(pre)>code{background:var(--c-code-inline-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:var(--font-mono)}
+.table-wrap{max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--c-border);border-radius:var(--radius-card)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;margin:0}
+.doc-body th{background:var(--c-subtle-bg);font-weight:600;color:var(--c-heading);text-align:left}
+.doc-body th,.doc-body td{border-bottom:1px solid var(--c-border);padding:8px 12px;vertical-align:top}
+.doc-body th+th,.doc-body td+td{border-left:1px solid var(--c-border)}
+.doc-body tbody tr:last-child td{border-bottom:0}
+.doc-body tbody tr:nth-child(2n){background:var(--c-zebra)}
+
+/* figure e diagrammi */
+.doc-body figure{margin:22px 0;text-align:center}
+.doc-body figcaption{font-size:13px;color:var(--c-muted);margin-top:6px}
+.zoom-trigger{display:inline-block;max-width:100%;padding:0;margin:0;border:1px solid transparent;background:var(--c-surface);cursor:zoom-in;border-radius:var(--radius-card)}
+.zoom-trigger:hover{border-color:var(--c-primary)}
+.zoom-trigger img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-source{text-align:left;margin-top:8px;font-size:13px}
+.diagram-source summary{cursor:pointer;color:var(--c-muted);display:inline-block}
+.diagram-fallback{margin:16px 0}
+.diagram-fallback .notice{margin:0 0 8px}
+
+/* blocchi di codice */
+.code-block{border:1px solid var(--c-code-border);background:var(--c-code-bg);border-radius:var(--radius-code);margin:16px 0;text-align:left}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 6px 4px 14px;border-bottom:1px solid var(--c-code-border)}
+.code-lang{font-size:11px;color:var(--c-muted);text-transform:uppercase;letter-spacing:.05em}
+.code-copy{font:inherit;font-size:12px;padding:3px 10px;border:1px solid var(--c-border-strong);border-radius:var(--radius-btn);background:var(--c-surface);color:var(--c-text);cursor:pointer}
+.code-copy:hover{border-color:var(--c-primary)}
+.code-copy.copied{border-color:var(--c-ok-border);color:var(--c-ok-text)}
+.code-block pre,.doc-body pre{margin:0;padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6}
+.doc-body pre{background:var(--c-code-bg)}
+.code-block pre{background:transparent}
+.doc-body pre code{font-family:var(--font-mono);font-size:13px;background:transparent;padding:0;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* ASCII-art: font embedded con metriche fisse per allineamento a griglia. */
+.code-block.ascii-art pre code{font-family:'InlayMono',var(--font-mono)}
+.doc-body .shiki span{color:var(--shiki-light)}
+
+/* lightbox */
+.inlay-lightbox{position:fixed;inset:0;background:rgba(9,9,9,.92);z-index:999;display:flex;flex-direction:column}
+.inlay-lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:12px 18px;flex:0 0 auto}
+.inlay-lightbox-hint{color:#d4d4d4;font-size:12.5px;margin-right:auto}
+.inlay-lightbox-bar button{background:#1f1f1f;color:#f5f5f5;border:1px solid #6b6b6b;border-radius:var(--radius-btn);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.inlay-lightbox-bar button:hover{background:#333}
+.inlay-lightbox-bar button:focus-visible{outline:2px solid #fcfcfc;outline-offset:2px}
+.inlay-lightbox-stage{flex:1 1 auto;overflow:auto;padding:0 24px 24px;cursor:grab}
+.inlay-lightbox-stage.grabbing{cursor:grabbing}
+.inlay-lightbox-stage:focus-visible{outline:2px solid #fcfcfc;outline-offset:-4px}
+.inlay-lightbox-stage img{background:#fff;display:block;margin:0 auto;max-width:none;user-select:none;-webkit-user-drag:none}
+
+.site-footer{max-width:1440px;margin:0 auto;padding:0 28px 32px;color:var(--c-muted);font-size:12.5px}
+html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
+.export-note{margin:12px 22px 0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .search{flex-basis:200px;min-width:140px}
+}
+@media (max-width:840px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 14px}
+  .brand{flex:1 1 auto;max-width:none}
+  .js .nav-toggle{display:inline-flex}
+  .topnav{order:3;flex-basis:100%}
+  .search{order:4;flex:1 1 100%}
+  .js .topnav,.js .search{display:none}
+  .js.nav-open .topnav{display:flex}
+  .js.nav-open .search{display:block}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;max-height:none}
+  .js .sidebar{display:none}
+  .js.nav-open .sidebar{display:flex}
+  .page{padding:16px 12px 40px}
+  .hero-title{font-size:22px}
+  .doc-body{padding:18px 16px 36px}
+  .doc-head{flex-wrap:wrap}
+  .breadcrumbs,.doc-info{padding-left:16px;padding-right:16px}
+}
+@media print{
+  .topbar,.sidebar,.hero,.btn-primary,.code-copy,.site-footer,.breadcrumbs{display:none!important}
+  .layout{display:block}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Tema ENG (Engineering, eng.it). Valori osservati sul sito ufficiale il 2026-10-02
+   (review/eng-it-profile.json): header #090909/#FCFCFC, base #FCFCFC/#202020,
+   pulsante primario #C51B88 -> hover #FCFCFC/#090909 -> active #770F53, raggio 0,
+   famiglia CocoEng. Le altre scelte (layout, stati, contenuti tecnici) sono decisioni
+   di prodotto documentate in references/eng-brand.md. */
+:root{
+  --font:"CocoEng","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --line-height:1.7;
+  --c-bg:#FCFCFC;--c-surface:#FFFFFF;--c-subtle-bg:#F6F6F6;--c-zebra:#FAFAFA;--c-hover-bg:#F1F1F1;
+  --c-border:#DEDEDE;--c-border-soft:#EDEDED;--c-border-strong:#8F8F8F;
+  --c-text:#202020;--c-heading:#090909;--c-muted:#4D4D4D;
+  --c-header-bg:#090909;--c-header-text:#FCFCFC;--c-header-muted:#BDBDBD;--c-header-hover-bg:#262626;--c-header-input-bg:#171717;
+  --c-primary:#C51B88;--c-primary-text:#FCFCFC;
+  --c-primary-hover-bg:#FCFCFC;--c-primary-hover-text:#090909;--c-primary-hover-border:#090909;
+  --c-primary-active:#770F53;
+  --c-link:#B0177A;--c-link-hover:#770F53;
+  --c-tree-active-bg:#F4D1E8;--c-tree-active-text:#770F53;--c-tree-active-border:#C51B88;
+  --c-focus:#C51B88;--c-focus-dark:#FCFCFC;
+  --c-code-bg:#F6F6F6;--c-code-border:#DEDEDE;--c-code-inline-bg:#EFEFEF;
+  --c-notice-info:#4D4D4D;--c-notice-warning:#A15C00;
+  --c-ok-bg:#E7F4EA;--c-ok-text:#1D6631;--c-ok-border:#9CCDA9;
+  --c-warn-bg:#FFF3DF;--c-warn-text:#7A4300;--c-warn-border:#E9B86A;
+  --radius-btn:0;--radius-card:0;--radius-code:0;
+  --card-shadow:none;
+  --sidebar-w:300px;
+}
+.topbar{border-bottom:1px solid #262626}
+.brand-logo{height:28px}
+.hero-title{font-weight:700;letter-spacing:-.01em}
+.side-head{color:#090909}
+.btn-primary{text-transform:none;letter-spacing:.01em}
+.doc-body h1{font-weight:700}
+.doc-body h2{border-top-color:#DEDEDE}
+.tree-link[aria-current="page"]{border-left-width:4px}
+.badge{border-radius:0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="topbar" id="top">
+  <a class="brand" href="index.html"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2Zw0KICAgICAgICAgICAgd2lkdGg9IjE0OSINCiAgICAgICAgICAgIGhlaWdodD0iNDYiDQogICAgICAgICAgICB2aWV3Qm94PSIwIDAgMTQ5IDQ2Ig0KICAgICAgICAgICAgZmlsbD0ibm9uZSINCiAgICAgICAgICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgICAgICA+DQogICAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc3XzIxMDEpIj4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjMuMTg3NCAzNy4xMzY3VjM5Ljc4OTVIMi4zNTYyNEMxLjg3NTM4IDM4Ljk2ODkgMS40OTg3IDM4LjA3OTkgMS4xNTA4NyAzNy4xMzk5TDIzLjE4NzQgMzcuMTM2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgNDIuMzA4NlY0NC43MzM1QzIzLjE4NzQgNDQuODU3OCAyMy4wODY0IDQ0Ljk1OTcgMjIuOTU5OCA0NC45NTk3SDExLjQ0OTRDOS4xMzQ4NSA0NC45NTk3IDYuNTA2MTIgNDQuMTU4MyA0LjQzNTE5IDQyLjMwODZIMjMuMTg3NFoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTI1LjcwMzkgMC4yMjYxMjFWMTUuODYyMkMyNS43MDM5IDE1Ljk1NzggMjUuNjczNCAxNi4wNTAyIDI1LjYxNzMgMTYuMTI4MkwxNS45ODcyIDI5LjI2NjFDMTUuOTAyMiAyOS4zODI0IDE1Ljc2NDQgMjkuNDUyNSAxNS42MjAxIDI5LjQ1MjVIMC42MDU4OTRDMC40NTY4MjYgMjkuNDUyNSAwLjM0NDYyNCAyOS4zMTA3IDAuMzg2Mjk5IDI5LjE2NzNDMC43Mzg5MzQgMjcuOTE1IDEuMzIzOTkgMjYuNzU4MyAyLjA5MDE3IDI1Ljc0MzRMMTguNzk3MSAzLjc3OTA0QzIxLjE4MzggMC44Mzk1MTggMjQuMjUxNyAwLjE3NjczIDI1LjQ0NTggMC4wMDMwNjcyOEMyNS41ODIxIC0wLjAxNzY0NDggMjUuNzAzOSAwLjA4OTEwMjIgMjUuNzAzOSAwLjIyNjEyMVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgMzIuMTA1MlYzNC42MjA5SDAuMzQ0NjIxQzAuMzM4MjA5IDM0LjYwMDIgMC4wMjg4NTIgMzMuNzczMyAwIDMyLjIwMDdDMCAzMi4wNzMzIDAuMDk5Mzc5IDMxLjk2OTcgMC4yMjc2MSAzMS45Njk3SDIzLjA1MTFDMjMuMTI2NSAzMS45Njk3IDIzLjE4NzQgMzIuMDMwMyAyMy4xODc0IDMyLjEwNTJaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik01Mi45NDQ5IDM3LjEzOTlDNTIuNTk3MSAzOC4wNzk5IDUyLjIyMDQgMzguOTY4OSA1MS43Mzk2IDM5Ljc4OTVIMzAuOTA4NVYzNy4xMzY3TDUyLjk0NDkgMzcuMTM5OVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTMwLjkwODUgNDIuMzA4NlY0NC43MzM1QzMwLjkwODUgNDQuODU3OCAzMS4wMDk0IDQ0Ljk1OTcgMzEuMTM2MSA0NC45NTk3SDQyLjY0NjRDNDQuOTYxIDQ0Ljk1OTcgNDcuNTg5NyA0NC4xNTgzIDQ5LjY2MDYgNDIuMzA4NkgzMC45MDg1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjguMzkxOSAwLjIyNjQ4MVYxNS44NjI1QzI4LjM5MTkgMTUuOTU4MSAyOC40MjI0IDE2LjA1MDUgMjguNDc4NSAxNi4xMjg2TDM4LjEwODYgMjkuMjY2NUMzOC4xOTM2IDI5LjM4MjggMzguMzMxNCAyOS40NTI5IDM4LjQ3NTcgMjkuNDUyOUg1My40ODk5QzUzLjYzOSAyOS40NTI5IDUzLjc1MTIgMjkuMzExMSA1My43MDk1IDI5LjE2NzdDNTMuMzU2OSAyNy45MTU0IDUyLjc3MTggMjYuNzU4NyA1Mi4wMDU3IDI1Ljc0MzhMMzUuMjk3MiAzLjc4MUMzMi45MTA1IDAuODQxNDcxIDI5Ljg0MjUgMC4xNzg2ODMgMjguNjQ4NCAwLjAwNTAyMDQxQzI4LjUxMjEgLTAuMDE1NjkxNyAyOC4zOTAzIDAuMDkxMDU1MyAyOC4zOTAzIDAuMjI4MDc0SDI4LjM5MTlWMC4yMjY0ODFaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik0zMC45MDg1IDMyLjE5NlYzNC42MjA5SDUzLjc1MTJDNTMuNzU3NiAzNC42MDAyIDU0LjA2NyAzMy43NzMzIDU0LjA5NTggMzIuMjAwN0M1NC4wOTc0IDMyLjA3MzMgNTMuOTk2NCAzMS45Njk3IDUzLjg2ODIgMzEuOTY5N0gzMS4xMzYxQzMxLjAxMSAzMS45Njk3IDMwLjkwODUgMzIuMDcwMSAzMC45MDg1IDMyLjE5NloiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTY5LjUyMzYgMzYuMDM0M0M2Ny41MDQgMzQuODM5NCA2NS45NDEyIDMzLjIzMDIgNjQuODM1MiAzMS4yMDY4QzYzLjcyOTIgMjkuMTgzNCA2My4xNzYyIDI2Ljk2MDggNjMuMTc2MiAyNC41MzkxQzYzLjE3NjIgMjIuMTE3NCA2My43MTMxIDE5Ljg0NyA2NC43ODcxIDE3LjgyMzZDNjUuODYxIDE1LjgwMDIgNjcuMzY3NyAxNC4xOTkgNjkuMzA3MiAxMy4wMkM3MS4yNDY3IDExLjg0MSA3My40ODI3IDExLjI1MTUgNzYuMDE1MyAxMS4yNTE1Qzc4LjU0NzkgMTEuMjUxNSA4MC44OTYxIDExLjgwOTEgODIuNzcxNSAxMi45MjQ0Qzg0LjY0NjggMTQuMDM5NiA4Ni4wNzM0IDE1LjU4NTEgODcuMDUxMiAxNy41NjA3Qzg4LjAyODkgMTkuNTM2MyA4OC41MTc4IDIxLjc5ODcgODguNTE3OCAyNC4zNDc5Qzg4LjUxNzggMjUuMjQwMSA4OC40NTM3IDI2LjExNjQgODguMzI1NSAyNi45NzY3SDcxLjAxNDNDNzEuNDMxIDI4LjMxNTEgNzIuMTM2MyAyOS4zNDI3IDczLjEzMDEgMzAuMDU5N0M3NC4xMjM5IDMwLjc3NjYgNzUuMzQyMSAzMS4xMzUxIDc2Ljc4NDcgMzEuMTM1MUM3Ny45NzA4IDMxLjEzNTEgNzkuMDEyNyAzMC45OTE3IDc5LjkxMDMgMzAuNzA0OUM4MC44MDc5IDMwLjQxODEgODEuNzIxNiAyOS45MjQyIDgyLjY1MTMgMjkuMjIzMkw4Ni40NTAxIDM0LjI0MTlDODUuMDA3NSAzNS40ODQ2IDgzLjQ5MjggMzYuMzkyOCA4MS45MDU5IDM2Ljk2NjNDODAuMzE5IDM3LjUzOTkgNzguNDk5OCAzNy44MjY3IDc2LjQ0ODEgMzcuODI2N0M3My44NTE0IDM3LjgyNjcgNzEuNTQzMiAzNy4yMjkyIDY5LjUyMzYgMzYuMDM0M1pNODEuMjU2NyAyMS44MTQ2QzgwLjkzNjIgMjAuNDQ0NSA4MC4zMzUxIDE5LjQwODggNzkuNDUzNSAxOC43MDc4Qzc4LjU3MTkgMTguMDA2OCA3Ny40NzM5IDE3LjY1NjMgNzYuMTU5NiAxNy42NTYzQzc0Ljg0NTIgMTcuNjU2MyA3My42OTkxIDE4LjAxNDggNzIuODE3NSAxOC43MzE3QzcxLjkzNiAxOS40NDg3IDcxLjMxODggMjAuNDc2MyA3MC45NjYyIDIxLjgxNDZIODEuMjU2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTkyLjc5NzUgMTEuNzc3Mkg5Ny42MDYyTDk5Ljc3MDEgMTQuNjkyOEMxMDIuMDE0IDEyLjM2NjcgMTA0Ljg1MSAxMS4yMDM2IDEwOC4yODEgMTEuMjAzNkMxMTEuMzU5IDExLjIwMzYgMTEzLjgxOSAxMi4xOTE0IDExNS42NjMgMTQuMTY3QzExNy41MDYgMTYuMTQyNyAxMTguNDI4IDE4Ljg1MTIgMTE4LjQyOCAyMi4yOTI2VjM3LjEwOTdIMTEwLjQ0NVYyMy42Nzg3QzExMC40NDUgMjIuMDIxNyAxMTAuMDQ1IDIwLjczOTIgMTA5LjI0MyAxOS44MzFDMTA4LjQ0MiAxOC45MjI5IDEwNy4zNTIgMTguNDY4OCAxMDUuOTczIDE4LjQ2ODhDMTA0LjQ5OSAxOC40Njg4IDEwMy4yNjQgMTguOTU0NyAxMDIuMjcxIDE5LjkyNjZDMTAxLjI3NyAyMC44OTg1IDEwMC43OCAyMi4wMzc2IDEwMC43OCAyMy4zNDQxVjM3LjEwOTdIOTIuNzk3NVYxMS43NzcyWiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMTQxLjQxMyAxNC41MDE2TDE0My40ODEgMTEuNzc3MkgxNDguMjg5VjMzLjE0MjVDMTQ4LjI4OSAzNS41MzI0IDE0Ny43MzYgMzcuNzA3MSAxNDYuNjMgMzkuNjY2OEMxNDUuNTI0IDQxLjYyNjUgMTQzLjkwNiA0My4xNzIgMTQxLjc3NCA0NC4zMDMyQzEzOS42NDIgNDUuNDM0NCAxMzcuMTAxIDQ2IDEzNC4xNTIgNDZDMTMwLjA4MSA0NiAxMjYuNDkgNDQuODA1IDEyMy4zODEgNDIuNDE1MkwxMjcuNTE2IDM2LjkxODVDMTI4LjU3NCAzNy43Nzg4IDEyOS42MTYgMzguMzg0MyAxMzAuNjQyIDM4LjczNDhDMTMxLjY2OCAzOS4wODUzIDEzMi43OSAzOS4yNjA2IDEzNC4wMDggMzkuMjYwNkMxMzYuMjIgMzkuMjYwNiAxMzcuODQ3IDM4Ljc1MDcgMTM4Ljg4OSAzNy43MzFDMTM5LjkzIDM2LjcxMTQgMTQwLjQ1MSAzNS4xOTc4IDE0MC40NTEgMzMuMTkwM0MxMzguNTYgMzQuNzUxNyAxMzYuMyAzNS41MzI0IDEzMy42NzEgMzUuNTMyNEMxMzEuNDI3IDM1LjUzMjQgMTI5LjQxNSAzNS4wMDY2IDEyNy42MzYgMzMuOTU1MUMxMjUuODU3IDMyLjkwMzUgMTI0LjQ2MyAzMS40NjE2IDEyMy40NTMgMjkuNjI5NEMxMjIuNDQzIDI3Ljc5NzIgMTIxLjkzOCAyNS43MTggMTIxLjkzOCAyMy4zOTE5QzEyMS45MzggMjEuMDY1OCAxMjIuNDQzIDE5LjAxODUgMTIzLjQ1MyAxNy4xNTQ0QzEyNC40NjMgMTUuMjkwMyAxMjUuODU3IDEzLjgzMjUgMTI3LjYzNiAxMi43ODA5QzEyOS40MTUgMTEuNzI5NCAxMzEuNDI3IDExLjIwMzYgMTMzLjY3MSAxMS4yMDM2QzEzNi43MTcgMTEuMjAzNiAxMzkuMjk3IDEyLjMwMjkgMTQxLjQxMyAxNC41MDE2Wk0xMzEuMzg3IDE5LjcxMTVDMTMwLjM3NyAyMC42OTkzIDEyOS44NzIgMjEuOTU4IDEyOS44NzIgMjMuNDg3NUMxMjkuODcyIDI1LjAxNyAxMzAuMzc3IDI2LjM3MTMgMTMxLjM4NyAyNy4zNTkxQzEzMi4zOTcgMjguMzQ2OSAxMzMuNzAzIDI4Ljg0MDggMTM1LjMwNiAyOC44NDA4QzEzNi45MDkgMjguODQwOCAxMzguMjE1IDI4LjM0NjkgMTM5LjIyNSAyNy4zNTkxQzE0MC4yMzUgMjYuMzcxMyAxNDAuNzQgMjUuMDk2NyAxNDAuNzQgMjMuNTM1M0MxNDAuNzQgMjEuOTczOSAxNDAuMjM1IDIwLjczOTIgMTM5LjIyNSAxOS43MzU0QzEzOC4yMTUgMTguNzMxNyAxMzYuOTA5IDE4LjIyOTggMTM1LjMwNiAxOC4yMjk4QzEzMy43MDMgMTguMjI5OCAxMzIuMzk3IDE4LjcyMzcgMTMxLjM4NyAxOS43MTE1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDxkZWZzPg0KICAgICAgICAgICAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3N18yMTAxIj4NCiAgICAgICAgICAgICAgICA8cmVjdCB3aWR0aD0iMTQ4LjI4OSIgaGVpZ2h0PSI0NiIgZmlsbD0id2hpdGUiIC8+DQogICAgICAgICAgICAgIDwvY2xpcFBhdGg+DQogICAgICAgICAgICA8L2RlZnM+DQogICAgICAgICAgPC9zdmc+" alt="Engineering" width="149" height="46"><span class="brand-text"><span class="brand-title">LOSS_PREVENTION · IMPACT how (FULL)</span><span class="brand-sub">Documentazione IMPACT how (FULL) · baseline fc7d820 (main) · portale offline</span></span></a>
+  <button type="button" class="nav-toggle" aria-controls="inlay-nav inlay-sidebar" aria-expanded="false" hidden><span class="nav-toggle-icon" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span></button>
+  <nav class="topnav" id="inlay-nav" aria-label="Navigazione principale"><a class="nav-item" href="index.html">Panoramica</a><a class="nav-item" href="index-doc.html">Indice IMPACT</a><a class="nav-item" href="00_deep_dive.html">Deep Dive</a><a class="nav-item" href="06_software_architecture.html">Architettura</a><a class="nav-item" href="14_metrics.html">Metriche</a></nav>
+  <div class="search" role="search" hidden>
+    <label class="visually-hidden" for="inlay-search">Cerca nella documentazione</label>
+    <input id="inlay-search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inlay-search-results" placeholder="Cerca nella documentazione" autocomplete="off" spellcheck="false">
+    <ul id="inlay-search-results" class="search-results" role="listbox" aria-label="Cerca nella documentazione" hidden></ul>
+  </div>
+</header>
+<div class="page">
+  <div class="hero">
+    <p class="hero-title">LOSS_PREVENTION — Documentazione IMPACT how (FULL)</p>
+    <p class="hero-sub">.NET 8 FastEndpoints + MongoDB · Vue 3 + Vite + Vuetify SPA · Data Ingestion Service — baseline fc7d820, revisione 1.1 (2026-10-08)</p>
+    <ul class="quicklinks"><li><a class="btn-primary" href="index-doc.html">Indice e valori canonici</a></li><li><a class="btn-outline" href="15_fp_cocomo.html">FP &amp; COCOMO II</a></li><li><a class="btn-outline" href="18_antipattern_deep_dive.html">Antipattern</a></li><li><a class="btn-outline" href="19_modernization_estimation_spec.html">Stima modernizzazione</a></li></ul>
+  </div>
+  <div class="layout">
+    <aside class="card sidebar" id="inlay-sidebar">
+      <p class="card-head side-head" id="inlay-tree-label">Struttura documenti</p>
+      <nav class="tree-scroll" id="inlay-tree" aria-labelledby="inlay-tree-label"><ul class="tree"><li class="tree-node tree-node-root"><div class="tree-row"><button type="button" class="tree-toggle" aria-expanded="true" aria-controls="inlay-t1" aria-label="LOSS_PREVENTION"></button><a class="tree-link" href="index.html">LOSS_PREVENTION</a></div><ul id="inlay-t1"><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t2">Architettura (HOW)</button></div><ul id="inlay-t2"><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t3">Foundation</button></div><ul id="inlay-t3"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="00_deep_dive.html">00 · Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="01_context.html">01 · Context Definition</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t6">Requirements</button></div><ul id="inlay-t6"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="02_functional_overview.html">02 · Functional Overview</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="03_non_functional_overview.html">03 · Non-Functional Requirements</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="04_constraints.html">04 · Constraints</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t10">Architecture</button></div><ul id="inlay-t10"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="05_principles.html">05 · Architectural Principles</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="06_software_architecture.html">06 · Software Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="07_code.html">07 · Code Implementation Details</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="08_data.html">08 · Data Architecture</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t15">Infrastructure &amp; Operations</button></div><ul id="inlay-t15"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="10_deployment.html">10 · Deployment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="11_development_environment.html">11 · Development Environment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="12_operation_and_support.html">12 · Operation and Support</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t20">Decisions &amp; Metrics</button></div><ul id="inlay-t20"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="13_decision_log.html">13 · Decision Log</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="14_metrics.html">14 · Metrics</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="15_fp_cocomo.html" aria-current="page">15 · FP &amp; COCOMO II</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t24">Deep Assessments</button></div><ul id="inlay-t24"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="18_antipattern_deep_dive.html">18 · Antipattern Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="19_modernization_estimation_spec.html">19 · Modernization Estimation Spec</a></div></li></ul></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></div></li></ul></li></ul></li></ul></nav>
+    </aside>
+    <main class="card docpane" id="main" tabindex="-1">
+      <div class="card-head doc-head"><p class="doc-title">FP &amp; COCOMO II - Progetto LOSS_PREVENTION</p><a class="btn-primary btn-export" href="15_fp_cocomo.html" download="15_fp_cocomo.html" data-export="">Scarica</a></div>
+      <nav class="breadcrumbs" aria-label="Percorso"><ol><li><a href="index.html">LOSS_PREVENTION</a></li><li><span>Architettura (HOW)</span></li><li><span>Decisions &amp; Metrics</span></li><li><span aria-current="page">15 · FP &amp; COCOMO II</span></li></ol></nav>
+      <div class="doc-info"><details class="provenance"><summary>Provenienza del documento <span class="badge badge-present">metadati presenti</span></summary><dl><dt>Sorgente</dt><dd><code>15_fp_cocomo.md</code></dd><dt>SHA-256 sorgente</dt><dd><code>01662141bc1dc04567a0dccfc74a6b89b8305373e0676bdfbedc9fb6453c249c</code></dd><dt>Modalità</dt><dd>how</dd><dt>Step</dt><dd>15_fp_cocomo</dd><dt>Commit</dt><dd><code>fc7d820908b8b230fb47a2669920ba7efdb413a8</code></dd><dt>Branch</dt><dd>main</dd><dt>Worktree</dt><dd>dirty</dd><dt>Data baseline</dt><dd>2026-10-07T18:19:51+02:00</dd><dt>Generato il</dt><dd>2026-10-08T09:34:49+02:00</dd></dl></details><details class="toc" id="inlay-toc"><summary>In questa pagina</summary><ol><li><a href="#sezioni-principali">Sezioni Principali</a></li><li><a href="#1-function-points-calculation">1. Function Points Calculation</a><ol><li><a href="#11-regole-di-conteggio-adottate">1.1 Regole di conteggio adottate</a></li><li><a href="#12-ilf--internal-logical-files-124-fp">1.2 ILF — Internal Logical Files (124 FP)</a></li><li><a href="#13-transazioni-da-endpoint-78-endpoint-265-fp">1.3 Transazioni da endpoint (78 endpoint, 265 FP)</a></li><li><a href="#14-funzioni-elaborate-solo-nel-frontend-10-funzioni-46-fp">1.4 Funzioni elaborate solo nel frontend (10 funzioni, 46 FP)</a></li><li><a href="#15-riepilogo">1.5 Riepilogo</a></li><li><a href="#16-fp-per-modulo-funzionale-usati-dallo-strangler-fig-in-19-42">1.6 FP per modulo funzionale (usati dallo Strangler Fig in 19 §4.2)</a></li></ol></li><li><a href="#2-backfiring-method-loc-to-fp">2. Backfiring Method (LOC to FP)</a></li><li><a href="#3-cocomo-ii-models-organic-semi-detached-embedded">3. COCOMO II Models (Organic, Semi-detached, Embedded)</a><ol><li><a href="#31-cocomo-81-base--tre-modi">3.1 COCOMO 81 base — tre modi</a></li><li><a href="#32-cocomo-ii-post-architecture-riferimento">3.2 COCOMO II Post-Architecture (riferimento)</a></li></ol></li><li><a href="#4-effort-estimation-person-months">4. Effort Estimation (Person-Months)</a></li><li><a href="#5-duration-estimation-calendar-months">5. Duration Estimation (Calendar Months)</a></li><li><a href="#6-cost-estimation">6. Cost Estimation</a></li><li><a href="#7-team-mix-proposal">7. Team Mix Proposal</a></li><li><a href="#8-staffing-profile">8. Staffing Profile</a></li><li><a href="#reference-documents">Reference Documents</a></li><li><a href="#change-log">Change Log</a></li></ol></details></div>
+      <article class="doc-body" id="doc-body"><!-- IMPACT-META
+schema: 1
+mode: how
+step: 15_fp_cocomo
+commit: fc7d820908b8b230fb47a2669920ba7efdb413a8
+commit_short: fc7d820
+branch: main
+worktree: dirty
+baseline_date: 2026-10-07T18:19:51+02:00
+generated_at: 2026-10-08T09:34:49+02:00
+--><h1 id="fp--cocomo-ii---progetto-loss_prevention"><span id="fp-cocomo-ii-progetto-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="fp-cocomo-ii-progetto-loss-prevention" class="anchor-alias" aria-hidden="true"></span>FP &amp; COCOMO II - Progetto LOSS_PREVENTION<a class="header-anchor" href="#fp--cocomo-ii---progetto-loss_prevention" aria-label="Collegamento alla sezione: FP &amp; COCOMO II - Progetto LOSS_PREVENTION">#</a></h1>
+<blockquote>
+<p><strong>Baseline commit:</strong> <code>fc7d820</code> (<code>main</code>) · worktree <code>dirty</code> (modifiche locali solo in <code>Docs/</code> e <code>.github/</code>; codice applicativo identico al commit)</p>
+</blockquote>
+<p><strong>Data</strong>: 2026-10-08<br>
+<strong>Versione</strong>: 1.1<br>
+<strong>Autori</strong>: REVERSE how (IMPACT) · verifica IMPACT 2026-10-08<br>
+<strong>Audience</strong>: Team tecnico, architetti, developer, PM, procurement</p>
+<blockquote>
+<p><strong>Scopo</strong>: misurare la <strong>dimensione funzionale</strong> del sistema AS-IS e stimarne il <strong>costo di (ri)costruzione</strong> (valore di sostituzione, utile in una due diligence). L'effort per <strong>completare</strong> le funzionalità in sviluppo/pianificate e gli scenari di modernizzazione sono in <a href="19_modernization_estimation_spec.html">19_modernization_estimation_spec.md</a>.</p>
+<p><strong>Baseline</strong> (identica a <a href="14_metrics.html">14_metrics.md</a> §1.5): <strong>19.774 SLOC logiche</strong> (C# 10.143 + TS 3.868 + script Vue 5.395 + JS 368). Ipotesi economiche parametriche: 1 PM = 20 gg = 160 h; tariffa blended <strong>400 €/gg</strong> (8.000 €/PM). Tutti i calcoli sono stati rieseguiti in Python; arrotondamento half-up solo nella presentazione.</p>
+</blockquote>
+<hr>
+<h2 id="sezioni-principali">Sezioni Principali<a class="header-anchor" href="#sezioni-principali" aria-label="Collegamento alla sezione: Sezioni Principali">#</a></h2>
+<ol>
+<li><a href="#1-function-points-calculation">Function Points Calculation</a></li>
+<li><a href="#2-backfiring-method-loc-to-fp">Backfiring Method (LOC to FP)</a></li>
+<li><a href="#3-cocomo-ii-models-organic-semi-detached-embedded">COCOMO II Models (Organic, Semi-detached, Embedded)</a></li>
+<li><a href="#4-effort-estimation-person-months">Effort Estimation (Person-Months)</a></li>
+<li><a href="#5-duration-estimation-calendar-months">Duration Estimation (Calendar Months)</a></li>
+<li><a href="#6-cost-estimation">Cost Estimation</a></li>
+<li><a href="#7-team-mix-proposal">Team Mix Proposal</a></li>
+<li><a href="#8-staffing-profile">Staffing Profile</a></li>
+</ol>
+<hr>
+<h2 id="1-function-points-calculation"><span id="_1-function-points-calculation" class="anchor-alias" aria-hidden="true"></span>1. Function Points Calculation<a class="header-anchor" href="#1-function-points-calculation" aria-label="Collegamento alla sezione: 1. Function Points Calculation">#</a></h2>
+<p>Il conteggio IFPUG (CPM 4.3, Unadjusted) dal codice dà <strong>435 UFP</strong>: 124 FP di dati (15 ILF, 0 EIF) e 311 FP transazionali (78 endpoint REST + 10 funzioni elaborate interamente nel browser). Ogni elemento è tracciato alla classe/collezione da cui deriva.</p>
+<h3 id="11-regole-di-conteggio-adottate"><span id="_1-1-regole-di-conteggio-adottate" class="anchor-alias" aria-hidden="true"></span>1.1 Regole di conteggio adottate<a class="header-anchor" href="#11-regole-di-conteggio-adottate" aria-label="Collegamento alla sezione: 1.1 Regole di conteggio adottate">#</a></h3>
+<ul>
+<li><strong>Confine applicativo</strong>: API .NET + SPA Vue + MongoDB. Sono esterni: server SFTP (sorgente file), Ollama (servizio di elaborazione LLM), SMTP.</li>
+<li><strong>ILF</strong>: ogni collezione MongoDB mantenuta dall'applicazione (15, da <code>MongoDbSettings</code> + <code>PasswordResetTokens</code> + <code>ProcessedFiles</code>). DET = proprietà dell'entità (o campi mappati per <code>ReportData</code>); RET = sotto-documenti/array strutturati.</li>
+<li><strong>EIF = 0</strong>: i file SFTP vengono importati e memorizzati in <code>ReportData</code> → sono <strong>EI</strong>, non EIF; Ollama non mantiene un gruppo di dati referenziato dall'applicazione ma esegue elaborazioni → non è un EIF. <em>(La v1.0 contava 2 EIF × 5 = 10 FP.)</em></li>
+<li><strong>Transazioni</strong>: ogni endpoint FastEndpoints è un processo elementare: POST/PUT/PATCH/DELETE che modificano un ILF = <strong>EI</strong>; GET/POST di sola lettura senza dati derivati = <strong>EQ</strong>; letture con calcoli/aggregazioni o dati derivati = <strong>EO</strong>. <code>GET /rules/apply</code> è EI perché modifica <code>ReportData</code> e <code>Mappings</code>. <code>POST /users/login</code> è EQ (legge Users/Roles/Permissions e restituisce il token, nessun ILF aggiornato).</li>
+<li><strong>Funzioni solo FE</strong>: elaborazioni che producono output derivati nel browser (NLQ, analisi statistica, export, grafici) sono conteggiate come EO/EQ/EI aggiuntive perché non passano da un endpoint dedicato.</li>
+<li><strong>Pesi IFPUG</strong>: EI 3/4/6 · EO 4/5/7 · EQ 3/4/6 · ILF 7/10/15 · EIF 5/7/10 (Low/Average/High).</li>
+<li><strong>Matrici di complessità</strong> (standard IFPUG):</li>
+</ul>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 1"><table>
+<thead>
+<tr>
+<th>ILF/EIF</th>
+<th>DET 1–19</th>
+<th>DET 20–50</th>
+<th>DET 51+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RET 1</td>
+<td>L</td>
+<td>L</td>
+<td>A</td>
+</tr>
+<tr>
+<td>RET 2–5</td>
+<td>L</td>
+<td>A</td>
+<td>H</td>
+</tr>
+<tr>
+<td>RET 6+</td>
+<td>A</td>
+<td>H</td>
+<td>H</td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 2"><table>
+<thead>
+<tr>
+<th>EI</th>
+<th>DET 1–4</th>
+<th>DET 5–15</th>
+<th>DET 16+</th>
+<th></th>
+<th>EO / EQ</th>
+<th>DET 1–5</th>
+<th>DET 6–19</th>
+<th>DET 20+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FTR 0–1</td>
+<td>L</td>
+<td>L</td>
+<td>A</td>
+<td></td>
+<td>FTR 0–1</td>
+<td>L</td>
+<td>L</td>
+<td>A</td>
+</tr>
+<tr>
+<td>FTR 2</td>
+<td>L</td>
+<td>A</td>
+<td>H</td>
+<td></td>
+<td>FTR 2–3</td>
+<td>L</td>
+<td>A</td>
+<td>H</td>
+</tr>
+<tr>
+<td>FTR 3+</td>
+<td>A</td>
+<td>H</td>
+<td>H</td>
+<td></td>
+<td>FTR 4+</td>
+<td>A</td>
+<td>H</td>
+<td>H</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>VAF</strong> non applicato (UFP = AFP; il fattore di aggiustamento è opzionale in ISO/IEC 20926).</li>
+</ul>
+<h3 id="12-ilf--internal-logical-files-124-fp"><span id="12-ilf-internal-logical-files-124-fp" class="anchor-alias" aria-hidden="true"></span><span id="_1-2-ilf-—-internal-logical-files-124-fp" class="anchor-alias" aria-hidden="true"></span>1.2 ILF — Internal Logical Files (124 FP)<a class="header-anchor" href="#12-ilf--internal-logical-files-124-fp" aria-label="Collegamento alla sezione: 1.2 ILF — Internal Logical Files (124 FP)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 3"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>ILF (collezione)</th>
+<th>Entità / evidenza</th>
+<th>DET</th>
+<th>RET</th>
+<th>Complessità</th>
+<th>FP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>ReportData</code></td>
+<td>documenti XML/CSV/JSON appiattiti; campi = 52 mapping nel dump <code>Mappings.bson</code></td>
+<td>52</td>
+<td>2 (transazione, <code>FraudFlags</code>)</td>
+<td>High</td>
+<td>15</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>FraudDetectionSettings</code></td>
+<td><code>FraudDetectionSettings.cs</code>: 24 classi, 118 proprietà, 22 blocchi di soglia</td>
+<td>118</td>
+<td>22+</td>
+<td>High</td>
+<td>15</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>Workspaces</code></td>
+<td>Workspace → Tab → Query → Condition/Field</td>
+<td>27</td>
+<td>5</td>
+<td>Average</td>
+<td>10</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>Dashboards</code></td>
+<td><code>Dashboard</code> + layout widget</td>
+<td>14</td>
+<td>2</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Users</code></td>
+<td><code>User</code> (incl. <code>LockField</code>/<code>LockValue</code>, hash/salt)</td>
+<td>12</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>Roles</code></td>
+<td><code>Role</code></td>
+<td>4</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>Permissions</code></td>
+<td><code>Permission</code></td>
+<td>4</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>PasswordResetTokens</code></td>
+<td><code>PasswordResetService</code> (hash SHA-256, scadenza)</td>
+<td>7</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>Mappings</code></td>
+<td><code>MappingItem</code> (Name, Alias, DataType, IsVisible, IsLookup, …)</td>
+<td>14</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>Rules</code></td>
+<td><code>RuleConfiguration</code></td>
+<td>10</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>Groups</code></td>
+<td><code>GroupDocument</code></td>
+<td>6</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>Notifications</code></td>
+<td><code>NotificationDocument</code> (incl. risposte)</td>
+<td>11</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>DataIngestionConfigurations</code></td>
+<td>sorgenti SFTP/cartella, formato, mapping</td>
+<td>19</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>DataIngestionSchedules</code></td>
+<td>ricorrenza, ora, giorni</td>
+<td>12</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>ProcessedFiles</code></td>
+<td>fileName, recordCount, processedAt</td>
+<td>3</td>
+<td>1</td>
+<td>Low</td>
+<td>7</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Totale ILF</strong></td>
+<td>2 High + 1 Average + 12 Low</td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>124</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><em>(v1.0: <code>FraudDetectionSettings</code> Average → High (118 DET); <code>Dashboards</code> e <code>Users</code> Average → Low (DET &lt; 20); totale 125 → 124.)</em></p>
+<h3 id="13-transazioni-da-endpoint-78-endpoint-265-fp"><span id="_1-3-transazioni-da-endpoint-78-endpoint-265-fp" class="anchor-alias" aria-hidden="true"></span>1.3 Transazioni da endpoint (78 endpoint, 265 FP)<a class="header-anchor" href="#13-transazioni-da-endpoint-78-endpoint-265-fp" aria-label="Collegamento alla sezione: 1.3 Transazioni da endpoint (78 endpoint, 265 FP)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 4"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Area</th>
+<th>Endpoint (classe)</th>
+<th>Metodo e path</th>
+<th>Tipo</th>
+<th>FTR / DET (motivazione)</th>
+<th>Complessità</th>
+<th>FP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Dashboard</td>
+<td><code>CreateDashboardEndpoint</code></td>
+<td><code>POST /dashboards</code></td>
+<td>EI</td>
+<td>FTR 1 (Dashboards), DET 14</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dashboard</td>
+<td><code>DeleteDashboardEndpoint</code></td>
+<td><code>DELETE /dashboards/{id}</code></td>
+<td>EI</td>
+<td>FTR 1, DET 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dashboard</td>
+<td><code>GetDashboardEndpoint</code></td>
+<td><code>GET /dashboards/{id}</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 14</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Dashboard</td>
+<td><code>ListDashboardsEndpoint</code></td>
+<td><code>GET /dashboards</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 14</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Dashboard</td>
+<td><code>UpdateDashboardEndpoint</code></td>
+<td><code>PUT /dashboards/{id}</code></td>
+<td>EI</td>
+<td>FTR 1, DET 14</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Data</td>
+<td><code>CreateTransactionEndpoint</code></td>
+<td><code>POST /data/create-transactions</code></td>
+<td>EI</td>
+<td>FTR 1 (ReportData), DET 16+ (XML appiattito)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Data</td>
+<td><code>GetDistanceEndpoint</code></td>
+<td><code>POST /distance</code></td>
+<td>EO</td>
+<td>FTR 2 (ReportData, Mappings), DET 20+, dati derivati (distanza euclidea)</td>
+<td>High</td>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Data</td>
+<td><code>GetReportDataEndpoint</code></td>
+<td><code>POST /data/report/query</code></td>
+<td>EO</td>
+<td>FTR 2 (ReportData, Mappings), DET 20+, aggregazioni</td>
+<td>High</td>
+<td>7</td>
+</tr>
+<tr>
+<td>9</td>
+<td>DataIngestion</td>
+<td><code>ClearDataIngestionConfigurationEndpoint</code></td>
+<td><code>DELETE /api/data-ingestion</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DataIngestion</td>
+<td><code>ClearDataIngestionScheduleEndpoint</code></td>
+<td><code>DELETE /api/data-ingestion/schedule</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>11</td>
+<td>DataIngestion</td>
+<td><code>GetDataIngestionConfigurationEndpoint</code></td>
+<td><code>GET /api/data-ingestion</code></td>
+<td>EQ</td>
+<td>FTR 2 (Config, Schedule), DET 6-19</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>12</td>
+<td>DataIngestion</td>
+<td><code>RunDataIngestionEndpoint</code></td>
+<td><code>POST /api/data-ingestion/run</code></td>
+<td>EI</td>
+<td>FTR 4 (Config, ReportData, Mappings, ProcessedFiles), DET 16+</td>
+<td>High</td>
+<td>6</td>
+</tr>
+<tr>
+<td>13</td>
+<td>DataIngestion</td>
+<td><code>UpdateDataIngestionConfigurationEndpoint</code></td>
+<td><code>PUT /api/data-ingestion</code></td>
+<td>EI</td>
+<td>FTR 1, DET 19 (16+)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>14</td>
+<td>DataIngestion</td>
+<td><code>UpdateDataIngestionScheduleEndpoint</code></td>
+<td><code>PATCH /api/data-ingestion/schedule</code></td>
+<td>EI</td>
+<td>FTR 1, DET 12</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>15</td>
+<td>DataIngestion</td>
+<td><code>UpdateDataIngestionSourcesEndpoint</code></td>
+<td><code>PATCH /api/data-ingestion/sources</code></td>
+<td>EI</td>
+<td>FTR 1, DET &lt;16</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>16</td>
+<td>DataIngestion</td>
+<td><code>UpdateRecurrenceOptionsEndpoint</code></td>
+<td><code>PUT /api/data-ingestion/recurrence-options</code></td>
+<td>EI</td>
+<td>FTR 1, DET &lt;16</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>17</td>
+<td>FraudDetection</td>
+<td><code>CreateFraudDetectionSettingsEndpoint</code></td>
+<td><code>POST /api/fraud-detection/settings</code></td>
+<td>EI</td>
+<td>FTR 1, DET 118 (16+)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>18</td>
+<td>FraudDetection</td>
+<td><code>GetFraudDetectionSettingsEndpoint</code></td>
+<td><code>GET /api/fraud-detection/settings</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 20+</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>19</td>
+<td>FraudDetection</td>
+<td><code>UpdateFraudDetectionSettingsEndpoint</code></td>
+<td><code>PUT /api/fraud-detection/settings/{id}</code></td>
+<td>EI</td>
+<td>FTR 1, DET 118 (16+)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Groups</td>
+<td><code>AddMemberToGroupEndpoint</code></td>
+<td><code>POST /groups/{groupId}/members/{userId}</code></td>
+<td>EI</td>
+<td>FTR 2, DET 2</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Groups</td>
+<td><code>CreateGroupEndpoint</code></td>
+<td><code>POST /groups</code></td>
+<td>EI</td>
+<td>FTR 1, DET 6</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Groups</td>
+<td><code>DeleteGroupEndpoint</code></td>
+<td><code>DELETE /groups/{id}</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Groups</td>
+<td><code>GetGroupEndpoint</code></td>
+<td><code>GET /groups/{id}</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 6</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Groups</td>
+<td><code>ListGroupsEndpoint</code></td>
+<td><code>GET /groups</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 6</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Groups</td>
+<td><code>RemoveMemberFromGroupEndpoint</code></td>
+<td><code>DELETE /groups/{groupId}/members/{userId}</code></td>
+<td>EI</td>
+<td>FTR 1-2, DET 2</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Groups</td>
+<td><code>UpdateGroupEndpoint</code></td>
+<td><code>PUT /groups/{id}</code></td>
+<td>EI</td>
+<td>FTR 1, DET 6</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Mappings</td>
+<td><code>CreateMappingEndpoint</code></td>
+<td><code>POST /data/mappings</code></td>
+<td>EI</td>
+<td>FTR 1, DET 14</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Mappings</td>
+<td><code>DeleteMappingEndpoint</code></td>
+<td><code>DELETE /data/mappings/{id}</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Mappings</td>
+<td><code>GetMappingsEndpoint</code></td>
+<td><code>GET /data/mappings</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 14</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Mappings</td>
+<td><code>UpdateMappingEndpoint</code></td>
+<td><code>PUT /data/mappings/{id}</code></td>
+<td>EI</td>
+<td>FTR 1, DET 14</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Notifications</td>
+<td><code>CreateNotificationEndpoint</code></td>
+<td><code>POST /notifications</code></td>
+<td>EI</td>
+<td>FTR 1 (repository diretto), DET 11</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Notifications</td>
+<td><code>DeleteNotificationEndpoint</code></td>
+<td><code>DELETE /notifications/{id}</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Notifications</td>
+<td><code>ListNotificationsEndpoint</code></td>
+<td><code>GET /notifications</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 11</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Notifications</td>
+<td><code>MarkAsReadEndpoint</code></td>
+<td><code>PUT /notifications/{id}/read</code></td>
+<td>EI</td>
+<td>FTR 1, DET 2</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>35</td>
+<td>Notifications</td>
+<td><code>ReplyToNotificationEndpoint</code></td>
+<td><code>POST /notifications/{id}/reply</code></td>
+<td>EI</td>
+<td>FTR 1, DET &lt;16</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Rules</td>
+<td><code>ApplyRulesEndpoint</code></td>
+<td><code>GET /rules/apply</code></td>
+<td>EI</td>
+<td>Modifica ReportData (FraudFlags) e Mappings: FTR 3, DET 5-15</td>
+<td>High</td>
+<td>6</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Rules</td>
+<td><code>CreateRuleEndpoint</code></td>
+<td><code>POST /rules</code></td>
+<td>EI</td>
+<td>FTR 2 (Rules, Mappings), DET 10</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Rules</td>
+<td><code>DeleteRuleEndpoint</code></td>
+<td><code>DELETE /rules/{id}</code></td>
+<td>EI</td>
+<td>FTR 3 (Rules, ReportData, Mappings), DET 1-4</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Rules</td>
+<td><code>GetAllRulesEndpoint</code></td>
+<td><code>GET /rules</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 10</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Rules</td>
+<td><code>GetRuleByIdEndpoint</code></td>
+<td><code>GET /rules/{id}</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 10</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Rules</td>
+<td><code>UpdateRuleEndpoint</code></td>
+<td><code>PUT /rules</code></td>
+<td>EI</td>
+<td>FTR 2 (Rules, Mappings), DET 10</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Permissions</td>
+<td><code>AddPermissionToRoleEndpoint</code></td>
+<td><code>POST /permissions/add-permission</code></td>
+<td>EI</td>
+<td>FTR 2, DET 2</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Permissions</td>
+<td><code>CreatePermissionEndpoint</code></td>
+<td><code>POST /permissions/create</code></td>
+<td>EI</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Permissions</td>
+<td><code>DeletePermissionEndpoint</code></td>
+<td><code>DELETE /permissions/delete</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Permissions</td>
+<td><code>GetAllPermissionsEndpoint</code></td>
+<td><code>GET /permissions/all</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Permissions</td>
+<td><code>GetPermissionByIdEndpoint</code></td>
+<td><code>GET /permissions/by-id</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Permissions</td>
+<td><code>GetPermissionByNameEndpoint</code></td>
+<td><code>GET /permissions/by-name</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Permissions</td>
+<td><code>GetRolePermissionsEndpoint</code></td>
+<td><code>GET /permissions</code></td>
+<td>EQ</td>
+<td>FTR 2, DET 1-5</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Permissions</td>
+<td><code>RemovePermissionFromRoleEndpoint</code></td>
+<td><code>DELETE /permissions</code></td>
+<td>EI</td>
+<td>FTR 2, DET 2</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Permissions</td>
+<td><code>UpdatePermissionEndpoint</code></td>
+<td><code>PUT /permissions/update</code></td>
+<td>EI</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Permissions</td>
+<td><code>UserHasPermissionEndpoint</code></td>
+<td><code>GET /permissions/user</code></td>
+<td>EQ</td>
+<td>FTR 3, DET 1-5</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Roles</td>
+<td><code>AddUserToRoleEndpoint</code></td>
+<td><code>POST /roles/user</code></td>
+<td>EI</td>
+<td>FTR 2, DET 2</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Roles</td>
+<td><code>CreateRoleEndpoint</code></td>
+<td><code>POST /roles</code></td>
+<td>EI</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Roles</td>
+<td><code>DeleteRoleEndpoint</code></td>
+<td><code>DELETE /roles/delete</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Roles</td>
+<td><code>GetAllRolesEndpoint</code></td>
+<td><code>GET /roles/all</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Roles</td>
+<td><code>GetRoleByIdEndpoint</code></td>
+<td><code>GET /roles/by-id</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Roles</td>
+<td><code>GetRoleByNameEndpoint</code></td>
+<td><code>GET /roles/by-name</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Roles</td>
+<td><code>GetUserRolesEndpoint</code></td>
+<td><code>GET /users/roles</code></td>
+<td>EQ</td>
+<td>FTR 2, DET 1-5</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Roles</td>
+<td><code>RemoveRoleFromUserEndpoint</code></td>
+<td><code>DELETE /roles/remove-role</code></td>
+<td>EI</td>
+<td>FTR 2, DET 2</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Roles</td>
+<td><code>UpdateRoleEndpoint</code></td>
+<td><code>PUT /roles/update</code></td>
+<td>EI</td>
+<td>FTR 1, DET 4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>61</td>
+<td>Roles</td>
+<td><code>UserIsInRoleEndpoint</code></td>
+<td><code>GET /roles/is-in-role</code></td>
+<td>EQ</td>
+<td>FTR 2, DET 1-5</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Users</td>
+<td><code>CreateUserEndpoint</code></td>
+<td><code>POST /users/create</code></td>
+<td>EI</td>
+<td>FTR 2 (Users, Roles), DET 12</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>63</td>
+<td>Users</td>
+<td><code>DeleteUserByIdEndpoint</code></td>
+<td><code>DELETE /users/id/{UserId}</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Users</td>
+<td><code>ForgotPasswordEndpoint</code></td>
+<td><code>POST /users/forgot-password</code></td>
+<td>EI</td>
+<td>FTR 2 (Users, PasswordResetTokens), DET 1-4 (+ e-mail)</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>65</td>
+<td>Users</td>
+<td><code>GetUserByIdEndpoint</code></td>
+<td><code>GET /users/id/{Id}</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 12</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>66</td>
+<td>Users</td>
+<td><code>GetUserByUsernameEndpoint</code></td>
+<td><code>GET /users/username/{Username}</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 12</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>67</td>
+<td>Users</td>
+<td><code>GetUserRolesPermissionEndpoint</code></td>
+<td><code>GET /users/rolesandpermissions/{Id}</code></td>
+<td>EQ</td>
+<td>FTR 3, DET 6-19</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>68</td>
+<td>Users</td>
+<td><code>GetUsersEndpoint</code></td>
+<td><code>GET /users</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 12</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>69</td>
+<td>Users</td>
+<td><code>LoginEndpoint</code></td>
+<td><code>POST /users/login</code></td>
+<td>EQ</td>
+<td>FTR 3 (Users, Roles, Permissions), DET 6-19</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>70</td>
+<td>Users</td>
+<td><code>ResetPasswordEndpoint</code></td>
+<td><code>POST /users/reset-password</code></td>
+<td>EI</td>
+<td>FTR 2, DET 1-4</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Users</td>
+<td><code>UpdateUserEndpoint</code></td>
+<td><code>POST /users/update</code></td>
+<td>EI</td>
+<td>FTR 2 (Users, Roles), DET 12</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>72</td>
+<td>Users</td>
+<td><code>ValidatePasswordEndpoint</code></td>
+<td><code>POST /users/validatepassword</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 1-5</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>73</td>
+<td>Users</td>
+<td><code>ValidateResetTokenEndpoint</code></td>
+<td><code>POST /users/validate-reset-token</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 1-5</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>74</td>
+<td>Workspaces</td>
+<td><code>CreateWorkspace</code></td>
+<td><code>POST /workspaces</code></td>
+<td>EI</td>
+<td>FTR 1, DET 27 (16+)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>75</td>
+<td>Workspaces</td>
+<td><code>DeleteWorkspaceEndpoint</code></td>
+<td><code>DELETE /workspaces/{id}</code></td>
+<td>EI</td>
+<td>FTR 1</td>
+<td>Low</td>
+<td>3</td>
+</tr>
+<tr>
+<td>76</td>
+<td>Workspaces</td>
+<td><code>GetAllWorkspacesEndpoint</code></td>
+<td><code>GET /workspaces</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 27 (20+)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>77</td>
+<td>Workspaces</td>
+<td><code>GetWorkspaceEndpoint</code></td>
+<td><code>GET /workspaces/{id}</code></td>
+<td>EQ</td>
+<td>FTR 1, DET 27 (20+)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td>78</td>
+<td>Workspaces</td>
+<td><code>UpdateWorkspaceEndpoint</code></td>
+<td><code>PUT /workspaces/{id}</code></td>
+<td>EI</td>
+<td>FTR 1, DET 27 (16+)</td>
+<td>Average</td>
+<td>4</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Totale endpoint</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>265</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Subtotali per area: Dashboard 5 endpoint = 15 FP · Data 3 endpoint = 18 FP · DataIngestion 8 endpoint = 29 FP · FraudDetection 3 endpoint = 12 FP · Groups 7 endpoint = 21 FP · Mappings 4 endpoint = 12 FP · Notifications 5 endpoint = 15 FP · Rules 6 endpoint = 24 FP · Permissions 10 endpoint = 30 FP · Roles 10 endpoint = 30 FP · Users 12 endpoint = 40 FP · Workspaces 5 endpoint = 19 FP.</p>
+<h3 id="14-funzioni-elaborate-solo-nel-frontend-10-funzioni-46-fp"><span id="_1-4-funzioni-elaborate-solo-nel-frontend-10-funzioni-46-fp" class="anchor-alias" aria-hidden="true"></span>1.4 Funzioni elaborate solo nel frontend (10 funzioni, 46 FP)<a class="header-anchor" href="#14-funzioni-elaborate-solo-nel-frontend-10-funzioni-46-fp" aria-label="Collegamento alla sezione: 1.4 Funzioni elaborate solo nel frontend (10 funzioni, 46 FP)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 5"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Funzione (evidenza)</th>
+<th>Tipo</th>
+<th>Complessità</th>
+<th>FP</th>
+<th>Motivazione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>NLQ → pipeline (aiStore.generateQuery, aiStore.ts:249)</td>
+<td>EO</td>
+<td>Average</td>
+<td>5</td>
+<td>Linguaggio naturale → pipeline Mongo via LLM; FTR Mappings + output pipeline</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Generazione template report AI (aiStore.generateFraudReports, aiStore.ts:308)</td>
+<td>EO</td>
+<td>Average</td>
+<td>5</td>
+<td>Template di report generati da LLM sui campi mappati</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Analisi statistica antifrode (aiStore.analyzeFraudInData/generateFraudRules, aiStore.ts:1535/1667)</td>
+<td>EO</td>
+<td>High</td>
+<td>7</td>
+<td>Statistiche, z-score, regole euristiche (30 tipologie) su ReportData + soglie: FTR ≥ 2, DET 20+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Export CSV (resultsGrid.vue:1866)</td>
+<td>EO</td>
+<td>Low</td>
+<td>4</td>
+<td>Export dei risultati griglia</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Export PDF (resultsGrid.vue:1922)</td>
+<td>EO</td>
+<td>Low</td>
+<td>4</td>
+<td>Export dei risultati griglia (pdfmake)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Export XLSX (resultsGrid.vue:1944)</td>
+<td>EO</td>
+<td>Low</td>
+<td>4</td>
+<td>Export dei risultati griglia (xlsx)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Heatmap + drill-down (heatmapPreview.vue:273/400)</td>
+<td>EO</td>
+<td>Average</td>
+<td>5</td>
+<td>Aggregazione per heatmap con drill-down</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Grafici dashboard (chartblock.vue:69 buildPipeline)</td>
+<td>EO</td>
+<td>Average</td>
+<td>5</td>
+<td>Pipeline di aggregazione per i widget grafici</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Export soglie antifrode JSON (FraudSettingsDialog.vue:528)</td>
+<td>EQ</td>
+<td>Low</td>
+<td>3</td>
+<td>Download delle soglie correnti, nessun dato derivato</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Import soglie antifrode JSON (FraudSettingsDialog.vue:540-545)</td>
+<td>EI</td>
+<td>Average</td>
+<td>4</td>
+<td>Upload JSON che aggiorna FraudDetectionSettings (DET 16+, FTR 1)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Totale funzioni FE</strong></td>
+<td></td>
+<td></td>
+<td><strong>46</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="15-riepilogo"><span id="_1-5-riepilogo" class="anchor-alias" aria-hidden="true"></span>1.5 Riepilogo<a class="header-anchor" href="#15-riepilogo" aria-label="Collegamento alla sezione: 1.5 Riepilogo">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 6"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Low</th>
+<th>Average</th>
+<th>High</th>
+<th>N. elementi</th>
+<th>FP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EI</td>
+<td>34 × 3</td>
+<td>12 × 4</td>
+<td>2 × 6</td>
+<td>48</td>
+<td>162</td>
+</tr>
+<tr>
+<td>EO</td>
+<td>3 × 4</td>
+<td>4 × 5</td>
+<td>3 × 7</td>
+<td>10</td>
+<td>53</td>
+</tr>
+<tr>
+<td>EQ</td>
+<td>24 × 3</td>
+<td>6 × 4</td>
+<td>0</td>
+<td>30</td>
+<td>96</td>
+</tr>
+<tr>
+<td>ILF</td>
+<td>12 × 7</td>
+<td>1 × 10</td>
+<td>2 × 15</td>
+<td>15</td>
+<td>124</td>
+</tr>
+<tr>
+<td>EIF</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>UFP</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>103</strong></td>
+<td><strong>435</strong></td>
+</tr>
+</tbody>
+</table></div>
+<figure class="diagram" data-diagram="pie"><button type="button" class="zoom-trigger" aria-label="Ingrandisci: Diagramma pie 1"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iNTM1LjMzOTM1NTQ2ODc1IiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDUzNS4zMzkzNTU0Njg3NSA0NTAiIHN0eWxlPSIgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IiByb2xlPSJncmFwaGljcy1kb2N1bWVudCBkb2N1bWVudCIgYXJpYS1yb2xlZGVzY3JpcHRpb249InBpZSI+PHN0eWxlPiNteS1zdmd7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO2ZvbnQtc2l6ZToxNnB4O2ZpbGw6IzMzMzt9QGtleWZyYW1lcyBlZGdlLWFuaW1hdGlvbi1mcmFtZXtmcm9te3N0cm9rZS1kYXNob2Zmc2V0OjA7fX1Aa2V5ZnJhbWVzIGRhc2h7dG97c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fSNteS1zdmcgLmVkZ2UtYW5pbWF0aW9uLXNsb3d7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCA1MHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jbXktc3ZnIC5lZGdlLWFuaW1hdGlvbi1mYXN0e3N0cm9rZS1kYXNoYXJyYXk6OSw1IWltcG9ydGFudDtzdHJva2UtZGFzaG9mZnNldDo5MDA7YW5pbWF0aW9uOmRhc2ggMjBzIGxpbmVhciBpbmZpbml0ZTtzdHJva2UtbGluZWNhcDpyb3VuZDt9I215LXN2ZyAuZXJyb3ItaWNvbntmaWxsOiM1NTIyMjI7fSNteS1zdmcgLmVycm9yLXRleHR7ZmlsbDojNTUyMjIyO3N0cm9rZTojNTUyMjIyO30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1ub3JtYWx7c3Ryb2tlLXdpZHRoOjFweDt9I215LXN2ZyAuZWRnZS10aGlja25lc3MtdGhpY2t7c3Ryb2tlLXdpZHRoOjMuNXB4O30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tc29saWR7c3Ryb2tlLWRhc2hhcnJheTowO30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy1pbnZpc2libGV7c3Ryb2tlLXdpZHRoOjA7ZmlsbDpub25lO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZGFzaGVke3N0cm9rZS1kYXNoYXJyYXk6Mzt9I215LXN2ZyAuZWRnZS1wYXR0ZXJuLWRvdHRlZHtzdHJva2UtZGFzaGFycmF5OjI7fSNteS1zdmcgLm1hcmtlcntmaWxsOiMzMzMzMzM7c3Ryb2tlOiMzMzMzMzM7fSNteS1zdmcgLm1hcmtlci5jcm9zc3tzdHJva2U6IzMzMzMzMzt9I215LXN2ZyBzdmd7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO2ZvbnQtc2l6ZToxNnB4O30jbXktc3ZnIHB7bWFyZ2luOjA7fSNteS1zdmcgLnBpZUNpcmNsZXtzdHJva2U6YmxhY2s7c3Ryb2tlLXdpZHRoOjJweDtvcGFjaXR5OjAuNzt9I215LXN2ZyAucGllQ2lyY2xlLmhpZ2hsaWdodGVke3NjYWxlOjEuMDU7b3BhY2l0eToxO30jbXktc3ZnIC5waWVDaXJjbGUuaGlnaGxpZ2h0ZWRPbkhvdmVyOmhvdmVye3RyYW5zaXRpb24tZHVyYXRpb246MjUwbXM7c2NhbGU6MS4wNTtvcGFjaXR5OjE7fSNteS1zdmcgLnBpZU91dGVyQ2lyY2xle3N0cm9rZTpibGFjaztzdHJva2Utd2lkdGg6MnB4O2ZpbGw6bm9uZTt9I215LXN2ZyAucGllVGl0bGVUZXh0e3RleHQtYW5jaG9yOm1pZGRsZTtmb250LXNpemU6MjVweDtmaWxsOmJsYWNrO2ZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjt9I215LXN2ZyAuc2xpY2V7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO2ZpbGw6IzMzMztmb250LXNpemU6MTdweDt9I215LXN2ZyAubGVnZW5kIHRleHR7ZmlsbDpibGFjaztmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE3cHg7fSNteS1zdmcgLm5vZGUgLm5lby1ub2Rle3N0cm9rZTojOTM3MERCO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgcmVjdCwjbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLmNsdXN0ZXIgcmVjdCwjbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgcG9seWdvbntzdHJva2U6IzkzNzBEQjtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uc3dpbWxhbmUuY2x1c3RlciByZWN0e2ZpbHRlcjpub25lO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgcGF0aHtzdHJva2U6IzkzNzBEQjtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm91dGVyLXBhdGh7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm5lby1saW5lIHBhdGh7c3Ryb2tlOiM5MzcwREI7ZmlsdGVyOm5vbmU7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBjaXJjbGV7c3Ryb2tlOiM5MzcwREI7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgY2lyY2xlIC5zdGF0ZS1zdGFydHtmaWxsOiMwMDAwMDA7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uaWNvbi1zaGFwZSAuaWNvbntmaWxsOiM5MzcwREI7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jbXktc3ZnIFtkYXRhLWxvb2s9Im5lbyJdLmljb24tc2hhcGUgLmljb24tbmVvIHBhdGh7c3Ryb2tlOiM5MzcwREI7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jbXktc3ZnIDpyb290ey0tbWVybWFpZC1mb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7fTwvc3R5bGU+PGcvPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIyNSwyMjUpIj48Zz48Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMTg2IiBjbGFzcz0icGllT3V0ZXJDaXJjbGUiLz48cGF0aCBkPSJNMCwtMTg1QTE4NSwxODUsMCwwLDEsMTgwLjUzLDQwLjQyMkwwLDBaIiBmaWxsPSIjRUNFQ0ZGIiBjbGFzcz0icGllQ2lyY2xlIi8+PHBhdGggZD0iTTE4MC41Myw0MC40MjJBMTg1LDE4NSwwLDAsMSwtMTU0LjYwNiwxMDEuNTk3TDAsMFoiIGZpbGw9IiNmZmZmZGUiIGNsYXNzPSJwaWVDaXJjbGUiLz48cGF0aCBkPSJNLTE1NC42MDYsMTAxLjU5N0ExODUsMTg1LDAsMCwxLC0xMjguMTkxLC0xMzMuMzg3TDAsMFoiIGZpbGw9ImhzbCg4MCwgMTAwJSwgNTYuMjc0NTA5ODAzOSUpIiBjbGFzcz0icGllQ2lyY2xlIi8+PHBhdGggZD0iTS0xMjguMTkxLC0xMzMuMzg3QTE4NSwxODUsMCwwLDEsMCwtMTg1TDAsMFoiIGZpbGw9ImhzbCgyNDAsIDEwMCUsIDg2LjI3NDUwOTgwMzklKSIgY2xhc3M9InBpZUNpcmNsZSIvPjx0ZXh0IHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwOC4zMDAzODA1MTUyNTE1LC04Ni43MzI4NjYyMDU2NzYyMikiIGNsYXNzPSJzbGljZSIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yOSU8L3RleHQ+PHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjQuOTE1NjA2ODMwMjQzNDIsMTM2LjQ5NDU5NzA5NTU2NTM4KSIgY2xhc3M9InNsaWNlIiBzdHlsZT0idGV4dC1hbmNob3I6IG1pZGRsZTsiPjM3JTwvdGV4dD48dGV4dCB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM3Ljg4MTU3MTUwMzg1NTE4LC0xNS40OTk1MDc3MjIwOTQ0NSkiIGNsYXNzPSJzbGljZSIgc3R5bGU9InRleHQtYW5jaG9yOiBtaWRkbGU7Ij4yMiU8L3RleHQ+PHRleHQgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUxLjgyMTc3ODI4NzkwMDA1LC0xMjguNzA5MjI5NjQyMTY1NjQpIiBjbGFzcz0ic2xpY2UiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MTIlPC90ZXh0PjwvZz48dGV4dCB4PSIwIiB5PSItMjAwIiBjbGFzcz0icGllVGl0bGVUZXh0Ij5VRlAgcGVyIHRpcG8gZGkgZnVuemlvbmUgKDQzNSk8L3RleHQ+PGcgY2xhc3M9ImxlZ2VuZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjE2LC00NCkiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgc3R5bGU9ImZpbGw6IHJnYigyMzYsIDIzNiwgMjU1KTsgc3Ryb2tlOiByZ2IoMjM2LCAyMzYsIDI1NSk7Ii8+PHRleHQgeD0iMjIiIHk9IjE0Ij5JTEY8L3RleHQ+PC9nPjxnIGNsYXNzPSJsZWdlbmQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNiwtMjIpIj48cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHN0eWxlPSJmaWxsOiByZ2IoMjU1LCAyNTUsIDIyMik7IHN0cm9rZTogcmdiKDI1NSwgMjU1LCAyMjIpOyIvPjx0ZXh0IHg9IjIyIiB5PSIxNCI+RUk8L3RleHQ+PC9nPjxnIGNsYXNzPSJsZWdlbmQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxNiwwKSI+PHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiBzdHlsZT0iZmlsbDogcmdiKDE4MSwgMjU1LCAzMik7IHN0cm9rZTogcmdiKDE4MSwgMjU1LCAzMik7Ii8+PHRleHQgeD0iMjIiIHk9IjE0Ij5FUTwvdGV4dD48L2c+PGcgY2xhc3M9ImxlZ2VuZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjE2LDIyKSI+PHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiBzdHlsZT0iZmlsbDogcmdiKDE4NSwgMTg1LCAyNTUpOyBzdHJva2U6IHJnYigxODUsIDE4NSwgMjU1KTsiLz48dGV4dCB4PSIyMiIgeT0iMTQiPkVPPC90ZXh0PjwvZz48L2c+PC9zdmc+" alt="Diagramma pie 1"></button><details class="diagram-source"><summary>Sorgente Mermaid</summary><pre><code class="language-mermaid">pie title UFP per tipo di funzione (435)
+  "ILF" : 124
+  "EI" : 162
+  "EQ" : 96
+  "EO" : 53</code></pre></details></figure>
+<h3 id="16-fp-per-modulo-funzionale-usati-dallo-strangler-fig-in-19-42"><span id="_1-6-fp-per-modulo-funzionale-usati-dallo-strangler-fig-in-19-§4-2" class="anchor-alias" aria-hidden="true"></span>1.6 FP per modulo funzionale (usati dallo Strangler Fig in 19 §4.2)<a class="header-anchor" href="#16-fp-per-modulo-funzionale-usati-dallo-strangler-fig-in-19-42" aria-label="Collegamento alla sezione: 1.6 FP per modulo funzionale (usati dallo Strangler Fig in 19 §4.2)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 7"><table>
+<thead>
+<tr>
+<th>Modulo</th>
+<th>Composizione</th>
+<th>UFP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity</td>
+<td>endpoint Users 40 + Roles 30 + Permissions 30 + ILF Users, Roles, Permissions, PasswordResetTokens 28</td>
+<td>128</td>
+</tr>
+<tr>
+<td>Reporting</td>
+<td>Dashboard 15 + <code>/data/report/query</code> 7 + Mappings 12 + Workspaces 19 + ILF ReportData, Mappings, Dashboards, Workspaces 39 + FE NLQ, template AI, export ×3, heatmap, grafici 32</td>
+<td>124</td>
+</tr>
+<tr>
+<td>Fraud Analysis</td>
+<td>Rules 24 + FraudDetection 12 + <code>/distance</code> 7 + ILF Rules, FraudDetectionSettings 22 + FE analisi statistica, export/import soglie 14</td>
+<td>79</td>
+</tr>
+<tr>
+<td>Ingestion</td>
+<td>DataIngestion 29 + <code>create-transactions</code> 4 + ILF DataIngestionConfigurations, DataIngestionSchedules, ProcessedFiles 21</td>
+<td>54</td>
+</tr>
+<tr>
+<td>Notifications &amp; Groups</td>
+<td>Notifications 15 + Groups 21 + ILF Notifications, Groups 14</td>
+<td>50</td>
+</tr>
+<tr>
+<td><strong>Totale</strong></td>
+<td></td>
+<td><strong>435</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="2-backfiring-method-loc-to-fp"><span id="_2-backfiring-method-loc-to-fp" class="anchor-alias" aria-hidden="true"></span>2. Backfiring Method (LOC to FP)<a class="header-anchor" href="#2-backfiring-method-loc-to-fp" aria-label="Collegamento alla sezione: 2. Backfiring Method (LOC to FP)">#</a></h2>
+<p>Il backfiring converte le SLOC logiche in FP con i fattori LOC/FP della specifica di stima (tabella in <a href="19_modernization_estimation_spec.html">19_modernization_estimation_spec.md</a> §1): <strong>401,5 FP</strong>, l'8,3% in meno del conteggio IFPUG.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 8"><table>
+<thead>
+<tr>
+<th>Linguaggio</th>
+<th>Logical SLOC (cloc 2.10)</th>
+<th>Fattore LOC/FP</th>
+<th>FP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C#</td>
+<td>10.143</td>
+<td>54</td>
+<td>187,83</td>
+</tr>
+<tr>
+<td>TypeScript</td>
+<td>3.868</td>
+<td>45</td>
+<td>85,96</td>
+</tr>
+<tr>
+<td>Vue — solo <code>&lt;script&gt;</code> (TS)</td>
+<td>5.395</td>
+<td>45</td>
+<td>119,89</td>
+</tr>
+<tr>
+<td>JavaScript (script Mongo + <code>vite.config.js</code>)</td>
+<td>368</td>
+<td>47</td>
+<td>7,83</td>
+</tr>
+<tr>
+<td>Template/style Vue, CSS, HTML</td>
+<td>5.487</td>
+<td>ignorati</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Totale</strong></td>
+<td><strong>19.774</strong></td>
+<td>49,25 (medio effettivo)</td>
+<td><strong>401,51</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>$$FP_{backfiring} = \frac{10143}{54}+\frac{3868}{45}+\frac{5395}{45}+\frac{368}{47} = 401{,}51$$</p>
+<p><strong>Riconciliazione</strong>: UFP / backfiring = 435 / 401,51 = <strong>1,083</strong> (+8,3%). Intervallo di riferimento <strong>402–435 FP</strong>, valore centrale <strong>≈ 418 FP</strong>. Lo scostamento è fisiologico: il motore antifrode e le funzioni AI risiedono in pochi file molto densi (<code>aiStore.ts</code>), mentre i 78 endpoint CRUD sono numerosi ma brevi.</p>
+<hr>
+<h2 id="3-cocomo-ii-models-organic-semi-detached-embedded"><span id="_3-cocomo-ii-models-organic-semi-detached-embedded" class="anchor-alias" aria-hidden="true"></span>3. COCOMO II Models (Organic, Semi-detached, Embedded)<a class="header-anchor" href="#3-cocomo-ii-models-organic-semi-detached-embedded" aria-label="Collegamento alla sezione: 3. COCOMO II Models (Organic, Semi-detached, Embedded)">#</a></h2>
+<p>Si riportano i tre modi del COCOMO 81 base (classificazione richiesta) e il modello COCOMO II Post-Architecture, usato come stima di riferimento: <strong>78,3 PM</strong>.</p>
+<h3 id="31-cocomo-81-base--tre-modi"><span id="31-cocomo-81-base-tre-modi" class="anchor-alias" aria-hidden="true"></span><span id="_3-1-cocomo-81-base-—-tre-modi" class="anchor-alias" aria-hidden="true"></span>3.1 COCOMO 81 base — tre modi<a class="header-anchor" href="#31-cocomo-81-base--tre-modi" aria-label="Collegamento alla sezione: 3.1 COCOMO 81 base — tre modi">#</a></h3>
+<p>Formule: $PM = a \times KSLOC^{b}$, $TDEV = c \times PM^{d}$, con KSLOC = 19,774.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 9"><table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>PM</th>
+<th>TDEV (mesi)</th>
+<th>Staff medio</th>
+<th>Applicabilità</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Organic</td>
+<td>2,4</td>
+<td>1,05</td>
+<td>2,5</td>
+<td>0,38</td>
+<td><strong>55,1</strong></td>
+<td>11,5</td>
+<td>4,8</td>
+<td>✅ Team piccolo, dominio noto, stack mainstream (CRUD, ingestion)</td>
+</tr>
+<tr>
+<td>Semi-detached</td>
+<td>3,0</td>
+<td>1,12</td>
+<td>2,5</td>
+<td>0,35</td>
+<td><strong>84,9</strong></td>
+<td>11,8</td>
+<td>7,2</td>
+<td>✅ Componenti analitiche (statistica antifrode, distanza, query builder)</td>
+</tr>
+<tr>
+<td>Embedded</td>
+<td>3,6</td>
+<td>1,20</td>
+<td>2,5</td>
+<td>0,32</td>
+<td>129,3</td>
+<td>11,8</td>
+<td>10,9</td>
+<td>❌ Nessun vincolo hardware/real-time stringente</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="32-cocomo-ii-post-architecture-riferimento"><span id="_3-2-cocomo-ii-post-architecture-riferimento" class="anchor-alias" aria-hidden="true"></span>3.2 COCOMO II Post-Architecture (riferimento)<a class="header-anchor" href="#32-cocomo-ii-post-architecture-riferimento" aria-label="Collegamento alla sezione: 3.2 COCOMO II Post-Architecture (riferimento)">#</a></h3>
+<p>Formule: $PM = A \times KSLOC^{E} \times \prod EM_i$ con $E = B + 0{,}01 \times \sum SF_j$; $TDEV = C \times PM^{F}$ con $F = D + 0{,}2 \times (E - B)$. Costanti COCOMO II.2000: <strong>A = 2,94, B = 0,91, C = 3,67, D = 0,28</strong>.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 10"><table>
+<thead>
+<tr>
+<th>Scale factor</th>
+<th>Livello</th>
+<th>Valore</th>
+<th>Motivazione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PREC (precedentedness)</td>
+<td>Nominal</td>
+<td>3,72</td>
+<td>Dominio retail loss prevention noto, ma motore statistico nuovo</td>
+</tr>
+<tr>
+<td>FLEX (development flexibility)</td>
+<td>Nominal</td>
+<td>3,04</td>
+<td>Requisiti di prodotto, nessun vincolo contrattuale rigido noto</td>
+</tr>
+<tr>
+<td>RESL (architecture/risk resolution)</td>
+<td>Nominal</td>
+<td>4,24</td>
+<td>Architettura a livelli definita; rischi (sicurezza, performance) non risolti</td>
+</tr>
+<tr>
+<td>TEAM (team cohesion)</td>
+<td>Nominal</td>
+<td>3,29</td>
+<td>N/A — non ricavabile dal codice; assunto nominale</td>
+</tr>
+<tr>
+<td>PMAT (process maturity)</td>
+<td>Nominal</td>
+<td>4,68</td>
+<td>Nessuna evidenza di processo maturo (0 test, 0 CI), né di processo assente</td>
+</tr>
+<tr>
+<td><strong>ΣSF</strong></td>
+<td></td>
+<td><strong>18,97</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 11"><table>
+<thead>
+<tr>
+<th>Effort multiplier</th>
+<th>Valore</th>
+<th>Motivazione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RELY, DATA, CPLX, RUSE, DOCU, TIME, STOR, PVOL, ACAP, PCAP, PCON, APEX, PLEX, LTEX, TOOL, SITE, SCED (17)</td>
+<td>1,00 (Nominal)</td>
+<td>Affidabilità: perdita economica recuperabile; complessità: gestione dati + euristiche; nessuna evidenza per scostarsi dal nominale</td>
+</tr>
+<tr>
+<td><strong>ΠEM</strong></td>
+<td><strong>1,00</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 12"><table>
+<thead>
+<tr>
+<th>Grandezza</th>
+<th>Calcolo</th>
+<th>Risultato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E</td>
+<td>0,91 + 0,01 × 18,97</td>
+<td><strong>1,0997</strong></td>
+</tr>
+<tr>
+<td>KSLOC^E</td>
+<td>19,774^1,0997</td>
+<td>26,627</td>
+</tr>
+<tr>
+<td>PM</td>
+<td>2,94 × 26,627 × 1,00</td>
+<td><strong>78,28 PM</strong></td>
+</tr>
+<tr>
+<td>F</td>
+<td>0,28 + 0,2 × (1,0997 − 0,91)</td>
+<td><strong>0,31794</strong></td>
+</tr>
+<tr>
+<td>TDEV</td>
+<td>3,67 × 78,28^0,31794</td>
+<td><strong>14,68 mesi</strong></td>
+</tr>
+<tr>
+<td>Staff medio</td>
+<td>78,28 / 14,68</td>
+<td><strong>5,33 FTE</strong></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="4-effort-estimation-person-months"><span id="_4-effort-estimation-person-months" class="anchor-alias" aria-hidden="true"></span>4. Effort Estimation (Person-Months)<a class="header-anchor" href="#4-effort-estimation-person-months" aria-label="Collegamento alla sezione: 4. Effort Estimation (Person-Months)">#</a></h2>
+<p>Le stime vanno da 35 PM (produttività media per FP, "as-built") a 78 PM (COCOMO II, prodotto realizzato con standard industriali completi).</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 13"><table>
+<thead>
+<tr>
+<th>Metodo</th>
+<th>Base</th>
+<th>Effort</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PDR 14 h/FP</td>
+<td>401,51 FP (backfiring)</td>
+<td>5.621 h = 702,6 gg = <strong>35,1 PM</strong></td>
+<td>Benchmark industry medio</td>
+</tr>
+<tr>
+<td>PDR 14 h/FP</td>
+<td>435 UFP (IFPUG)</td>
+<td>6.090 h = 761,3 gg = <strong>38,1 PM</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>COCOMO 81 Organic</td>
+<td>19,774 KSLOC</td>
+<td><strong>55,1 PM</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>COCOMO 81 Semi-detached</td>
+<td>19,774 KSLOC</td>
+<td><strong>84,9 PM</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>COCOMO II Post-Arch.</strong></td>
+<td>19,774 KSLOC, nominale</td>
+<td><strong>78,3 PM</strong></td>
+<td>Riferimento: include test, documentazione e processo completi</td>
+</tr>
+</tbody>
+</table></div>
+<p>Il sistema attuale <strong>non</strong> include test, CI/CD, hardening né documentazione tecnica allineata: l'effort realmente speso è plausibilmente vicino alla stima PDR (35–38 PM). Effort storico effettivo: N/A — non ricavabile dal codice (13 commit, nessun metadato di effort).</p>
+<hr>
+<h2 id="5-duration-estimation-calendar-months"><span id="_5-duration-estimation-calendar-months" class="anchor-alias" aria-hidden="true"></span>5. Duration Estimation (Calendar Months)<a class="header-anchor" href="#5-duration-estimation-calendar-months" aria-label="Collegamento alla sezione: 5. Duration Estimation (Calendar Months)">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 14"><table>
+<thead>
+<tr>
+<th>Metodo</th>
+<th>Durata</th>
+<th>Staff medio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COCOMO II</td>
+<td><strong>14,7 mesi</strong></td>
+<td>5,3 FTE</td>
+</tr>
+<tr>
+<td>COCOMO 81 Organic</td>
+<td>11,5 mesi</td>
+<td>4,8 FTE</td>
+</tr>
+<tr>
+<td>COCOMO 81 Semi-detached</td>
+<td>11,8 mesi</td>
+<td>7,2 FTE</td>
+</tr>
+<tr>
+<td>PDR 401,5 FP con team di 3 FTE</td>
+<td>35,1 / 3 = <strong>11,7 mesi</strong></td>
+<td>3 FTE</td>
+</tr>
+<tr>
+<td>PDR 435 FP con team di 3 FTE</td>
+<td>38,1 / 3 = <strong>12,7 mesi</strong></td>
+<td>3 FTE</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="6-cost-estimation"><span id="_6-cost-estimation" class="anchor-alias" aria-hidden="true"></span>6. Cost Estimation<a class="header-anchor" href="#6-cost-estimation" aria-label="Collegamento alla sezione: 6. Cost Estimation">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 15"><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>PM</th>
+<th>Costo (8.000 €/PM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Valore di ricostruzione "as-built" (PDR, 401,5 FP)</td>
+<td>35,1</td>
+<td><strong>≈ 281,1 k€</strong></td>
+</tr>
+<tr>
+<td>Valore di ricostruzione "as-built" (PDR, 435 UFP)</td>
+<td>38,1</td>
+<td>≈ 304,5 k€</td>
+</tr>
+<tr>
+<td>COCOMO 81 Organic</td>
+<td>55,1</td>
+<td>≈ 440,8 k€</td>
+</tr>
+<tr>
+<td>Prodotto equivalente "industrial grade" (COCOMO II)</td>
+<td>78,3</td>
+<td><strong>≈ 626,3 k€</strong></td>
+</tr>
+<tr>
+<td>COCOMO 81 Semi-detached</td>
+<td>84,9</td>
+<td>≈ 678,9 k€</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Intervallo di valore di sostituzione: 0,28 – 0,63 M€</strong> (PDR backfiring – COCOMO II). La tariffa è parametrica: costo = PM × 20 gg × tariffa giornaliera.</p>
+<hr>
+<h2 id="7-team-mix-proposal"><span id="_7-team-mix-proposal" class="anchor-alias" aria-hidden="true"></span>7. Team Mix Proposal<a class="header-anchor" href="#7-team-mix-proposal" aria-label="Collegamento alla sezione: 7. Team Mix Proposal">#</a></h2>
+<p>Il team proposto per evoluzione/completamento (vedi 19 §7) è di circa 3,9 FTE, con competenze dettate dagli hotspot del codice.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 16"><table>
+<thead>
+<tr>
+<th>Ruolo</th>
+<th>FTE</th>
+<th>Competenze</th>
+<th>Motivazione nel codice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tech Lead / Architect .NET</td>
+<td>0,5</td>
+<td>FastEndpoints, MongoDB aggregation, sicurezza</td>
+<td>Pipeline Mongo arbitraria, JWT, lock di riga</td>
+</tr>
+<tr>
+<td>Senior Backend .NET</td>
+<td>1,0</td>
+<td>Porting motore statistico, rule engine, job</td>
+<td><code>RulesService</code>, <code>MappingService</code>, <code>FileProcessingCoordinator</code></td>
+</tr>
+<tr>
+<td>Senior Frontend Vue</td>
+<td>1,0</td>
+<td>Refactoring <code>resultsGrid.vue</code> (2.271 righe) / <code>aiStore.ts</code> (1.994 righe), test</td>
+<td>CCN 87 in <code>buildGenericFraudRuleTemplates</code></td>
+</tr>
+<tr>
+<td>Data / Fraud Analyst</td>
+<td>0,3</td>
+<td>Validazione euristiche e soglie su dati reali</td>
+<td>30 tipologie euristiche, 22 blocchi di soglia</td>
+</tr>
+<tr>
+<td>QA Automation</td>
+<td>0,5</td>
+<td>xUnit/Testcontainers, Vitest, Playwright</td>
+<td>0 test</td>
+</tr>
+<tr>
+<td>DevOps</td>
+<td>0,3</td>
+<td>CI/CD, container, cloud</td>
+<td>nessuna pipeline né Dockerfile</td>
+</tr>
+<tr>
+<td>PM / BA</td>
+<td>0,3</td>
+<td>Backlog, requisiti case management/multi-tenancy</td>
+<td>voci Planned senza requisiti</td>
+</tr>
+<tr>
+<td><strong>Totale</strong></td>
+<td><strong>3,9</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="8-staffing-profile"><span id="_8-staffing-profile" class="anchor-alias" aria-hidden="true"></span>8. Staffing Profile<a class="header-anchor" href="#8-staffing-profile" aria-label="Collegamento alla sezione: 8. Staffing Profile">#</a></h2>
+<p>Profilo indicativo per ~9 mesi di completamento + hardening (Scenario C di 19): core team costante, supporto a picchi.</p>
+<figure class="diagram" data-diagram="gantt"><button type="button" class="zoom-trigger" aria-label="Ingrandisci: Diagramma gantt 2"><img src="data:image/svg+xml;base64,PHN2ZyBpZD0ibXktc3ZnIiB3aWR0aD0iNzg0IiBoZWlnaHQ9IjI5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmlld0JveD0iMCAwIDc4NCAyOTIiIHN0eWxlPSIgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IiByb2xlPSJncmFwaGljcy1kb2N1bWVudCBkb2N1bWVudCIgYXJpYS1yb2xlZGVzY3JpcHRpb249ImdhbnR0Ij48c3R5bGU+I215LXN2Z3tmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7ZmlsbDojMzMzO31Aa2V5ZnJhbWVzIGVkZ2UtYW5pbWF0aW9uLWZyYW1le2Zyb217c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fUBrZXlmcmFtZXMgZGFzaHt0b3tzdHJva2UtZGFzaG9mZnNldDowO319I215LXN2ZyAuZWRnZS1hbmltYXRpb24tc2xvd3tzdHJva2UtZGFzaGFycmF5OjksNSFpbXBvcnRhbnQ7c3Ryb2tlLWRhc2hvZmZzZXQ6OTAwO2FuaW1hdGlvbjpkYXNoIDUwcyBsaW5lYXIgaW5maW5pdGU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fSNteS1zdmcgLmVkZ2UtYW5pbWF0aW9uLWZhc3R7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCAyMHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jbXktc3ZnIC5lcnJvci1pY29ue2ZpbGw6IzU1MjIyMjt9I215LXN2ZyAuZXJyb3ItdGV4dHtmaWxsOiM1NTIyMjI7c3Ryb2tlOiM1NTIyMjI7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLW5vcm1hbHtzdHJva2Utd2lkdGg6MXB4O30jbXktc3ZnIC5lZGdlLXRoaWNrbmVzcy10aGlja3tzdHJva2Utd2lkdGg6My41cHg7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1zb2xpZHtzdHJva2UtZGFzaGFycmF5OjA7fSNteS1zdmcgLmVkZ2UtdGhpY2tuZXNzLWludmlzaWJsZXtzdHJva2Utd2lkdGg6MDtmaWxsOm5vbmU7fSNteS1zdmcgLmVkZ2UtcGF0dGVybi1kYXNoZWR7c3Ryb2tlLWRhc2hhcnJheTozO30jbXktc3ZnIC5lZGdlLXBhdHRlcm4tZG90dGVke3N0cm9rZS1kYXNoYXJyYXk6Mjt9I215LXN2ZyAubWFya2Vye2ZpbGw6IzMzMzMzMztzdHJva2U6IzMzMzMzMzt9I215LXN2ZyAubWFya2VyLmNyb3Nze3N0cm9rZTojMzMzMzMzO30jbXktc3ZnIHN2Z3tmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7fSNteS1zdmcgcHttYXJnaW46MDt9I215LXN2ZyAubWVybWFpZC1tYWluLWZvbnR7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO30jbXktc3ZnIC5leGNsdWRlLXJhbmdle2ZpbGw6I2VlZWVlZTt9I215LXN2ZyAuc2VjdGlvbntzdHJva2U6bm9uZTtvcGFjaXR5OjAuMjt9I215LXN2ZyAuc2VjdGlvbjB7ZmlsbDpyZ2JhKDEwMiwgMTAyLCAyNTUsIDAuNDkpO30jbXktc3ZnIC5zZWN0aW9uMntmaWxsOiNmZmY0MDA7fSNteS1zdmcgLnNlY3Rpb24xLCNteS1zdmcgLnNlY3Rpb24ze2ZpbGw6d2hpdGU7b3BhY2l0eTowLjI7fSNteS1zdmcgLnNlY3Rpb25UaXRsZTB7ZmlsbDojMzMzO30jbXktc3ZnIC5zZWN0aW9uVGl0bGUxe2ZpbGw6IzMzMzt9I215LXN2ZyAuc2VjdGlvblRpdGxlMntmaWxsOiMzMzM7fSNteS1zdmcgLnNlY3Rpb25UaXRsZTN7ZmlsbDojMzMzO30jbXktc3ZnIC5zZWN0aW9uVGl0bGV7dGV4dC1hbmNob3I6c3RhcnQ7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO30jbXktc3ZnIC5ncmlkIC50aWNre3N0cm9rZTpsaWdodGdyZXk7b3BhY2l0eTowLjg7c2hhcGUtcmVuZGVyaW5nOmNyaXNwRWRnZXM7fSNteS1zdmcgLmdyaWQgLnRpY2sgdGV4dHtmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7ZmlsbDojMzMzO30jbXktc3ZnIC5ncmlkIHBhdGh7c3Ryb2tlLXdpZHRoOjA7fSNteS1zdmcgLnRvZGF5e2ZpbGw6bm9uZTtzdHJva2U6cmVkO3N0cm9rZS13aWR0aDoycHg7fSNteS1zdmcgLnRhc2t7c3Ryb2tlLXdpZHRoOjI7fSNteS1zdmcgLnRhc2tUZXh0e3RleHQtYW5jaG9yOm1pZGRsZTtmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7fSNteS1zdmcgLnRhc2tUZXh0T3V0c2lkZVJpZ2h0e2ZpbGw6YmxhY2s7dGV4dC1hbmNob3I6c3RhcnQ7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGVMZWZ0e2ZpbGw6YmxhY2s7dGV4dC1hbmNob3I6ZW5kO30jbXktc3ZnIC50YXNrLmNsaWNrYWJsZXtjdXJzb3I6cG9pbnRlcjt9I215LXN2ZyAudGFza1RleHQuY2xpY2thYmxle2N1cnNvcjpwb2ludGVyO2ZpbGw6IzAwMzE2MyFpbXBvcnRhbnQ7Zm9udC13ZWlnaHQ6Ym9sZDt9I215LXN2ZyAudGFza1RleHRPdXRzaWRlTGVmdC5jbGlja2FibGV7Y3Vyc29yOnBvaW50ZXI7ZmlsbDojMDAzMTYzIWltcG9ydGFudDtmb250LXdlaWdodDpib2xkO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGVSaWdodC5jbGlja2FibGV7Y3Vyc29yOnBvaW50ZXI7ZmlsbDojMDAzMTYzIWltcG9ydGFudDtmb250LXdlaWdodDpib2xkO30jbXktc3ZnIC50YXNrVGV4dDAsI215LXN2ZyAudGFza1RleHQxLCNteS1zdmcgLnRhc2tUZXh0MiwjbXktc3ZnIC50YXNrVGV4dDN7ZmlsbDp3aGl0ZTt9I215LXN2ZyAudGFzazAsI215LXN2ZyAudGFzazEsI215LXN2ZyAudGFzazIsI215LXN2ZyAudGFzazN7ZmlsbDojOGE5MGRkO3N0cm9rZTojNTM0ZmJjO30jbXktc3ZnIC50YXNrVGV4dE91dHNpZGUwLCNteS1zdmcgLnRhc2tUZXh0T3V0c2lkZTJ7ZmlsbDpibGFjazt9I215LXN2ZyAudGFza1RleHRPdXRzaWRlMSwjbXktc3ZnIC50YXNrVGV4dE91dHNpZGUze2ZpbGw6YmxhY2s7fSNteS1zdmcgLmFjdGl2ZTAsI215LXN2ZyAuYWN0aXZlMSwjbXktc3ZnIC5hY3RpdmUyLCNteS1zdmcgLmFjdGl2ZTN7ZmlsbDojYmZjN2ZmO3N0cm9rZTojNTM0ZmJjO30jbXktc3ZnIC5hY3RpdmVUZXh0MCwjbXktc3ZnIC5hY3RpdmVUZXh0MSwjbXktc3ZnIC5hY3RpdmVUZXh0MiwjbXktc3ZnIC5hY3RpdmVUZXh0M3tmaWxsOmJsYWNrIWltcG9ydGFudDt9I215LXN2ZyAuZG9uZTAsI215LXN2ZyAuZG9uZTEsI215LXN2ZyAuZG9uZTIsI215LXN2ZyAuZG9uZTN7c3Ryb2tlOmdyZXk7ZmlsbDpsaWdodGdyZXk7c3Ryb2tlLXdpZHRoOjI7fSNteS1zdmcgLmRvbmVUZXh0MCwjbXktc3ZnIC5kb25lVGV4dDEsI215LXN2ZyAuZG9uZVRleHQyLCNteS1zdmcgLmRvbmVUZXh0M3tmaWxsOmJsYWNrIWltcG9ydGFudDt9I215LXN2ZyAuZG9uZVRleHQwLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZVRleHQwLnRhc2tUZXh0T3V0c2lkZVJpZ2h0LCNteS1zdmcgLmRvbmVUZXh0MS50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVUZXh0MS50YXNrVGV4dE91dHNpZGVSaWdodCwjbXktc3ZnIC5kb25lVGV4dDIudGFza1RleHRPdXRzaWRlTGVmdCwjbXktc3ZnIC5kb25lVGV4dDIudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZVRleHQzLnRhc2tUZXh0T3V0c2lkZUxlZnQsI215LXN2ZyAuZG9uZVRleHQzLnRhc2tUZXh0T3V0c2lkZVJpZ2h0e2ZpbGw6YmxhY2shaW1wb3J0YW50O30jbXktc3ZnIC5jcml0MCwjbXktc3ZnIC5jcml0MSwjbXktc3ZnIC5jcml0MiwjbXktc3ZnIC5jcml0M3tzdHJva2U6I2ZmODg4ODtmaWxsOnJlZDtzdHJva2Utd2lkdGg6Mjt9I215LXN2ZyAuYWN0aXZlQ3JpdDAsI215LXN2ZyAuYWN0aXZlQ3JpdDEsI215LXN2ZyAuYWN0aXZlQ3JpdDIsI215LXN2ZyAuYWN0aXZlQ3JpdDN7c3Ryb2tlOiNmZjg4ODg7ZmlsbDojYmZjN2ZmO3N0cm9rZS13aWR0aDoyO30jbXktc3ZnIC5kb25lQ3JpdDAsI215LXN2ZyAuZG9uZUNyaXQxLCNteS1zdmcgLmRvbmVDcml0MiwjbXktc3ZnIC5kb25lQ3JpdDN7c3Ryb2tlOiNmZjg4ODg7ZmlsbDpsaWdodGdyZXk7c3Ryb2tlLXdpZHRoOjI7Y3Vyc29yOnBvaW50ZXI7c2hhcGUtcmVuZGVyaW5nOmNyaXNwRWRnZXM7fSNteS1zdmcgLm1pbGVzdG9uZXt0cmFuc2Zvcm06cm90YXRlKDQ1ZGVnKSBzY2FsZSgwLjgsMC44KTt9I215LXN2ZyAubWlsZXN0b25lVGV4dHtmb250LXN0eWxlOml0YWxpYzt9I215LXN2ZyAuZG9uZUNyaXRUZXh0MCwjbXktc3ZnIC5kb25lQ3JpdFRleHQxLCNteS1zdmcgLmRvbmVDcml0VGV4dDIsI215LXN2ZyAuZG9uZUNyaXRUZXh0M3tmaWxsOmJsYWNrIWltcG9ydGFudDt9I215LXN2ZyAuZG9uZUNyaXRUZXh0MC50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDAudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZUNyaXRUZXh0MS50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDEudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZUNyaXRUZXh0Mi50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDIudGFza1RleHRPdXRzaWRlUmlnaHQsI215LXN2ZyAuZG9uZUNyaXRUZXh0My50YXNrVGV4dE91dHNpZGVMZWZ0LCNteS1zdmcgLmRvbmVDcml0VGV4dDMudGFza1RleHRPdXRzaWRlUmlnaHR7ZmlsbDpibGFjayFpbXBvcnRhbnQ7fSNteS1zdmcgLnZlcnR7c3Ryb2tlOm5hdnk7fSNteS1zdmcgLnZlcnRUZXh0e2ZvbnQtc2l6ZToxNXB4O3RleHQtYW5jaG9yOm1pZGRsZTtmaWxsOm5hdnkhaW1wb3J0YW50O30jbXktc3ZnIC5hY3RpdmVDcml0VGV4dDAsI215LXN2ZyAuYWN0aXZlQ3JpdFRleHQxLCNteS1zdmcgLmFjdGl2ZUNyaXRUZXh0MiwjbXktc3ZnIC5hY3RpdmVDcml0VGV4dDN7ZmlsbDpibGFjayFpbXBvcnRhbnQ7fSNteS1zdmcgLnRpdGxlVGV4dHt0ZXh0LWFuY2hvcjptaWRkbGU7Zm9udC1zaXplOjE4cHg7ZmlsbDojMzMzO2ZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjt9I215LXN2ZyAubm9kZSAubmVvLW5vZGV7c3Ryb2tlOiM5MzcwREI7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uY2x1c3RlciByZWN0LCNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwb2x5Z29ue3N0cm9rZTojOTM3MERCO2ZpbHRlcjpkcm9wLXNoYWRvdygxcHggMnB4IDJweCByZ2JhKDE4NSwgMTg1LCAxODUsIDEpKTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5zd2ltbGFuZS5jbHVzdGVyIHJlY3R7ZmlsdGVyOm5vbmU7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBwYXRoe3N0cm9rZTojOTM3MERCO3N0cm9rZS13aWR0aDoxcHg7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSAub3V0ZXItcGF0aHtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSAubmVvLWxpbmUgcGF0aHtzdHJva2U6IzkzNzBEQjtmaWx0ZXI6bm9uZTt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIGNpcmNsZXtzdHJva2U6IzkzNzBEQjtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBjaXJjbGUgLnN0YXRlLXN0YXJ0e2ZpbGw6IzAwMDAwMDt9I215LXN2ZyBbZGF0YS1sb29rPSJuZW8iXS5pY29uLXNoYXBlIC5pY29ue2ZpbGw6IzkzNzBEQjtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgW2RhdGEtbG9vaz0ibmVvIl0uaWNvbi1zaGFwZSAuaWNvbi1uZW8gcGF0aHtzdHJva2U6IzkzNzBEQjtmaWx0ZXI6ZHJvcC1zaGFkb3coMXB4IDJweCAycHggcmdiYSgxODUsIDE4NSwgMTg1LCAxKSk7fSNteS1zdmcgOnJvb3R7LS1tZXJtYWlkLWZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjt9PC9zdHlsZT48Zy8+PGcgY2xhc3M9ImdyaWQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc1LCAyNDIpIiBmaWxsPSJub25lIiBmb250LXNpemU9IjEwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+PHBhdGggY2xhc3M9ImRvbWFpbiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGQ9Ik0wLjUsLTIwN1YwLjVINjM0LjVWLTIwNyIvPjxnIGNsYXNzPSJ0aWNrIiBvcGFjaXR5PSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2OC41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNi0xMjwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0MC41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wMTwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIxMi41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wMjwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI3Ny41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wMzwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1MC41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNDwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQyMC41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNTwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ5Mi41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNjwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU2Mi41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wNzwvdGV4dD48L2c+PGcgY2xhc3M9InRpY2siIG9wYWNpdHk9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDYzNC41LDApIj48bGluZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgeTI9Ii0yMDciLz48dGV4dCBmaWxsPSIjMDAwIiB5PSIzIiBkeT0iMWVtIiBzdHJva2U9Im5vbmUiIGZvbnQtc2l6ZT0iMTAiIHN0eWxlPSJ0ZXh0LWFuY2hvcjogbWlkZGxlOyI+MjAyNy0wODwvdGV4dD48L2c+PC9nPjxnPjxyZWN0IHg9IjAiIHk9IjQ4IiB3aWR0aD0iNzQ2LjUiIGhlaWdodD0iMjQiIGNsYXNzPSJzZWN0aW9uIHNlY3Rpb24wIi8+PHJlY3QgeD0iMCIgeT0iNzIiIHdpZHRoPSI3NDYuNSIgaGVpZ2h0PSIyNCIgY2xhc3M9InNlY3Rpb24gc2VjdGlvbjAiLz48cmVjdCB4PSIwIiB5PSI5NiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMCIvPjxyZWN0IHg9IjAiIHk9IjE0NCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMSIvPjxyZWN0IHg9IjAiIHk9IjIxNiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMSIvPjxyZWN0IHg9IjAiIHk9IjEyMCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMSIvPjxyZWN0IHg9IjAiIHk9IjE5MiIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMSIvPjxyZWN0IHg9IjAiIHk9IjE2OCIgd2lkdGg9Ijc0Ni41IiBoZWlnaHQ9IjI0IiBjbGFzcz0ic2VjdGlvbiBzZWN0aW9uMSIvPjwvZz48Zz48cmVjdCBpZD0ibXktc3ZnLXRhc2sxIiByeD0iMyIgcnk9IjMiIHg9Ijc1IiB5PSI1MCIgd2lkdGg9IjYyOSIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iMzg5LjVweCA2MHB4IiBjbGFzcz0idGFzayB0YXNrMCIvPjxyZWN0IGlkPSJteS1zdmctdGFzazIiIHJ4PSIzIiByeT0iMyIgeD0iNzUiIHk9Ijc0IiB3aWR0aD0iNjI5IiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIzODkuNXB4IDg0cHgiIGNsYXNzPSJ0YXNrIHRhc2swIi8+PHJlY3QgaWQ9Im15LXN2Zy10YXNrMyIgcng9IjMiIHJ5PSIzIiB4PSI3NSIgeT0iOTgiIHdpZHRoPSI2MjkiIGhlaWdodD0iMjAiIHRyYW5zZm9ybS1vcmlnaW49IjM4OS41cHggMTA4cHgiIGNsYXNzPSJ0YXNrIHRhc2swIi8+PHJlY3QgaWQ9Im15LXN2Zy10YXNrNSIgcng9IjMiIHJ5PSIzIiB4PSI3NSIgeT0iMTQ2IiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIxODBweCAxNTZweCIgY2xhc3M9InRhc2sgdGFzazEiLz48cmVjdCBpZD0ibXktc3ZnLXRhc2s4IiByeD0iMyIgcnk9IjMiIHg9Ijc1IiB5PSIyMTgiIHdpZHRoPSI2MjkiIGhlaWdodD0iMjAiIHRyYW5zZm9ybS1vcmlnaW49IjM4OS41cHggMjI4cHgiIGNsYXNzPSJ0YXNrIHRhc2sxIi8+PHJlY3QgaWQ9Im15LXN2Zy10YXNrNCIgcng9IjMiIHJ5PSIzIiB4PSIxNDMiIHk9IjEyMiIgd2lkdGg9IjU1OSIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtLW9yaWdpbj0iNDIyLjVweCAxMzJweCIgY2xhc3M9InRhc2sgdGFzazEiLz48cmVjdCBpZD0ibXktc3ZnLXRhc2s3IiByeD0iMyIgcnk9IjMiIHg9IjIyMiIgeT0iMTk0IiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSIzNjJweCAyMDRweCIgY2xhc3M9InRhc2sgdGFzazEiLz48cmVjdCBpZD0ibXktc3ZnLXRhc2s2IiByeD0iMyIgcnk9IjMiIHg9IjQ5OSIgeT0iMTcwIiB3aWR0aD0iMjEwIiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm0tb3JpZ2luPSI2MDRweCAxODBweCIgY2xhc3M9InRhc2sgdGFzazEiLz48dGV4dCBpZD0ibXktc3ZnLXRhc2sxLXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjM4OS41IiB5PSI2My41IiBjbGFzcz0idGFza1RleHQgdGFza1RleHQwICB3aWR0aC05MC42Mjc5Mjk2ODc1Ij5UZWNoIExlYWQgMC41IEZURSA8L3RleHQ+PHRleHQgaWQ9Im15LXN2Zy10YXNrMi10ZXh0IiBmb250LXNpemU9IjExIiB4PSIzODkuNSIgeT0iODcuNSIgY2xhc3M9InRhc2tUZXh0IHRhc2tUZXh0MCAgd2lkdGgtODQuNTczNzMwNDY4NzUiPkJhY2tlbmQgU3IgMSBGVEUgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctdGFzazMtdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iMzg5LjUiIHk9IjExMS41IiBjbGFzcz0idGFza1RleHQgdGFza1RleHQwICB3aWR0aC04Ny44OTg0Mzc1Ij5Gcm9udGVuZCBTciAxIEZURSA8L3RleHQ+PHRleHQgaWQ9Im15LXN2Zy10YXNrNS10ZXh0IiBmb250LXNpemU9IjExIiB4PSIxODAiIHk9IjE1OS41IiBjbGFzcz0idGFza1RleHQgdGFza1RleHQxICB3aWR0aC02Ny4yNjM2NzE4NzUiPkRldk9wcyBzZXR1cCA8L3RleHQ+PHRleHQgaWQ9Im15LXN2Zy10YXNrOC10ZXh0IiBmb250LXNpemU9IjExIiB4PSIzODkuNSIgeT0iMjMxLjUiIGNsYXNzPSJ0YXNrVGV4dCB0YXNrVGV4dDEgIHdpZHRoLTY5LjcyMjY1NjI1Ij5QTSBCQSAwLjMgRlRFIDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLXRhc2s0LXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjQyMi41IiB5PSIxMzUuNSIgY2xhc3M9InRhc2tUZXh0IHRhc2tUZXh0MSAgd2lkdGgtMTEzLjQ3MDIxNDg0Mzc1Ij5RQSBBdXRvbWF0aW9uIDAuNSBGVEUgPC90ZXh0Pjx0ZXh0IGlkPSJteS1zdmctdGFzazctdGV4dCIgZm9udC1zaXplPSIxMSIgeD0iMzYyIiB5PSIyMDcuNSIgY2xhc3M9InRhc2tUZXh0IHRhc2tUZXh0MSAgd2lkdGgtOTMuMDUzNzEwOTM3NSI+RGF0YSBGcmF1ZCBBbmFseXN0IDwvdGV4dD48dGV4dCBpZD0ibXktc3ZnLXRhc2s2LXRleHQiIGZvbnQtc2l6ZT0iMTEiIHg9IjYwNCIgeT0iMTgzLjUiIGNsYXNzPSJ0YXNrVGV4dCB0YXNrVGV4dDEgIHdpZHRoLTU1Ljc1Ij5EZXZPcHMgcnVuIDwvdGV4dD48L2c+PGc+PHRleHQgZHk9IjBlbSIgeD0iMTAiIHk9Ijg2IiBmb250LXNpemU9IjExIiBjbGFzcz0ic2VjdGlvblRpdGxlIHNlY3Rpb25UaXRsZTAiPjx0c3BhbiBhbGlnbm1lbnQtYmFzZWxpbmU9ImNlbnRyYWwiIHg9IjEwIj5Db3JlPC90c3Bhbj48L3RleHQ+PHRleHQgZHk9IjBlbSIgeD0iMTAiIHk9IjE4MiIgZm9udC1zaXplPSIxMSIgY2xhc3M9InNlY3Rpb25UaXRsZSBzZWN0aW9uVGl0bGUxIj48dHNwYW4gYWxpZ25tZW50LWJhc2VsaW5lPSJjZW50cmFsIiB4PSIxMCI+U3VwcG9ydG88L3RzcGFuPjwvdGV4dD48L2c+PGcgY2xhc3M9InRvZGF5Ij48bGluZSB4MT0iMTgiIHgyPSIxOCIgeTE9IjI1IiB5Mj0iMjY3IiBjbGFzcz0idG9kYXkiLz48L2c+PHRleHQgeD0iMzkyIiB5PSIyNSIgY2xhc3M9InRpdGxlVGV4dCI+UHJvZmlsbyBkaSBzdGFmZmluZyBpbmRpY2F0aXZvIC0gY29tcGxldGFtZW50byBlIGhhcmRlbmluZyBjaXJjYSA5IG1lc2k8L3RleHQ+PC9zdmc+" alt="Diagramma gantt 2"></button><details class="diagram-source"><summary>Sorgente Mermaid</summary><pre><code class="language-mermaid">gantt
+  title Profilo di staffing indicativo - completamento e hardening circa 9 mesi
+  dateFormat YYYY-MM-DD
+  axisFormat %Y-%m
+  section Core
+  Tech Lead 0.5 FTE :2026-11-02, 270d
+  Backend Sr 1 FTE :2026-11-02, 270d
+  Frontend Sr 1 FTE :2026-11-02, 270d
+  section Supporto
+  QA Automation 0.5 FTE :2026-12-01, 240d
+  DevOps setup :2026-11-02, 90d
+  DevOps run :2027-05-03, 90d
+  Data Fraud Analyst :2027-01-04, 120d
+  PM BA 0.3 FTE :2026-11-02, 270d</code></pre></details></figure>
+<hr>
+<h2 id="reference-documents">Reference Documents<a class="header-anchor" href="#reference-documents" aria-label="Collegamento alla sezione: Reference Documents">#</a></h2>
+<ul>
+<li><strong>Deep Dive Analysis</strong>: <a href="00_deep_dive.html">00_deep_dive.md</a></li>
+<li><strong>Context</strong>: <a href="01_context.html">01_context.md</a></li>
+<li><strong>Functional Overview</strong>: <a href="02_functional_overview.html">02_functional_overview.md</a></li>
+<li><strong>Non-Functional Overview</strong>: <a href="03_non_functional_overview.html">03_non_functional_overview.md</a></li>
+<li><strong>Constraints</strong>: <a href="04_constraints.html">04_constraints.md</a></li>
+<li><strong>Principles</strong>: <a href="05_principles.html">05_principles.md</a></li>
+<li><strong>Software Architecture</strong>: <a href="06_software_architecture.html">06_software_architecture.md</a></li>
+<li><strong>Code</strong>: <a href="07_code.html">07_code.md</a></li>
+<li><strong>Data</strong>: <a href="08_data.html">08_data.md</a></li>
+<li><strong>Infrastructure Architecture</strong>: <a href="09_infrastructure_architecture.html">09_infrastructure_architecture.md</a></li>
+<li><strong>Deployment</strong>: <a href="10_deployment.html">10_deployment.md</a></li>
+<li><strong>Development Environment</strong>: <a href="11_development_environment.html">11_development_environment.md</a></li>
+<li><strong>Operation and Support</strong>: <a href="12_operation_and_support.html">12_operation_and_support.md</a></li>
+<li><strong>Decision Log</strong>: <a href="13_decision_log.html">13_decision_log.md</a></li>
+<li><strong>Metrics</strong>: <a href="14_metrics.html">14_metrics.md</a></li>
+<li>Documento successivo: <a href="19_modernization_estimation_spec.html">19_modernization_estimation_spec.md</a></li>
+</ul>
+<hr>
+<h2 id="change-log">Change Log<a class="header-anchor" href="#change-log" aria-label="Collegamento alla sezione: Change Log">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 17"><table>
+<thead>
+<tr>
+<th>Versione</th>
+<th>Data</th>
+<th>Autore</th>
+<th>Modifiche</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-10-07</td>
+<td>REVERSE how (FULL)</td>
+<td>Creazione documento (sostituisce run 2026-10-05)</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>2026-10-08</td>
+<td>IMPACT verify</td>
+<td>Conteggio IFPUG reso tracciabile (15 ILF con DET/RET, 78 endpoint e 10 funzioni FE classificati con FTR/DET, matrici e pesi): UFP ≈486→435 (EIF 10→0, ILF 125→124, EI 174→162, EQ 112→96, EO 65→53); backfiring 406→401,5 (script Vue 5.600→5.395); KSLOC 19,98→19,774; COCOMO II 79,2→78,3 PM, 634→626 k€, staff 5,4→5,3; PDR 35,5→35,1 PM / 284→281 k€; aggiunti COCOMO 81 a tre modi con numeri, tabelle scale factor/effort multiplier e costanti, FP per modulo; gantt staffing con date valide; Reference Documents completi</td>
+</tr>
+</tbody>
+</table></div></article>
+    </main>
+  </div>
+</div>
+<footer class="site-footer">LOSS_PREVENTION · IMPACT how (FULL) · baseline fc7d820 · generato offline con inlay-doc-site</footer>
+<div id="inlay-status" class="visually-hidden" role="status" aria-live="polite"></div>
+<script type="application/json" id="inlay-config">{"lang": "it", "root": "", "route": "15_fp_cocomo.html", "search": "_inlay/search-index.js", "theme": "eng", "version": "2.1.0"}</script>
+<script>/* inlay-doc-site 2.x - comportamento del portale (offline, nessuna dipendenza). */
+(function () {
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var cfg = {};
+  try { cfg = JSON.parse(doc.getElementById('inlay-config').textContent) || {}; } catch (e) { cfg = {}; }
+  var LANG = String(cfg.lang || root.lang || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+  var TEXT = {
+    it: {
+      copy: 'Copia', copied: 'Copiato', copyFail: 'Copia non riuscita: testo selezionato, premi Ctrl+C',
+      close: 'Chiudi', zoomIn: 'Ingrandisci', zoomOut: 'Riduci', fit: 'Adatta', dialog: 'Immagine ingrandita',
+      hint: 'Ctrl+rotella o +/- per lo zoom, trascina per spostare, Esc per chiudere',
+      noResults: 'Nessun risultato', results: '{n} risultati', unavailable: 'Indice di ricerca non disponibile',
+      exportNote: 'Copia esportata della pagina "{t}": i collegamenti verso altre pagine del portale sono disattivati.',
+      linkDisabled: 'Collegamento disponibile solo nel portale', menuOpen: 'Mostra struttura documenti',
+      menuClose: 'Nascondi struttura documenti'
+    },
+    en: {
+      copy: 'Copy', copied: 'Copied', copyFail: 'Copy failed: text selected, press Ctrl+C',
+      close: 'Close', zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit', dialog: 'Enlarged image',
+      hint: 'Ctrl+wheel or +/- to zoom, drag to pan, Esc to close',
+      noResults: 'No results', results: '{n} results', unavailable: 'Search index not available',
+      exportNote: 'Exported copy of the page "{t}": links to other portal pages are disabled.',
+      linkDisabled: 'Link available only inside the portal', menuOpen: 'Show document structure',
+      menuClose: 'Hide document structure'
+    }
+  };
+  function tr(key, vars) {
+    var s = TEXT[LANG][key] || key;
+    if (vars) { Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); }); }
+    return s;
+  }
+  var statusEl = doc.getElementById('inlay-status');
+  function announce(msg) {
+    if (!statusEl) { return; }
+    statusEl.textContent = '';
+    setTimeout(function () { statusEl.textContent = msg; }, 40);
+  }
+
+  /* altezza dell'header per sticky e ancore */
+  var header = doc.querySelector('.topbar');
+  function setHeaderHeight() { if (header) { root.style.setProperty('--header-h', header.offsetHeight + 'px'); } queueFit(); }
+  setHeaderHeight();
+  if (window.ResizeObserver && header) { new ResizeObserver(setHeaderHeight).observe(header); }
+  else { window.addEventListener('resize', setHeaderHeight); }
+
+  /* albero: espandi/comprimi */
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.tree-toggle, .tree-group') : null;
+    if (!btn) { return; }
+    var list = doc.getElementById(btn.getAttribute('aria-controls'));
+    if (!list) { return; }
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    list.hidden = open;
+  });
+  /* barra laterale: altezza limitata alla parte visibile (all'apertura la testata della pagina la spinge in basso) */
+  var sidebar = doc.getElementById('inlay-sidebar'), fitQueued = false;
+  function fitSidebar() {
+    fitQueued = false;
+    if (!sidebar) { return; }
+    if (window.getComputedStyle(sidebar).position !== 'sticky') { sidebar.style.maxHeight = ''; return; }
+    var top = Math.max(sidebar.getBoundingClientRect().top, 0);
+    sidebar.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + 'px';
+  }
+  function queueFit() { if (!fitQueued) { fitQueued = true; window.requestAnimationFrame(fitSidebar); } }
+  fitSidebar();
+  window.addEventListener('scroll', queueFit, { passive: true });
+  window.addEventListener('resize', queueFit);
+  var treeScroll = doc.getElementById('inlay-tree');
+  var current = treeScroll && treeScroll.querySelector('[aria-current="page"]');
+  if (current) {
+    var r = current.getBoundingClientRect(), s = treeScroll.getBoundingClientRect();
+    if (r.top < s.top || r.bottom > s.bottom) { treeScroll.scrollTop += (r.top - s.top) - treeScroll.clientHeight / 3; }
+  }
+
+  /* menu mobile */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle && doc.getElementById('inlay-sidebar')) {
+    navToggle.hidden = false;
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      root.classList.toggle('nav-open', !open);
+    });
+  }
+
+  /* copia dei blocchi di codice */
+  function copied(btn) {
+    btn.textContent = tr('copied');
+    btn.classList.add('copied');
+    announce(tr('copied'));
+    setTimeout(function () { btn.textContent = tr('copy'); btn.classList.remove('copied'); }, 1800);
+  }
+  function copyFallback(text, pre, btn) {
+    var ta = doc.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    doc.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    if (ok) { copied(btn); return; }
+    var range = doc.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = tr('copyFail');
+    announce(tr('copyFail'));
+    setTimeout(function () { btn.textContent = tr('copy'); }, 4000);
+  }
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.code-copy') : null;
+    if (!btn) { return; }
+    var block = btn.closest('.code-block');
+    var pre = block && block.querySelector('pre');
+    if (!pre) { return; }
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { copied(btn); }, function () { copyFallback(text, pre, btn); });
+    } else { copyFallback(text, pre, btn); }
+  });
+
+  /* lightbox accessibile per immagini e diagrammi */
+  var lb = null, lbImg, lbStage, lbClose, lbTrigger = null, scale = 1, inerted = [];
+  function setScale(v) {
+    scale = Math.max(0.1, Math.min(8, v));
+    if (lbImg.naturalWidth) { lbImg.style.width = Math.round(lbImg.naturalWidth * scale) + 'px'; }
+  }
+  function fitScale() {
+    var w = lbImg.naturalWidth || 1;
+    var sw = Math.max(lbStage.clientWidth - 48, 50);
+    setScale(Math.min(sw / w, 2));
+  }
+  function buildLightbox() {
+    if (lb) { return; }
+    lb = doc.createElement('div');
+    lb.className = 'inlay-lightbox';
+    lb.id = 'inlay-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', tr('dialog'));
+    lb.hidden = true;
+    var bar = doc.createElement('div');
+    bar.className = 'inlay-lightbox-bar';
+    var hint = doc.createElement('span');
+    hint.className = 'inlay-lightbox-hint';
+    hint.textContent = tr('hint');
+    bar.appendChild(hint);
+    [['out', tr('zoomOut'), '\u2212'], ['fit', tr('fit'), tr('fit')], ['in', tr('zoomIn'), '+'], ['close', tr('close'), tr('close')]].forEach(function (b) {
+      var btn = doc.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zoom', b[0]);
+      btn.setAttribute('aria-label', b[1]);
+      btn.textContent = b[2];
+      bar.appendChild(btn);
+      if (b[0] === 'close') { lbClose = btn; }
+    });
+    lbStage = doc.createElement('div');
+    lbStage.className = 'inlay-lightbox-stage';
+    lbStage.tabIndex = 0;
+    lbImg = doc.createElement('img');
+    lbImg.alt = '';
+    lbStage.appendChild(lbImg);
+    lb.appendChild(bar);
+    lb.appendChild(lbStage);
+    doc.body.appendChild(lb);
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) { return; }
+      var a = b.getAttribute('data-zoom');
+      if (a === 'close') { closeLightbox(); } else if (a === 'in') { setScale(scale * 1.25); }
+      else if (a === 'out') { setScale(scale / 1.25); } else { fitScale(); }
+    });
+    lb.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); closeLightbox(); return; }
+      if (ev.key === '+' || ev.key === '=') { ev.preventDefault(); setScale(scale * 1.25); return; }
+      if (ev.key === '-') { ev.preventDefault(); setScale(scale / 1.25); return; }
+      if (ev.key === '0') { ev.preventDefault(); fitScale(); return; }
+      if (ev.key === 'Tab') {
+        var f = Array.prototype.slice.call(lb.querySelectorAll('button, [tabindex="0"]'));
+        var first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    });
+    lbStage.addEventListener('wheel', function (ev) {
+      if (!ev.ctrlKey) { return; }
+      ev.preventDefault();
+      setScale(scale * (ev.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    var drag = null;
+    lbStage.addEventListener('pointerdown', function (ev) {
+      drag = { x: ev.clientX, y: ev.clientY, l: lbStage.scrollLeft, t: lbStage.scrollTop };
+      lbStage.classList.add('grabbing');
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!drag) { return; }
+      lbStage.scrollLeft = drag.l - (ev.clientX - drag.x);
+      lbStage.scrollTop = drag.t - (ev.clientY - drag.y);
+    });
+    window.addEventListener('pointerup', function () { drag = null; if (lbStage) { lbStage.classList.remove('grabbing'); } });
+  }
+  function openLightbox(trigger) {
+    var img = trigger.querySelector('img');
+    if (!img) { return; }
+    buildLightbox();
+    lbTrigger = trigger;
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbImg.onload = function () { fitScale(); };
+    lbImg.src = img.getAttribute('src');
+    Array.prototype.forEach.call(doc.body.children, function (child) {
+      if (child !== lb && !child.inert) { child.inert = true; child.setAttribute('aria-hidden', 'true'); inerted.push(child); }
+    });
+    lb.hidden = false;
+    if (lbImg.complete && lbImg.naturalWidth) { fitScale(); }
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (!lb || lb.hidden) { return; }
+    lb.hidden = true;
+    inerted.forEach(function (child) { child.inert = false; child.removeAttribute('aria-hidden'); });
+    inerted = [];
+    if (lbTrigger) { lbTrigger.focus(); }
+  }
+  doc.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('.zoom-trigger') : null;
+    if (trigger) { ev.preventDefault(); openLightbox(trigger); }
+  });
+
+  /* ricerca offline (indice caricato su richiesta da _inlay/search-index.js) */
+  var input = doc.getElementById('inlay-search');
+  var results = doc.getElementById('inlay-search-results');
+  if (input && results && cfg.search) {
+    input.closest('.search').hidden = false;
+    var index = null, loading = false, active = -1, timer = null, pending = null;
+    var fold = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var loadIndex = function (cb) {
+      if (index) { cb(); return; }
+      pending = cb;
+      if (loading) { return; }
+      loading = true;
+      var sc = doc.createElement('script');
+      sc.src = cfg.root + cfg.search;
+      sc.onload = function () { index = window.INLAY_SEARCH_INDEX || []; if (pending) { pending(); } };
+      sc.onerror = function () { index = []; announce(tr('unavailable')); if (pending) { pending(); } };
+      doc.head.appendChild(sc);
+    };
+    var search = function (q) {
+      var terms = fold(q).split(/\s+/).filter(Boolean);
+      if (!terms.length) { return []; }
+      var out = [];
+      index.forEach(function (e) {
+        if (e._t === undefined) { e._t = fold(e.t + ' ' + (e.l || '')); e._x = fold(e.x); }
+        var score = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var inTitle = e._t.indexOf(terms[i]) >= 0, pos = e._x.indexOf(terms[i]);
+          if (!inTitle && pos < 0) { return; }
+          score += inTitle ? 10 : 1;
+        }
+        out.push({ e: e, score: score, term: terms[0] });
+      });
+      out.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+      return out.slice(0, 15);
+    };
+    var snippet = function (e, term) {
+      var pos = e._x.indexOf(term);
+      if (pos < 0) { return ''; }
+      var start = Math.max(0, pos - 50);
+      return (start > 0 ? '\u2026' : '') + e.x.substr(start, 150) + '\u2026';
+    };
+    var setActive = function (i) {
+      var opts = results.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      Array.prototype.forEach.call(opts, function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    var close = function () {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    var render = function () {
+      var q = input.value.trim();
+      results.textContent = '';
+      if (!q) { close(); return; }
+      var found = search(q);
+      if (!found.length) {
+        var li = doc.createElement('li');
+        li.className = 'sr-empty';
+        li.textContent = tr('noResults');
+        results.appendChild(li);
+      }
+      found.forEach(function (r, k) {
+        var li = doc.createElement('li');
+        li.id = 'inlay-sr-' + k;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var a = doc.createElement('a');
+        a.href = cfg.root + r.e.r;
+        a.tabIndex = -1;
+        var t = doc.createElement('span'); t.className = 'sr-title'; t.textContent = r.e.t; a.appendChild(t);
+        if (r.e.l) { var p = doc.createElement('span'); p.className = 'sr-path'; p.textContent = r.e.l; a.appendChild(p); }
+        var sn = snippet(r.e, r.term);
+        if (sn) { var x = doc.createElement('span'); x.className = 'sr-snippet'; x.textContent = sn; a.appendChild(x); }
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      active = -1;
+      announce(found.length ? tr('results', { n: found.length }) : tr('noResults'));
+    };
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { loadIndex(render); }, 120);
+    });
+    input.addEventListener('focus', function () { loadIndex(function () {}); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); if (results.hidden) { loadIndex(render); } else { setActive(active + 1); } }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+      else if (ev.key === 'Enter') {
+        var opts = results.querySelectorAll('[role="option"] a');
+        if (!results.hidden && opts.length) { ev.preventDefault(); window.location.href = opts[Math.max(active, 0)].href; }
+      } else if (ev.key === 'Escape') {
+        if (!results.hidden) { ev.preventDefault(); close(); } else { input.value = ''; }
+      }
+    });
+    doc.addEventListener('click', function (ev) {
+      if (!ev.target.closest || !ev.target.closest('.search')) { close(); }
+    });
+  }
+
+  /* esportazione della pagina corrente come HTML autonomo */
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[data-export]') : null;
+    if (!a || !window.Blob || !window.URL || !URL.createObjectURL) { return; }
+    ev.preventDefault();
+    var clone = root.cloneNode(true);
+    var drop = ['.topnav', '.search', '.nav-toggle', '.hero', '#inlay-sidebar', '.breadcrumbs', 'a[data-export]',
+      '#inlay-lightbox', 'script[src]', '.site-footer'];
+    drop.forEach(function (sel) { Array.prototype.forEach.call(clone.querySelectorAll(sel), function (n) { n.parentNode.removeChild(n); }); });
+    Array.prototype.forEach.call(clone.querySelectorAll('[inert]'), function (n) { n.removeAttribute('inert'); n.removeAttribute('aria-hidden'); });
+    clone.classList.remove('js', 'nav-open');
+    clone.style.removeProperty('--header-h');
+    clone.setAttribute('data-exported', 'true');
+    var brand = clone.querySelector('.brand');
+    if (brand) { brand.removeAttribute('href'); }
+    Array.prototype.forEach.call(clone.querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      if (href.charAt(0) === '#' || /^[a-z][a-z0-9+.\-]*:/i.test(href) || href.indexOf('//') === 0) { return; }
+      var span = doc.createElement('span');
+      span.className = 'link-disabled';
+      span.title = tr('linkDisabled');
+      span.setAttribute('data-inlay-export', 'disabled');
+      while (link.firstChild) { span.appendChild(link.firstChild); }
+      link.parentNode.replaceChild(span, link);
+    });
+    var status = clone.querySelector('#inlay-status');
+    if (status) { status.textContent = ''; }
+    var title = (doc.querySelector('.doc-title') || {}).textContent || doc.title;
+    var main = clone.querySelector('#main');
+    if (main) {
+      var note = doc.createElement('p');
+      note.className = 'notice export-note';
+      note.setAttribute('role', 'note');
+      note.textContent = tr('exportNote', { t: title });
+      var head = main.querySelector('.doc-head');
+      main.insertBefore(note, head ? head.nextSibling : main.firstChild);
+    }
+    var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var tmp = doc.createElement('a');
+    tmp.href = url;
+    tmp.download = a.getAttribute('download') || 'documento.html';
+    tmp.style.display = 'none';
+    doc.body.appendChild(tmp);
+    tmp.click();
+    doc.body.removeChild(tmp);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>

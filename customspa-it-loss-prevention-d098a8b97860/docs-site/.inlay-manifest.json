@@ -1,0 +1,43 @@
+{
+ "allow_degraded": [],
+ "counts": {
+  "found": 21,
+  "page": 21
+ },
+ "diagnostics": {
+  "degradation": 0,
+  "error": 0,
+  "info": 2,
+  "warning": 1
+ },
+ "files": {
+  "00_deep_dive.html": "12828cbdeae3544e577ebde0c10fd3f379311c44681b06b2ee8135518828a707",
+  "01_context.html": "5d431f4dc9a02e348b1407eb2d10afd6012c550dc53914dab8915be7cdeb2975",
+  "02_functional_overview.html": "cf365a842de64c27be341529b04b8b20249b3b09f7ab219fa1a66792bd55fbf7",
+  "03_non_functional_overview.html": "2bca582e405a0981a928970d138eabad4cf1bd4392e97f2d68e2d564b4af55b1",
+  "04_constraints.html": "a9c0bd4b2da7ee74bc2010d19044d5de387d055560d0c5466f497b4e5f26a1b2",
+  "05_principles.html": "d46e838d3d42e30565c08583326d8bc9b311fa08262e6d7c8f843ac221b65349",
+  "06_software_architecture.html": "b54dc0872ecab3e11ce02dec99718ecd381c49e3dacab3bfd06799bf5879cb86",
+  "07_code.html": "e6dad63d177ef6bcefc48c727cceba3ee2add8566bb87a6886af8f10fb57f969",
+  "08_data.html": "f9848c1d6def3722f07c49d3a690141edc7b9aabbad41abd412fad35e631f992",
+  "09_infrastructure_architecture.html": "f6fc889ced44ed63e30c4fc6b9055b1b33cc0a99353e7f9da10e829f59403269",
+  "10_deployment.html": "b5e9304c8020ded6d6bd95bc7a9218642abd11a39a34c5bbad64745f015247a8",
+  "11_development_environment.html": "49b643b013ae5ae969ae2b0f05e2b3aefb315b8bbb6d74cf32172683645dc00d",
+  "12_operation_and_support.html": "5b786a59cfc11259bff0a02b59fc07e652a7ed212c12a3ad359464ba18dfdd33",
+  "13_decision_log.html": "d3647d844a9696d761f06c04a8be9121a3cc5ff3c4c002dd5fd10266d2f31416",
+  "14_metrics.html": "2d01b4d492e20fb43da5beb9a6f0f0ccd74786813329dc22d6dffa2dc9c4aa25",
+  "15_fp_cocomo.html": "fb40980837a47ef1fb8c1c2831d3f8f8a2a5a87416c93c4f7ad38a036bc17f22",
+  "16_frontend_deep_assessment.html": "e68c20594d47665f13f56eac5506013f339533f8c13b32f1d0770cc7faf40f09",
+  "17_backend_deep_assessment.html": "54108ad94c64f7380250861e4400daeb3a3ff2155b63ad800a9b07112846111c",
+  "18_antipattern_deep_dive.html": "123e291076815a45efe2bed78a30417ce32fbc38582c2ddf7866b9b584197558",
+  "19_modernization_estimation_spec.html": "f620068f21a0fb2639d6c414d0e1fb8f31eb37266d2dd9626e2d4668715d362f",
+  "_inlay/catalog.json": "ab656ec5717127ede3763216c2f345093471fa5c2fc3d5fd7f2b4e7eff4d9203",
+  "_inlay/search-index.js": "ce05f56526cbbd2383452845fc030a7a98efd127cfec6f78ea908834414ddf82",
+  "index-doc.html": "fce47c29260899759bd8e9bb6e96961a088cddffb6e8c1d4abfd0edda3709e2e",
+  "index.html": "a2018a7ec54279b9dc6fcfbca0742739ce3e94c39c27c4819012ac667d238fbe"
+ },
+ "generator": "inlay-doc-site",
+ "layout": "project",
+ "theme": "eng",
+ "version": "2.1.0"
+}

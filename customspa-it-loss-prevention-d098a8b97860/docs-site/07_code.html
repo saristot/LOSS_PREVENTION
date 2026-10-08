@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="eng" data-layout="project">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="inlay-doc-site 2.1.0">
+<title>Code - Progetto LOSS_PREVENTION · LOSS_PREVENTION · IMPACT how (FULL)</title>
+<link rel="icon" href="data:,">
+<style>/* inlay-doc-site 2.x - struttura e componenti comuni. I colori e le forme vengono
+   dalle variabili definite dal tema (assets/themes/<tema>/theme.css). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-h,64px) + 12px)}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-text);font-size:15px;line-height:var(--line-height)}
+a{color:var(--c-link)}
+a:hover{color:var(--c-link-hover)}
+:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+li::marker{font-variant-numeric:normal}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--c-primary);color:var(--c-primary-text);padding:10px 16px;font-weight:600;text-decoration:none;border-radius:var(--radius-btn)}
+.skip-link:focus{top:10px;color:var(--c-primary-text)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;gap:16px;background:var(--c-header-bg);color:var(--c-header-text);padding:10px 20px;position:sticky;top:0;z-index:50;min-height:64px}
+.topbar :focus-visible{outline-color:var(--c-focus-dark)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 1 auto;max-width:360px;text-decoration:none;color:var(--c-header-text)}
+.brand:hover{color:var(--c-header-text)}
+.brand-logo{display:block;height:30px;width:auto;flex:none}
+.brand-mark{width:42px;height:42px;flex:none;border-radius:var(--radius-btn);background:var(--c-primary);color:var(--c-primary-text);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-weight:700;font-size:15.5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{color:var(--c-header-muted);font-size:11.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnav{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.nav-item{color:var(--c-header-muted);font-size:13.5px;font-weight:500;padding:8px 11px;border-radius:var(--radius-btn);text-decoration:none;flex:none}
+.nav-item:hover{color:var(--c-header-text);background:var(--c-header-hover-bg)}
+.nav-item[aria-current="page"]{color:var(--c-header-text);background:var(--c-header-hover-bg);font-weight:600}
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;color:var(--c-header-text);border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);padding:7px 10px;font:inherit;font-size:13px;cursor:pointer;flex:none}
+.nav-toggle-icon{width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor;display:inline-block}
+.search{position:relative;flex:0 1 260px;min-width:160px}
+.search input{width:100%;font:inherit;font-size:13.5px;padding:8px 12px;border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);background:var(--c-header-input-bg);color:var(--c-header-text)}
+.search input::placeholder{color:var(--c-header-muted);opacity:1}
+.search-results{position:absolute;right:0;top:calc(100% + 6px);width:min(520px,92vw);max-height:70vh;overflow-y:auto;margin:0;padding:6px;list-style:none;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:60}
+.search-results li{border-radius:var(--radius-btn)}
+.search-results a{display:block;padding:8px 10px;color:var(--c-text);text-decoration:none;border-radius:var(--radius-btn)}
+.search-results li[aria-selected="true"] a,.search-results a:hover{background:var(--c-tree-active-bg);color:var(--c-tree-active-text)}
+.search-results .sr-title{display:block;font-weight:600;font-size:14px}
+.search-results .sr-path{display:block;font-size:12px;color:var(--c-muted)}
+.search-results .sr-snippet{display:block;font-size:12.5px;color:var(--c-muted);margin-top:2px}
+.search-results .sr-empty{padding:10px;color:var(--c-muted);font-size:13px}
+
+/* ---------- pagina ---------- */
+.page{max-width:1440px;margin:0 auto;padding:24px 28px 56px}
+.hero{margin:0 0 20px}
+.hero-title{font-size:28px;font-weight:800;color:var(--c-heading);line-height:1.25;margin:4px 0 6px}
+.hero-sub{color:var(--c-muted);font-size:15px;margin:0}
+.hero-sub:empty{display:none}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.layout{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:var(--card-shadow)}
+.card-head{padding:13px 18px;border-bottom:1px solid var(--c-border);margin:0}
+
+/* ---------- pulsanti ---------- */
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:var(--radius-btn);text-decoration:none;cursor:pointer;border:1px solid var(--c-primary);flex:none;line-height:1.3}
+.btn-primary{background:var(--c-primary);color:var(--c-primary-text)}
+.btn-primary:hover{background:var(--c-primary-hover-bg);color:var(--c-primary-hover-text);border-color:var(--c-primary-hover-border)}
+.btn-primary:active{background:var(--c-primary-active);color:var(--c-primary-text);border-color:var(--c-primary-active)}
+.btn-outline{background:var(--c-surface);color:var(--c-text);border-color:var(--c-border-strong)}
+.btn-outline:hover{border-color:var(--c-primary);color:var(--c-link-hover)}
+.btn-icon{font-size:15px;line-height:1}
+
+/* ---------- albero ---------- */
+.sidebar{position:sticky;top:calc(var(--header-h,64px) + 16px);max-height:calc(100vh - var(--header-h,64px) - 32px);display:flex;flex-direction:column}
+.side-head{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-muted)}
+.tree-scroll{flex:1 1 auto;overflow-y:auto;padding:8px 8px 12px;overscroll-behavior:contain}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:14px}
+.tree-row{display:flex;align-items:center;gap:2px;min-width:0}
+.tree-toggle{flex:none;width:26px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:var(--radius-btn);color:var(--c-muted);cursor:pointer;padding:0;font:inherit}
+.tree-toggle:hover{background:var(--c-hover-bg)}
+.tree-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.tree-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:6px;background:transparent;border:0;padding:6px 8px 6px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--c-heading);cursor:pointer;text-align:left;border-radius:var(--radius-btn)}
+.tree-group::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid var(--c-muted);border-bottom:2px solid var(--c-muted);transform:rotate(-45deg);transition:transform .15s;margin:0 6px 0 5px}
+.tree-group[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group:hover{background:var(--c-hover-bg)}
+.tree-node-phase>.tree-row .tree-group{font-weight:600;color:var(--c-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tree-link{display:block;flex:1 1 auto;min-width:0;font-size:13px;color:var(--c-text);padding:6px 10px;border-radius:var(--radius-btn);border-left:3px solid transparent;text-decoration:none;overflow-wrap:anywhere;line-height:1.4}
+.tree-link:hover{background:var(--c-hover-bg);color:var(--c-text)}
+.tree-link[aria-current="page"]{background:var(--c-tree-active-bg);color:var(--c-tree-active-text);font-weight:600;border-left-color:var(--c-tree-active-border)}
+.tree-node-root>.tree-row .tree-link,.tree-node-project>.tree-row .tree-link{font-weight:700;color:var(--c-heading)}
+.tree-node-root>.tree-row .tree-link[aria-current="page"],.tree-node-project>.tree-row .tree-link[aria-current="page"]{color:var(--c-tree-active-text)}
+.tree>li>ul{padding-left:6px}
+
+/* ---------- documento ---------- */
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.doc-title{font-size:15px;font-weight:700;color:var(--c-heading);margin:0;min-width:0;overflow-wrap:anywhere}
+.breadcrumbs{padding:10px 22px 0;font-size:12.5px;color:var(--c-muted)}
+.breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.breadcrumbs li{display:inline-flex;align-items:center;gap:4px}
+.breadcrumbs li+li::before{content:"/";color:var(--c-border-strong);margin-right:2px}
+.breadcrumbs a{color:var(--c-muted)}
+.breadcrumbs a:hover{color:var(--c-link-hover)}
+.doc-info{padding:12px 22px 0;display:flex;flex-direction:column;gap:10px}
+.doc-info details{border:1px solid var(--c-border);border-radius:var(--radius-card);background:var(--c-subtle-bg)}
+.doc-info summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--c-heading)}
+.doc-info dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;padding:4px 14px 12px;font-size:13px}
+.doc-info dt{color:var(--c-muted)}
+.doc-info dd{margin:0;overflow-wrap:anywhere}
+.toc ol{margin:0;padding:4px 14px 12px 34px;font-size:13px}
+.toc ol ol{padding:2px 0 2px 18px}
+.toc li{margin:2px 0}
+.doc-body{padding:24px 36px 52px;overflow-wrap:break-word}
+
+/* ---------- avvisi e stati ---------- */
+.notice{border:1px solid var(--c-border);border-left:4px solid var(--c-notice-info);background:var(--c-subtle-bg);padding:10px 14px;margin:12px 0;font-size:13.5px;border-radius:var(--radius-card)}
+.notice-warning{border-left-color:var(--c-notice-warning)}
+.notice-update{border-left-color:var(--c-primary)}
+.doc-info .notice{margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;border:1px solid transparent;vertical-align:baseline}
+.badge-complete,.badge-present{background:var(--c-ok-bg);color:var(--c-ok-text);border-color:var(--c-ok-border)}
+.badge-partial,.badge-incomplete,.badge-misplaced{background:var(--c-warn-bg);color:var(--c-warn-text);border-color:var(--c-warn-border)}
+.badge-missing,.badge-absent{background:var(--c-subtle-bg);color:var(--c-muted);border-color:var(--c-border-strong)}
+.cov{font-weight:600;font-size:12.5px}
+.cov-present{color:var(--c-ok-text)}
+.cov-absent{color:var(--c-muted)}
+.cov-excluded{color:var(--c-warn-text)}
+.muted{color:var(--c-muted)}
+.lead{font-size:15px;color:var(--c-muted)}
+.link-disabled,.link-broken{color:var(--c-muted);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.link-broken::after{content:" \26A0";color:var(--c-notice-warning)}
+.asset-missing{display:block;border:1px dashed var(--c-border-strong);background:var(--c-subtle-bg);color:var(--c-muted);padding:18px;text-align:center;font-size:13px;margin:16px 0}
+.extra-evidence{margin-top:32px}
+
+/* ---------- contenuto ---------- */
+.doc-body h1,.doc-body h2,.doc-body h3,.doc-body h4,.doc-body h5,.doc-body h6{color:var(--c-heading);line-height:1.3;position:relative}
+.doc-body h1{font-size:27px;font-weight:800;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--c-border)}
+.doc-body h2{font-size:21px;font-weight:700;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--c-border-soft)}
+.doc-body h1+h2{margin-top:22px;padding-top:0;border-top:0}
+.doc-body h3{font-size:17px;font-weight:700;margin:24px 0 10px}
+.doc-body h4{font-size:15px;font-weight:700;margin:18px 0 8px}
+.doc-body p,.doc-body li{font-size:15px}
+.doc-body p{margin:10px 0}
+.doc-body a{color:var(--c-link);text-underline-offset:2px}
+.doc-body a:hover{color:var(--c-link-hover)}
+.header-anchor{margin-left:8px;font-weight:400;color:var(--c-muted);text-decoration:none;opacity:0;transition:opacity .15s}
+.doc-body h1:hover .header-anchor,.doc-body h2:hover .header-anchor,.doc-body h3:hover .header-anchor,.doc-body h4:hover .header-anchor,.header-anchor:focus{opacity:1}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0}
+.doc-body hr{border:0;border-top:1px solid var(--c-border);margin:26px 0}
+.doc-body ul,.doc-body ol{padding-left:26px;margin:10px 0}
+.doc-body li{margin:4px 0}
+.doc-body blockquote{margin:14px 0;padding:4px 0 4px 16px;border-left:4px solid var(--c-border-strong);color:var(--c-muted)}
+.doc-body img{max-width:100%;height:auto}
+.doc-body :not(pre)>code{background:var(--c-code-inline-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:var(--font-mono)}
+.table-wrap{max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--c-border);border-radius:var(--radius-card)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;margin:0}
+.doc-body th{background:var(--c-subtle-bg);font-weight:600;color:var(--c-heading);text-align:left}
+.doc-body th,.doc-body td{border-bottom:1px solid var(--c-border);padding:8px 12px;vertical-align:top}
+.doc-body th+th,.doc-body td+td{border-left:1px solid var(--c-border)}
+.doc-body tbody tr:last-child td{border-bottom:0}
+.doc-body tbody tr:nth-child(2n){background:var(--c-zebra)}
+
+/* figure e diagrammi */
+.doc-body figure{margin:22px 0;text-align:center}
+.doc-body figcaption{font-size:13px;color:var(--c-muted);margin-top:6px}
+.zoom-trigger{display:inline-block;max-width:100%;padding:0;margin:0;border:1px solid transparent;background:var(--c-surface);cursor:zoom-in;border-radius:var(--radius-card)}
+.zoom-trigger:hover{border-color:var(--c-primary)}
+.zoom-trigger img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-source{text-align:left;margin-top:8px;font-size:13px}
+.diagram-source summary{cursor:pointer;color:var(--c-muted);display:inline-block}
+.diagram-fallback{margin:16px 0}
+.diagram-fallback .notice{margin:0 0 8px}
+
+/* blocchi di codice */
+.code-block{border:1px solid var(--c-code-border);background:var(--c-code-bg);border-radius:var(--radius-code);margin:16px 0;text-align:left}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 6px 4px 14px;border-bottom:1px solid var(--c-code-border)}
+.code-lang{font-size:11px;color:var(--c-muted);text-transform:uppercase;letter-spacing:.05em}
+.code-copy{font:inherit;font-size:12px;padding:3px 10px;border:1px solid var(--c-border-strong);border-radius:var(--radius-btn);background:var(--c-surface);color:var(--c-text);cursor:pointer}
+.code-copy:hover{border-color:var(--c-primary)}
+.code-copy.copied{border-color:var(--c-ok-border);color:var(--c-ok-text)}
+.code-block pre,.doc-body pre{margin:0;padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6}
+.doc-body pre{background:var(--c-code-bg)}
+.code-block pre{background:transparent}
+.doc-body pre code{font-family:var(--font-mono);font-size:13px;background:transparent;padding:0;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* ASCII-art: font embedded con metriche fisse per allineamento a griglia. */
+.code-block.ascii-art pre code{font-family:'InlayMono',var(--font-mono)}
+.doc-body .shiki span{color:var(--shiki-light)}
+
+/* lightbox */
+.inlay-lightbox{position:fixed;inset:0;background:rgba(9,9,9,.92);z-index:999;display:flex;flex-direction:column}
+.inlay-lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:12px 18px;flex:0 0 auto}
+.inlay-lightbox-hint{color:#d4d4d4;font-size:12.5px;margin-right:auto}
+.inlay-lightbox-bar button{background:#1f1f1f;color:#f5f5f5;border:1px solid #6b6b6b;border-radius:var(--radius-btn);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.inlay-lightbox-bar button:hover{background:#333}
+.inlay-lightbox-bar button:focus-visible{outline:2px solid #fcfcfc;outline-offset:2px}
+.inlay-lightbox-stage{flex:1 1 auto;overflow:auto;padding:0 24px 24px;cursor:grab}
+.inlay-lightbox-stage.grabbing{cursor:grabbing}
+.inlay-lightbox-stage:focus-visible{outline:2px solid #fcfcfc;outline-offset:-4px}
+.inlay-lightbox-stage img{background:#fff;display:block;margin:0 auto;max-width:none;user-select:none;-webkit-user-drag:none}
+
+.site-footer{max-width:1440px;margin:0 auto;padding:0 28px 32px;color:var(--c-muted);font-size:12.5px}
+html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
+.export-note{margin:12px 22px 0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .search{flex-basis:200px;min-width:140px}
+}
+@media (max-width:840px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 14px}
+  .brand{flex:1 1 auto;max-width:none}
+  .js .nav-toggle{display:inline-flex}
+  .topnav{order:3;flex-basis:100%}
+  .search{order:4;flex:1 1 100%}
+  .js .topnav,.js .search{display:none}
+  .js.nav-open .topnav{display:flex}
+  .js.nav-open .search{display:block}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;max-height:none}
+  .js .sidebar{display:none}
+  .js.nav-open .sidebar{display:flex}
+  .page{padding:16px 12px 40px}
+  .hero-title{font-size:22px}
+  .doc-body{padding:18px 16px 36px}
+  .doc-head{flex-wrap:wrap}
+  .breadcrumbs,.doc-info{padding-left:16px;padding-right:16px}
+}
+@media print{
+  .topbar,.sidebar,.hero,.btn-primary,.code-copy,.site-footer,.breadcrumbs{display:none!important}
+  .layout{display:block}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Tema ENG (Engineering, eng.it). Valori osservati sul sito ufficiale il 2026-10-02
+   (review/eng-it-profile.json): header #090909/#FCFCFC, base #FCFCFC/#202020,
+   pulsante primario #C51B88 -> hover #FCFCFC/#090909 -> active #770F53, raggio 0,
+   famiglia CocoEng. Le altre scelte (layout, stati, contenuti tecnici) sono decisioni
+   di prodotto documentate in references/eng-brand.md. */
+:root{
+  --font:"CocoEng","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --line-height:1.7;
+  --c-bg:#FCFCFC;--c-surface:#FFFFFF;--c-subtle-bg:#F6F6F6;--c-zebra:#FAFAFA;--c-hover-bg:#F1F1F1;
+  --c-border:#DEDEDE;--c-border-soft:#EDEDED;--c-border-strong:#8F8F8F;
+  --c-text:#202020;--c-heading:#090909;--c-muted:#4D4D4D;
+  --c-header-bg:#090909;--c-header-text:#FCFCFC;--c-header-muted:#BDBDBD;--c-header-hover-bg:#262626;--c-header-input-bg:#171717;
+  --c-primary:#C51B88;--c-primary-text:#FCFCFC;
+  --c-primary-hover-bg:#FCFCFC;--c-primary-hover-text:#090909;--c-primary-hover-border:#090909;
+  --c-primary-active:#770F53;
+  --c-link:#B0177A;--c-link-hover:#770F53;
+  --c-tree-active-bg:#F4D1E8;--c-tree-active-text:#770F53;--c-tree-active-border:#C51B88;
+  --c-focus:#C51B88;--c-focus-dark:#FCFCFC;
+  --c-code-bg:#F6F6F6;--c-code-border:#DEDEDE;--c-code-inline-bg:#EFEFEF;
+  --c-notice-info:#4D4D4D;--c-notice-warning:#A15C00;
+  --c-ok-bg:#E7F4EA;--c-ok-text:#1D6631;--c-ok-border:#9CCDA9;
+  --c-warn-bg:#FFF3DF;--c-warn-text:#7A4300;--c-warn-border:#E9B86A;
+  --radius-btn:0;--radius-card:0;--radius-code:0;
+  --card-shadow:none;
+  --sidebar-w:300px;
+}
+.topbar{border-bottom:1px solid #262626}
+.brand-logo{height:28px}
+.hero-title{font-weight:700;letter-spacing:-.01em}
+.side-head{color:#090909}
+.btn-primary{text-transform:none;letter-spacing:.01em}
+.doc-body h1{font-weight:700}
+.doc-body h2{border-top-color:#DEDEDE}
+.tree-link[aria-current="page"]{border-left-width:4px}
+.badge{border-radius:0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="topbar" id="top">
+  <a class="brand" href="index.html"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2Zw0KICAgICAgICAgICAgd2lkdGg9IjE0OSINCiAgICAgICAgICAgIGhlaWdodD0iNDYiDQogICAgICAgICAgICB2aWV3Qm94PSIwIDAgMTQ5IDQ2Ig0KICAgICAgICAgICAgZmlsbD0ibm9uZSINCiAgICAgICAgICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgICAgICA+DQogICAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc3XzIxMDEpIj4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjMuMTg3NCAzNy4xMzY3VjM5Ljc4OTVIMi4zNTYyNEMxLjg3NTM4IDM4Ljk2ODkgMS40OTg3IDM4LjA3OTkgMS4xNTA4NyAzNy4xMzk5TDIzLjE4NzQgMzcuMTM2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgNDIuMzA4NlY0NC43MzM1QzIzLjE4NzQgNDQuODU3OCAyMy4wODY0IDQ0Ljk1OTcgMjIuOTU5OCA0NC45NTk3SDExLjQ0OTRDOS4xMzQ4NSA0NC45NTk3IDYuNTA2MTIgNDQuMTU4MyA0LjQzNTE5IDQyLjMwODZIMjMuMTg3NFoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTI1LjcwMzkgMC4yMjYxMjFWMTUuODYyMkMyNS43MDM5IDE1Ljk1NzggMjUuNjczNCAxNi4wNTAyIDI1LjYxNzMgMTYuMTI4MkwxNS45ODcyIDI5LjI2NjFDMTUuOTAyMiAyOS4zODI0IDE1Ljc2NDQgMjkuNDUyNSAxNS42MjAxIDI5LjQ1MjVIMC42MDU4OTRDMC40NTY4MjYgMjkuNDUyNSAwLjM0NDYyNCAyOS4zMTA3IDAuMzg2Mjk5IDI5LjE2NzNDMC43Mzg5MzQgMjcuOTE1IDEuMzIzOTkgMjYuNzU4MyAyLjA5MDE3IDI1Ljc0MzRMMTguNzk3MSAzLjc3OTA0QzIxLjE4MzggMC44Mzk1MTggMjQuMjUxNyAwLjE3NjczIDI1LjQ0NTggMC4wMDMwNjcyOEMyNS41ODIxIC0wLjAxNzY0NDggMjUuNzAzOSAwLjA4OTEwMjIgMjUuNzAzOSAwLjIyNjEyMVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgMzIuMTA1MlYzNC42MjA5SDAuMzQ0NjIxQzAuMzM4MjA5IDM0LjYwMDIgMC4wMjg4NTIgMzMuNzczMyAwIDMyLjIwMDdDMCAzMi4wNzMzIDAuMDk5Mzc5IDMxLjk2OTcgMC4yMjc2MSAzMS45Njk3SDIzLjA1MTFDMjMuMTI2NSAzMS45Njk3IDIzLjE4NzQgMzIuMDMwMyAyMy4xODc0IDMyLjEwNTJaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik01Mi45NDQ5IDM3LjEzOTlDNTIuNTk3MSAzOC4wNzk5IDUyLjIyMDQgMzguOTY4OSA1MS43Mzk2IDM5Ljc4OTVIMzAuOTA4NVYzNy4xMzY3TDUyLjk0NDkgMzcuMTM5OVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTMwLjkwODUgNDIuMzA4NlY0NC43MzM1QzMwLjkwODUgNDQuODU3OCAzMS4wMDk0IDQ0Ljk1OTcgMzEuMTM2MSA0NC45NTk3SDQyLjY0NjRDNDQuOTYxIDQ0Ljk1OTcgNDcuNTg5NyA0NC4xNTgzIDQ5LjY2MDYgNDIuMzA4NkgzMC45MDg1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjguMzkxOSAwLjIyNjQ4MVYxNS44NjI1QzI4LjM5MTkgMTUuOTU4MSAyOC40MjI0IDE2LjA1MDUgMjguNDc4NSAxNi4xMjg2TDM4LjEwODYgMjkuMjY2NUMzOC4xOTM2IDI5LjM4MjggMzguMzMxNCAyOS40NTI5IDM4LjQ3NTcgMjkuNDUyOUg1My40ODk5QzUzLjYzOSAyOS40NTI5IDUzLjc1MTIgMjkuMzExMSA1My43MDk1IDI5LjE2NzdDNTMuMzU2OSAyNy45MTU0IDUyLjc3MTggMjYuNzU4NyA1Mi4wMDU3IDI1Ljc0MzhMMzUuMjk3MiAzLjc4MUMzMi45MTA1IDAuODQxNDcxIDI5Ljg0MjUgMC4xNzg2ODMgMjguNjQ4NCAwLjAwNTAyMDQxQzI4LjUxMjEgLTAuMDE1NjkxNyAyOC4zOTAzIDAuMDkxMDU1MyAyOC4zOTAzIDAuMjI4MDc0SDI4LjM5MTlWMC4yMjY0ODFaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik0zMC45MDg1IDMyLjE5NlYzNC42MjA5SDUzLjc1MTJDNTMuNzU3NiAzNC42MDAyIDU0LjA2NyAzMy43NzMzIDU0LjA5NTggMzIuMjAwN0M1NC4wOTc0IDMyLjA3MzMgNTMuOTk2NCAzMS45Njk3IDUzLjg2ODIgMzEuOTY5N0gzMS4xMzYxQzMxLjAxMSAzMS45Njk3IDMwLjkwODUgMzIuMDcwMSAzMC45MDg1IDMyLjE5NloiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTY5LjUyMzYgMzYuMDM0M0M2Ny41MDQgMzQuODM5NCA2NS45NDEyIDMzLjIzMDIgNjQuODM1MiAzMS4yMDY4QzYzLjcyOTIgMjkuMTgzNCA2My4xNzYyIDI2Ljk2MDggNjMuMTc2MiAyNC41MzkxQzYzLjE3NjIgMjIuMTE3NCA2My43MTMxIDE5Ljg0NyA2NC43ODcxIDE3LjgyMzZDNjUuODYxIDE1LjgwMDIgNjcuMzY3NyAxNC4xOTkgNjkuMzA3MiAxMy4wMkM3MS4yNDY3IDExLjg0MSA3My40ODI3IDExLjI1MTUgNzYuMDE1MyAxMS4yNTE1Qzc4LjU0NzkgMTEuMjUxNSA4MC44OTYxIDExLjgwOTEgODIuNzcxNSAxMi45MjQ0Qzg0LjY0NjggMTQuMDM5NiA4Ni4wNzM0IDE1LjU4NTEgODcuMDUxMiAxNy41NjA3Qzg4LjAyODkgMTkuNTM2MyA4OC41MTc4IDIxLjc5ODcgODguNTE3OCAyNC4zNDc5Qzg4LjUxNzggMjUuMjQwMSA4OC40NTM3IDI2LjExNjQgODguMzI1NSAyNi45NzY3SDcxLjAxNDNDNzEuNDMxIDI4LjMxNTEgNzIuMTM2MyAyOS4zNDI3IDczLjEzMDEgMzAuMDU5N0M3NC4xMjM5IDMwLjc3NjYgNzUuMzQyMSAzMS4xMzUxIDc2Ljc4NDcgMzEuMTM1MUM3Ny45NzA4IDMxLjEzNTEgNzkuMDEyNyAzMC45OTE3IDc5LjkxMDMgMzAuNzA0OUM4MC44MDc5IDMwLjQxODEgODEuNzIxNiAyOS45MjQyIDgyLjY1MTMgMjkuMjIzMkw4Ni40NTAxIDM0LjI0MTlDODUuMDA3NSAzNS40ODQ2IDgzLjQ5MjggMzYuMzkyOCA4MS45MDU5IDM2Ljk2NjNDODAuMzE5IDM3LjUzOTkgNzguNDk5OCAzNy44MjY3IDc2LjQ0ODEgMzcuODI2N0M3My44NTE0IDM3LjgyNjcgNzEuNTQzMiAzNy4yMjkyIDY5LjUyMzYgMzYuMDM0M1pNODEuMjU2NyAyMS44MTQ2QzgwLjkzNjIgMjAuNDQ0NSA4MC4zMzUxIDE5LjQwODggNzkuNDUzNSAxOC43MDc4Qzc4LjU3MTkgMTguMDA2OCA3Ny40NzM5IDE3LjY1NjMgNzYuMTU5NiAxNy42NTYzQzc0Ljg0NTIgMTcuNjU2MyA3My42OTkxIDE4LjAxNDggNzIuODE3NSAxOC43MzE3QzcxLjkzNiAxOS40NDg3IDcxLjMxODggMjAuNDc2MyA3MC45NjYyIDIxLjgxNDZIODEuMjU2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTkyLjc5NzUgMTEuNzc3Mkg5Ny42MDYyTDk5Ljc3MDEgMTQuNjkyOEMxMDIuMDE0IDEyLjM2NjcgMTA0Ljg1MSAxMS4yMDM2IDEwOC4yODEgMTEuMjAzNkMxMTEuMzU5IDExLjIwMzYgMTEzLjgxOSAxMi4xOTE0IDExNS42NjMgMTQuMTY3QzExNy41MDYgMTYuMTQyNyAxMTguNDI4IDE4Ljg1MTIgMTE4LjQyOCAyMi4yOTI2VjM3LjEwOTdIMTEwLjQ0NVYyMy42Nzg3QzExMC40NDUgMjIuMDIxNyAxMTAuMDQ1IDIwLjczOTIgMTA5LjI0MyAxOS44MzFDMTA4LjQ0MiAxOC45MjI5IDEwNy4zNTIgMTguNDY4OCAxMDUuOTczIDE4LjQ2ODhDMTA0LjQ5OSAxOC40Njg4IDEwMy4yNjQgMTguOTU0NyAxMDIuMjcxIDE5LjkyNjZDMTAxLjI3NyAyMC44OTg1IDEwMC43OCAyMi4wMzc2IDEwMC43OCAyMy4zNDQxVjM3LjEwOTdIOTIuNzk3NVYxMS43NzcyWiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMTQxLjQxMyAxNC41MDE2TDE0My40ODEgMTEuNzc3MkgxNDguMjg5VjMzLjE0MjVDMTQ4LjI4OSAzNS41MzI0IDE0Ny43MzYgMzcuNzA3MSAxNDYuNjMgMzkuNjY2OEMxNDUuNTI0IDQxLjYyNjUgMTQzLjkwNiA0My4xNzIgMTQxLjc3NCA0NC4zMDMyQzEzOS42NDIgNDUuNDM0NCAxMzcuMTAxIDQ2IDEzNC4xNTIgNDZDMTMwLjA4MSA0NiAxMjYuNDkgNDQuODA1IDEyMy4zODEgNDIuNDE1MkwxMjcuNTE2IDM2LjkxODVDMTI4LjU3NCAzNy43Nzg4IDEyOS42MTYgMzguMzg0MyAxMzAuNjQyIDM4LjczNDhDMTMxLjY2OCAzOS4wODUzIDEzMi43OSAzOS4yNjA2IDEzNC4wMDggMzkuMjYwNkMxMzYuMjIgMzkuMjYwNiAxMzcuODQ3IDM4Ljc1MDcgMTM4Ljg4OSAzNy43MzFDMTM5LjkzIDM2LjcxMTQgMTQwLjQ1MSAzNS4xOTc4IDE0MC40NTEgMzMuMTkwM0MxMzguNTYgMzQuNzUxNyAxMzYuMyAzNS41MzI0IDEzMy42NzEgMzUuNTMyNEMxMzEuNDI3IDM1LjUzMjQgMTI5LjQxNSAzNS4wMDY2IDEyNy42MzYgMzMuOTU1MUMxMjUuODU3IDMyLjkwMzUgMTI0LjQ2MyAzMS40NjE2IDEyMy40NTMgMjkuNjI5NEMxMjIuNDQzIDI3Ljc5NzIgMTIxLjkzOCAyNS43MTggMTIxLjkzOCAyMy4zOTE5QzEyMS45MzggMjEuMDY1OCAxMjIuNDQzIDE5LjAxODUgMTIzLjQ1MyAxNy4xNTQ0QzEyNC40NjMgMTUuMjkwMyAxMjUuODU3IDEzLjgzMjUgMTI3LjYzNiAxMi43ODA5QzEyOS40MTUgMTEuNzI5NCAxMzEuNDI3IDExLjIwMzYgMTMzLjY3MSAxMS4yMDM2QzEzNi43MTcgMTEuMjAzNiAxMzkuMjk3IDEyLjMwMjkgMTQxLjQxMyAxNC41MDE2Wk0xMzEuMzg3IDE5LjcxMTVDMTMwLjM3NyAyMC42OTkzIDEyOS44NzIgMjEuOTU4IDEyOS44NzIgMjMuNDg3NUMxMjkuODcyIDI1LjAxNyAxMzAuMzc3IDI2LjM3MTMgMTMxLjM4NyAyNy4zNTkxQzEzMi4zOTcgMjguMzQ2OSAxMzMuNzAzIDI4Ljg0MDggMTM1LjMwNiAyOC44NDA4QzEzNi45MDkgMjguODQwOCAxMzguMjE1IDI4LjM0NjkgMTM5LjIyNSAyNy4zNTkxQzE0MC4yMzUgMjYuMzcxMyAxNDAuNzQgMjUuMDk2NyAxNDAuNzQgMjMuNTM1M0MxNDAuNzQgMjEuOTczOSAxNDAuMjM1IDIwLjczOTIgMTM5LjIyNSAxOS43MzU0QzEzOC4yMTUgMTguNzMxNyAxMzYuOTA5IDE4LjIyOTggMTM1LjMwNiAxOC4yMjk4QzEzMy43MDMgMTguMjI5OCAxMzIuMzk3IDE4LjcyMzcgMTMxLjM4NyAxOS43MTE1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDxkZWZzPg0KICAgICAgICAgICAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3N18yMTAxIj4NCiAgICAgICAgICAgICAgICA8cmVjdCB3aWR0aD0iMTQ4LjI4OSIgaGVpZ2h0PSI0NiIgZmlsbD0id2hpdGUiIC8+DQogICAgICAgICAgICAgIDwvY2xpcFBhdGg+DQogICAgICAgICAgICA8L2RlZnM+DQogICAgICAgICAgPC9zdmc+" alt="Engineering" width="149" height="46"><span class="brand-text"><span class="brand-title">LOSS_PREVENTION · IMPACT how (FULL)</span><span class="brand-sub">Documentazione IMPACT how (FULL) · baseline fc7d820 (main) · portale offline</span></span></a>
+  <button type="button" class="nav-toggle" aria-controls="inlay-nav inlay-sidebar" aria-expanded="false" hidden><span class="nav-toggle-icon" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span></button>
+  <nav class="topnav" id="inlay-nav" aria-label="Navigazione principale"><a class="nav-item" href="index.html">Panoramica</a><a class="nav-item" href="index-doc.html">Indice IMPACT</a><a class="nav-item" href="00_deep_dive.html">Deep Dive</a><a class="nav-item" href="06_software_architecture.html">Architettura</a><a class="nav-item" href="14_metrics.html">Metriche</a></nav>
+  <div class="search" role="search" hidden>
+    <label class="visually-hidden" for="inlay-search">Cerca nella documentazione</label>
+    <input id="inlay-search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inlay-search-results" placeholder="Cerca nella documentazione" autocomplete="off" spellcheck="false">
+    <ul id="inlay-search-results" class="search-results" role="listbox" aria-label="Cerca nella documentazione" hidden></ul>
+  </div>
+</header>
+<div class="page">
+  <div class="hero">
+    <p class="hero-title">LOSS_PREVENTION — Documentazione IMPACT how (FULL)</p>
+    <p class="hero-sub">.NET 8 FastEndpoints + MongoDB · Vue 3 + Vite + Vuetify SPA · Data Ingestion Service — baseline fc7d820, revisione 1.1 (2026-10-08)</p>
+    <ul class="quicklinks"><li><a class="btn-primary" href="index-doc.html">Indice e valori canonici</a></li><li><a class="btn-outline" href="15_fp_cocomo.html">FP &amp; COCOMO II</a></li><li><a class="btn-outline" href="18_antipattern_deep_dive.html">Antipattern</a></li><li><a class="btn-outline" href="19_modernization_estimation_spec.html">Stima modernizzazione</a></li></ul>
+  </div>
+  <div class="layout">
+    <aside class="card sidebar" id="inlay-sidebar">
+      <p class="card-head side-head" id="inlay-tree-label">Struttura documenti</p>
+      <nav class="tree-scroll" id="inlay-tree" aria-labelledby="inlay-tree-label"><ul class="tree"><li class="tree-node tree-node-root"><div class="tree-row"><button type="button" class="tree-toggle" aria-expanded="true" aria-controls="inlay-t1" aria-label="LOSS_PREVENTION"></button><a class="tree-link" href="index.html">LOSS_PREVENTION</a></div><ul id="inlay-t1"><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t2">Architettura (HOW)</button></div><ul id="inlay-t2"><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t3">Foundation</button></div><ul id="inlay-t3"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="00_deep_dive.html">00 · Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="01_context.html">01 · Context Definition</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t6">Requirements</button></div><ul id="inlay-t6"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="02_functional_overview.html">02 · Functional Overview</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="03_non_functional_overview.html">03 · Non-Functional Requirements</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="04_constraints.html">04 · Constraints</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t10">Architecture</button></div><ul id="inlay-t10"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="05_principles.html">05 · Architectural Principles</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="06_software_architecture.html">06 · Software Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="07_code.html" aria-current="page">07 · Code Implementation Details</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="08_data.html">08 · Data Architecture</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t15">Infrastructure &amp; Operations</button></div><ul id="inlay-t15"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="10_deployment.html">10 · Deployment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="11_development_environment.html">11 · Development Environment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="12_operation_and_support.html">12 · Operation and Support</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t20">Decisions &amp; Metrics</button></div><ul id="inlay-t20"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="13_decision_log.html">13 · Decision Log</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="14_metrics.html">14 · Metrics</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="15_fp_cocomo.html">15 · FP &amp; COCOMO II</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t24">Deep Assessments</button></div><ul id="inlay-t24"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="18_antipattern_deep_dive.html">18 · Antipattern Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="19_modernization_estimation_spec.html">19 · Modernization Estimation Spec</a></div></li></ul></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></div></li></ul></li></ul></li></ul></nav>
+    </aside>
+    <main class="card docpane" id="main" tabindex="-1">
+      <div class="card-head doc-head"><p class="doc-title">Code - Progetto LOSS_PREVENTION</p><a class="btn-primary btn-export" href="07_code.html" download="07_code.html" data-export="">Scarica</a></div>
+      <nav class="breadcrumbs" aria-label="Percorso"><ol><li><a href="index.html">LOSS_PREVENTION</a></li><li><span>Architettura (HOW)</span></li><li><span>Architecture</span></li><li><span aria-current="page">07 · Code Implementation Details</span></li></ol></nav>
+      <div class="doc-info"><details class="provenance"><summary>Provenienza del documento <span class="badge badge-present">metadati presenti</span></summary><dl><dt>Sorgente</dt><dd><code>07_code.md</code></dd><dt>SHA-256 sorgente</dt><dd><code>e60d5ec198740d4f5e9a3b0063f230f5ca42c7d2c38a3a714339a4afd045a64b</code></dd><dt>Modalità</dt><dd>how</dd><dt>Step</dt><dd>07_code</dd><dt>Commit</dt><dd><code>fc7d820908b8b230fb47a2669920ba7efdb413a8</code></dd><dt>Branch</dt><dd>main</dd><dt>Worktree</dt><dd>dirty</dd><dt>Data baseline</dt><dd>2026-10-07T18:19:51+02:00</dd><dt>Generato il</dt><dd>2026-10-08T09:25:30+02:00</dd></dl></details><details class="toc" id="inlay-toc"><summary>In questa pagina</summary><ol><li><a href="#sezioni-principali">Sezioni Principali</a></li><li><a href="#1-code-organization--structure">1. Code Organization &amp; Structure</a><ol><li><a href="#11-struttura-backend-file-c-esclusi-binobj">1.1 Struttura backend (file C#, esclusi bin/obj)</a></li><li><a href="#12-struttura-frontend-losspreventionuisrc">1.2 Struttura frontend (LossPrevention.UI/src)</a></li><li><a href="#13-convenzioni-osservate">1.3 Convenzioni osservate</a></li></ol></li><li><a href="#2-key-implementation-patterns">2. Key Implementation Patterns</a><ol><li><a href="#21-endpoint-fastendpoints-con-cache">2.1 Endpoint FastEndpoints con cache</a></li><li><a href="#22-repository-generico--registrazione-per-factory">2.2 Repository generico + registrazione per factory</a></li><li><a href="#23-conversione-xml--bson">2.3 Conversione XML → BSON</a></li><li><a href="#24-rule-engine">2.4 Rule engine</a></li><li><a href="#25-similarit%C3%A0">2.5 Similarità</a></li><li><a href="#26-motore-statistico-client-side">2.6 Motore statistico client-side</a></li><li><a href="#27-ingestione">2.7 Ingestione</a></li></ol></li><li><a href="#3-framework-usage-mvc-orm-di">3. Framework Usage (MVC, ORM, DI)</a><ol><li><a href="#31-web-layer-fastendpoints-in-luogo-di-mvc">3.1 Web layer: FastEndpoints (in luogo di MVC)</a></li><li><a href="#32-accesso-dati-mongodbdriver-nessun-orm">3.2 Accesso dati: MongoDB.Driver (nessun ORM)</a></li><li><a href="#33-dependency-injection">3.3 Dependency Injection</a></li><li><a href="#34-validazione-fluentvalidation">3.4 Validazione: FluentValidation</a></li><li><a href="#35-frontend">3.5 Frontend</a></li></ol></li><li><a href="#4-security-implementation">4. Security Implementation</a><ol><li><a href="#41-controlli-implementati">4.1 Controlli implementati</a></li><li><a href="#42-debolezze-a-livello-di-codice">4.2 Debolezze a livello di codice</a></li></ol></li><li><a href="#5-exception-handling--logging">5. Exception Handling &amp; Logging</a><ol><li><a href="#51-eccezioni">5.1 Eccezioni</a></li><li><a href="#52-logging">5.2 Logging</a></li></ol></li><li><a href="#6-transaction-management">6. Transaction Management</a></li><li><a href="#7-configuration-management">7. Configuration Management</a><ol><li><a href="#71-sorgenti-di-configurazione">7.1 Sorgenti di configurazione</a></li><li><a href="#72-modalit%C3%A0-di-accesso-nel-codice">7.2 Modalità di accesso nel codice</a></li><li><a href="#73-difetti-di-configurazione">7.3 Difetti di configurazione</a></li></ol></li><li><a href="#8-testing-strategy">8. Testing Strategy</a></li><li><a href="#appendici">Appendici</a><ol><li><a href="#a-hotspot-di-complessit%C3%A0">A. Hotspot di complessità</a></li><li><a href="#b-difetti-funzionali-individuati-nel-codice">B. Difetti funzionali individuati nel codice</a></li><li><a href="#c-codice-morto--residui">C. Codice morto / residui</a></li></ol></li><li><a href="#reference-documents">Reference Documents</a></li><li><a href="#change-log">Change Log</a></li></ol></details></div>
+      <article class="doc-body" id="doc-body"><!-- IMPACT-META
+schema: 1
+mode: how
+step: 07_code
+commit: fc7d820908b8b230fb47a2669920ba7efdb413a8
+commit_short: fc7d820
+branch: main
+worktree: dirty
+baseline_date: 2026-10-07T18:19:51+02:00
+generated_at: 2026-10-08T09:25:30+02:00
+--><h1 id="code---progetto-loss_prevention"><span id="code-progetto-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="code-progetto-loss-prevention" class="anchor-alias" aria-hidden="true"></span>Code - Progetto LOSS_PREVENTION<a class="header-anchor" href="#code---progetto-loss_prevention" aria-label="Collegamento alla sezione: Code - Progetto LOSS_PREVENTION">#</a></h1>
+<blockquote>
+<p><strong>Baseline commit:</strong> <code>fc7d820</code> (<code>main</code>) · worktree <code>dirty</code> (modifiche locali solo in <code>Docs/</code> e <code>.github/</code>; codice applicativo identico al commit)</p>
+</blockquote>
+<p><strong>Data</strong>: 2026-10-08<br>
+<strong>Versione</strong>: 1.1<br>
+<strong>Autori</strong>: IMPACT REVERSE how (verifica 2026-10-08)<br>
+<strong>Audience</strong>: Team tecnico, architetti, developer</p>
+<hr>
+<h2 id="sezioni-principali">Sezioni Principali<a class="header-anchor" href="#sezioni-principali" aria-label="Collegamento alla sezione: Sezioni Principali">#</a></h2>
+<ol>
+<li><a href="#1-code-organization--structure">Code Organization &amp; Structure</a></li>
+<li><a href="#2-key-implementation-patterns">Key Implementation Patterns</a></li>
+<li><a href="#3-framework-usage-mvc-orm-di">Framework Usage (MVC, ORM, DI)</a></li>
+<li><a href="#4-security-implementation">Security Implementation</a></li>
+<li><a href="#5-exception-handling--logging">Exception Handling &amp; Logging</a></li>
+<li><a href="#6-transaction-management">Transaction Management</a></li>
+<li><a href="#7-configuration-management">Configuration Management</a></li>
+<li><a href="#8-testing-strategy">Testing Strategy</a></li>
+</ol>
+<p>Appendici: <a href="#a-hotspot-di-complessità">A. Hotspot di complessità</a> · <a href="#b-difetti-funzionali-individuati-nel-codice">B. Difetti funzionali</a> · <a href="#c-codice-morto--residui">C. Codice morto</a></p>
+<p>Convenzioni: percorsi relativi a <code>customspa-it-loss-prevention-d098a8b97860/</code>; <code>file:N</code> = riga al commit <code>fc7d820</code>. Conteggi righe = righe non vuote, salvo diversa indicazione.</p>
+<hr>
+<h2 id="1-code-organization--structure"><span id="1-code-organization-structure" class="anchor-alias" aria-hidden="true"></span><span id="_1-code-organization-structure" class="anchor-alias" aria-hidden="true"></span>1. Code Organization &amp; Structure<a class="header-anchor" href="#1-code-organization--structure" aria-label="Collegamento alla sezione: 1. Code Organization &amp; Structure">#</a></h2>
+<p><strong>Sintesi.</strong> Il backend è organizzato per progetto/layer e, all'interno, per area funzionale (Users, Data, DataIngestion, Rules, Workspaces…); il frontend per tipo di artefatto (components, stores, helpers). Le convenzioni di naming e namespace non sono uniformi.</p>
+<h3 id="11-struttura-backend-file-c-esclusi-binobj"><span id="_1-1-struttura-backend-file-c-esclusi-bin-obj" class="anchor-alias" aria-hidden="true"></span>1.1 Struttura backend (file C#, esclusi <code>bin/obj</code>)<a class="header-anchor" href="#11-struttura-backend-file-c-esclusi-binobj" aria-label="Collegamento alla sezione: 1.1 Struttura backend (file C#, esclusi bin/obj)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 1"><table>
+<thead>
+<tr>
+<th>Progetto</th>
+<th>Cartella</th>
+<th>File</th>
+<th>Contenuto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API (79 file, 4.347 righe)</td>
+<td><code>Program.cs</code></td>
+<td>1</td>
+<td>Composition root: config, CORS, JWT, DI, pipeline</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Endpoints/</code></td>
+<td>78</td>
+<td>Una classe FastEndpoints per endpoint: Dashboard 5, Data 3, DataIngestion 8, FraudDetection 3, Groups 7, Mappings 4, Notifications 5, Rules 6, User/Permissions 10, User/Roles 10, User/Users 12, Workspaces 5</td>
+</tr>
+<tr>
+<td>Application (121 file, 5.005 righe)</td>
+<td><code>Handlers/</code></td>
+<td>52</td>
+<td>Request/response model degli endpoint</td>
+</tr>
+<tr>
+<td></td>
+<td><code>DTO/</code></td>
+<td>21</td>
+<td>DTO di risposta</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Services/</code></td>
+<td>20</td>
+<td>Servizi applicativi (Data, Data/Rules, DataIngestion, Users, Workspaces)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Interfaces/</code></td>
+<td>17</td>
+<td>Interfacce servizi (+ <code>DatabaseInitializationService.cs</code>, classe concreta collocata qui)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Helpers/</code></td>
+<td>6</td>
+<td><code>BsonHelper</code>, <code>RuleHelper</code>, <code>DistanceHelper</code>, <code>XmlToBsonConverterHelper</code>, <code>JsonHelper</code>, <code>MappingHelper</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Mappings/</code></td>
+<td>3</td>
+<td>Mapping statici Dashboard/Group/Notification ↔ DTO</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Validators/</code></td>
+<td>2</td>
+<td>FluentValidation Dashboard</td>
+</tr>
+<tr>
+<td>Domain (21 file, 519 righe)</td>
+<td><code>Entities/</code></td>
+<td>19</td>
+<td>Entità POCO con attributi BSON</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Exceptions/</code></td>
+<td>2</td>
+<td><code>DeleteUserRoleException</code>, <code>InvalidCustomerException</code> (mai usate)</td>
+</tr>
+<tr>
+<td>Infrastructure (10 file, 784 righe)</td>
+<td>root</td>
+<td>1</td>
+<td><code>InfrastructureServiceExtensions.cs</code> (DI Mongo + repository)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Configuration/</code></td>
+<td>2</td>
+<td><code>MongoDbSettings</code>, <code>JwtSettings</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Repositories/</code></td>
+<td>4</td>
+<td><code>IMongoRepository</code>, <code>MongoRepository</code> (179 righe), <code>IDapperRepository</code>, <code>DapperRepository</code> (205 righe, interamente commentato)</td>
+</tr>
+<tr>
+<td></td>
+<td><code>Helpers/</code>, <code>Services/</code>, <code>Interfaces/</code></td>
+<td>3</td>
+<td><code>PasswordHasher</code>, <code>EmailService</code>, <code>IEmailService</code></td>
+</tr>
+<tr>
+<td>DataIngestionService (1 file, 105 righe)</td>
+<td><code>Program.cs</code></td>
+<td>1</td>
+<td>Console di bulk load</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="12-struttura-frontend-losspreventionuisrc"><span id="_1-2-struttura-frontend-lossprevention-ui-src" class="anchor-alias" aria-hidden="true"></span>1.2 Struttura frontend (<code>LossPrevention.UI/src</code>)<a class="header-anchor" href="#12-struttura-frontend-losspreventionuisrc" aria-label="Collegamento alla sezione: 1.2 Struttura frontend (LossPrevention.UI/src)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 2"><table>
+<thead>
+<tr>
+<th>Cartella</th>
+<th>File</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>components/</code></td>
+<td>40</td>
+<td>SFC per area (<code>reports/</code>, <code>dashboard/</code>, <code>manage/</code>, …); con <code>App.vue</code> = 41 SFC</td>
+</tr>
+<tr>
+<td><code>stores/</code></td>
+<td>15</td>
+<td>Store Pinia (es. <code>aiStore.ts</code> 1.994 righe, <code>fraudDetectionStore.ts</code> 728)</td>
+</tr>
+<tr>
+<td><code>helpers/</code></td>
+<td>3</td>
+<td><code>fieldLock.ts</code>, <code>queryUtils.ts</code>, …</td>
+</tr>
+<tr>
+<td><code>interfaces/</code></td>
+<td>5</td>
+<td>Tipi TypeScript</td>
+</tr>
+<tr>
+<td><code>api/</code>, <code>plugins/</code>, <code>router/</code></td>
+<td>1 + 1 + 1</td>
+<td>Axios, Vuetify, vue-router (18 voci di path)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Totale <code>src</code>: 69 file <code>.vue</code>/<code>.ts</code>, 15.836 righe non vuote.</p>
+<h3 id="13-convenzioni-osservate"><span id="_1-3-convenzioni-osservate" class="anchor-alias" aria-hidden="true"></span>1.3 Convenzioni osservate<a class="header-anchor" href="#13-convenzioni-osservate" aria-label="Collegamento alla sezione: 1.3 Convenzioni osservate">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 3"><table>
+<thead>
+<tr>
+<th>Aspetto</th>
+<th>Osservato</th>
+<th>Evidenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Namespace ≠ cartella/progetto</td>
+<td><code>DataIngestionBackgroundService</code> (Application) → <code>LossPrevention.Infrastructure.Services</code>; <code>XmlEnrichmentService</code> (<code>Services/Data</code>) → <code>...Services.DataIngestion</code>; <code>RuleConfigurationService</code> in <code>Services/Data/Rules</code> → <code>...Services.Rules</code>; <code>MappingHelper</code> → <code>FraudDetectionApp.Helpers</code>; <code>Workspace</code>/<code>Tab</code>/<code>Query</code> (Domain) → <code>LossPrevention.Application.Entities.Workspaces</code>; <code>MongoDbSettings</code> (<code>Configuration/</code>) → <code>LossPrevention.Infrastructure.Models</code>; <code>UpdateDashboardValidator</code> definito in due namespace</td>
+<td>file citati</td>
+</tr>
+<tr>
+<td>Naming</td>
+<td><code>ReportDataservice</code> / <code>DistanceDataService</code> / <code>IDistanceDataservice</code>; file <code>RulesService.cs</code> contiene <code>RuleConfigurationService</code>; file <code>IndexSuggestionHelper.cs</code> contiene <code>IndexService</code></td>
+<td><code>Services/Data/*</code></td>
+</tr>
+<tr>
+<td>Identificatori entità</td>
+<td>Mix <code>_id</code> (stile Mongo: <code>User</code>, <code>Role</code>, <code>Permission</code>, <code>MappingItem</code>, <code>RuleConfiguration</code>) e <code>Id</code> (<code>Workspace</code>, <code>DashboardDocument</code>, <code>GroupDocument</code>, …)</td>
+<td><code>Domain/Entities/**</code></td>
+</tr>
+<tr>
+<td>Nomi progetto</td>
+<td>csproj con prefisso numerico e spazi (<code>01. LossPrevention.API.csproj</code>)</td>
+<td>root progetti</td>
+</tr>
+<tr>
+<td>Nullable</td>
+<td>Abilitato, ma molte <code>string</code> di entità non inizializzate</td>
+<td><code>Domain/Entities/**</code></td>
+</tr>
+<tr>
+<td>Async</td>
+<td><code>async/await</code> diffuso; chiamate SSH.NET sincrone avvolte in <code>Task.Run</code></td>
+<td><code>SftpFileProcessingService.cs</code></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="2-key-implementation-patterns"><span id="_2-key-implementation-patterns" class="anchor-alias" aria-hidden="true"></span>2. Key Implementation Patterns<a class="header-anchor" href="#2-key-implementation-patterns" aria-label="Collegamento alla sezione: 2. Key Implementation Patterns">#</a></h2>
+<p><strong>Sintesi.</strong> I pattern ricorrenti sono: endpoint REPR con cache in memoria, repository generico con accesso diretto alla collection, conversione XML→BSON con inferenza dei tipi, rule engine a campo singolo, similarità euclidea e un motore statistico generato a runtime nel browser.</p>
+<h3 id="21-endpoint-fastendpoints-con-cache"><span id="_2-1-endpoint-fastendpoints-con-cache" class="anchor-alias" aria-hidden="true"></span>2.1 Endpoint FastEndpoints con cache<a class="header-anchor" href="#21-endpoint-fastendpoints-con-cache" aria-label="Collegamento alla sezione: 2.1 Endpoint FastEndpoints con cache">#</a></h3>
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">// LossPrevention.API/Endpoints/Data/GetReportDataEndpoint.cs (estratto, righe 28-87)
+public override void Configure()
+{
+    Post("/data/report/query");
+    Permissions("CAN_VIEW_REPORT");
+}
+public override async Task HandleAsync(GetReportDataRequest req, CancellationToken ct)
+{
+    var cacheKey = GenerateCacheKey(req);                                  // :55 SHA256 di pipeline+skip+take
+    if (_cache.TryGetValue(cacheKey, out GetReportDataResponse cached)) { ... }
+    var pipeline = req.QueryPipeline
+        .Select(x =&gt; BsonDocument.Parse(x.ToString())).ToArray();          // :68 input non validato
+    var result = await _reportDataService.QueryReportDataAsync(pipeline, req.Skip, req.Take);
+    _cache.Set(cacheKey, response, TimeSpan.FromHours(1));                 // :81
+    // catch (Exception ex) -&gt; AddError("query", "Invalid query pipeline: " + ex.Message)  :85-87
+}
+</code></pre></div>
+<h3 id="22-repository-generico--registrazione-per-factory"><span id="22-repository-generico-registrazione-per-factory" class="anchor-alias" aria-hidden="true"></span><span id="_2-2-repository-generico-registrazione-per-factory" class="anchor-alias" aria-hidden="true"></span>2.2 Repository generico + registrazione per factory<a class="header-anchor" href="#22-repository-generico--registrazione-per-factory" aria-label="Collegamento alla sezione: 2.2 Repository generico + registrazione per factory">#</a></h3>
+<p><code>MongoRepository&lt;TDocument&gt;</code> (<code>Infrastructure/Repositories/MongoRepository.cs</code>, 179 righe) espone CRUD, <code>AggregateAsync</code> (3 overload, riga 143-170), <code>CreateIndexesAsync</code> (max 20 campi, righe 29-40) e la proprietà <code>Collection</code> (riga 27), usata dai servizi per operazioni non coperte (es. <code>UpdateManyAsync</code>, <code>ReplaceOneAsync</code>, <code>GetCollection("ProcessedFiles")</code>).</p>
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">// LossPrevention.Infrastructure/InfrastructureServiceExtensions.cs (schema ripetuto 14 volte, righe 42-149)
+services.AddScoped&lt;IMongoRepository&lt;User&gt;&gt;(sp =&gt;
+{
+    var settings = sp.GetRequiredService&lt;IOptions&lt;MongoDbSettings&gt;&gt;().Value;
+    var client = sp.GetRequiredService&lt;IMongoClient&gt;();
+    return new MongoRepository&lt;User&gt;(client, settings.DatabaseName, settings.CollectionName_Users);
+});
+</code></pre></div>
+<p><code>IMongoRepository&lt;User&gt;</code> è registrato due volte (65-70 e 72-77); la collezione <code>PasswordResetTokens</code> è un literal (riga 83).</p>
+<h3 id="23-conversione-xml--bson"><span id="23-conversione-xml-bson" class="anchor-alias" aria-hidden="true"></span><span id="_2-3-conversione-xml-→-bson" class="anchor-alias" aria-hidden="true"></span>2.3 Conversione XML → BSON<a class="header-anchor" href="#23-conversione-xml--bson" aria-label="Collegamento alla sezione: 2.3 Conversione XML → BSON">#</a></h3>
+<p><code>XmlToBsonConverterHelper.ConvertFlattened</code> analizza l'XML con <code>XElement.Parse</code>, appiattisce la gerarchia e inferisce i tipi (bool/int/decimal/datetime/string). Con le impostazioni di default di <code>XElement.Parse</code> .NET non risolve DTD/entità esterne (no XXE) e limita l'espansione delle entità: il rischio "XML bomb" è contenuto, ma non esiste un limite esplicito sulla dimensione dei file.</p>
+<h3 id="24-rule-engine"><span id="_2-4-rule-engine" class="anchor-alias" aria-hidden="true"></span>2.4 Rule engine<a class="header-anchor" href="#24-rule-engine" aria-label="Collegamento alla sezione: 2.4 Rule engine">#</a></h3>
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">// LossPrevention.Application/Helpers/RuleHelper.cs (estratto)
+public static bool EvaluateRule(BsonDocument document, RuleConfiguration rule)
+{
+    var values = GetValuesByPath(document, rule.FieldPath);   // attraversa array
+    if (rule.SumValues) return CompareValue(values.Where(v =&gt; v.IsNumeric).Sum(v =&gt; v.ToDecimal()), rule);
+    return values.Any(v =&gt; CompareValue(v, rule));             // range numerico o uguaglianza case-insensitive
+}
+</code></pre></div>
+<p>Funzione pura e testabile, ma espressività minima (1 campo, nessun operatore logico). <code>ApplyRulesAsync</code> (<code>Services/Data/Rules/RulesService.cs:32-84</code>) carica tutto <code>ReportData</code> (riga 34), rimuove <code>FraudFlags</code> (40-41), valuta le regole abilitate e riscrive ogni documento con <code>ReplaceOneAsync</code> (58).</p>
+<h3 id="25-similarità"><span id="25-similarita" class="anchor-alias" aria-hidden="true"></span><span id="_2-5-similarita" class="anchor-alias" aria-hidden="true"></span>2.5 Similarità<a class="header-anchor" href="#25-similarit%C3%A0" aria-label="Collegamento alla sezione: 2.5 Similarità">#</a></h3>
+<p><code>DistanceHelper.ComputeDistance</code> = distanza euclidea sui campi presenti in entrambi i record; <code>TryNormalize</code> converte solo il <strong>tipo</strong> (bool→0/1, liste→media), <strong>non</strong> la scala. Score: <code>0.5 · campiUsati/campiRichiesti + 0.5 · (1 − d/dmax)</code>; minimo 3 campi in comune; top 10. <code>DistanceDataService.GetDistanceAsync</code> (riga 22, 122 NLOC) carica in memoria tutti i documenti dell'intervallo di date (riga 39).</p>
+<h3 id="26-motore-statistico-client-side"><span id="_2-6-motore-statistico-client-side" class="anchor-alias" aria-hidden="true"></span>2.6 Motore statistico client-side<a class="header-anchor" href="#26-motore-statistico-client-side" aria-label="Collegamento alla sezione: 2.6 Motore statistico client-side">#</a></h3>
+<p><code>UI/src/stores/aiStore.ts</code>: <code>classifyFields</code> (riga 379) → mappa semantica via regex sui nomi campo → statistiche (percentili, media, σ di popolazione) → <code>build*Rules</code> (condizioni stringa tipo <code>row["Amount_total"] &gt; 812.5</code>) → <code>new Function</code> (riga 1769) → valutazione per transazione raggruppata.</p>
+<h3 id="27-ingestione"><span id="_2-7-ingestione" class="anchor-alias" aria-hidden="true"></span>2.7 Ingestione<a class="header-anchor" href="#27-ingestione" aria-label="Collegamento alla sezione: 2.7 Ingestione">#</a></h3>
+<p><code>FileProcessingCoordinator</code> sceglie il processor per <code>SelectedFileType</code> tra i 3 <code>IFileProcessingService</code> registrati (<code>Program.cs:102-104</code>); idempotenza per nome file su <code>ProcessedFiles</code> (<code>FileProcessingCoordinator.cs:385-409</code>); arricchimento con <code>_sourceFile</code>, <code>_processedAt</code>, <code>_sourceType</code>. Per SFTP ogni file è <strong>scaricato e parsato due volte</strong> e a ogni esecuzione viene rielencata l'intera cartella <code>processed/</code>.</p>
+<hr>
+<h2 id="3-framework-usage-mvc-orm-di"><span id="_3-framework-usage-mvc-orm-di" class="anchor-alias" aria-hidden="true"></span>3. Framework Usage (MVC, ORM, DI)<a class="header-anchor" href="#3-framework-usage-mvc-orm-di" aria-label="Collegamento alla sezione: 3. Framework Usage (MVC, ORM, DI)">#</a></h2>
+<p><strong>Sintesi.</strong> Al posto di MVC il backend usa FastEndpoints (REPR); al posto di un ORM usa direttamente MongoDB.Driver con un repository generico; la DI è il container Microsoft, con alcuni errori di lifetime e di registrazione. FluentValidation è referenziato ma di fatto inattivo.</p>
+<h3 id="31-web-layer-fastendpoints-in-luogo-di-mvc"><span id="_3-1-web-layer-fastendpoints-in-luogo-di-mvc" class="anchor-alias" aria-hidden="true"></span>3.1 Web layer: FastEndpoints (in luogo di MVC)<a class="header-anchor" href="#31-web-layer-fastendpoints-in-luogo-di-mvc" aria-label="Collegamento alla sezione: 3.1 Web layer: FastEndpoints (in luogo di MVC)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 4"><table>
+<thead>
+<tr>
+<th>Aspetto</th>
+<th>Implementazione</th>
+<th>Evidenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Registrazione</td>
+<td><code>AddFastEndpoints()</code> + <code>SwaggerDocument</code> ("Loss Prevention API" v1.0); <code>UseFastEndpoints()</code> ultimo middleware</td>
+<td><code>Program.cs:53-61,131</code></td>
+</tr>
+<tr>
+<td>Modello</td>
+<td><code>Endpoint&lt;TRequest, TResponse&gt;</code> con <code>Configure()</code> (verbo, route, <code>Permissions</code>, <code>AllowAnonymous</code>, <code>Summary</code>) e <code>HandleAsync</code></td>
+<td>es. <code>GetReportDataEndpoint.cs:28-29</code></td>
+</tr>
+<tr>
+<td>Request/response</td>
+<td>Classi in <code>Application/Handlers/{Requests,Responses}</code> (52 file)</td>
+<td><code>Application/Handlers</code></td>
+</tr>
+<tr>
+<td>Risposte</td>
+<td><code>SendOkAsync</code>, <code>SendAsync</code>, <code>SendStringAsync</code>, <code>AddError</code> + <code>SendErrorsAsync</code></td>
+<td>es. <code>ForgotPasswordEndpoint.cs:41-56</code></td>
+</tr>
+<tr>
+<td>Controller MVC / Razor</td>
+<td>Assenti</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="32-accesso-dati-mongodbdriver-nessun-orm"><span id="_3-2-accesso-dati-mongodb-driver-nessun-orm" class="anchor-alias" aria-hidden="true"></span>3.2 Accesso dati: MongoDB.Driver (nessun ORM)<a class="header-anchor" href="#32-accesso-dati-mongodbdriver-nessun-orm" aria-label="Collegamento alla sezione: 3.2 Accesso dati: MongoDB.Driver (nessun ORM)">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 5"><table>
+<thead>
+<tr>
+<th>Aspetto</th>
+<th>Implementazione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mapping</td>
+<td>Attributi <code>[BsonId]</code>, <code>[BsonElement]</code>, <code>[BsonRepresentation]</code> sulle entità Domain; <code>ReportData</code> gestito come <code>BsonDocument</code> schema-less</td>
+</tr>
+<tr>
+<td>Query</td>
+<td><code>Builders&lt;T&gt;.Filter/Update</code>, espressioni LINQ (<code>FindOneAsync(u =&gt; u.Username == ...)</code>), pipeline di aggregazione <code>BsonDocument[]</code></td>
+</tr>
+<tr>
+<td>Scritture massive</td>
+<td><code>InsertManyAsync</code> con <code>IsOrdered=false, BypassDocumentValidation=true</code> (<code>MongoRepository.cs:80-83</code>); <code>BulkWriteAsync</code> in <code>MappingService.FinalizeTypesAsync</code> con <code>Parallel.ForEachAsync</code></td>
+</tr>
+<tr>
+<td>ORM relazionale</td>
+<td><code>DapperRepository</code> (Dapper/SQL) interamente commentato: residuo di un precedente accesso SQL</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="33-dependency-injection"><span id="_3-3-dependency-injection" class="anchor-alias" aria-hidden="true"></span>3.3 Dependency Injection<a class="header-anchor" href="#33-dependency-injection" aria-label="Collegamento alla sezione: 3.3 Dependency Injection">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 6"><table>
+<thead>
+<tr>
+<th>Registrazione</th>
+<th>Lifetime</th>
+<th>Evidenza</th>
+<th>Osservazione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IOptions&lt;MongoDbSettings&gt;</code>, <code>IOptions&lt;JwtSettings&gt;</code></td>
+<td>Singleton</td>
+<td><code>InfrastructureServiceExtensions.cs:26-31</code></td>
+<td>Bind manuale + <code>Options.Create</code></td>
+</tr>
+<tr>
+<td><code>IMongoClient</code></td>
+<td><strong>Scoped</strong></td>
+<td><code>InfrastructureServiceExtensions.cs:33-37</code></td>
+<td>Nuovo <code>MongoClient</code> per scope: anti-pattern (il client va condiviso, gestisce il pool)</td>
+</tr>
+<tr>
+<td><code>IMongoRepository&lt;T&gt;</code> ×14</td>
+<td>Scoped (factory)</td>
+<td><code>InfrastructureServiceExtensions.cs:42-149</code></td>
+<td><code>User</code> registrato due volte</td>
+</tr>
+<tr>
+<td><code>MongoDbSettings</code> (classe concreta)</td>
+<td>Singleton <strong>vuoto</strong></td>
+<td><code>Program.cs:83</code></td>
+<td>Iniettato da <code>CreateRuleEndpoint.cs:15</code> e <code>UpdateRuleEndpoint.cs:15</code>: <code>CollectionName_ReportData</code> è stringa vuota (difetto D10)</td>
+</tr>
+<tr>
+<td>20 registrazioni di servizi (incl. <code>EmailService</code>)</td>
+<td>Scoped</td>
+<td><code>Program.cs:84-110</code></td>
+<td>3 implementazioni di <code>IFileProcessingService</code> risolte come <code>IEnumerable</code></td>
+</tr>
+<tr>
+<td><code>DataIngestionBackgroundService</code></td>
+<td>Hosted (singleton)</td>
+<td><code>Program.cs:111</code></td>
+<td>Crea uno scope per ciclo (<code>DataIngestionBackgroundService.cs:49</code>)</td>
+</tr>
+<tr>
+<td><code>IMemoryCache</code></td>
+<td>Singleton</td>
+<td><code>Program.cs:49</code></td>
+<td>Cache report</td>
+</tr>
+<tr>
+<td>Container temporaneo</td>
+<td>—</td>
+<td><code>Program.cs:40-47</code></td>
+<td>Seconda <code>ServiceCollection</code> costruita solo per leggere <code>JwtSettings</code> (commento fuorviante "Load rules from MongoDB")</td>
+</tr>
+<tr>
+<td><code>IDataIngestionScheduleService</code></td>
+<td>Scoped</td>
+<td><code>Program.cs:99</code></td>
+<td>Mai iniettato: codice non raggiungibile</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="34-validazione-fluentvalidation"><span id="_3-4-validazione-fluentvalidation" class="anchor-alias" aria-hidden="true"></span>3.4 Validazione: FluentValidation<a class="header-anchor" href="#34-validazione-fluentvalidation" aria-label="Collegamento alla sezione: 3.4 Validazione: FluentValidation">#</a></h3>
+<p><code>Application/Validators/CreateDashboardValidator.cs</code> definisce <code>CreateDashboardValidator</code>, <code>UpdateDashboardValidator</code>, <code>DashboardBlockValidator</code> (namespace <code>LossPrevention.Application.Dashboards.Validation</code>); <code>UpdateDashboardValidator.cs</code> ridefinisce <code>UpdateDashboardValidator</code> in <code>LossPrevention.Application.Handlers.Requests.Dashboard</code>. Tutti estendono <code>AbstractValidator&lt;T&gt;</code>: FastEndpoints registra automaticamente solo i <code>Validator&lt;T&gt;</code> propri, mentre gli <code>AbstractValidator&lt;T&gt;</code> sono inclusi solo con <code>IncludeAbstractValidators = true</code>, opzione non impostata in <code>Program.cs:53</code>; nessun endpoint li invoca manualmente. <strong>I validator non sono quindi eseguiti.</strong></p>
+<h3 id="35-frontend"><span id="_3-5-frontend" class="anchor-alias" aria-hidden="true"></span>3.5 Frontend<a class="header-anchor" href="#35-frontend" aria-label="Collegamento alla sezione: 3.5 Frontend">#</a></h3>
+<p>Vue 3 Composition API (<code>&lt;script setup&gt;</code>), Pinia per lo stato, vue-router con guard su <code>localStorage.token</code>, Axios con interceptor che aggiunge l'header <code>Authorization</code> (<code>src/api/api.ts:10-17</code>). La dipendenza <code>nuxt</code> e <code>nuxt.config.ts</code> sono presenti ma non usati: l'app è montata con <code>createApp</code> in <code>src/main.ts</code>.</p>
+<hr>
+<h2 id="4-security-implementation"><span id="_4-security-implementation" class="anchor-alias" aria-hidden="true"></span>4. Security Implementation<a class="header-anchor" href="#4-security-implementation" aria-label="Collegamento alla sezione: 4. Security Implementation">#</a></h2>
+<p><strong>Sintesi.</strong> Autenticazione JWT e hashing PBKDF2 sono implementati correttamente nella sostanza, ma l'autorizzazione dei dati è demandata al client (pipeline arbitrarie, lock di riga), e ci sono esposizioni dirette (hash restituiti, segreti in configurazione, <code>eval</code>).</p>
+<h3 id="41-controlli-implementati"><span id="_4-1-controlli-implementati" class="anchor-alias" aria-hidden="true"></span>4.1 Controlli implementati<a class="header-anchor" href="#41-controlli-implementati" aria-label="Collegamento alla sezione: 4.1 Controlli implementati">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 7"><table>
+<thead>
+<tr>
+<th>Controllo</th>
+<th>Implementazione</th>
+<th>Evidenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autenticazione</td>
+<td>JWT HMAC-SHA256; validazione issuer, audience, lifetime, firma</td>
+<td><code>Program.cs:63-76</code>; <code>LoginEndpoint.cs:48-80</code></td>
+</tr>
+<tr>
+<td>Autorizzazione</td>
+<td>Claim <code>permissions</code> (uno per permesso dei ruoli) + <code>Permissions("CAN_...")</code> sugli endpoint: 37 permessi distinti, 74 endpoint protetti, 4 anonimi</td>
+<td><code>LoginEndpoint.cs:57-61</code></td>
+</tr>
+<tr>
+<td>Password</td>
+<td>PBKDF2-SHA256, 600.000 iterazioni, salt 16 byte, hash 32 byte, formato <code>v2:{iter}:{base64}</code>; hash legacy 10.000 iterazioni aggiornati al login</td>
+<td><code>Infrastructure/Helpers/PasswordHasher.cs:7-50</code>; <code>UserService.cs:206-214</code></td>
+</tr>
+<tr>
+<td>Account inattivi</td>
+<td>Login e reset rifiutati se <code>IsActive=false</code></td>
+<td><code>UserService.cs:194</code>, <code>PasswordResetService.cs:42</code></td>
+</tr>
+<tr>
+<td>Reset password</td>
+<td>Token 32 byte casuali (base64url), salvato come SHA256 hex, scadenza 1 h, token precedenti invalidati</td>
+<td><code>PasswordResetService.cs:19,50-66,145-159</code></td>
+</tr>
+<tr>
+<td>Anti-enumerazione</td>
+<td><code>ForgotPassword</code> risponde sempre con messaggio generico se l'utente non esiste</td>
+<td><code>ForgotPasswordEndpoint.cs:41,56</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="42-debolezze-a-livello-di-codice"><span id="_4-2-debolezze-a-livello-di-codice" class="anchor-alias" aria-hidden="true"></span>4.2 Debolezze a livello di codice<a class="header-anchor" href="#42-debolezze-a-livello-di-codice" aria-label="Collegamento alla sezione: 4.2 Debolezze a livello di codice">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 8"><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Posizione</th>
+<th>Rischio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pipeline di aggregazione dal client (<code>BsonDocument.Parse</code>)</td>
+<td><code>GetReportDataEndpoint.cs:68</code></td>
+<td>Query injection / esfiltrazione (es. <code>$lookup</code> su <code>Users</code>)</td>
+</tr>
+<tr>
+<td>Row-level lock solo client</td>
+<td>Claim <code>LockField/LockValue</code> (<code>LoginEndpoint.cs:65-68</code>) mai letti dal backend; applicati in <code>UI/src/helpers/fieldLock.ts</code> (<code>resultsGrid.vue:1687</code>, <code>toolbar.vue:180</code>, <code>tabularBlock.vue:259</code>)</td>
+<td>Bypass con una chiamata API diretta</td>
+</tr>
+<tr>
+<td>Hash e salt nei DTO</td>
+<td><code>GetUsersEndpoint.cs:36</code></td>
+<td>Offline cracking</td>
+</tr>
+<tr>
+<td><code>eval(expr)</code> su campi calcolati</td>
+<td><code>UI/src/components/reports/resultsGrid.vue:1377</code></td>
+<td>XSS persistente via workspace condiviso</td>
+</tr>
+<tr>
+<td><code>new Function(...)</code></td>
+<td><code>UI/src/stores/aiStore.ts:1769</code></td>
+<td>Iniezione tramite nomi campo provenienti dai file importati</td>
+</tr>
+<tr>
+<td>Token in <code>localStorage</code></td>
+<td><code>loginStore.ts:92</code>, <code>api.ts:11</code>, <code>fieldLock.ts:2</code>, <code>notificationStore.ts:49</code>, <code>App.vue:284</code></td>
+<td>Esfiltrabile da qualsiasi XSS</td>
+</tr>
+<tr>
+<td>Confronto hash non a tempo costante</td>
+<td><code>PasswordHasher.cs:46</code> (<code>string.Equals</code>)</td>
+<td>Timing attack (rischio basso)</td>
+</tr>
+<tr>
+<td>Nessun lockout / rate limiting sul login</td>
+<td>nessun riferimento nel backend</td>
+<td>Brute force</td>
+</tr>
+<tr>
+<td>Messaggio distinto per account inattivo nel reset</td>
+<td><code>ForgotPasswordEndpoint.cs:45-47</code></td>
+<td>Enumerazione account inattivi</td>
+</tr>
+<tr>
+<td>Segreti in chiaro</td>
+<td><code>JwtSettings:SecretKey</code> in <code>appsettings.json</code>; <code>SftpPassword</code> nel documento <code>DataIngestionConfigurations</code></td>
+<td>Compromissione token / SFTP</td>
+</tr>
+<tr>
+<td>SMTP senza TLS</td>
+<td><code>EmailService.cs:64-65</code> (<code>EnableSsl=false</code>, <code>UseDefaultCredentials=true</code>)</td>
+<td>Link di reset in chiaro</td>
+</tr>
+<tr>
+<td>SFTP senza verifica host key</td>
+<td><code>SftpFileProcessingService.cs:56</code></td>
+<td>MITM</td>
+</tr>
+<tr>
+<td>Notifiche senza filtro destinatario</td>
+<td><code>ListNotificationsEndpoint.cs:30-31</code> (<code>Filter.Empty</code>)</td>
+<td>Ogni utente vede tutte le notifiche</td>
+</tr>
+<tr>
+<td><code>ex.Message</code> restituito al client</td>
+<td>13 occorrenze negli endpoint</td>
+<td>Information disclosure</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="5-exception-handling--logging"><span id="5-exception-handling-logging" class="anchor-alias" aria-hidden="true"></span><span id="_5-exception-handling-logging" class="anchor-alias" aria-hidden="true"></span>5. Exception Handling &amp; Logging<a class="header-anchor" href="#5-exception-handling--logging" aria-label="Collegamento alla sezione: 5. Exception Handling &amp; Logging">#</a></h2>
+<p><strong>Sintesi.</strong> La gestione errori è locale a ogni endpoint/servizio (try/catch generici), senza middleware globale né ProblemDetails personalizzati; il logging strutturato (<code>ILogger</code>) è usato solo in 4 classi, il resto usa <code>Console.WriteLine</code> o niente.</p>
+<h3 id="51-eccezioni"><span id="_5-1-eccezioni" class="anchor-alias" aria-hidden="true"></span>5.1 Eccezioni<a class="header-anchor" href="#51-eccezioni" aria-label="Collegamento alla sezione: 5.1 Eccezioni">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 9"><table>
+<thead>
+<tr>
+<th>Aspetto</th>
+<th>Osservato</th>
+<th>Evidenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catch generici</td>
+<td>31 <code>catch (Exception …)</code> nel backend</td>
+<td>grep su <code>*.cs</code></td>
+</tr>
+<tr>
+<td>Messaggi interni al client</td>
+<td>13 <code>ex.Message</code> negli endpoint (es. <code>"Invalid query pipeline: " + ex.Message</code>)</td>
+<td><code>GetReportDataEndpoint.cs:87</code></td>
+</tr>
+<tr>
+<td>Eccezioni lanciate</td>
+<td>Solo BCL: <code>InvalidOperationException</code> (24), <code>KeyNotFoundException</code> (9), <code>ArgumentException</code> (5), <code>UnauthorizedAccessException</code> (3), <code>DirectoryNotFoundException</code> (2), <code>NotImplementedException</code> (1), <code>NotSupportedException</code> (1), <code>ArgumentNullException</code> (1)</td>
+<td>grep <code>throw new</code></td>
+</tr>
+<tr>
+<td>Eccezioni di dominio</td>
+<td><code>DeleteUserRoleException</code>, <code>InvalidCustomerException</code> definite ma mai usate</td>
+<td><code>Domain/Exceptions/</code></td>
+</tr>
+<tr>
+<td>Handler globale</td>
+<td>Assente (nessun <code>UseExceptionHandler</code>, nessun <code>ProblemDetails</code> custom)</td>
+<td><code>Program.cs:121-131</code></td>
+</tr>
+<tr>
+<td>Startup</td>
+<td><code>DatabaseInitializationService</code> rilancia l'eccezione → l'API non parte</td>
+<td><code>DatabaseInitializationService.cs:43-116</code></td>
+</tr>
+<tr>
+<td>Background</td>
+<td>Il ciclo dello scheduler cattura e logga gli errori, continua al minuto successivo</td>
+<td><code>DataIngestionBackgroundService.cs</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="52-logging"><span id="_5-2-logging" class="anchor-alias" aria-hidden="true"></span>5.2 Logging<a class="header-anchor" href="#52-logging" aria-label="Collegamento alla sezione: 5.2 Logging">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 10"><table>
+<thead>
+<tr>
+<th>Aspetto</th>
+<th>Osservato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td><code>Microsoft.Extensions.Logging</code> con provider di default (console/debug); livello <code>Default: Information</code> in <code>appsettings.json</code></td>
+</tr>
+<tr>
+<td>Uso di <code>ILogger&lt;T&gt;</code></td>
+<td>Solo <code>DatabaseInitializationService</code>, <code>DataIngestionBackgroundService</code>, <code>FileProcessingCoordinator</code>, <code>SftpFileProcessingService</code></td>
+</tr>
+<tr>
+<td><code>Console.WriteLine</code></td>
+<td>6: <code>DistanceDataservice.cs:86</code>, <code>MappingService.cs:336</code> e <code>:421</code>, console <code>Program.cs:80</code>, <code>:108</code>, <code>:122</code>; <code>MappingService.WriteLog</code> scrive su console</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>57 <code>console.log</code>, anche con dati (mappe semantiche, conteggi, base URL in <code>api.ts:7</code>)</td>
+</tr>
+<tr>
+<td>Correlazione / audit</td>
+<td>Nessun correlation id, nessun log di sicurezza (login falliti, modifiche permessi); solo <code>createdBy/updatedBy</code> su <code>FraudDetectionSettings</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Dettaglio della gestione dei log come dato: <a href="08_data.html#7-log-management">08_data.md §7</a>.</p>
+<hr>
+<h2 id="6-transaction-management"><span id="_6-transaction-management" class="anchor-alias" aria-hidden="true"></span>6. Transaction Management<a class="header-anchor" href="#6-transaction-management" aria-label="Collegamento alla sezione: 6. Transaction Management">#</a></h2>
+<p><strong>Sintesi.</strong> Nessuna transazione: il codice non usa sessioni MongoDB (<code>StartSession</code>, <code>WithTransaction</code>) né <code>TransactionScope</code>. Tutte le operazioni multi-documento sono non atomiche e senza compensazione.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 11"><table>
+<thead>
+<tr>
+<th>Operazione multi-step</th>
+<th>Passi</th>
+<th>Evidenza</th>
+<th>Effetto di un errore intermedio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Applica regole</td>
+<td><code>UpdateMany</code> unset <code>FraudFlags</code> → <code>ReplaceOne</code> per documento → delete mapping <code>FraudFlags</code> → <code>ProcessMappings</code></td>
+<td><code>RulesService.cs:40-78</code></td>
+<td>Dataset con flag parziali e mapping mancanti</td>
+</tr>
+<tr>
+<td>Aggiornamento regola</td>
+<td><code>Set</code> flag su ogni documento → aggiornamento mapping</td>
+<td><code>RulesService.cs:141-167</code></td>
+<td>Flag e mapping disallineati</td>
+</tr>
+<tr>
+<td>Ingestione file</td>
+<td><code>InsertMany</code> ReportData (unordered) → <code>InsertOne</code> ProcessedFiles</td>
+<td><code>FileProcessingCoordinator.cs</code></td>
+<td>Crash tra i due passi → file reingerito (duplicati)</td>
+</tr>
+<tr>
+<td>Eliminazione ruolo</td>
+<td><code>UpdateOne</code> per ogni utente → <code>DeleteOne</code> ruolo</td>
+<td><code>UserRoleService.cs:59-79</code></td>
+<td>Utenti modificati ma ruolo esistente</td>
+</tr>
+<tr>
+<td>Eliminazione permesso</td>
+<td><code>UpdateOne</code> per ogni ruolo → <code>DeleteById</code> permesso</td>
+<td><code>UserPermissionService.cs:117-133</code></td>
+<td>idem</td>
+</tr>
+<tr>
+<td>Reset password</td>
+<td>Invalida token → inserisce token → invia email; poi aggiorna password → marca token usato</td>
+<td><code>PasswordResetService.cs:50-66,122-139</code></td>
+<td>Token valido ma email non inviata</td>
+</tr>
+<tr>
+<td>Eliminazione workspace</td>
+<td><code>DeleteOne</code> workspace</td>
+<td><code>WorkspaceService.cs:75-87</code></td>
+<td>Dashboard collegate restano orfane</td>
+</tr>
+</tbody>
+</table></div>
+<p>Concorrenza: nessun optimistic locking (nessun campo versione); <code>ApplyRulesAsync</code> e l'ingestione possono girare in parallelo sulla stessa collezione. Le transazioni multi-documento MongoDB richiederebbero un replica set; la topologia del server non è ricavabile dal codice (dump da <code>mongod</code> 8.3.2).</p>
+<hr>
+<h2 id="7-configuration-management"><span id="_7-configuration-management" class="anchor-alias" aria-hidden="true"></span>7. Configuration Management<a class="header-anchor" href="#7-configuration-management" aria-label="Collegamento alla sezione: 7. Configuration Management">#</a></h2>
+<p><strong>Sintesi.</strong> La configurazione è in un unico <code>appsettings.json</code> per host, senza file per ambiente, senza secret store e con una sequenza di caricamento che rende inefficace l'override via variabili d'ambiente; il frontend dipende da <code>VITE_API_BASE_URL</code> non versionato e da URL hardcoded.</p>
+<h3 id="71-sorgenti-di-configurazione"><span id="_7-1-sorgenti-di-configurazione" class="anchor-alias" aria-hidden="true"></span>7.1 Sorgenti di configurazione<a class="header-anchor" href="#71-sorgenti-di-configurazione" aria-label="Collegamento alla sezione: 7.1 Sorgenti di configurazione">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 12"><table>
+<thead>
+<tr>
+<th>Host</th>
+<th>File</th>
+<th>Chiavi</th>
+<th>Caricamento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API</td>
+<td><code>LossPrevention.API/appsettings.json</code></td>
+<td><code>Logging</code>, <code>DataRetention:TransactionRetentionDays=180</code>, <code>AllowedHosts</code>, <code>MongoDbSettings</code> (connection string + <code>DatabaseName</code> + 13 <code>CollectionName_*</code>), <code>JwtSettings</code> (<code>SecretKey</code>, <code>Issuer=LossPrevention</code>, <code>Audience=User</code>, <code>ExpiryHours=1</code>), <code>Email</code> (host, porta 25, mittente, <code>FrontendUrl</code>)</td>
+<td><code>WebApplication.CreateBuilder</code> + <strong>riaggiunta</strong> di <code>appsettings.json</code> (<code>Program.cs:36-38</code>)</td>
+</tr>
+<tr>
+<td>API</td>
+<td><code>Properties/launchSettings.json</code></td>
+<td>Porte 5264/7110, IIS Express, <code>ASPNETCORE_ENVIRONMENT=Development</code></td>
+<td>Solo sviluppo</td>
+</tr>
+<tr>
+<td>Console</td>
+<td><code>LossPrevention.DataIngestionService/appsettings.json</code></td>
+<td><code>Logging</code>, <code>MongoDbSettings</code> con 6 <code>CollectionName_*</code></td>
+<td><code>ConfigurationBuilder</code> solo JSON (<code>DataIngestionService/Program.cs:31-35</code>), passato ai servizi anche dopo aver creato il Generic Host</td>
+</tr>
+<tr>
+<td>SPA</td>
+<td><code>import.meta.env.VITE_API_BASE_URL</code></td>
+<td>Base URL API</td>
+<td>Nessun <code>.env</code> nel repository</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="72-modalità-di-accesso-nel-codice"><span id="72-modalita-di-accesso-nel-codice" class="anchor-alias" aria-hidden="true"></span><span id="_7-2-modalita-di-accesso-nel-codice" class="anchor-alias" aria-hidden="true"></span>7.2 Modalità di accesso nel codice<a class="header-anchor" href="#72-modalit%C3%A0-di-accesso-nel-codice" aria-label="Collegamento alla sezione: 7.2 Modalità di accesso nel codice">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 13"><table>
+<thead>
+<tr>
+<th>Modalità</th>
+<th>Dove</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IOptions&lt;T&gt;</code></td>
+<td><code>JwtSettings</code> in <code>LoginEndpoint.cs:17-21</code>; <code>MongoDbSettings</code> nelle factory dei repository</td>
+</tr>
+<tr>
+<td><code>IConfiguration</code> diretto</td>
+<td><code>EmailService.cs:17-24</code> (con default hardcoded), <code>DatabaseInitializationService.cs:23</code> (<code>GetValue&lt;int&gt;(..., 90)</code>)</td>
+</tr>
+<tr>
+<td>Valori hardcoded</td>
+<td>CORS <code>localhost:5173/5174</code> (<code>Program.cs:29</code>), collezione <code>"PasswordResetTokens"</code> (<code>InfrastructureServiceExtensions.cs:83</code>), <code>"ProcessedFiles"</code> (<code>FileProcessingCoordinator.cs:391,409</code>), <code>C:\xmlstore5\xml</code> (console <code>Program.cs:76</code>), Ollama URL e modello (<code>aiStore.ts:8,88</code>), polling 1 min (<code>DataIngestionBackgroundService.cs:13</code>)</td>
+</tr>
+<tr>
+<td>Configurazione a runtime nel DB</td>
+<td><code>DataIngestionConfigurations</code> (sorgente, SFTP, schedulazione), <code>FraudDetectionSettings</code> (soglie), <code>Rules</code>, <code>Mappings</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="73-difetti-di-configurazione"><span id="_7-3-difetti-di-configurazione" class="anchor-alias" aria-hidden="true"></span>7.3 Difetti di configurazione<a class="header-anchor" href="#73-difetti-di-configurazione" aria-label="Collegamento alla sezione: 7.3 Difetti di configurazione">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 14"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Difetto</th>
+<th>Evidenza</th>
+<th>Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C1</td>
+<td><code>appsettings.json</code> riaggiunto dopo le sorgenti di default</td>
+<td><code>Program.cs:36-38</code></td>
+<td>I valori del file prevalgono su variabili d'ambiente e argomenti: impossibile sovrascrivere <code>JwtSettings:SecretKey</code> o la connection string senza modificare il file</td>
+</tr>
+<tr>
+<td>C2</td>
+<td><code>MongoDbSettings</code> singleton vuoto</td>
+<td><code>Program.cs:83</code></td>
+<td>D10 (vedi Appendice B)</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Nessun file per ambiente (<code>appsettings.{Environment}.json</code>) né user-secrets</td>
+<td>ricerca file</td>
+<td>Segreti e host di sviluppo nel repository</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Default di retention divergenti</td>
+<td>codice 90 gg (<code>DatabaseInitializationService.cs:23</code>) vs config 180 gg</td>
+<td>Comportamento diverso se la chiave manca</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>Console con 6 nomi collezione su 13</td>
+<td><code>DataIngestionService/appsettings.json</code></td>
+<td>Repository non configurati ricevono nome collezione nullo (non usati dalla console)</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="8-testing-strategy"><span id="_8-testing-strategy" class="anchor-alias" aria-hidden="true"></span>8. Testing Strategy<a class="header-anchor" href="#8-testing-strategy" aria-label="Collegamento alla sezione: 8. Testing Strategy">#</a></h2>
+<p><strong>Sintesi.</strong> Non esiste alcuna strategia di test implementata: zero progetti di test, zero file di test, nessuno script npm di test/lint/type-check, nessuna pipeline CI.</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 15"><table>
+<thead>
+<tr>
+<th>Livello</th>
+<th>Stato</th>
+<th>Evidenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit test backend</td>
+<td>Assenti</td>
+<td>Nessun <code>*Tests.csproj</code> nella soluzione (5 progetti)</td>
+</tr>
+<tr>
+<td>Unit test frontend</td>
+<td>Assenti</td>
+<td>Nessun file <code>*.spec.*</code>/<code>*.test.*</code>, nessun <code>vitest.config.*</code>; <code>package.json</code> ha solo <code>dev</code>, <code>build</code>, <code>preview</code></td>
+</tr>
+<tr>
+<td>Integration / API test</td>
+<td>Assenti</td>
+<td>—</td>
+</tr>
+<tr>
+<td>E2E</td>
+<td>Assenti</td>
+<td>Nessuna dipendenza Playwright/Cypress</td>
+</tr>
+<tr>
+<td>Static analysis</td>
+<td>Assente</td>
+<td>Nessuna config ESLint/Prettier; <code>vue-tsc</code> installato ma non usato in <code>build</code>; nessun analyzer .NET aggiuntivo</td>
+</tr>
+<tr>
+<td>CI</td>
+<td>Assente</td>
+<td>Nessun workflow/pipeline</td>
+</tr>
+<tr>
+<td>Dati di test</td>
+<td>Dump <code>Data/LossPrevention</code> (3.000 transazioni) e seed <code>Data/MongoDBScripts</code> utilizzabili come fixture manuali</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nota storica: <code>Docs/13_TESTING_QA.md</code> del fornitore (presente solo nel commit <code>593f6de</code>, rimosso in <code>d768cd9</code>; <code>git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/13_TESTING_QA.md</code>) descriveva xUnit, Vitest e target di copertura (unit 80%, integration 70%) con copertura attuale "TBD": nulla di tutto ciò è presente nel codice.</p>
+<p>Candidati prioritari per i primi test (funzioni pure o difetti noti): <code>RuleHelper.EvaluateRule</code>, <code>DistanceHelper.ComputeDistance</code>, <code>BsonHelper.ConvertToMappedType</code>/<code>TryToDateTimeUtc</code>, <code>PasswordHasher</code>, <code>XmlToBsonConverterHelper</code>, <code>queryUtils.buildTypeAwareCondition</code>; test di regressione su D1-D10.</p>
+<hr>
+<h2 id="appendici">Appendici<a class="header-anchor" href="#appendici" aria-label="Collegamento alla sezione: Appendici">#</a></h2>
+<h3 id="a-hotspot-di-complessità"><span id="a-hotspot-di-complessita" class="anchor-alias" aria-hidden="true"></span>A. Hotspot di complessità<a class="header-anchor" href="#a-hotspot-di-complessit%C3%A0" aria-label="Collegamento alla sezione: A. Hotspot di complessità">#</a></h3>
+<p>Rilevazione <code>lizard</code> 1.24.1 rieseguita il 2026-10-08 su backend e <code>LossPrevention.UI/src</code> (soglia CCN &gt; 15):</p>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 16"><table>
+<thead>
+<tr>
+<th>Funzione</th>
+<th>File:riga</th>
+<th>NLOC</th>
+<th>CCN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>buildGenericFraudRuleTemplates</code></td>
+<td><code>UI/src/stores/aiStore.ts:1203</code></td>
+<td>254</td>
+<td><strong>87</strong></td>
+</tr>
+<tr>
+<td><code>enrichWithCrossTransactionMetrics</code></td>
+<td><code>aiStore.ts:986</code></td>
+<td>124</td>
+<td>43</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td><code>UI/src/stores/dataIngestionStore.ts:164</code></td>
+<td>55</td>
+<td>36</td>
+</tr>
+<tr>
+<td><code>analyzeFraudInData</code></td>
+<td><code>aiStore.ts:1667</code></td>
+<td>131</td>
+<td>34</td>
+</tr>
+<tr>
+<td><code>buildPipeline</code></td>
+<td><code>UI/src/components/dashboard/chartblock.vue:69</code></td>
+<td>44</td>
+<td>28</td>
+</tr>
+<tr>
+<td><code>HandleAsync</code></td>
+<td><code>API/Endpoints/DataIngestion/UpdateDataIngestionConfigurationEndpoint.cs:23</code></td>
+<td>68</td>
+<td>24</td>
+</tr>
+<tr>
+<td><code>ConvertToMappedType</code> / <code>TryToDateTimeUtc</code></td>
+<td><code>Application/Helpers/BsonHelper.cs:115</code> / <code>:269</code></td>
+<td>35 / 66</td>
+<td>21 / 21</td>
+</tr>
+<tr>
+<td><code>buildTypeAwareCondition</code></td>
+<td><code>UI/src/helpers/queryUtils.ts:63</code></td>
+<td>43</td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>classifyFields</code></td>
+<td><code>aiStore.ts:379</code></td>
+<td>61</td>
+<td>21</td>
+</tr>
+<tr>
+<td><code>GetDistanceAsync</code></td>
+<td><code>Application/Services/Data/DistanceDataservice.cs:22</code></td>
+<td>122</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>TryToBoolean</code></td>
+<td><code>BsonHelper.cs:236</code></td>
+<td>29</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>handleDrill</code></td>
+<td><code>UI/src/components/reports/heatmapPreview.vue:400</code></td>
+<td>33</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>ToDocument</code></td>
+<td><code>Application/Mappings/NotificationMapping.cs:25</code></td>
+<td>17</td>
+<td>19</td>
+</tr>
+</tbody>
+</table></div>
+<p>Altre funzioni sopra soglia (CCN 16-20): <code>buildVelocityRules</code> (aiStore.ts:620), <code>buildSweetheartingRules</code> (:838), <code>load</code> (dataIngestionStore.ts:230), <code>detectUniqueTransactionFields</code> (fraudDetectionStore.ts:595), <code>afterDraw</code> (heatmapPreview.vue:273), funzione anonima in <code>manage/dataingestion.vue:123</code>.</p>
+<h3 id="b-difetti-funzionali-individuati-nel-codice">B. Difetti funzionali individuati nel codice<a class="header-anchor" href="#b-difetti-funzionali-individuati-nel-codice" aria-label="Collegamento alla sezione: B. Difetti funzionali individuati nel codice">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 17"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Difetto</th>
+<th>Posizione</th>
+<th>Effetto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td><code>CreateTransactionEndpoint</code> chiama <code>ProcessAsync</code> senza inserire e legge <code>bson["_id"]</code> mai impostato; <code>XmlProcessingService.InsertManyAsync</code> lancia <code>NotImplementedException</code></td>
+<td><code>Endpoints/Data/CreateTransactionEndpoint.cs:49-50</code>, <code>XmlProcessingService.cs</code></td>
+<td>Eccezione o nessuna persistenza</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>Token JWT restituito come <code>Task</code> serializzato (manca <code>await</code>)</td>
+<td><code>LoginEndpoint.cs:39-40</code></td>
+<td>Il FE dipende da <code>token.result</code> (<code>loginStore.ts:77</code>)</td>
+</tr>
+<tr>
+<td>D3</td>
+<td><code>UpdateRuleAsync</code> scrive <code>Set($"{rule.RuleName}", …)</code> alla radice e cerca la mapping <code>Name == RuleName</code> senza prefisso <code>FraudFlags.</code></td>
+<td><code>RulesService.cs:147,155</code></td>
+<td>Flag duplicati in radice; rinomina regola non aggiorna la mapping</td>
+</tr>
+<tr>
+<td>D4</td>
+<td><code>ApplyRulesAsync</code> cancella tutte le mapping <code>FraudFlags</code> e le rigenera campionando 1.000 documenti</td>
+<td><code>RulesService.cs:64-78</code></td>
+<td>Alias/visibilità personalizzati persi</td>
+</tr>
+<tr>
+<td>D5</td>
+<td><code>LastRunAt</code> impostato ma non persistito</td>
+<td><code>DataIngestionBackgroundService.cs</code></td>
+<td>Possibile doppia esecuzione nella stessa finestra; nessuno storico</td>
+</tr>
+<tr>
+<td>D6</td>
+<td><code>GET /notifications</code> senza filtro destinatario</td>
+<td><code>ListNotificationsEndpoint.cs:30-31</code></td>
+<td>Ogni utente vede tutte le notifiche</td>
+</tr>
+<tr>
+<td>D7</td>
+<td><code>keyValue.AsString</code> sul campo chiave</td>
+<td><code>DistanceDataservice.cs:176</code></td>
+<td>Eccezione se il key field non è stringa</td>
+</tr>
+<tr>
+<td>D8</td>
+<td>Filtro visibilità tautologico</td>
+<td><code>ReportDataservice.cs:75</code></td>
+<td>I campi "non visibili" vengono restituiti</td>
+</tr>
+<tr>
+<td>D9</td>
+<td>Statistiche antifrode calcolate solo sulla pagina caricata (≤ 3.000 righe)</td>
+<td><code>aiStore.ts</code></td>
+<td>Soglie dipendenti da ordinamento/paginazione</td>
+</tr>
+<tr>
+<td>D10</td>
+<td><code>MongoDbSettings</code> registrato come singleton vuoto e iniettato in Create/UpdateRule</td>
+<td><code>Program.cs:83</code>; <code>CreateRuleEndpoint.cs:15,56</code>; <code>UpdateRuleEndpoint.cs:15,62</code>; <code>RulesService.cs:110,167</code></td>
+<td>Mapping <code>FraudFlags.*</code> create con <code>CollectionName = ""</code>, quindi escluse dal filtro <code>CollectionName == "ReportData"</code> (<code>DistanceDataservice.cs:49</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<p>D8 in dettaglio (<code>ReportDataservice.cs:75</code>):</p>
+<div class="code-block" data-lang="csharp"><div class="code-toolbar"><span class="code-lang">csharp</span><button type="button" class="code-copy">Copia</button></div><pre tabindex="0"><code class="language-csharp">else if (visibleFields.Contains(kv.Key) || kv.Key == "count" || !visibleFields.Any() || !visibleFields.Contains(kv.Key))
+</code></pre></div>
+<p>La condizione è una tautologia (<code>A || … || !A</code>).</p>
+<h3 id="c-codice-morto--residui"><span id="c-codice-morto-residui" class="anchor-alias" aria-hidden="true"></span>C. Codice morto / residui<a class="header-anchor" href="#c-codice-morto--residui" aria-label="Collegamento alla sezione: C. Codice morto / residui">#</a></h3>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 18"><table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>Evidenza</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DapperRepository.cs</code> (205 righe), <code>IDapperRepository.cs</code></td>
+<td>Interamente commentati</td>
+</tr>
+<tr>
+<td><code>XmlProcessingService.InsertManyAsync</code></td>
+<td><code>throw new NotImplementedException</code></td>
+</tr>
+<tr>
+<td><code>IXmlEnrichmentRule</code></td>
+<td>Nessuna implementazione → <code>XmlEnrichmentService.Enrich</code> è un no-op</td>
+</tr>
+<tr>
+<td><code>DataIngestionScheduleService</code> / collezione <code>DataIngestionSchedules</code></td>
+<td>Registrato (<code>Program.cs:99</code>) ma mai iniettato</td>
+</tr>
+<tr>
+<td><code>DeleteUserRoleException</code>, <code>InvalidCustomerException</code></td>
+<td>Mai usate</td>
+</tr>
+<tr>
+<td>Console STEP 1</td>
+<td>Carica le regole e non le usa (<code>DataIngestionService/Program.cs:38-47</code>, "Just load rules")</td>
+</tr>
+<tr>
+<td><code>nuxt.config.ts</code>, dipendenze <code>nuxt</code>, <code>jspdf</code>, <code>jspdf-autotable</code>, <code>grid-layout-plus</code>, <code>vuedraggable</code></td>
+<td>Non referenziate dal codice</td>
+</tr>
+<tr>
+<td>Blocco commentato in <code>DistanceDataservice</code> (conteggi <code>*Count</code>)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>Mappings_old.bson</code>, <code>ReportData_old.bson</code> nel dump</td>
+<td>Vedi <a href="08_data.html#2-physical-data-model">08_data.md §2</a></td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="reference-documents">Reference Documents<a class="header-anchor" href="#reference-documents" aria-label="Collegamento alla sezione: Reference Documents">#</a></h2>
+<ul>
+<li><strong>Deep Dive Analysis</strong>: <a href="00_deep_dive.html">00_deep_dive.md</a></li>
+<li><strong>Context</strong>: <a href="01_context.html">01_context.md</a></li>
+<li><strong>Functional Overview</strong>: <a href="02_functional_overview.html">02_functional_overview.md</a></li>
+<li><strong>Non-Functional Overview</strong>: <a href="03_non_functional_overview.html">03_non_functional_overview.md</a></li>
+<li><strong>Constraints</strong>: <a href="04_constraints.html">04_constraints.md</a></li>
+<li><strong>Principles</strong>: <a href="05_principles.html">05_principles.md</a></li>
+<li><strong>Software Architecture</strong>: <a href="06_software_architecture.html">06_software_architecture.md</a></li>
+<li>Documenti successivi correlati: <a href="08_data.html">08_data.md</a> · <a href="14_metrics.html">14_metrics.md</a> · <a href="16_frontend_deep_assessment.html">16_frontend_deep_assessment.md</a> · <a href="17_backend_deep_assessment.html">17_backend_deep_assessment.md</a> · <a href="18_antipattern_deep_dive.html">18_antipattern_deep_dive.md</a></li>
+</ul>
+<hr>
+<h2 id="change-log">Change Log<a class="header-anchor" href="#change-log" aria-label="Collegamento alla sezione: Change Log">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 19"><table>
+<thead>
+<tr>
+<th>Versione</th>
+<th>Data</th>
+<th>Autore</th>
+<th>Modifiche</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>2026-10-07</td>
+<td>REVERSE how (FULL)</td>
+<td>Creazione documento (sostituisce run 2026-10-05)</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>2026-10-08</td>
+<td>IMPACT verify</td>
+<td>Ristrutturato nelle 8 sezioni del prompt; aggiunte sezioni Framework Usage (FastEndpoints, MongoDB.Driver, DI con lifetime, FluentValidation inattivo), Transaction Management, Configuration Management (override env inefficace, MongoDbSettings vuoto), Testing Strategy; struttura codice con conteggi verificati; Security Implementation estesa (controlli presenti + 15 debolezze con file:riga); nuovo difetto D10; lizard rieseguito (+4 hotspot); codice morto esteso (ScheduleService, eccezioni di dominio); DapperRepository 204→205 righe; vendor doc test citato come storico (<code>593f6de</code>/<code>d768cd9</code>); Reference Documents completi</td>
+</tr>
+</tbody>
+</table></div></article>
+    </main>
+  </div>
+</div>
+<footer class="site-footer">LOSS_PREVENTION · IMPACT how (FULL) · baseline fc7d820 · generato offline con inlay-doc-site</footer>
+<div id="inlay-status" class="visually-hidden" role="status" aria-live="polite"></div>
+<script type="application/json" id="inlay-config">{"lang": "it", "root": "", "route": "07_code.html", "search": "_inlay/search-index.js", "theme": "eng", "version": "2.1.0"}</script>
+<script>/* inlay-doc-site 2.x - comportamento del portale (offline, nessuna dipendenza). */
+(function () {
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var cfg = {};
+  try { cfg = JSON.parse(doc.getElementById('inlay-config').textContent) || {}; } catch (e) { cfg = {}; }
+  var LANG = String(cfg.lang || root.lang || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+  var TEXT = {
+    it: {
+      copy: 'Copia', copied: 'Copiato', copyFail: 'Copia non riuscita: testo selezionato, premi Ctrl+C',
+      close: 'Chiudi', zoomIn: 'Ingrandisci', zoomOut: 'Riduci', fit: 'Adatta', dialog: 'Immagine ingrandita',
+      hint: 'Ctrl+rotella o +/- per lo zoom, trascina per spostare, Esc per chiudere',
+      noResults: 'Nessun risultato', results: '{n} risultati', unavailable: 'Indice di ricerca non disponibile',
+      exportNote: 'Copia esportata della pagina "{t}": i collegamenti verso altre pagine del portale sono disattivati.',
+      linkDisabled: 'Collegamento disponibile solo nel portale', menuOpen: 'Mostra struttura documenti',
+      menuClose: 'Nascondi struttura documenti'
+    },
+    en: {
+      copy: 'Copy', copied: 'Copied', copyFail: 'Copy failed: text selected, press Ctrl+C',
+      close: 'Close', zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit', dialog: 'Enlarged image',
+      hint: 'Ctrl+wheel or +/- to zoom, drag to pan, Esc to close',
+      noResults: 'No results', results: '{n} results', unavailable: 'Search index not available',
+      exportNote: 'Exported copy of the page "{t}": links to other portal pages are disabled.',
+      linkDisabled: 'Link available only inside the portal', menuOpen: 'Show document structure',
+      menuClose: 'Hide document structure'
+    }
+  };
+  function tr(key, vars) {
+    var s = TEXT[LANG][key] || key;
+    if (vars) { Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); }); }
+    return s;
+  }
+  var statusEl = doc.getElementById('inlay-status');
+  function announce(msg) {
+    if (!statusEl) { return; }
+    statusEl.textContent = '';
+    setTimeout(function () { statusEl.textContent = msg; }, 40);
+  }
+
+  /* altezza dell'header per sticky e ancore */
+  var header = doc.querySelector('.topbar');
+  function setHeaderHeight() { if (header) { root.style.setProperty('--header-h', header.offsetHeight + 'px'); } queueFit(); }
+  setHeaderHeight();
+  if (window.ResizeObserver && header) { new ResizeObserver(setHeaderHeight).observe(header); }
+  else { window.addEventListener('resize', setHeaderHeight); }
+
+  /* albero: espandi/comprimi */
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.tree-toggle, .tree-group') : null;
+    if (!btn) { return; }
+    var list = doc.getElementById(btn.getAttribute('aria-controls'));
+    if (!list) { return; }
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    list.hidden = open;
+  });
+  /* barra laterale: altezza limitata alla parte visibile (all'apertura la testata della pagina la spinge in basso) */
+  var sidebar = doc.getElementById('inlay-sidebar'), fitQueued = false;
+  function fitSidebar() {
+    fitQueued = false;
+    if (!sidebar) { return; }
+    if (window.getComputedStyle(sidebar).position !== 'sticky') { sidebar.style.maxHeight = ''; return; }
+    var top = Math.max(sidebar.getBoundingClientRect().top, 0);
+    sidebar.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + 'px';
+  }
+  function queueFit() { if (!fitQueued) { fitQueued = true; window.requestAnimationFrame(fitSidebar); } }
+  fitSidebar();
+  window.addEventListener('scroll', queueFit, { passive: true });
+  window.addEventListener('resize', queueFit);
+  var treeScroll = doc.getElementById('inlay-tree');
+  var current = treeScroll && treeScroll.querySelector('[aria-current="page"]');
+  if (current) {
+    var r = current.getBoundingClientRect(), s = treeScroll.getBoundingClientRect();
+    if (r.top < s.top || r.bottom > s.bottom) { treeScroll.scrollTop += (r.top - s.top) - treeScroll.clientHeight / 3; }
+  }
+
+  /* menu mobile */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle && doc.getElementById('inlay-sidebar')) {
+    navToggle.hidden = false;
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      root.classList.toggle('nav-open', !open);
+    });
+  }
+
+  /* copia dei blocchi di codice */
+  function copied(btn) {
+    btn.textContent = tr('copied');
+    btn.classList.add('copied');
+    announce(tr('copied'));
+    setTimeout(function () { btn.textContent = tr('copy'); btn.classList.remove('copied'); }, 1800);
+  }
+  function copyFallback(text, pre, btn) {
+    var ta = doc.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    doc.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    if (ok) { copied(btn); return; }
+    var range = doc.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = tr('copyFail');
+    announce(tr('copyFail'));
+    setTimeout(function () { btn.textContent = tr('copy'); }, 4000);
+  }
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.code-copy') : null;
+    if (!btn) { return; }
+    var block = btn.closest('.code-block');
+    var pre = block && block.querySelector('pre');
+    if (!pre) { return; }
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { copied(btn); }, function () { copyFallback(text, pre, btn); });
+    } else { copyFallback(text, pre, btn); }
+  });
+
+  /* lightbox accessibile per immagini e diagrammi */
+  var lb = null, lbImg, lbStage, lbClose, lbTrigger = null, scale = 1, inerted = [];
+  function setScale(v) {
+    scale = Math.max(0.1, Math.min(8, v));
+    if (lbImg.naturalWidth) { lbImg.style.width = Math.round(lbImg.naturalWidth * scale) + 'px'; }
+  }
+  function fitScale() {
+    var w = lbImg.naturalWidth || 1;
+    var sw = Math.max(lbStage.clientWidth - 48, 50);
+    setScale(Math.min(sw / w, 2));
+  }
+  function buildLightbox() {
+    if (lb) { return; }
+    lb = doc.createElement('div');
+    lb.className = 'inlay-lightbox';
+    lb.id = 'inlay-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', tr('dialog'));
+    lb.hidden = true;
+    var bar = doc.createElement('div');
+    bar.className = 'inlay-lightbox-bar';
+    var hint = doc.createElement('span');
+    hint.className = 'inlay-lightbox-hint';
+    hint.textContent = tr('hint');
+    bar.appendChild(hint);
+    [['out', tr('zoomOut'), '\u2212'], ['fit', tr('fit'), tr('fit')], ['in', tr('zoomIn'), '+'], ['close', tr('close'), tr('close')]].forEach(function (b) {
+      var btn = doc.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zoom', b[0]);
+      btn.setAttribute('aria-label', b[1]);
+      btn.textContent = b[2];
+      bar.appendChild(btn);
+      if (b[0] === 'close') { lbClose = btn; }
+    });
+    lbStage = doc.createElement('div');
+    lbStage.className = 'inlay-lightbox-stage';
+    lbStage.tabIndex = 0;
+    lbImg = doc.createElement('img');
+    lbImg.alt = '';
+    lbStage.appendChild(lbImg);
+    lb.appendChild(bar);
+    lb.appendChild(lbStage);
+    doc.body.appendChild(lb);
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) { return; }
+      var a = b.getAttribute('data-zoom');
+      if (a === 'close') { closeLightbox(); } else if (a === 'in') { setScale(scale * 1.25); }
+      else if (a === 'out') { setScale(scale / 1.25); } else { fitScale(); }
+    });
+    lb.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); closeLightbox(); return; }
+      if (ev.key === '+' || ev.key === '=') { ev.preventDefault(); setScale(scale * 1.25); return; }
+      if (ev.key === '-') { ev.preventDefault(); setScale(scale / 1.25); return; }
+      if (ev.key === '0') { ev.preventDefault(); fitScale(); return; }
+      if (ev.key === 'Tab') {
+        var f = Array.prototype.slice.call(lb.querySelectorAll('button, [tabindex="0"]'));
+        var first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    });
+    lbStage.addEventListener('wheel', function (ev) {
+      if (!ev.ctrlKey) { return; }
+      ev.preventDefault();
+      setScale(scale * (ev.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    var drag = null;
+    lbStage.addEventListener('pointerdown', function (ev) {
+      drag = { x: ev.clientX, y: ev.clientY, l: lbStage.scrollLeft, t: lbStage.scrollTop };
+      lbStage.classList.add('grabbing');
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!drag) { return; }
+      lbStage.scrollLeft = drag.l - (ev.clientX - drag.x);
+      lbStage.scrollTop = drag.t - (ev.clientY - drag.y);
+    });
+    window.addEventListener('pointerup', function () { drag = null; if (lbStage) { lbStage.classList.remove('grabbing'); } });
+  }
+  function openLightbox(trigger) {
+    var img = trigger.querySelector('img');
+    if (!img) { return; }
+    buildLightbox();
+    lbTrigger = trigger;
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbImg.onload = function () { fitScale(); };
+    lbImg.src = img.getAttribute('src');
+    Array.prototype.forEach.call(doc.body.children, function (child) {
+      if (child !== lb && !child.inert) { child.inert = true; child.setAttribute('aria-hidden', 'true'); inerted.push(child); }
+    });
+    lb.hidden = false;
+    if (lbImg.complete && lbImg.naturalWidth) { fitScale(); }
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (!lb || lb.hidden) { return; }
+    lb.hidden = true;
+    inerted.forEach(function (child) { child.inert = false; child.removeAttribute('aria-hidden'); });
+    inerted = [];
+    if (lbTrigger) { lbTrigger.focus(); }
+  }
+  doc.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('.zoom-trigger') : null;
+    if (trigger) { ev.preventDefault(); openLightbox(trigger); }
+  });
+
+  /* ricerca offline (indice caricato su richiesta da _inlay/search-index.js) */
+  var input = doc.getElementById('inlay-search');
+  var results = doc.getElementById('inlay-search-results');
+  if (input && results && cfg.search) {
+    input.closest('.search').hidden = false;
+    var index = null, loading = false, active = -1, timer = null, pending = null;
+    var fold = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var loadIndex = function (cb) {
+      if (index) { cb(); return; }
+      pending = cb;
+      if (loading) { return; }
+      loading = true;
+      var sc = doc.createElement('script');
+      sc.src = cfg.root + cfg.search;
+      sc.onload = function () { index = window.INLAY_SEARCH_INDEX || []; if (pending) { pending(); } };
+      sc.onerror = function () { index = []; announce(tr('unavailable')); if (pending) { pending(); } };
+      doc.head.appendChild(sc);
+    };
+    var search = function (q) {
+      var terms = fold(q).split(/\s+/).filter(Boolean);
+      if (!terms.length) { return []; }
+      var out = [];
+      index.forEach(function (e) {
+        if (e._t === undefined) { e._t = fold(e.t + ' ' + (e.l || '')); e._x = fold(e.x); }
+        var score = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var inTitle = e._t.indexOf(terms[i]) >= 0, pos = e._x.indexOf(terms[i]);
+          if (!inTitle && pos < 0) { return; }
+          score += inTitle ? 10 : 1;
+        }
+        out.push({ e: e, score: score, term: terms[0] });
+      });
+      out.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+      return out.slice(0, 15);
+    };
+    var snippet = function (e, term) {
+      var pos = e._x.indexOf(term);
+      if (pos < 0) { return ''; }
+      var start = Math.max(0, pos - 50);
+      return (start > 0 ? '\u2026' : '') + e.x.substr(start, 150) + '\u2026';
+    };
+    var setActive = function (i) {
+      var opts = results.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      Array.prototype.forEach.call(opts, function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    var close = function () {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    var render = function () {
+      var q = input.value.trim();
+      results.textContent = '';
+      if (!q) { close(); return; }
+      var found = search(q);
+      if (!found.length) {
+        var li = doc.createElement('li');
+        li.className = 'sr-empty';
+        li.textContent = tr('noResults');
+        results.appendChild(li);
+      }
+      found.forEach(function (r, k) {
+        var li = doc.createElement('li');
+        li.id = 'inlay-sr-' + k;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var a = doc.createElement('a');
+        a.href = cfg.root + r.e.r;
+        a.tabIndex = -1;
+        var t = doc.createElement('span'); t.className = 'sr-title'; t.textContent = r.e.t; a.appendChild(t);
+        if (r.e.l) { var p = doc.createElement('span'); p.className = 'sr-path'; p.textContent = r.e.l; a.appendChild(p); }
+        var sn = snippet(r.e, r.term);
+        if (sn) { var x = doc.createElement('span'); x.className = 'sr-snippet'; x.textContent = sn; a.appendChild(x); }
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      active = -1;
+      announce(found.length ? tr('results', { n: found.length }) : tr('noResults'));
+    };
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { loadIndex(render); }, 120);
+    });
+    input.addEventListener('focus', function () { loadIndex(function () {}); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); if (results.hidden) { loadIndex(render); } else { setActive(active + 1); } }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+      else if (ev.key === 'Enter') {
+        var opts = results.querySelectorAll('[role="option"] a');
+        if (!results.hidden && opts.length) { ev.preventDefault(); window.location.href = opts[Math.max(active, 0)].href; }
+      } else if (ev.key === 'Escape') {
+        if (!results.hidden) { ev.preventDefault(); close(); } else { input.value = ''; }
+      }
+    });
+    doc.addEventListener('click', function (ev) {
+      if (!ev.target.closest || !ev.target.closest('.search')) { close(); }
+    });
+  }
+
+  /* esportazione della pagina corrente come HTML autonomo */
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[data-export]') : null;
+    if (!a || !window.Blob || !window.URL || !URL.createObjectURL) { return; }
+    ev.preventDefault();
+    var clone = root.cloneNode(true);
+    var drop = ['.topnav', '.search', '.nav-toggle', '.hero', '#inlay-sidebar', '.breadcrumbs', 'a[data-export]',
+      '#inlay-lightbox', 'script[src]', '.site-footer'];
+    drop.forEach(function (sel) { Array.prototype.forEach.call(clone.querySelectorAll(sel), function (n) { n.parentNode.removeChild(n); }); });
+    Array.prototype.forEach.call(clone.querySelectorAll('[inert]'), function (n) { n.removeAttribute('inert'); n.removeAttribute('aria-hidden'); });
+    clone.classList.remove('js', 'nav-open');
+    clone.style.removeProperty('--header-h');
+    clone.setAttribute('data-exported', 'true');
+    var brand = clone.querySelector('.brand');
+    if (brand) { brand.removeAttribute('href'); }
+    Array.prototype.forEach.call(clone.querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      if (href.charAt(0) === '#' || /^[a-z][a-z0-9+.\-]*:/i.test(href) || href.indexOf('//') === 0) { return; }
+      var span = doc.createElement('span');
+      span.className = 'link-disabled';
+      span.title = tr('linkDisabled');
+      span.setAttribute('data-inlay-export', 'disabled');
+      while (link.firstChild) { span.appendChild(link.firstChild); }
+      link.parentNode.replaceChild(span, link);
+    });
+    var status = clone.querySelector('#inlay-status');
+    if (status) { status.textContent = ''; }
+    var title = (doc.querySelector('.doc-title') || {}).textContent || doc.title;
+    var main = clone.querySelector('#main');
+    if (main) {
+      var note = doc.createElement('p');
+      note.className = 'notice export-note';
+      note.setAttribute('role', 'note');
+      note.textContent = tr('exportNote', { t: title });
+      var head = main.querySelector('.doc-head');
+      main.insertBefore(note, head ? head.nextSibling : main.firstChild);
+    }
+    var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var tmp = doc.createElement('a');
+    tmp.href = url;
+    tmp.download = a.getAttribute('download') || 'documento.html';
+    tmp.style.display = 'none';
+    doc.body.appendChild(tmp);
+    tmp.click();
+    doc.body.removeChild(tmp);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>
