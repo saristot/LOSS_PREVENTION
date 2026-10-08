@@ -367,3 +367,5 @@ FodyWeavers.xsd
 # Tooling folders not stored in the repo
 .continue/
 .github/
+!.github/
+!.github/copilot-instructions.md
