@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="eng" data-layout="project">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="inlay-doc-site 2.2.0">
+<title>Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION) · LOSS PREVENTION</title>
+<link rel="icon" href="data:,">
+<style>/* inlay-doc-site 2.x - struttura e componenti comuni. I colori e le forme vengono
+   dalle variabili definite dal tema (assets/themes/<tema>/theme.css). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-h,64px) + 12px)}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-text);font-size:15px;line-height:var(--line-height)}
+a{color:var(--c-link)}
+a:hover{color:var(--c-link-hover)}
+:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+li::marker{font-variant-numeric:normal}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--c-primary);color:var(--c-primary-text);padding:10px 16px;font-weight:600;text-decoration:none;border-radius:var(--radius-btn)}
+.skip-link:focus{top:10px;color:var(--c-primary-text)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;gap:16px;background:var(--c-header-bg);color:var(--c-header-text);padding:10px 20px;position:sticky;top:0;z-index:50;min-height:64px}
+.topbar :focus-visible{outline-color:var(--c-focus-dark)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 1 auto;max-width:360px;text-decoration:none;color:var(--c-header-text)}
+.brand:hover{color:var(--c-header-text)}
+.brand-logo{display:block;height:30px;width:auto;flex:none}
+.brand-mark{width:42px;height:42px;flex:none;border-radius:var(--radius-btn);background:var(--c-primary);color:var(--c-primary-text);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-weight:700;font-size:15.5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{color:var(--c-header-muted);font-size:11.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnav{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.nav-item{color:var(--c-header-muted);font-size:13.5px;font-weight:500;padding:8px 11px;border-radius:var(--radius-btn);text-decoration:none;flex:none}
+.nav-item:hover{color:var(--c-header-text);background:var(--c-header-hover-bg)}
+.nav-item[aria-current="page"]{color:var(--c-header-text);background:var(--c-header-hover-bg);font-weight:600}
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;color:var(--c-header-text);border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);padding:7px 10px;font:inherit;font-size:13px;cursor:pointer;flex:none}
+.nav-toggle-icon{width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor;display:inline-block}
+.search{position:relative;flex:0 1 260px;min-width:160px}
+.search input{width:100%;font:inherit;font-size:13.5px;padding:8px 12px;border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);background:var(--c-header-input-bg);color:var(--c-header-text)}
+.search input::placeholder{color:var(--c-header-muted);opacity:1}
+.search-results{position:absolute;right:0;top:calc(100% + 6px);width:min(520px,92vw);max-height:70vh;overflow-y:auto;margin:0;padding:6px;list-style:none;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:60}
+.search-results li{border-radius:var(--radius-btn)}
+.search-results a{display:block;padding:8px 10px;color:var(--c-text);text-decoration:none;border-radius:var(--radius-btn)}
+.search-results li[aria-selected="true"] a,.search-results a:hover{background:var(--c-tree-active-bg);color:var(--c-tree-active-text)}
+.search-results .sr-title{display:block;font-weight:600;font-size:14px}
+.search-results .sr-path{display:block;font-size:12px;color:var(--c-muted)}
+.search-results .sr-snippet{display:block;font-size:12.5px;color:var(--c-muted);margin-top:2px}
+.search-results .sr-empty{padding:10px;color:var(--c-muted);font-size:13px}
+
+/* ---------- pagina ---------- */
+.page{max-width:1440px;margin:0 auto;padding:24px 28px 56px}
+.hero{margin:0 0 20px}
+.hero-title{font-size:28px;font-weight:800;color:var(--c-heading);line-height:1.25;margin:4px 0 6px}
+.hero-sub{color:var(--c-muted);font-size:15px;margin:0}
+.hero-sub:empty{display:none}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.layout{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:var(--card-shadow)}
+.card-head{padding:13px 18px;border-bottom:1px solid var(--c-border);margin:0}
+
+/* ---------- pulsanti ---------- */
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:var(--radius-btn);text-decoration:none;cursor:pointer;border:1px solid var(--c-primary);flex:none;line-height:1.3}
+.btn-primary{background:var(--c-primary);color:var(--c-primary-text)}
+.btn-primary:hover{background:var(--c-primary-hover-bg);color:var(--c-primary-hover-text);border-color:var(--c-primary-hover-border)}
+.btn-primary:active{background:var(--c-primary-active);color:var(--c-primary-text);border-color:var(--c-primary-active)}
+.btn-outline{background:var(--c-surface);color:var(--c-text);border-color:var(--c-border-strong)}
+.btn-outline:hover{border-color:var(--c-primary);color:var(--c-link-hover)}
+.btn-icon{font-size:15px;line-height:1}
+
+/* ---------- albero ---------- */
+.sidebar{position:sticky;top:calc(var(--header-h,64px) + 16px);max-height:calc(100vh - var(--header-h,64px) - 32px);display:flex;flex-direction:column}
+.side-head{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-muted)}
+.tree-scroll{flex:1 1 auto;overflow-y:auto;padding:8px 8px 12px;overscroll-behavior:contain}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:14px}
+.tree-row{display:flex;align-items:center;gap:2px;min-width:0}
+.tree-toggle{flex:none;width:26px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:var(--radius-btn);color:var(--c-muted);cursor:pointer;padding:0;font:inherit}
+.tree-toggle:hover{background:var(--c-hover-bg)}
+.tree-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.tree-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:6px;background:transparent;border:0;padding:6px 8px 6px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--c-heading);cursor:pointer;text-align:left;border-radius:var(--radius-btn)}
+.tree-group::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid var(--c-muted);border-bottom:2px solid var(--c-muted);transform:rotate(-45deg);transition:transform .15s;margin:0 6px 0 5px}
+.tree-group[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group:hover{background:var(--c-hover-bg)}
+.tree-node-phase>.tree-row .tree-group{font-weight:600;color:var(--c-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tree-link{display:block;flex:1 1 auto;min-width:0;font-size:13px;color:var(--c-text);padding:6px 10px;border-radius:var(--radius-btn);border-left:3px solid transparent;text-decoration:none;overflow-wrap:anywhere;line-height:1.4}
+.tree-link:hover{background:var(--c-hover-bg);color:var(--c-text)}
+.tree-link[aria-current="page"]{background:var(--c-tree-active-bg);color:var(--c-tree-active-text);font-weight:600;border-left-color:var(--c-tree-active-border)}
+.tree-node-root>.tree-row .tree-link,.tree-node-project>.tree-row .tree-link{font-weight:700;color:var(--c-heading)}
+.tree-node-root>.tree-row .tree-link[aria-current="page"],.tree-node-project>.tree-row .tree-link[aria-current="page"]{color:var(--c-tree-active-text)}
+.tree>li>ul{padding-left:6px}
+
+/* ---------- documento ---------- */
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.doc-title{font-size:15px;font-weight:700;color:var(--c-heading);margin:0;min-width:0;overflow-wrap:anywhere}
+.breadcrumbs{padding:10px 22px 0;font-size:12.5px;color:var(--c-muted)}
+.breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.breadcrumbs li{display:inline-flex;align-items:center;gap:4px}
+.breadcrumbs li+li::before{content:"/";color:var(--c-border-strong);margin-right:2px}
+.breadcrumbs a{color:var(--c-muted)}
+.breadcrumbs a:hover{color:var(--c-link-hover)}
+.doc-info{padding:12px 22px 0;display:flex;flex-direction:column;gap:10px}
+.doc-info details{border:1px solid var(--c-border);border-radius:var(--radius-card);background:var(--c-subtle-bg)}
+.doc-info summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--c-heading)}
+.doc-info dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;padding:4px 14px 12px;font-size:13px}
+.doc-info dt{color:var(--c-muted)}
+.doc-info dd{margin:0;overflow-wrap:anywhere}
+.toc ol{margin:0;padding:4px 14px 12px 34px;font-size:13px}
+.toc ol ol{padding:2px 0 2px 18px}
+.toc li{margin:2px 0}
+.doc-body{padding:24px 36px 52px;overflow-wrap:break-word}
+
+/* ---------- avvisi e stati ---------- */
+.notice{border:1px solid var(--c-border);border-left:4px solid var(--c-notice-info);background:var(--c-subtle-bg);padding:10px 14px;margin:12px 0;font-size:13.5px;border-radius:var(--radius-card)}
+.notice-warning{border-left-color:var(--c-notice-warning)}
+.notice-update{border-left-color:var(--c-primary)}
+.doc-info .notice{margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;border:1px solid transparent;vertical-align:baseline}
+.badge-complete,.badge-present{background:var(--c-ok-bg);color:var(--c-ok-text);border-color:var(--c-ok-border)}
+.badge-partial,.badge-incomplete,.badge-misplaced{background:var(--c-warn-bg);color:var(--c-warn-text);border-color:var(--c-warn-border)}
+.badge-missing,.badge-absent{background:var(--c-subtle-bg);color:var(--c-muted);border-color:var(--c-border-strong)}
+.cov{font-weight:600;font-size:12.5px}
+.cov-present{color:var(--c-ok-text)}
+.cov-absent{color:var(--c-muted)}
+.cov-excluded{color:var(--c-warn-text)}
+.muted{color:var(--c-muted)}
+.lead{font-size:15px;color:var(--c-muted)}
+.link-disabled,.link-broken{color:var(--c-muted);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.link-broken::after{content:" \26A0";color:var(--c-notice-warning)}
+.asset-missing{display:block;border:1px dashed var(--c-border-strong);background:var(--c-subtle-bg);color:var(--c-muted);padding:18px;text-align:center;font-size:13px;margin:16px 0}
+.extra-evidence{margin-top:32px}
+
+/* ---------- contenuto ---------- */
+.doc-body h1,.doc-body h2,.doc-body h3,.doc-body h4,.doc-body h5,.doc-body h6{color:var(--c-heading);line-height:1.3;position:relative}
+.doc-body h1{font-size:27px;font-weight:800;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--c-border)}
+.doc-body h2{font-size:21px;font-weight:700;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--c-border-soft)}
+.doc-body h1+h2{margin-top:22px;padding-top:0;border-top:0}
+.doc-body h3{font-size:17px;font-weight:700;margin:24px 0 10px}
+.doc-body h4{font-size:15px;font-weight:700;margin:18px 0 8px}
+.doc-body p,.doc-body li{font-size:15px}
+.doc-body p{margin:10px 0}
+.doc-body a{color:var(--c-link);text-underline-offset:2px}
+.doc-body a:hover{color:var(--c-link-hover)}
+.header-anchor{margin-left:8px;font-weight:400;color:var(--c-muted);text-decoration:none;opacity:0;transition:opacity .15s}
+.doc-body h1:hover .header-anchor,.doc-body h2:hover .header-anchor,.doc-body h3:hover .header-anchor,.doc-body h4:hover .header-anchor,.header-anchor:focus{opacity:1}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0}
+.doc-body hr{border:0;border-top:1px solid var(--c-border);margin:26px 0}
+.doc-body ul,.doc-body ol{padding-left:26px;margin:10px 0}
+.doc-body li{margin:4px 0}
+.doc-body blockquote{margin:14px 0;padding:4px 0 4px 16px;border-left:4px solid var(--c-border-strong);color:var(--c-muted)}
+.doc-body img{max-width:100%;height:auto}
+.doc-body :not(pre)>code{background:var(--c-code-inline-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:var(--font-mono)}
+.table-wrap{max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--c-border);border-radius:var(--radius-card)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;margin:0}
+.doc-body th{background:var(--c-subtle-bg);font-weight:600;color:var(--c-heading);text-align:left}
+.doc-body th,.doc-body td{border-bottom:1px solid var(--c-border);padding:8px 12px;vertical-align:top}
+.doc-body th+th,.doc-body td+td{border-left:1px solid var(--c-border)}
+.doc-body tbody tr:last-child td{border-bottom:0}
+.doc-body tbody tr:nth-child(2n){background:var(--c-zebra)}
+
+/* figure e diagrammi */
+.doc-body figure{margin:22px 0;text-align:center}
+.doc-body figcaption{font-size:13px;color:var(--c-muted);margin-top:6px}
+.zoom-trigger{display:inline-block;max-width:100%;padding:0;margin:0;border:1px solid transparent;background:var(--c-surface);cursor:zoom-in;border-radius:var(--radius-card)}
+.zoom-trigger:hover{border-color:var(--c-primary)}
+.zoom-trigger img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-source{text-align:left;margin-top:8px;font-size:13px}
+.diagram-source summary{cursor:pointer;color:var(--c-muted);display:inline-block}
+.diagram-fallback{margin:16px 0}
+.diagram-fallback .notice{margin:0 0 8px}
+
+/* blocchi di codice */
+.code-block{border:1px solid var(--c-code-border);background:var(--c-code-bg);border-radius:var(--radius-code);margin:16px 0;text-align:left}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 6px 4px 14px;border-bottom:1px solid var(--c-code-border)}
+.code-lang{font-size:11px;color:var(--c-muted);text-transform:uppercase;letter-spacing:.05em}
+.code-copy{font:inherit;font-size:12px;padding:3px 10px;border:1px solid var(--c-border-strong);border-radius:var(--radius-btn);background:var(--c-surface);color:var(--c-text);cursor:pointer}
+.code-copy:hover{border-color:var(--c-primary)}
+.code-copy.copied{border-color:var(--c-ok-border);color:var(--c-ok-text)}
+.code-block pre,.doc-body pre{margin:0;padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6}
+.doc-body pre{background:var(--c-code-bg)}
+.code-block pre{background:transparent}
+.doc-body pre code{font-family:var(--font-mono);font-size:13px;background:transparent;padding:0;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* ASCII-art: font embedded con metriche fisse per allineamento a griglia. */
+.code-block.ascii-art pre code{font-family:'InlayMono',var(--font-mono)}
+.doc-body .shiki span{color:var(--shiki-light)}
+
+/* lightbox */
+.inlay-lightbox{position:fixed;inset:0;background:rgba(9,9,9,.92);z-index:999;display:flex;flex-direction:column}
+.inlay-lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:12px 18px;flex:0 0 auto}
+.inlay-lightbox-hint{color:#d4d4d4;font-size:12.5px;margin-right:auto}
+.inlay-lightbox-bar button{background:#1f1f1f;color:#f5f5f5;border:1px solid #6b6b6b;border-radius:var(--radius-btn);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.inlay-lightbox-bar button:hover{background:#333}
+.inlay-lightbox-bar button:focus-visible{outline:2px solid #fcfcfc;outline-offset:2px}
+.inlay-lightbox-stage{flex:1 1 auto;overflow:auto;padding:0 24px 24px;cursor:grab}
+.inlay-lightbox-stage.grabbing{cursor:grabbing}
+.inlay-lightbox-stage:focus-visible{outline:2px solid #fcfcfc;outline-offset:-4px}
+.inlay-lightbox-stage img{background:#fff;display:block;margin:0 auto;max-width:none;user-select:none;-webkit-user-drag:none}
+
+.site-footer{max-width:1440px;margin:0 auto;padding:0 28px 32px;color:var(--c-muted);font-size:12.5px}
+html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
+.export-note{margin:12px 22px 0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .search{flex-basis:200px;min-width:140px}
+}
+@media (max-width:840px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 14px}
+  .brand{flex:1 1 auto;max-width:none}
+  .js .nav-toggle{display:inline-flex}
+  .topnav{order:3;flex-basis:100%}
+  .search{order:4;flex:1 1 100%}
+  .js .topnav,.js .search{display:none}
+  .js.nav-open .topnav{display:flex}
+  .js.nav-open .search{display:block}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;max-height:none}
+  .js .sidebar{display:none}
+  .js.nav-open .sidebar{display:flex}
+  .page{padding:16px 12px 40px}
+  .hero-title{font-size:22px}
+  .doc-body{padding:18px 16px 36px}
+  .doc-head{flex-wrap:wrap}
+  .breadcrumbs,.doc-info{padding-left:16px;padding-right:16px}
+}
+@media print{
+  .topbar,.sidebar,.hero,.btn-primary,.code-copy,.site-footer,.breadcrumbs{display:none!important}
+  .layout{display:block}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Tema ENG (Engineering, eng.it). Valori osservati sul sito ufficiale il 2026-10-02
+   (review/eng-it-profile.json): header #090909/#FCFCFC, base #FCFCFC/#202020,
+   pulsante primario #C51B88 -> hover #FCFCFC/#090909 -> active #770F53, raggio 0,
+   famiglia CocoEng. Le altre scelte (layout, stati, contenuti tecnici) sono decisioni
+   di prodotto documentate in references/eng-brand.md. */
+:root{
+  --font:"CocoEng","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --line-height:1.7;
+  --c-bg:#FCFCFC;--c-surface:#FFFFFF;--c-subtle-bg:#F6F6F6;--c-zebra:#FAFAFA;--c-hover-bg:#F1F1F1;
+  --c-border:#DEDEDE;--c-border-soft:#EDEDED;--c-border-strong:#8F8F8F;
+  --c-text:#202020;--c-heading:#090909;--c-muted:#4D4D4D;
+  --c-header-bg:#090909;--c-header-text:#FCFCFC;--c-header-muted:#BDBDBD;--c-header-hover-bg:#262626;--c-header-input-bg:#171717;
+  --c-primary:#C51B88;--c-primary-text:#FCFCFC;
+  --c-primary-hover-bg:#FCFCFC;--c-primary-hover-text:#090909;--c-primary-hover-border:#090909;
+  --c-primary-active:#770F53;
+  --c-link:#B0177A;--c-link-hover:#770F53;
+  --c-tree-active-bg:#F4D1E8;--c-tree-active-text:#770F53;--c-tree-active-border:#C51B88;
+  --c-focus:#C51B88;--c-focus-dark:#FCFCFC;
+  --c-code-bg:#F6F6F6;--c-code-border:#DEDEDE;--c-code-inline-bg:#EFEFEF;
+  --c-notice-info:#4D4D4D;--c-notice-warning:#A15C00;
+  --c-ok-bg:#E7F4EA;--c-ok-text:#1D6631;--c-ok-border:#9CCDA9;
+  --c-warn-bg:#FFF3DF;--c-warn-text:#7A4300;--c-warn-border:#E9B86A;
+  --radius-btn:0;--radius-card:0;--radius-code:0;
+  --card-shadow:none;
+  --sidebar-w:300px;
+}
+.topbar{border-bottom:1px solid #262626}
+.brand-logo{height:28px}
+.hero-title{font-weight:700;letter-spacing:-.01em}
+.side-head{color:#090909}
+.btn-primary{text-transform:none;letter-spacing:.01em}
+.doc-body h1{font-weight:700}
+.doc-body h2{border-top-color:#DEDEDE}
+.tree-link[aria-current="page"]{border-left-width:4px}
+.badge{border-radius:0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="topbar" id="top">
+  <a class="brand" href="../index.html"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2Zw0KICAgICAgICAgICAgd2lkdGg9IjE0OSINCiAgICAgICAgICAgIGhlaWdodD0iNDYiDQogICAgICAgICAgICB2aWV3Qm94PSIwIDAgMTQ5IDQ2Ig0KICAgICAgICAgICAgZmlsbD0ibm9uZSINCiAgICAgICAgICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgICAgICA+DQogICAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc3XzIxMDEpIj4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjMuMTg3NCAzNy4xMzY3VjM5Ljc4OTVIMi4zNTYyNEMxLjg3NTM4IDM4Ljk2ODkgMS40OTg3IDM4LjA3OTkgMS4xNTA4NyAzNy4xMzk5TDIzLjE4NzQgMzcuMTM2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgNDIuMzA4NlY0NC43MzM1QzIzLjE4NzQgNDQuODU3OCAyMy4wODY0IDQ0Ljk1OTcgMjIuOTU5OCA0NC45NTk3SDExLjQ0OTRDOS4xMzQ4NSA0NC45NTk3IDYuNTA2MTIgNDQuMTU4MyA0LjQzNTE5IDQyLjMwODZIMjMuMTg3NFoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTI1LjcwMzkgMC4yMjYxMjFWMTUuODYyMkMyNS43MDM5IDE1Ljk1NzggMjUuNjczNCAxNi4wNTAyIDI1LjYxNzMgMTYuMTI4MkwxNS45ODcyIDI5LjI2NjFDMTUuOTAyMiAyOS4zODI0IDE1Ljc2NDQgMjkuNDUyNSAxNS42MjAxIDI5LjQ1MjVIMC42MDU4OTRDMC40NTY4MjYgMjkuNDUyNSAwLjM0NDYyNCAyOS4zMTA3IDAuMzg2Mjk5IDI5LjE2NzNDMC43Mzg5MzQgMjcuOTE1IDEuMzIzOTkgMjYuNzU4MyAyLjA5MDE3IDI1Ljc0MzRMMTguNzk3MSAzLjc3OTA0QzIxLjE4MzggMC44Mzk1MTggMjQuMjUxNyAwLjE3NjczIDI1LjQ0NTggMC4wMDMwNjcyOEMyNS41ODIxIC0wLjAxNzY0NDggMjUuNzAzOSAwLjA4OTEwMjIgMjUuNzAzOSAwLjIyNjEyMVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgMzIuMTA1MlYzNC42MjA5SDAuMzQ0NjIxQzAuMzM4MjA5IDM0LjYwMDIgMC4wMjg4NTIgMzMuNzczMyAwIDMyLjIwMDdDMCAzMi4wNzMzIDAuMDk5Mzc5IDMxLjk2OTcgMC4yMjc2MSAzMS45Njk3SDIzLjA1MTFDMjMuMTI2NSAzMS45Njk3IDIzLjE4NzQgMzIuMDMwMyAyMy4xODc0IDMyLjEwNTJaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik01Mi45NDQ5IDM3LjEzOTlDNTIuNTk3MSAzOC4wNzk5IDUyLjIyMDQgMzguOTY4OSA1MS43Mzk2IDM5Ljc4OTVIMzAuOTA4NVYzNy4xMzY3TDUyLjk0NDkgMzcuMTM5OVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTMwLjkwODUgNDIuMzA4NlY0NC43MzM1QzMwLjkwODUgNDQuODU3OCAzMS4wMDk0IDQ0Ljk1OTcgMzEuMTM2MSA0NC45NTk3SDQyLjY0NjRDNDQuOTYxIDQ0Ljk1OTcgNDcuNTg5NyA0NC4xNTgzIDQ5LjY2MDYgNDIuMzA4NkgzMC45MDg1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjguMzkxOSAwLjIyNjQ4MVYxNS44NjI1QzI4LjM5MTkgMTUuOTU4MSAyOC40MjI0IDE2LjA1MDUgMjguNDc4NSAxNi4xMjg2TDM4LjEwODYgMjkuMjY2NUMzOC4xOTM2IDI5LjM4MjggMzguMzMxNCAyOS40NTI5IDM4LjQ3NTcgMjkuNDUyOUg1My40ODk5QzUzLjYzOSAyOS40NTI5IDUzLjc1MTIgMjkuMzExMSA1My43MDk1IDI5LjE2NzdDNTMuMzU2OSAyNy45MTU0IDUyLjc3MTggMjYuNzU4NyA1Mi4wMDU3IDI1Ljc0MzhMMzUuMjk3MiAzLjc4MUMzMi45MTA1IDAuODQxNDcxIDI5Ljg0MjUgMC4xNzg2ODMgMjguNjQ4NCAwLjAwNTAyMDQxQzI4LjUxMjEgLTAuMDE1NjkxNyAyOC4zOTAzIDAuMDkxMDU1MyAyOC4zOTAzIDAuMjI4MDc0SDI4LjM5MTlWMC4yMjY0ODFaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik0zMC45MDg1IDMyLjE5NlYzNC42MjA5SDUzLjc1MTJDNTMuNzU3NiAzNC42MDAyIDU0LjA2NyAzMy43NzMzIDU0LjA5NTggMzIuMjAwN0M1NC4wOTc0IDMyLjA3MzMgNTMuOTk2NCAzMS45Njk3IDUzLjg2ODIgMzEuOTY5N0gzMS4xMzYxQzMxLjAxMSAzMS45Njk3IDMwLjkwODUgMzIuMDcwMSAzMC45MDg1IDMyLjE5NloiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTY5LjUyMzYgMzYuMDM0M0M2Ny41MDQgMzQuODM5NCA2NS45NDEyIDMzLjIzMDIgNjQuODM1MiAzMS4yMDY4QzYzLjcyOTIgMjkuMTgzNCA2My4xNzYyIDI2Ljk2MDggNjMuMTc2MiAyNC41MzkxQzYzLjE3NjIgMjIuMTE3NCA2My43MTMxIDE5Ljg0NyA2NC43ODcxIDE3LjgyMzZDNjUuODYxIDE1LjgwMDIgNjcuMzY3NyAxNC4xOTkgNjkuMzA3MiAxMy4wMkM3MS4yNDY3IDExLjg0MSA3My40ODI3IDExLjI1MTUgNzYuMDE1MyAxMS4yNTE1Qzc4LjU0NzkgMTEuMjUxNSA4MC44OTYxIDExLjgwOTEgODIuNzcxNSAxMi45MjQ0Qzg0LjY0NjggMTQuMDM5NiA4Ni4wNzM0IDE1LjU4NTEgODcuMDUxMiAxNy41NjA3Qzg4LjAyODkgMTkuNTM2MyA4OC41MTc4IDIxLjc5ODcgODguNTE3OCAyNC4zNDc5Qzg4LjUxNzggMjUuMjQwMSA4OC40NTM3IDI2LjExNjQgODguMzI1NSAyNi45NzY3SDcxLjAxNDNDNzEuNDMxIDI4LjMxNTEgNzIuMTM2MyAyOS4zNDI3IDczLjEzMDEgMzAuMDU5N0M3NC4xMjM5IDMwLjc3NjYgNzUuMzQyMSAzMS4xMzUxIDc2Ljc4NDcgMzEuMTM1MUM3Ny45NzA4IDMxLjEzNTEgNzkuMDEyNyAzMC45OTE3IDc5LjkxMDMgMzAuNzA0OUM4MC44MDc5IDMwLjQxODEgODEuNzIxNiAyOS45MjQyIDgyLjY1MTMgMjkuMjIzMkw4Ni40NTAxIDM0LjI0MTlDODUuMDA3NSAzNS40ODQ2IDgzLjQ5MjggMzYuMzkyOCA4MS45MDU5IDM2Ljk2NjNDODAuMzE5IDM3LjUzOTkgNzguNDk5OCAzNy44MjY3IDc2LjQ0ODEgMzcuODI2N0M3My44NTE0IDM3LjgyNjcgNzEuNTQzMiAzNy4yMjkyIDY5LjUyMzYgMzYuMDM0M1pNODEuMjU2NyAyMS44MTQ2QzgwLjkzNjIgMjAuNDQ0NSA4MC4zMzUxIDE5LjQwODggNzkuNDUzNSAxOC43MDc4Qzc4LjU3MTkgMTguMDA2OCA3Ny40NzM5IDE3LjY1NjMgNzYuMTU5NiAxNy42NTYzQzc0Ljg0NTIgMTcuNjU2MyA3My42OTkxIDE4LjAxNDggNzIuODE3NSAxOC43MzE3QzcxLjkzNiAxOS40NDg3IDcxLjMxODggMjAuNDc2MyA3MC45NjYyIDIxLjgxNDZIODEuMjU2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTkyLjc5NzUgMTEuNzc3Mkg5Ny42MDYyTDk5Ljc3MDEgMTQuNjkyOEMxMDIuMDE0IDEyLjM2NjcgMTA0Ljg1MSAxMS4yMDM2IDEwOC4yODEgMTEuMjAzNkMxMTEuMzU5IDExLjIwMzYgMTEzLjgxOSAxMi4xOTE0IDExNS42NjMgMTQuMTY3QzExNy41MDYgMTYuMTQyNyAxMTguNDI4IDE4Ljg1MTIgMTE4LjQyOCAyMi4yOTI2VjM3LjEwOTdIMTEwLjQ0NVYyMy42Nzg3QzExMC40NDUgMjIuMDIxNyAxMTAuMDQ1IDIwLjczOTIgMTA5LjI0MyAxOS44MzFDMTA4LjQ0MiAxOC45MjI5IDEwNy4zNTIgMTguNDY4OCAxMDUuOTczIDE4LjQ2ODhDMTA0LjQ5OSAxOC40Njg4IDEwMy4yNjQgMTguOTU0NyAxMDIuMjcxIDE5LjkyNjZDMTAxLjI3NyAyMC44OTg1IDEwMC43OCAyMi4wMzc2IDEwMC43OCAyMy4zNDQxVjM3LjEwOTdIOTIuNzk3NVYxMS43NzcyWiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMTQxLjQxMyAxNC41MDE2TDE0My40ODEgMTEuNzc3MkgxNDguMjg5VjMzLjE0MjVDMTQ4LjI4OSAzNS41MzI0IDE0Ny43MzYgMzcuNzA3MSAxNDYuNjMgMzkuNjY2OEMxNDUuNTI0IDQxLjYyNjUgMTQzLjkwNiA0My4xNzIgMTQxLjc3NCA0NC4zMDMyQzEzOS42NDIgNDUuNDM0NCAxMzcuMTAxIDQ2IDEzNC4xNTIgNDZDMTMwLjA4MSA0NiAxMjYuNDkgNDQuODA1IDEyMy4zODEgNDIuNDE1MkwxMjcuNTE2IDM2LjkxODVDMTI4LjU3NCAzNy43Nzg4IDEyOS42MTYgMzguMzg0MyAxMzAuNjQyIDM4LjczNDhDMTMxLjY2OCAzOS4wODUzIDEzMi43OSAzOS4yNjA2IDEzNC4wMDggMzkuMjYwNkMxMzYuMjIgMzkuMjYwNiAxMzcuODQ3IDM4Ljc1MDcgMTM4Ljg4OSAzNy43MzFDMTM5LjkzIDM2LjcxMTQgMTQwLjQ1MSAzNS4xOTc4IDE0MC40NTEgMzMuMTkwM0MxMzguNTYgMzQuNzUxNyAxMzYuMyAzNS41MzI0IDEzMy42NzEgMzUuNTMyNEMxMzEuNDI3IDM1LjUzMjQgMTI5LjQxNSAzNS4wMDY2IDEyNy42MzYgMzMuOTU1MUMxMjUuODU3IDMyLjkwMzUgMTI0LjQ2MyAzMS40NjE2IDEyMy40NTMgMjkuNjI5NEMxMjIuNDQzIDI3Ljc5NzIgMTIxLjkzOCAyNS43MTggMTIxLjkzOCAyMy4zOTE5QzEyMS45MzggMjEuMDY1OCAxMjIuNDQzIDE5LjAxODUgMTIzLjQ1MyAxNy4xNTQ0QzEyNC40NjMgMTUuMjkwMyAxMjUuODU3IDEzLjgzMjUgMTI3LjYzNiAxMi43ODA5QzEyOS40MTUgMTEuNzI5NCAxMzEuNDI3IDExLjIwMzYgMTMzLjY3MSAxMS4yMDM2QzEzNi43MTcgMTEuMjAzNiAxMzkuMjk3IDEyLjMwMjkgMTQxLjQxMyAxNC41MDE2Wk0xMzEuMzg3IDE5LjcxMTVDMTMwLjM3NyAyMC42OTkzIDEyOS44NzIgMjEuOTU4IDEyOS44NzIgMjMuNDg3NUMxMjkuODcyIDI1LjAxNyAxMzAuMzc3IDI2LjM3MTMgMTMxLjM4NyAyNy4zNTkxQzEzMi4zOTcgMjguMzQ2OSAxMzMuNzAzIDI4Ljg0MDggMTM1LjMwNiAyOC44NDA4QzEzNi45MDkgMjguODQwOCAxMzguMjE1IDI4LjM0NjkgMTM5LjIyNSAyNy4zNTkxQzE0MC4yMzUgMjYuMzcxMyAxNDAuNzQgMjUuMDk2NyAxNDAuNzQgMjMuNTM1M0MxNDAuNzQgMjEuOTczOSAxNDAuMjM1IDIwLjczOTIgMTM5LjIyNSAxOS43MzU0QzEzOC4yMTUgMTguNzMxNyAxMzYuOTA5IDE4LjIyOTggMTM1LjMwNiAxOC4yMjk4QzEzMy43MDMgMTguMjI5OCAxMzIuMzk3IDE4LjcyMzcgMTMxLjM4NyAxOS43MTE1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDxkZWZzPg0KICAgICAgICAgICAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3N18yMTAxIj4NCiAgICAgICAgICAgICAgICA8cmVjdCB3aWR0aD0iMTQ4LjI4OSIgaGVpZ2h0PSI0NiIgZmlsbD0id2hpdGUiIC8+DQogICAgICAgICAgICAgIDwvY2xpcFBhdGg+DQogICAgICAgICAgICA8L2RlZnM+DQogICAgICAgICAgPC9zdmc+" alt="Engineering" width="149" height="46"><span class="brand-text"><span class="brand-title">LOSS PREVENTION</span><span class="brand-sub"></span></span></a>
+  <button type="button" class="nav-toggle" aria-controls="inlay-nav inlay-sidebar" aria-expanded="false" hidden><span class="nav-toggle-icon" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span></button>
+  <nav class="topnav" id="inlay-nav" aria-label="Navigazione principale"><a class="nav-item" href="../index.html">Panoramica</a><a class="nav-item" href="../index.html#fam-how">Architettura (HOW)</a></nav>
+  <div class="search" role="search" hidden>
+    <label class="visually-hidden" for="inlay-search">Cerca nella documentazione</label>
+    <input id="inlay-search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inlay-search-results" placeholder="Cerca nella documentazione" autocomplete="off" spellcheck="false">
+    <ul id="inlay-search-results" class="search-results" role="listbox" aria-label="Cerca nella documentazione" hidden></ul>
+  </div>
+</header>
+<div class="page">
+  <div class="hero">
+    <p class="hero-title">LOSS PREVENTION</p>
+    <p class="hero-sub"></p>
+    
+  </div>
+  <div class="layout">
+    <aside class="card sidebar" id="inlay-sidebar">
+      <p class="card-head side-head" id="inlay-tree-label">Struttura documenti</p>
+      <nav class="tree-scroll" id="inlay-tree" aria-labelledby="inlay-tree-label"><ul class="tree"><li class="tree-node tree-node-root"><div class="tree-row"><button type="button" class="tree-toggle" aria-expanded="true" aria-controls="inlay-t1" aria-label="LOSS PREVENTION"></button><a class="tree-link" href="../index.html">LOSS PREVENTION</a></div><ul id="inlay-t1"><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t2">Architettura (HOW)</button></div><ul id="inlay-t2"><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t3">Foundation</button></div><ul id="inlay-t3"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../00_deep_dive.html">00 · Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../01_context.html">01 · Context Definition</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t6">Requirements</button></div><ul id="inlay-t6"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../02_functional_overview.html">02 · Functional Overview</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../03_non_functional_overview.html">03 · Non-Functional Requirements</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../04_constraints.html">04 · Constraints</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t10">Architecture</button></div><ul id="inlay-t10"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../05_principles.html">05 · Architectural Principles</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../06_software_architecture.html">06 · Software Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../07_code.html">07 · Code Implementation Details</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../08_data.html">08 · Data Architecture</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t15">Infrastructure &amp; Operations</button></div><ul id="inlay-t15"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../10_deployment.html">10 · Deployment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../11_development_environment.html">11 · Development Environment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../12_operation_and_support.html">12 · Operation and Support</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t20">Decisions &amp; Metrics</button></div><ul id="inlay-t20"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../13_decision_log.html">13 · Decision Log</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../14_metrics.html">14 · Metrics</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../15_fp_cocomo.html">15 · FP &amp; COCOMO II</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t24">Deep Assessments</button></div><ul id="inlay-t24"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../18_antipattern_deep_dive.html">18 · Antipattern Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../19_modernization_estimation_spec.html">19 · Modernization Estimation Spec</a></div></li></ul></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></div></li></ul></li><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t30">Audit MVP e Roadmap</button></div><ul id="inlay-t30"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="roadmap-done-audit.en.html" aria-current="page">Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="roadmap-done-audit.html">Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</a></div></li></ul></li></ul></li></ul></nav>
+    </aside>
+    <main class="card docpane" id="main" tabindex="-1">
+      <div class="card-head doc-head"><p class="doc-title">Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</p><a class="btn-primary btn-export" href="roadmap-done-audit.en.html" download="roadmap-done-audit.en.html" data-export="">Scarica</a></div>
+      <nav class="breadcrumbs" aria-label="Percorso"><ol><li><a href="../index.html">LOSS PREVENTION</a></li><li><span>Audit MVP e Roadmap</span></li><li><span aria-current="page">Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</span></li></ol></nav>
+      <div class="doc-info"><details class="provenance"><summary>Provenienza del documento <span class="badge badge-absent">metadati non disponibili</span></summary><dl><dt>Sorgente</dt><dd><code>@audit/roadmap-done-audit.en.md</code></dd><dt>SHA-256 sorgente</dt><dd><code>0b0e01c6f7a679e5e16005c319a4c549f4a29294e3e634c4f1777565a484bf8a</code></dd></dl><p class="notice" role="note">Documento senza blocco IMPACT-META: la baseline non è nota e non viene dedotta.</p></details><details class="toc" id="inlay-toc" open><summary>In questa pagina</summary><ol><li><a href="#method">Method</a></li><li><a href="#m01m02-data-integration-and-business-definitions">M01–M02 Data integration and business definitions</a></li><li><a href="#m03m04-reporting-and-dashboards">M03–M04 Reporting and dashboards</a></li><li><a href="#m05m06-exception-detection-and-assisted-analysis">M05–M06 Exception detection and assisted analysis</a></li><li><a href="#m07m09-administration-collaboration-and-retention">M07–M09 Administration, collaboration and retention</a></li><li><a href="#m10-release-readiness">M10 Release readiness</a></li><li><a href="#roadmap-and-further-development--statements-about-what-already-exists">Roadmap and further development – statements about what already exists</a></li><li><a href="#summary-declared-requirements-only">Summary (declared requirements only)</a></li></ol></details></div>
+      <article class="doc-body" id="doc-body"><h1 id="audit-of-items-declared-as-implemented--loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention"><span id="audit-of-items-declared-as-implemented-loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="audit-of-items-declared-as-implemented-–-loss-prevention-business-functionality-mvp-and-roadmap-docx-loss-prevention" class="anchor-alias" aria-hidden="true"></span>Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)<a class="header-anchor" href="#audit-of-items-declared-as-implemented--loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" aria-label="Collegamento alla sezione: Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)">#</a></h1>
+<p><strong>Requirements source:</strong> <code>Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx</code> ("MVP delivery and product roadmap", status at 13 October 2026).
+<strong>Codebase:</strong> <code>customspa-it-loss-prevention-d098a8b97860</code> (commit baf7319). The audit is based <strong>only on what the source code shows</strong>, by reading the files directly.
+<strong>Build:</strong>
+- UI: <code>vite build</code> succeeds on Windows (with an <code>eval</code> warning in resultsGrid.vue).
+- Backend: NOT compiled, because the .NET SDK is not installed on the machine.
+- The repository contains no automated tests.</p>
+<h2 id="method">Method<a class="header-anchor" href="#method" aria-label="Collegamento alla sezione: Method">#</a></h2>
+<p>The document does not use a "DONE" label. Instead, it gives each capability (M01–M10) a completeness status (<em>Implemented</em>, <em>Partially implemented</em>, <em>Validation pending</em> or <em>Planned</em>) and describes what is already present.</p>
+<p>This audit checks every feature the document declares as <strong>present, implemented or existing</strong>. That includes the parts declared as present inside <em>Partially implemented</em> items. For roadmap items R01–R08 and N01–N06, only the statements about what already exists are checked. The "Item" column shows each item's declared status.</p>
+<p>Each item has these columns:
+- <strong>Implemented:</strong> code evidence of what exists.
+- <strong>R – missing vs. requirement:</strong> what the document declares as present or working but that does not work, or works only in part. For items declared as partial or incomplete, the requirement is the part the document says is already present.
+- <strong>Q – quality assessment:</strong> the auditor's view of robustness, security, architecture or completeness beyond what is declared. <strong>The document does not require these points.</strong> It already lists several of them itself, either as "To complete for MVP" activities or as roadmap items:
+  - server-enforced data restrictions;
+  - the lookup workflow;
+  - the ingestion rule switch;
+  - file replay and recovery;
+  - logging/audit;
+  - security hardening;
+  - permissions review;
+  - automated tests and deployment (R07);
+  - region/store/district dashboard policies and automatic alerts (R06);
+  - SSO (R03);
+  - further KNN validation (N05);
+  - AI token and creativity controls (optional).
+- <strong>Result:</strong> based <strong>only on the R column</strong>.
+  - ✅ requirement met
+  - 🟡 requirement partly met
+  - ❌ requirement not implemented</p>
+<h2 id="m01m02-data-integration-and-business-definitions"><span id="m01–m02-data-integration-and-business-definitions" class="anchor-alias" aria-hidden="true"></span>M01–M02 Data integration and business definitions<a class="header-anchor" href="#m01m02-data-integration-and-business-definitions" aria-label="Collegamento alla sezione: M01–M02 Data integration and business definitions">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 1"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Implemented</th>
+<th>R – missing vs. requirement</th>
+<th>Q – quality assessment</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingestion from SFTP and file system, in CSV, XML and JSON (M01 – <em>core imports present</em>)</td>
+<td>Configuration and endpoints, including /sources, /schedule and /recurrence-options. SSH.NET for SFTP, plus file-system reading. 3 processors registered (Program.cs:102-105). One <code>SelectedFileType</code> per run (FileProcessingCoordinator.cs:71-82).</td>
+<td>—</td>
+<td>The legacy standalone DataIngestionService console:<br>• handles XML only, from the hardcoded path <code>C:\xmlstore5\xml</code> (Program.cs:76);<br>• loads the rules but never uses them (:44-46);<br>• does not check <code>ProcessedFiles</code>.<br>XML: one document per file; attributes are kept as strings with an <code>@</code> prefix.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Load scheduling (M01 – <em>scheduling present</em>)</td>
+<td>DataIngestionBackgroundService checks every minute (:13). It runs within ±1 minute of <code>ScheduleTime</code> (:118). Daily, weekly and monthly recurrence (:129-142). UI in dataingestion.vue.</td>
+<td><strong>"One-time" schedules never run.</strong> The UI offers "One-time" and selects it by default (dataingestion.vue:129, dataIngestionStore.ts:26). The service exits when <code>ScheduleType == "one-time"</code> (DataIngestionBackgroundService.cs:55).</td>
+<td><code>ScheduleDate</code> is ignored.<br><code>LastRunAt</code> is kept only in memory (:86), so the double-run guard (:100-101) has no effect.<br>"Monthly" runs on day 1 only (:142); the backend supports it, but the active UI does not offer it.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Source-file tracking (M01 – <em>source tracking present</em>)</td>
+<td><code>_sourceFile</code>, <code>_processedAt</code> and <code>_sourceType</code> are set on every document (FileProcessingCoordinator.cs:298, 368).</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Processed-file records and load monitoring (M01 – <em>processed-file records present</em>; "duplicate checks depend on filenames")</td>
+<td><code>ProcessedFiles</code> collection with <code>fileName</code>, <code>recordCount</code> and <code>processedAt</code> (FileProcessingCoordinator.cs:399-411). Duplicates are skipped by file name (:387-397).</td>
+<td><strong>"Load monitoring" is not available to users.</strong> No API endpoint or UI exposes <code>ProcessedFiles</code>, so loads can only be checked by querying the database directly.</td>
+<td>The only key is the file name, and there is no unique index.<br>On SFTP, if a file with the same name is already in <code>processed/</code>, the new file gets a <code>_yyyyMMddHHmmss</code> suffix (SftpFileProcessingService.cs:229) and is inserted again.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Moving SFTP files to processed (M01 – declared as the <em>target workflow</em>; replay still to complete)</td>
+<td>Files are moved to <code>processed/</code> (SftpFileProcessingService.cs:178-180), or to <code>failed/</code> on error (:113-117). Both folders are created if missing (:203-217). <strong>Already implemented</strong>, although the document describes it as a target.</td>
+<td>—</td>
+<td><strong>Each file is downloaded and parsed twice:</strong> phase 2 (FileProcessingCoordinator.cs:246-304) downloads it again from <code>processed/</code> to insert it.<br>If phase 2 fails, the file stays in <code>processed/</code> without being inserted; it is retried on the next run.<br>There is no replay function in the API or UI. A file moved back to the source folder is skipped, because its name is already in <code>ProcessedFiles</code>.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Streaming (M01 – declared <em>incomplete or require validation</em>)</td>
+<td>Not implemented.</td>
+<td><strong>Streaming is absent, not partial.</strong> The whole SFTP file is downloaded into a MemoryStream (SftpFileProcessingService.cs:148-150) and then copied to a temp file (:160).</td>
+<td>—</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Mapping add, rename and remove (M02 – <em>mappings implemented</em>)</td>
+<td>API and UI CRUD (MappingService.cs, mappingStore.ts, mappings.vue). Adding a mapping checks for duplicate Name/Alias. <code>Alias</code>, <code>DataType</code> and <code>IsVisible</code> control which fields reports show.</td>
+<td>—</td>
+<td>Renaming does not check for duplicates.<br>The API returns only visible mappings (MappingService.cs:29), so a hidden mapping cannot be restored from the UI.<br><code>ApplyMappingsToBsonDocuments</code> is never called.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Lookup metadata (M02 – <em>lookups partial</em>: "lookup-related metadata exists, workflow outstanding")</td>
+<td>Only the <code>IsLookup</code> flag (MappingItem.cs, MappingService.cs:43,82, switch in mappings.vue:60). queryBuilderTabs.vue:203 reads it, but nothing uses it.</td>
+<td>— (matches what is declared)</td>
+<td>There are no lookup tables, no collection and no lookup logic, so the workflow must be built from scratch.</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m03m04-reporting-and-dashboards"><span id="m03–m04-reporting-and-dashboards" class="anchor-alias" aria-hidden="true"></span>M03–M04 Reporting and dashboards<a class="header-anchor" href="#m03m04-reporting-and-dashboards" aria-label="Collegamento alla sezione: M03–M04 Reporting and dashboards">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 2"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Implemented</th>
+<th>R – missing vs. requirement</th>
+<th>Q – quality assessment</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace create, rename, delete and search (M03 – <em>implemented</em>)</td>
+<td>API and UI CRUD: <code>POST /workspaces</code> in CreateWorkspace.cs:18, plus Update and Delete (CAN_MANAGE_WORKSPACES). Search in workspace.vue:76-77 → workspacestore.ts:11-22.</td>
+<td>—</td>
+<td>Search is client-side only.<br>Save is not awaited, yet a success toast is shown anyway (queryBuilderTabs.vue:454-461).</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Tab add, rename, delete and duplicate (M03)</td>
+<td>queryBuilderTabs.vue:286-359 (create, rename, remove, and duplicate as a deep copy). Tabs are persisted when the workspace is saved.</td>
+<td>—</td>
+<td>Tab ids are positional (<code>tab-N</code>) and are regenerated on load (queryBuilderTabs.vue:250).</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Design/View (M03)</td>
+<td>The <code>designMode</code> toggle is persisted (queryBuilderTabs.vue:22-31, 60-70). Queries run through GetReportDataEndpoint → ReportDataservice.</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Expressions (M03)</td>
+<td>Calculated fields (<code>IsCalculated</code>/<code>Expression</code>) are persisted and evaluated in resultsGrid.vue:1359-1386.</td>
+<td>—</td>
+<td><code>eval</code> (resultsGrid.vue:1377) is a security risk.<br>There is no server-side evaluation.<br>Calculated fields are skipped in dashboards (tabularBlock.vue:283) and excluded from exports.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Prefix/Suffix (M03)</td>
+<td>Persisted (WorkspaceService.cs:117-118, 161-162). Applied in resultsGrid and tabularBlock.vue:342.</td>
+<td>In resultsGrid they are not shown beyond 200 rows when there are no formatting rules (resultsGrid.vue:1340, 1432-1438).</td>
+<td>Excluded from exports, which contain raw data.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Conditional formatting (M03)</td>
+<td>formattingRow.vue offers 10 operators (:172-181). cellStyle in resultsGrid.vue:1441-1451 and tabularBlock.vue:339. Rules can be added from the context menu (resultsGrid.vue:877-885, 1096).</td>
+<td><strong>Only <code>$eq</code> is applied</strong>, in both the grid and dashboards, although 10 operators are offered.<br><strong>Rules are not persisted:</strong> there is no <code>FormattingRules</code> in Query/QueryDTO or any other C# class, so they are lost on save or reload.<br>formattingRow reads mappings in PascalCase (<code>m.IsVisible</code>, :167), but the API returns camelCase, so the field list is empty.</td>
+<td>—</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Heatmap (M03)</td>
+<td>heatmapPreview.vue: chartjs-matrix, linear/log normalisation, legends and tooltips. The user lock is applied (toolbar.vue:180).</td>
+<td>—</td>
+<td>The watcher is not deep.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Heatmap drilldown (M03)</td>
+<td>Clicking a cell opens a new "(Drilldown)" tab with <code>$eq</code> filters on x and y (heatmapPreview.vue:406-445 → queryBuilderTabs.vue:378-395).</td>
+<td>—</td>
+<td>Dates are converted to local time (heatmapPreview.vue:132-141); the impact depends on the data.<br>Filters apply only to the root group.<br>The new tab is not saved automatically.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Dashboard chart, tabular and text blocks: add, edit and delete (M04 – <em>implemented</em>)</td>
+<td>dashboard.vue and dashboardGrid.vue provide edit/delete for chart, text, image and tabular blocks. API CRUD with CAN_VIEW_DASHBOARD/CAN_MANAGE_DASHBOARDS and a FluentValidation validator. Chart types: bar, line, pie, doughnut and radar (chartConfigDialog.vue:66).</td>
+<td>A tabular block saves only <code>tabId</code> (tabularDialog.vue:105) and searches every workspace for it (tabularBlock.vue:125-131). Because tab ids are positional, a block can show a tab from another workspace, or a different tab after a deletion.</td>
+<td>chartblock.vue has no <code>$match</code>, so charts ignore both conditions and the user lock.<br>Block configuration is not validated per block type.<br>dashboardGrid.vue:85 imports <code>./chartBlock.vue</code>, but the file is named <code>chartblock.vue</code>; this works only on case-insensitive file systems.<br>An image block exists, but the document does not mention it.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Conditions on tabular reports (M04 – "conditions on tabular reports narrow the information")</td>
+<td>conditionGroup.vue supports recursive AND/OR/NOR groups. queryUtils.ts turns them into a type-aware <code>$match</code>, which the tabular block applies (tabularBlock.vue:260-277).</td>
+<td><strong>Nested groups are lost on save.</strong> Query.Conditions is a flat Field/Operator/Value list (WorkspaceService.cs QueryToEntity/QueryToDto). Simple conditions are saved correctly.</td>
+<td>—</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m05m06-exception-detection-and-assisted-analysis"><span id="m05–m06-exception-detection-and-assisted-analysis" class="anchor-alias" aria-hidden="true"></span>M05–M06 Exception detection and assisted analysis<a class="header-anchor" href="#m05m06-exception-detection-and-assisted-analysis" aria-label="Collegamento alla sezione: M05–M06 Exception detection and assisted analysis">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 3"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Implemented</th>
+<th>R – missing vs. requirement</th>
+<th>Q – quality assessment</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generic rules: define rules and apply the enabled ones (M05 – <em>core implemented</em>)</td>
+<td>Two rule mechanisms:<br>(a) Server rules: RulesService/RuleHelper and <code>/rules</code> endpoints. CRUD plus a manual apply, <code>GET /rules/apply</code> (CAN_APPLY_RULE), which uses only <code>Enabled</code> rules (RulesService.cs:35). The "Apply Rules" button (rules.vue:21) calls ruleStore.ts:83.<br>(b) AI rules generated by Ollama and run in the browser.<br>Thresholds are persisted (<code>/api/fraud-detection/settings</code>).</td>
+<td><strong>Bug in UpdateRuleAsync:</strong><br>• it writes <code>{RuleName}</code> at the top level instead of <code>FraudFlags.{RuleName}</code> (RulesService.cs:147);<br>• it looks up the mapping with the wrong name (:155).</td>
+<td>Server rules are limited to equality, range and sum checks. The whole collection is loaded into memory and updated one document at a time.<br>AI rules run with <code>new Function</code> (aiStore.ts:1773-1777) and are not persisted.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Data distance (M05 – <em>data-distance functionality present</em>)</td>
+<td>GetDistanceEndpoint (CAN_VIEW_REPORT) → DistanceDataservice/DistanceHelper. Euclidean distance with a composite score (50% field match, 50% distance), returning the top 10 (DistanceDataservice.cs:116-123). UI: distanceDialog, distance table and radar chart.</td>
+<td>— (for the user lock, see "Data restrictions")</td>
+<td>No min-max or z-score normalisation.<br>Hardcoded thresholds (at least 3 fields, top 10).<br>Results without a keyField are discarded.<br>Every document in the selected range is loaded into memory.<br><code>TryNormalize</code> does not handle DateTime values or int/bool arrays. KNN validation is deferred to N05.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Automatic rule execution during ingestion (M05 – declared <em>incomplete</em>)</td>
+<td>Rules can only be run manually, with <code>GET /rules/apply</code>.</td>
+<td><strong>There is no switch and no execution path:</strong><br>• no flag in DataIngestionConfiguration or RuleConfiguration;<br>• FileProcessingCoordinator never calls the rules;<br>• the DataIngestionService console loads the rules without using them;<br>• <code>XmlEnrichmentService</code> applies <code>IXmlEnrichmentRule</code> implementations, but none exist.</td>
+<td>—</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>AI report generation (M06 – <em>exists</em>; "propose report structures using the available fields")</td>
+<td>toolbar → naturalLanguageQuery.vue → aiStore.ts <code>generateFraudReports</code> (:308) → a tab in the query builder.</td>
+<td><strong>It does not use the available fields.</strong> <code>generateFraudReports()</code> takes no parameters and its prompt does not include the fields. The <code>mappings.value</code> that naturalLanguageQuery.vue:344 passes is ignored.</td>
+<td>The browser calls Ollama at <code>http://localhost:11434</code> (aiStore.ts:88), so it does not work for remote users; there is no backend.<br>Errors are only logged to the console (aiStore.ts:366).<br>The UI promises 25 reports (naturalLanguageQuery.vue:108), but the prompt does not ask for 25.<br>The "AI Report Generator" dialog in queryBuilderTabs.vue is dead code.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>AI NLQ (M06 – <em>exists</em>)</td>
+<td>aiStore.ts:249-303 <code>generateQuery(mappings)</code>: the prompt includes the schema fields and aliases. The result becomes fields and conditions in a new builder tab.</td>
+<td>—</td>
+<td>Same Ollama-from-browser limitation.<br>On error, the code only logs to the console and sets the result to <code>null</code>, with no message to the user (aiStore.ts:297-298).<br>No server-side validation.<br>Model parameters are hardcoded (aiStore.ts:8-22); the document treats token/creativity controls as optional.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>AI progress and batching (M06 – "interfaces exist, including progress and batching behavior")</td>
+<td>AI fraud analysis runs across all pages (one chunk per page) and per rule (resultsGrid.vue:1140-1265, aiStore.ts:1763-1790). Its modal shows a percentage, a fraud counter, elapsed time and a Stop button (resultsGrid.vue:405-450).</td>
+<td>In the report-generation/NLQ screen, the progress display (naturalLanguageQuery.vue:122-147, 264-286) reads <code>currentBatch</code>, <code>totalBatches</code> and <code>elapsedTimeMs</code> from <code>aiStore</code>. <code>aiStore</code> does not have them (they live in fraudDetectionStore.ts), so the progress bar and text do not work; only the spinner does.</td>
+<td>There is no batching for NLQ.<br>aiStore's <code>_startTimer</code> only logs to the console.</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m07m09-administration-collaboration-and-retention"><span id="m07–m09-administration-collaboration-and-retention" class="anchor-alias" aria-hidden="true"></span>M07–M09 Administration, collaboration and retention<a class="header-anchor" href="#m07m09-administration-collaboration-and-retention" aria-label="Collegamento alla sezione: M07–M09 Administration, collaboration and retention">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 4"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Implemented</th>
+<th>R – missing vs. requirement</th>
+<th>Q – quality assessment</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Login (M07 – <em>identity implemented</em>)</td>
+<td>LoginEndpoint.cs issues a JWT with permissions and the lock claims <code>LockField</code>/<code>LockValue</code>.<br>UserService.LoginAsync checks <code>IsActive</code> and verifies the password with PBKDF2-SHA256 at 600k iterations; legacy 10k-iteration hashes are upgraded at login (PasswordHasher.cs:9-10).<br>Front end: loginStore.ts, a router guard, and api.ts sending the <code>Bearer</code> token.</td>
+<td>—</td>
+<td><code>CreateTokenAsync</code> is not awaited (LoginEndpoint.cs:39); the frontend compensates by reading <code>token.result</code>.<br>There is no 401 interceptor.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Configurable session expiry (M07)</td>
+<td><code>JwtSettings.ExpiryHours</code> in appsettings.json (=1, :33), applied in LoginEndpoint.cs:78 with <code>AddHours(ExpiryHours)</code>. Logout is scheduled in loginStore.ts.</td>
+<td>—</td>
+<td>The JWT secret is hardcoded in appsettings.<br>Expiry can be configured only in the file.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Email password recovery (M07; R03 "already present")</td>
+<td>Forgot, Validate and Reset endpoints (anonymous). The token is SHA-256 hashed (PasswordResetService.cs:158), expires after 1 hour (:19) and is single-use. The email link is <code>{FrontendUrl}/reset-password?token=</code> (EmailService.cs:29). UI and route exist. The server enforces at least 8 characters (ResetPasswordEndpoint).</td>
+<td>—</td>
+<td>SMTP host/port come from appsettings (localhost:25), with <code>EnableSsl=false</code> hardcoded (EmailService.cs:64) and <code>UseDefaultCredentials=true</code>, so a relay is required.<br>The token lifetime is hardcoded, and token use is not atomic.<br>The UI does not enforce a minimum length.<br>An inactive user gets a different response (ForgotPasswordEndpoint.cs:45), which reveals that the account exists.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>User management and field/value restriction (M07 – "administrators maintain users … associate a user with a field/value restriction")</td>
+<td>User CRUD. The lock is saved on update (UserService.cs:100-104) and added to the JWT (LoginEndpoint.cs:65-68).</td>
+<td><strong>The lock cannot be set at creation:</strong> the UI sends <code>lockField</code>/<code>lockValue</code> (users.vue:268-280), but CreateUserRequest and its endpoint ignore them.<br><strong>The lock cannot be removed:</strong> it is updated only when both values are non-empty (UserService.cs:100).</td>
+<td>GetUsers (GetUsersEndpoint.cs:36) and CreateUser return PasswordHash and PasswordSalt.<br><code>RegistrationDate</code> is overwritten on every update.<br>An update with no changes returns 400.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Roles and groups (M07; M08 "users and groups provide the foundation for organising audiences")</td>
+<td>Groups, Roles and Permissions CRUD and UI (CAN_MANAGE_GROUPS/CAN_VIEW_GROUPS, CAN_<em><em>ROLE, CAN</em></em>_PERMISSION). Group sends are expanded into one notification per user (groupStore.ts:40-49, notificationStore.ts:116-130).</td>
+<td>—</td>
+<td>The group-to-user expansion happens only in the frontend; the backend does not resolve groups or roles.<br>The router checks only authentication (router/index.ts:65); permissions are checked only in the menus.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Data restrictions (M07 – declared <em>partial</em>)</td>
+<td>The lock is applied client-side through <code>generateSimpleMatch</code> (queryUtils.ts:165-174) in resultsGrid.vue, toolbar.vue (heatmap) and tabularBlock.vue.</td>
+<td><strong>The lock is combined using the root group's operator</strong> (queryUtils.ts:174): with an OR root it does not restrict, and with NOR it is negated, so a user can bypass it from the UI.<br><strong>Distance ignores the lock.</strong><br><strong>Dashboard charts do not apply it</strong> (chartblock.vue has no <code>$match</code>).</td>
+<td>There is no server-side enforcement, which the document lists as still to complete:<br>• no backend code reads the lock claims;<br>• GetReportDataEndpoint runs any pipeline the client sends (:66-71);<br>• the 1-hour cache is not per user;<br>• the visibility filter in ReportDataservice is always true.<br>tabularBlock passes empty mappings, so no type conversion happens.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Notifications: send, read state, replies and removal (M08 – <em>implemented</em>)</td>
+<td>Create, List, MarkAsRead, Reply and Delete endpoints. Bell icon in App.vue. Notifications can be sent to users and groups.</td>
+<td><strong>Every user sees every notification:</strong> ListNotificationsEndpoint uses <code>Filter.Empty</code>, with no recipient filter.<br>The bell loads notifications only for users with CAN_MANAGE_NOTIFICATIONS (App.vue:165/172, notificationStore.ts:70-73), and MarkAsRead, Reply and Delete require the same permission. As a result, a user with only CAN_VIEW_NOTIFICATIONS sees no notifications.</td>
+<td>No push, polling or automatic notifications (deferred to R06/N02).<br><code>IsRead</code> is stored once per notification. Group sends create one notification per user, but a direct send to several users creates one shared notification, so its read state is shared.<br><code>From</code> is supplied by the client.<br>Notifications with <code>toType 'role'</code> are never resolved to recipients.</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Retention (M09 – <em>implemented in part</em>; "configured retention period determines which older transactions expire … current 90-day default")</td>
+<td>The API creates the TTL index <code>ttl_BeginDateTime</code> at startup (DatabaseInitializationService.cs:97-101). Retention comes from appsettings <code>DataRetention:TransactionRetentionDays</code> = 180 (:8-9); 90 is only the fallback (DatabaseInitializationService.cs:23).</td>
+<td><strong>The declared 90-day default does not match:</strong> 180 days are configured. The repository dump agrees: <code>ReportData.metadata.json</code> has <code>expireAfterSeconds</code> 15552000, i.e. 180 days.<br><strong>The TTL is on the <code>BeginDateTime</code> field, which ingestion never produces</strong> and which appears nowhere else in the code. None of the 3,000 documents in the <code>ReportData.bson</code> dump has <code>BeginDateTime</code>; they all have <code>TransactionDateTime</code>. With this data, no document ever expires.</td>
+<td>If the TTL index already exists, a retention change is not applied (:64-71).<br>JSON dates become BSON Dates only in Extended JSON form (<code>{"$date": …}</code>); plain date strings stay strings.<br>There is no retention UI.<br>ProcessedFiles has no TTL.</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m10-release-readiness">M10 Release readiness<a class="header-anchor" href="#m10-release-readiness" aria-label="Collegamento alla sezione: M10 Release readiness">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 5"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Implemented</th>
+<th>R – missing vs. requirement</th>
+<th>Q – quality assessment</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application code and documentation present (M10 – <em>in progress</em>)</td>
+<td>Solution with the API, Application, Domain, Infrastructure and DataIngestionService projects, plus the UI. Documentation:<br>• <code>docs_original\01…14</code>, including 03_SETUP_INSTALLATION, 04_DEPLOYMENT_GUIDE, 11_USER_MANUAL, 13_TESTING_QA and 14_CHANGELOG;<br>• DISTANCE_ANALYSIS_QUICK_START;<br>• FRAUD_DETECTION_API;<br>• README.md.</td>
+<td>—</td>
+<td>Testing: no test projects and no <code>*.spec.ts</code>/<code>*.test.ts</code> files.<br>Delivery: no CI/CD pipeline (<code>.github</code> holds only copilot-instructions.md), no Dockerfile and no infrastructure scripts.<br>Logging: no audit trail and no structured logging; only <code>ILogger</code>.<br>Security: CORS allows only <code>localhost:5173/5174</code> (Program.cs:24-34); no <code>UseHsts</code> or <code>UseHttpsRedirection</code>; no rate limiting.<br>Guidance: no videos.</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="roadmap-and-further-development--statements-about-what-already-exists"><span id="roadmap-and-further-development-statements-about-what-already-exists" class="anchor-alias" aria-hidden="true"></span><span id="roadmap-and-further-development-–-statements-about-what-already-exists" class="anchor-alias" aria-hidden="true"></span>Roadmap and further development – statements about what already exists<a class="header-anchor" href="#roadmap-and-further-development--statements-about-what-already-exists" aria-label="Collegamento alla sezione: Roadmap and further development – statements about what already exists">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 6"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Implemented</th>
+<th>R – missing vs. requirement</th>
+<th>Q – quality assessment</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R01 "Database setup materials exist"</td>
+<td><code>Data\MongoDBScripts\00…04*.js</code> (permissions, admin role, rules) and PERMISSIONS_LIST.md. Database dump <code>Data\LossPrevention\*.bson</code>: 10 collections plus 2 <code>_old</code> copies.</td>
+<td>—</td>
+<td>No wizard and no licensing code (0 occurrences of "wizard" or "licen"), which is consistent with <em>planned</em>.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R02 "Existing user permissions do not establish a complete multi-customer model"</td>
+<td>Permissions and roles are per user. There is a single DB connection, read from appsettings.</td>
+<td>—</td>
+<td>0 occurrences of "tenant" or "branding", which is consistent with <em>planned</em>.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R03 "Email-based forgot-password capability is already present"</td>
+<td>See "Email password recovery".</td>
+<td>—</td>
+<td>No SSO, OIDC or SAML, which is consistent with <em>planned</em>.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R04 "Core reporting is implemented"</td>
+<td>See M03. Chart types: bar, line, pie, doughnut and radar (chartConfigDialog.vue:66).</td>
+<td>—</td>
+<td>No linked reports, which is consistent with <em>planned</em>.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R05 "Initial lookup delivery remains an MVP gap"</td>
+<td>See "Lookup metadata" (only the <code>IsLookup</code> flag).</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R06 "Basic notifications and role structures exist"</td>
+<td>See "Notifications" and "Roles and groups".</td>
+<td>—</td>
+<td>No automatic alerts and no region/store/district dashboard policies, which is consistent with <em>planned</em>. For notification limits, see M08.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R07 "Setup and deployment guidance exist"</td>
+<td><code>docs_original\03_SETUP_INSTALLATION.md</code> and <code>04_DEPLOYMENT_GUIDE.md</code>.</td>
+<td>—</td>
+<td>Automated delivery and tests are <strong>entirely absent</strong> (see M10).</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>N03 "Report drilldown exists"</td>
+<td>See "Heatmap drilldown".</td>
+<td>—</td>
+<td>No receipt view: "receipt" appears only in AI prompts and field-recognition patterns. Consistent with <em>planned</em>.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>N04 "Existing reporting and aggregation"</td>
+<td>Aggregation via <code>Field.GroupBy</code>/<code>Aggregation</code>, and <code>$group</code> in charts.</td>
+<td>—</td>
+<td>No dedicated summary view, which is consistent with <em>planned</em>.</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>N05 "Existing distance analysis provides a starting point"</td>
+<td>See "Data distance" (Euclidean, top 10).</td>
+<td>—</td>
+<td>No behavioural profiling: "behavioral" appears only in AI text. Consistent with the roadmap.</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="summary-declared-requirements-only">Summary (declared requirements only)<a class="header-anchor" href="#summary-declared-requirements-only" aria-label="Collegamento alla sezione: Summary (declared requirements only)">#</a></h2>
+<p>43 items were checked: 33 MVP items and 10 roadmap statements. Results: <strong>28 ✅</strong>, <strong>13 🟡</strong>, <strong>2 ❌</strong>.
+- ✅:
+  - <strong>M01–M02:</strong> SFTP/FS/CSV/XML/JSON ingestion, source-file tracking, moving SFTP files to processed, mappings, lookup metadata.
+  - <strong>M03:</strong> workspaces, tabs, design/view, expressions, heatmap, heatmap drilldown.
+  - <strong>M05–M06:</strong> data distance, AI NLQ.
+  - <strong>M07:</strong> login, session expiry, password recovery, roles and groups.
+  - <strong>M10:</strong> application code and documentation.
+  - <strong>Roadmap:</strong> R01, R02, R03, R04, R05, R06, R07, N03, N04, N05.
+- 🟡:
+  - <strong>M01:</strong> scheduling, processed-file records/load monitoring.
+  - <strong>M03–M04:</strong> prefix/suffix, conditional formatting, dashboards, conditions on tabular reports.
+  - <strong>M05–M06:</strong> generic rules, AI report generation, AI progress and batching.
+  - <strong>M07–M09:</strong> user management and restriction, data restrictions, notifications, retention.
+- ❌: streaming, automatic rule execution during ingestion.</p></article>
+    </main>
+  </div>
+</div>
+<footer class="site-footer">Portale generato da inlay-doc-site 2.2.0</footer>
+<div id="inlay-status" class="visually-hidden" role="status" aria-live="polite"></div>
+<script type="application/json" id="inlay-config">{"lang": "it", "root": "../", "route": "audit/roadmap-done-audit.en.html", "search": "_inlay/search-index.js", "theme": "eng", "version": "2.2.0"}</script>
+<script>/* inlay-doc-site 2.x - comportamento del portale (offline, nessuna dipendenza). */
+(function () {
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var cfg = {};
+  try { cfg = JSON.parse(doc.getElementById('inlay-config').textContent) || {}; } catch (e) { cfg = {}; }
+  var LANG = String(cfg.lang || root.lang || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+  var TEXT = {
+    it: {
+      copy: 'Copia', copied: 'Copiato', copyFail: 'Copia non riuscita: testo selezionato, premi Ctrl+C',
+      close: 'Chiudi', zoomIn: 'Ingrandisci', zoomOut: 'Riduci', fit: 'Adatta', dialog: 'Immagine ingrandita',
+      hint: 'Ctrl+rotella o +/- per lo zoom, trascina per spostare, Esc per chiudere',
+      noResults: 'Nessun risultato', results: '{n} risultati', unavailable: 'Indice di ricerca non disponibile',
+      exportNote: 'Copia esportata della pagina "{t}": i collegamenti verso altre pagine del portale sono disattivati.',
+      linkDisabled: 'Collegamento disponibile solo nel portale', menuOpen: 'Mostra struttura documenti',
+      menuClose: 'Nascondi struttura documenti'
+    },
+    en: {
+      copy: 'Copy', copied: 'Copied', copyFail: 'Copy failed: text selected, press Ctrl+C',
+      close: 'Close', zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit', dialog: 'Enlarged image',
+      hint: 'Ctrl+wheel or +/- to zoom, drag to pan, Esc to close',
+      noResults: 'No results', results: '{n} results', unavailable: 'Search index not available',
+      exportNote: 'Exported copy of the page "{t}": links to other portal pages are disabled.',
+      linkDisabled: 'Link available only inside the portal', menuOpen: 'Show document structure',
+      menuClose: 'Hide document structure'
+    }
+  };
+  function tr(key, vars) {
+    var s = TEXT[LANG][key] || key;
+    if (vars) { Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); }); }
+    return s;
+  }
+  var statusEl = doc.getElementById('inlay-status');
+  function announce(msg) {
+    if (!statusEl) { return; }
+    statusEl.textContent = '';
+    setTimeout(function () { statusEl.textContent = msg; }, 40);
+  }
+
+  /* altezza dell'header per sticky e ancore */
+  var header = doc.querySelector('.topbar');
+  function setHeaderHeight() { if (header) { root.style.setProperty('--header-h', header.offsetHeight + 'px'); } queueFit(); }
+  setHeaderHeight();
+  if (window.ResizeObserver && header) { new ResizeObserver(setHeaderHeight).observe(header); }
+  else { window.addEventListener('resize', setHeaderHeight); }
+
+  /* albero: espandi/comprimi */
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.tree-toggle, .tree-group') : null;
+    if (!btn) { return; }
+    var list = doc.getElementById(btn.getAttribute('aria-controls'));
+    if (!list) { return; }
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    list.hidden = open;
+  });
+  /* barra laterale: altezza limitata alla parte visibile (all'apertura la testata della pagina la spinge in basso) */
+  var sidebar = doc.getElementById('inlay-sidebar'), fitQueued = false;
+  function fitSidebar() {
+    fitQueued = false;
+    if (!sidebar) { return; }
+    if (window.getComputedStyle(sidebar).position !== 'sticky') { sidebar.style.maxHeight = ''; return; }
+    var top = Math.max(sidebar.getBoundingClientRect().top, 0);
+    sidebar.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + 'px';
+  }
+  function queueFit() { if (!fitQueued) { fitQueued = true; window.requestAnimationFrame(fitSidebar); } }
+  fitSidebar();
+  window.addEventListener('scroll', queueFit, { passive: true });
+  window.addEventListener('resize', queueFit);
+  var treeScroll = doc.getElementById('inlay-tree');
+  var current = treeScroll && treeScroll.querySelector('[aria-current="page"]');
+  if (current) {
+    var r = current.getBoundingClientRect(), s = treeScroll.getBoundingClientRect();
+    if (r.top < s.top || r.bottom > s.bottom) { treeScroll.scrollTop += (r.top - s.top) - treeScroll.clientHeight / 3; }
+  }
+
+  /* menu mobile */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle && doc.getElementById('inlay-sidebar')) {
+    navToggle.hidden = false;
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      root.classList.toggle('nav-open', !open);
+    });
+  }
+
+  /* copia dei blocchi di codice */
+  function copied(btn) {
+    btn.textContent = tr('copied');
+    btn.classList.add('copied');
+    announce(tr('copied'));
+    setTimeout(function () { btn.textContent = tr('copy'); btn.classList.remove('copied'); }, 1800);
+  }
+  function copyFallback(text, pre, btn) {
+    var ta = doc.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    doc.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    if (ok) { copied(btn); return; }
+    var range = doc.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = tr('copyFail');
+    announce(tr('copyFail'));
+    setTimeout(function () { btn.textContent = tr('copy'); }, 4000);
+  }
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.code-copy') : null;
+    if (!btn) { return; }
+    var block = btn.closest('.code-block');
+    var pre = block && block.querySelector('pre');
+    if (!pre) { return; }
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { copied(btn); }, function () { copyFallback(text, pre, btn); });
+    } else { copyFallback(text, pre, btn); }
+  });
+
+  /* lightbox accessibile per immagini e diagrammi */
+  var lb = null, lbImg, lbStage, lbClose, lbTrigger = null, scale = 1, inerted = [];
+  function setScale(v) {
+    scale = Math.max(0.1, Math.min(8, v));
+    if (lbImg.naturalWidth) { lbImg.style.width = Math.round(lbImg.naturalWidth * scale) + 'px'; }
+  }
+  function fitScale() {
+    var w = lbImg.naturalWidth || 1;
+    var sw = Math.max(lbStage.clientWidth - 48, 50);
+    setScale(Math.min(sw / w, 2));
+  }
+  function buildLightbox() {
+    if (lb) { return; }
+    lb = doc.createElement('div');
+    lb.className = 'inlay-lightbox';
+    lb.id = 'inlay-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', tr('dialog'));
+    lb.hidden = true;
+    var bar = doc.createElement('div');
+    bar.className = 'inlay-lightbox-bar';
+    var hint = doc.createElement('span');
+    hint.className = 'inlay-lightbox-hint';
+    hint.textContent = tr('hint');
+    bar.appendChild(hint);
+    [['out', tr('zoomOut'), '\u2212'], ['fit', tr('fit'), tr('fit')], ['in', tr('zoomIn'), '+'], ['close', tr('close'), tr('close')]].forEach(function (b) {
+      var btn = doc.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zoom', b[0]);
+      btn.setAttribute('aria-label', b[1]);
+      btn.textContent = b[2];
+      bar.appendChild(btn);
+      if (b[0] === 'close') { lbClose = btn; }
+    });
+    lbStage = doc.createElement('div');
+    lbStage.className = 'inlay-lightbox-stage';
+    lbStage.tabIndex = 0;
+    lbImg = doc.createElement('img');
+    lbImg.alt = '';
+    lbStage.appendChild(lbImg);
+    lb.appendChild(bar);
+    lb.appendChild(lbStage);
+    doc.body.appendChild(lb);
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) { return; }
+      var a = b.getAttribute('data-zoom');
+      if (a === 'close') { closeLightbox(); } else if (a === 'in') { setScale(scale * 1.25); }
+      else if (a === 'out') { setScale(scale / 1.25); } else { fitScale(); }
+    });
+    lb.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); closeLightbox(); return; }
+      if (ev.key === '+' || ev.key === '=') { ev.preventDefault(); setScale(scale * 1.25); return; }
+      if (ev.key === '-') { ev.preventDefault(); setScale(scale / 1.25); return; }
+      if (ev.key === '0') { ev.preventDefault(); fitScale(); return; }
+      if (ev.key === 'Tab') {
+        var f = Array.prototype.slice.call(lb.querySelectorAll('button, [tabindex="0"]'));
+        var first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    });
+    lbStage.addEventListener('wheel', function (ev) {
+      if (!ev.ctrlKey) { return; }
+      ev.preventDefault();
+      setScale(scale * (ev.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    var drag = null;
+    lbStage.addEventListener('pointerdown', function (ev) {
+      drag = { x: ev.clientX, y: ev.clientY, l: lbStage.scrollLeft, t: lbStage.scrollTop };
+      lbStage.classList.add('grabbing');
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!drag) { return; }
+      lbStage.scrollLeft = drag.l - (ev.clientX - drag.x);
+      lbStage.scrollTop = drag.t - (ev.clientY - drag.y);
+    });
+    window.addEventListener('pointerup', function () { drag = null; if (lbStage) { lbStage.classList.remove('grabbing'); } });
+  }
+  function openLightbox(trigger) {
+    var img = trigger.querySelector('img');
+    if (!img) { return; }
+    buildLightbox();
+    lbTrigger = trigger;
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbImg.onload = function () { fitScale(); };
+    lbImg.src = img.getAttribute('src');
+    Array.prototype.forEach.call(doc.body.children, function (child) {
+      if (child !== lb && !child.inert) { child.inert = true; child.setAttribute('aria-hidden', 'true'); inerted.push(child); }
+    });
+    lb.hidden = false;
+    if (lbImg.complete && lbImg.naturalWidth) { fitScale(); }
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (!lb || lb.hidden) { return; }
+    lb.hidden = true;
+    inerted.forEach(function (child) { child.inert = false; child.removeAttribute('aria-hidden'); });
+    inerted = [];
+    if (lbTrigger) { lbTrigger.focus(); }
+  }
+  doc.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('.zoom-trigger') : null;
+    if (trigger) { ev.preventDefault(); openLightbox(trigger); }
+  });
+
+  /* ricerca offline (indice caricato su richiesta da _inlay/search-index.js) */
+  var input = doc.getElementById('inlay-search');
+  var results = doc.getElementById('inlay-search-results');
+  if (input && results && cfg.search) {
+    input.closest('.search').hidden = false;
+    var index = null, loading = false, active = -1, timer = null, pending = null;
+    var fold = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var loadIndex = function (cb) {
+      if (index) { cb(); return; }
+      pending = cb;
+      if (loading) { return; }
+      loading = true;
+      var sc = doc.createElement('script');
+      sc.src = cfg.root + cfg.search;
+      sc.onload = function () { index = window.INLAY_SEARCH_INDEX || []; if (pending) { pending(); } };
+      sc.onerror = function () { index = []; announce(tr('unavailable')); if (pending) { pending(); } };
+      doc.head.appendChild(sc);
+    };
+    var search = function (q) {
+      var terms = fold(q).split(/\s+/).filter(Boolean);
+      if (!terms.length) { return []; }
+      var out = [];
+      index.forEach(function (e) {
+        if (e._t === undefined) { e._t = fold(e.t + ' ' + (e.l || '')); e._x = fold(e.x); }
+        var score = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var inTitle = e._t.indexOf(terms[i]) >= 0, pos = e._x.indexOf(terms[i]);
+          if (!inTitle && pos < 0) { return; }
+          score += inTitle ? 10 : 1;
+        }
+        out.push({ e: e, score: score, term: terms[0] });
+      });
+      out.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+      return out.slice(0, 15);
+    };
+    var snippet = function (e, term) {
+      var pos = e._x.indexOf(term);
+      if (pos < 0) { return ''; }
+      var start = Math.max(0, pos - 50);
+      return (start > 0 ? '\u2026' : '') + e.x.substr(start, 150) + '\u2026';
+    };
+    var setActive = function (i) {
+      var opts = results.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      Array.prototype.forEach.call(opts, function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    var close = function () {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    var render = function () {
+      var q = input.value.trim();
+      results.textContent = '';
+      if (!q) { close(); return; }
+      var found = search(q);
+      if (!found.length) {
+        var li = doc.createElement('li');
+        li.className = 'sr-empty';
+        li.textContent = tr('noResults');
+        results.appendChild(li);
+      }
+      found.forEach(function (r, k) {
+        var li = doc.createElement('li');
+        li.id = 'inlay-sr-' + k;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var a = doc.createElement('a');
+        a.href = cfg.root + r.e.r;
+        a.tabIndex = -1;
+        var t = doc.createElement('span'); t.className = 'sr-title'; t.textContent = r.e.t; a.appendChild(t);
+        if (r.e.l) { var p = doc.createElement('span'); p.className = 'sr-path'; p.textContent = r.e.l; a.appendChild(p); }
+        var sn = snippet(r.e, r.term);
+        if (sn) { var x = doc.createElement('span'); x.className = 'sr-snippet'; x.textContent = sn; a.appendChild(x); }
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      active = -1;
+      announce(found.length ? tr('results', { n: found.length }) : tr('noResults'));
+    };
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { loadIndex(render); }, 120);
+    });
+    input.addEventListener('focus', function () { loadIndex(function () {}); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); if (results.hidden) { loadIndex(render); } else { setActive(active + 1); } }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+      else if (ev.key === 'Enter') {
+        var opts = results.querySelectorAll('[role="option"] a');
+        if (!results.hidden && opts.length) { ev.preventDefault(); window.location.href = opts[Math.max(active, 0)].href; }
+      } else if (ev.key === 'Escape') {
+        if (!results.hidden) { ev.preventDefault(); close(); } else { input.value = ''; }
+      }
+    });
+    doc.addEventListener('click', function (ev) {
+      if (!ev.target.closest || !ev.target.closest('.search')) { close(); }
+    });
+  }
+
+  /* esportazione della pagina corrente come HTML autonomo */
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[data-export]') : null;
+    if (!a || !window.Blob || !window.URL || !URL.createObjectURL) { return; }
+    ev.preventDefault();
+    var clone = root.cloneNode(true);
+    var drop = ['.topnav', '.search', '.nav-toggle', '.hero', '#inlay-sidebar', '.breadcrumbs', 'a[data-export]',
+      '#inlay-lightbox', 'script[src]', '.site-footer'];
+    drop.forEach(function (sel) { Array.prototype.forEach.call(clone.querySelectorAll(sel), function (n) { n.parentNode.removeChild(n); }); });
+    Array.prototype.forEach.call(clone.querySelectorAll('[inert]'), function (n) { n.removeAttribute('inert'); n.removeAttribute('aria-hidden'); });
+    clone.classList.remove('js', 'nav-open');
+    clone.style.removeProperty('--header-h');
+    clone.setAttribute('data-exported', 'true');
+    var brand = clone.querySelector('.brand');
+    if (brand) { brand.removeAttribute('href'); }
+    Array.prototype.forEach.call(clone.querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      if (href.charAt(0) === '#' || /^[a-z][a-z0-9+.\-]*:/i.test(href) || href.indexOf('//') === 0) { return; }
+      var span = doc.createElement('span');
+      span.className = 'link-disabled';
+      span.title = tr('linkDisabled');
+      span.setAttribute('data-inlay-export', 'disabled');
+      while (link.firstChild) { span.appendChild(link.firstChild); }
+      link.parentNode.replaceChild(span, link);
+    });
+    var status = clone.querySelector('#inlay-status');
+    if (status) { status.textContent = ''; }
+    var title = (doc.querySelector('.doc-title') || {}).textContent || doc.title;
+    var main = clone.querySelector('#main');
+    if (main) {
+      var note = doc.createElement('p');
+      note.className = 'notice export-note';
+      note.setAttribute('role', 'note');
+      note.textContent = tr('exportNote', { t: title });
+      var head = main.querySelector('.doc-head');
+      main.insertBefore(note, head ? head.nextSibling : main.firstChild);
+    }
+    var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var tmp = doc.createElement('a');
+    tmp.href = url;
+    tmp.download = a.getAttribute('download') || 'documento.html';
+    tmp.style.display = 'none';
+    doc.body.appendChild(tmp);
+    tmp.click();
+    doc.body.removeChild(tmp);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>

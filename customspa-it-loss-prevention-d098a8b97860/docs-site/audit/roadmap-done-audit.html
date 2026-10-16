@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="eng" data-layout="project">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="inlay-doc-site 2.2.0">
+<title>Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION) · LOSS PREVENTION</title>
+<link rel="icon" href="data:,">
+<style>/* inlay-doc-site 2.x - struttura e componenti comuni. I colori e le forme vengono
+   dalle variabili definite dal tema (assets/themes/<tema>/theme.css). */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--header-h,64px) + 12px)}
+body{margin:0;font-family:var(--font);background:var(--c-bg);color:var(--c-text);font-size:15px;line-height:var(--line-height)}
+a{color:var(--c-link)}
+a:hover{color:var(--c-link-hover)}
+:focus-visible{outline:2px solid var(--c-focus);outline-offset:2px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
+li::marker{font-variant-numeric:normal}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--c-primary);color:var(--c-primary-text);padding:10px 16px;font-weight:600;text-decoration:none;border-radius:var(--radius-btn)}
+.skip-link:focus{top:10px;color:var(--c-primary-text)}
+
+/* ---------- top bar ---------- */
+.topbar{display:flex;align-items:center;gap:16px;background:var(--c-header-bg);color:var(--c-header-text);padding:10px 20px;position:sticky;top:0;z-index:50;min-height:64px}
+.topbar :focus-visible{outline-color:var(--c-focus-dark)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;flex:0 1 auto;max-width:360px;text-decoration:none;color:var(--c-header-text)}
+.brand:hover{color:var(--c-header-text)}
+.brand-logo{display:block;height:30px;width:auto;flex:none}
+.brand-mark{width:42px;height:42px;flex:none;border-radius:var(--radius-btn);background:var(--c-primary);color:var(--c-primary-text);font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-title{font-weight:700;font-size:15.5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{color:var(--c-header-muted);font-size:11.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topnav{display:flex;align-items:center;gap:2px;flex:1 1 auto;min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.nav-item{color:var(--c-header-muted);font-size:13.5px;font-weight:500;padding:8px 11px;border-radius:var(--radius-btn);text-decoration:none;flex:none}
+.nav-item:hover{color:var(--c-header-text);background:var(--c-header-hover-bg)}
+.nav-item[aria-current="page"]{color:var(--c-header-text);background:var(--c-header-hover-bg);font-weight:600}
+.nav-toggle{display:none;align-items:center;gap:8px;background:transparent;color:var(--c-header-text);border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);padding:7px 10px;font:inherit;font-size:13px;cursor:pointer;flex:none}
+.nav-toggle-icon{width:16px;height:2px;background:currentColor;box-shadow:0 -5px 0 currentColor,0 5px 0 currentColor;display:inline-block}
+.search{position:relative;flex:0 1 260px;min-width:160px}
+.search input{width:100%;font:inherit;font-size:13.5px;padding:8px 12px;border:1px solid var(--c-header-muted);border-radius:var(--radius-btn);background:var(--c-header-input-bg);color:var(--c-header-text)}
+.search input::placeholder{color:var(--c-header-muted);opacity:1}
+.search-results{position:absolute;right:0;top:calc(100% + 6px);width:min(520px,92vw);max-height:70vh;overflow-y:auto;margin:0;padding:6px;list-style:none;background:var(--c-surface);color:var(--c-text);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:0 10px 30px rgba(0,0,0,.18);z-index:60}
+.search-results li{border-radius:var(--radius-btn)}
+.search-results a{display:block;padding:8px 10px;color:var(--c-text);text-decoration:none;border-radius:var(--radius-btn)}
+.search-results li[aria-selected="true"] a,.search-results a:hover{background:var(--c-tree-active-bg);color:var(--c-tree-active-text)}
+.search-results .sr-title{display:block;font-weight:600;font-size:14px}
+.search-results .sr-path{display:block;font-size:12px;color:var(--c-muted)}
+.search-results .sr-snippet{display:block;font-size:12.5px;color:var(--c-muted);margin-top:2px}
+.search-results .sr-empty{padding:10px;color:var(--c-muted);font-size:13px}
+
+/* ---------- pagina ---------- */
+.page{max-width:1440px;margin:0 auto;padding:24px 28px 56px}
+.hero{margin:0 0 20px}
+.hero-title{font-size:28px;font-weight:800;color:var(--c-heading);line-height:1.25;margin:4px 0 6px}
+.hero-sub{color:var(--c-muted);font-size:15px;margin:0}
+.hero-sub:empty{display:none}
+.quicklinks{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.layout{display:grid;grid-template-columns:var(--sidebar-w) minmax(0,1fr);gap:20px;align-items:start}
+.card{background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--radius-card);box-shadow:var(--card-shadow)}
+.card-head{padding:13px 18px;border-bottom:1px solid var(--c-border);margin:0}
+
+/* ---------- pulsanti ---------- */
+.btn-primary,.btn-outline{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:var(--radius-btn);text-decoration:none;cursor:pointer;border:1px solid var(--c-primary);flex:none;line-height:1.3}
+.btn-primary{background:var(--c-primary);color:var(--c-primary-text)}
+.btn-primary:hover{background:var(--c-primary-hover-bg);color:var(--c-primary-hover-text);border-color:var(--c-primary-hover-border)}
+.btn-primary:active{background:var(--c-primary-active);color:var(--c-primary-text);border-color:var(--c-primary-active)}
+.btn-outline{background:var(--c-surface);color:var(--c-text);border-color:var(--c-border-strong)}
+.btn-outline:hover{border-color:var(--c-primary);color:var(--c-link-hover)}
+.btn-icon{font-size:15px;line-height:1}
+
+/* ---------- albero ---------- */
+.sidebar{position:sticky;top:calc(var(--header-h,64px) + 16px);max-height:calc(100vh - var(--header-h,64px) - 32px);display:flex;flex-direction:column}
+.side-head{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--c-muted)}
+.tree-scroll{flex:1 1 auto;overflow-y:auto;padding:8px 8px 12px;overscroll-behavior:contain}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{padding-left:14px}
+.tree-row{display:flex;align-items:center;gap:2px;min-width:0}
+.tree-toggle{flex:none;width:26px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:0;border-radius:var(--radius-btn);color:var(--c-muted);cursor:pointer;padding:0;font:inherit}
+.tree-toggle:hover{background:var(--c-hover-bg)}
+.tree-toggle::before{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .15s}
+.tree-toggle[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group{flex:1 1 auto;min-width:0;display:flex;align-items:center;gap:6px;background:transparent;border:0;padding:6px 8px 6px 4px;font:inherit;font-size:13px;font-weight:700;color:var(--c-heading);cursor:pointer;text-align:left;border-radius:var(--radius-btn)}
+.tree-group::before{content:"";flex:none;width:7px;height:7px;border-right:2px solid var(--c-muted);border-bottom:2px solid var(--c-muted);transform:rotate(-45deg);transition:transform .15s;margin:0 6px 0 5px}
+.tree-group[aria-expanded="true"]::before{transform:rotate(45deg)}
+.tree-group:hover{background:var(--c-hover-bg)}
+.tree-node-phase>.tree-row .tree-group{font-weight:600;color:var(--c-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tree-link{display:block;flex:1 1 auto;min-width:0;font-size:13px;color:var(--c-text);padding:6px 10px;border-radius:var(--radius-btn);border-left:3px solid transparent;text-decoration:none;overflow-wrap:anywhere;line-height:1.4}
+.tree-link:hover{background:var(--c-hover-bg);color:var(--c-text)}
+.tree-link[aria-current="page"]{background:var(--c-tree-active-bg);color:var(--c-tree-active-text);font-weight:600;border-left-color:var(--c-tree-active-border)}
+.tree-node-root>.tree-row .tree-link,.tree-node-project>.tree-row .tree-link{font-weight:700;color:var(--c-heading)}
+.tree-node-root>.tree-row .tree-link[aria-current="page"],.tree-node-project>.tree-row .tree-link[aria-current="page"]{color:var(--c-tree-active-text)}
+.tree>li>ul{padding-left:6px}
+
+/* ---------- documento ---------- */
+.doc-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.doc-title{font-size:15px;font-weight:700;color:var(--c-heading);margin:0;min-width:0;overflow-wrap:anywhere}
+.breadcrumbs{padding:10px 22px 0;font-size:12.5px;color:var(--c-muted)}
+.breadcrumbs ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px}
+.breadcrumbs li{display:inline-flex;align-items:center;gap:4px}
+.breadcrumbs li+li::before{content:"/";color:var(--c-border-strong);margin-right:2px}
+.breadcrumbs a{color:var(--c-muted)}
+.breadcrumbs a:hover{color:var(--c-link-hover)}
+.doc-info{padding:12px 22px 0;display:flex;flex-direction:column;gap:10px}
+.doc-info details{border:1px solid var(--c-border);border-radius:var(--radius-card);background:var(--c-subtle-bg)}
+.doc-info summary{cursor:pointer;padding:8px 12px;font-size:13px;font-weight:600;color:var(--c-heading)}
+.doc-info dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0;padding:4px 14px 12px;font-size:13px}
+.doc-info dt{color:var(--c-muted)}
+.doc-info dd{margin:0;overflow-wrap:anywhere}
+.toc ol{margin:0;padding:4px 14px 12px 34px;font-size:13px}
+.toc ol ol{padding:2px 0 2px 18px}
+.toc li{margin:2px 0}
+.doc-body{padding:24px 36px 52px;overflow-wrap:break-word}
+
+/* ---------- avvisi e stati ---------- */
+.notice{border:1px solid var(--c-border);border-left:4px solid var(--c-notice-info);background:var(--c-subtle-bg);padding:10px 14px;margin:12px 0;font-size:13.5px;border-radius:var(--radius-card)}
+.notice-warning{border-left-color:var(--c-notice-warning)}
+.notice-update{border-left-color:var(--c-primary)}
+.doc-info .notice{margin:0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.03em;border:1px solid transparent;vertical-align:baseline}
+.badge-complete,.badge-present{background:var(--c-ok-bg);color:var(--c-ok-text);border-color:var(--c-ok-border)}
+.badge-partial,.badge-incomplete,.badge-misplaced{background:var(--c-warn-bg);color:var(--c-warn-text);border-color:var(--c-warn-border)}
+.badge-missing,.badge-absent{background:var(--c-subtle-bg);color:var(--c-muted);border-color:var(--c-border-strong)}
+.cov{font-weight:600;font-size:12.5px}
+.cov-present{color:var(--c-ok-text)}
+.cov-absent{color:var(--c-muted)}
+.cov-excluded{color:var(--c-warn-text)}
+.muted{color:var(--c-muted)}
+.lead{font-size:15px;color:var(--c-muted)}
+.link-disabled,.link-broken{color:var(--c-muted);text-decoration:underline dotted;text-underline-offset:3px;cursor:help}
+.link-broken::after{content:" \26A0";color:var(--c-notice-warning)}
+.asset-missing{display:block;border:1px dashed var(--c-border-strong);background:var(--c-subtle-bg);color:var(--c-muted);padding:18px;text-align:center;font-size:13px;margin:16px 0}
+.extra-evidence{margin-top:32px}
+
+/* ---------- contenuto ---------- */
+.doc-body h1,.doc-body h2,.doc-body h3,.doc-body h4,.doc-body h5,.doc-body h6{color:var(--c-heading);line-height:1.3;position:relative}
+.doc-body h1{font-size:27px;font-weight:800;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--c-border)}
+.doc-body h2{font-size:21px;font-weight:700;margin:34px 0 12px;padding-top:14px;border-top:1px solid var(--c-border-soft)}
+.doc-body h1+h2{margin-top:22px;padding-top:0;border-top:0}
+.doc-body h3{font-size:17px;font-weight:700;margin:24px 0 10px}
+.doc-body h4{font-size:15px;font-weight:700;margin:18px 0 8px}
+.doc-body p,.doc-body li{font-size:15px}
+.doc-body p{margin:10px 0}
+.doc-body a{color:var(--c-link);text-underline-offset:2px}
+.doc-body a:hover{color:var(--c-link-hover)}
+.header-anchor{margin-left:8px;font-weight:400;color:var(--c-muted);text-decoration:none;opacity:0;transition:opacity .15s}
+.doc-body h1:hover .header-anchor,.doc-body h2:hover .header-anchor,.doc-body h3:hover .header-anchor,.doc-body h4:hover .header-anchor,.header-anchor:focus{opacity:1}
+.anchor-alias{position:absolute;top:0;left:0;width:0;height:0}
+.doc-body hr{border:0;border-top:1px solid var(--c-border);margin:26px 0}
+.doc-body ul,.doc-body ol{padding-left:26px;margin:10px 0}
+.doc-body li{margin:4px 0}
+.doc-body blockquote{margin:14px 0;padding:4px 0 4px 16px;border-left:4px solid var(--c-border-strong);color:var(--c-muted)}
+.doc-body img{max-width:100%;height:auto}
+.doc-body :not(pre)>code{background:var(--c-code-inline-bg);padding:2px 6px;border-radius:4px;font-size:.88em;font-family:var(--font-mono)}
+.table-wrap{max-width:100%;overflow-x:auto;margin:16px 0;border:1px solid var(--c-border);border-radius:var(--radius-card)}
+.table-wrap table{border-collapse:collapse;width:100%;font-size:13.5px;margin:0}
+.doc-body th{background:var(--c-subtle-bg);font-weight:600;color:var(--c-heading);text-align:left}
+.doc-body th,.doc-body td{border-bottom:1px solid var(--c-border);padding:8px 12px;vertical-align:top}
+.doc-body th+th,.doc-body td+td{border-left:1px solid var(--c-border)}
+.doc-body tbody tr:last-child td{border-bottom:0}
+.doc-body tbody tr:nth-child(2n){background:var(--c-zebra)}
+
+/* figure e diagrammi */
+.doc-body figure{margin:22px 0;text-align:center}
+.doc-body figcaption{font-size:13px;color:var(--c-muted);margin-top:6px}
+.zoom-trigger{display:inline-block;max-width:100%;padding:0;margin:0;border:1px solid transparent;background:var(--c-surface);cursor:zoom-in;border-radius:var(--radius-card)}
+.zoom-trigger:hover{border-color:var(--c-primary)}
+.zoom-trigger img{display:block;max-width:100%;height:auto;margin:0 auto}
+.diagram-source{text-align:left;margin-top:8px;font-size:13px}
+.diagram-source summary{cursor:pointer;color:var(--c-muted);display:inline-block}
+.diagram-fallback{margin:16px 0}
+.diagram-fallback .notice{margin:0 0 8px}
+
+/* blocchi di codice */
+.code-block{border:1px solid var(--c-code-border);background:var(--c-code-bg);border-radius:var(--radius-code);margin:16px 0;text-align:left}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:4px 6px 4px 14px;border-bottom:1px solid var(--c-code-border)}
+.code-lang{font-size:11px;color:var(--c-muted);text-transform:uppercase;letter-spacing:.05em}
+.code-copy{font:inherit;font-size:12px;padding:3px 10px;border:1px solid var(--c-border-strong);border-radius:var(--radius-btn);background:var(--c-surface);color:var(--c-text);cursor:pointer}
+.code-copy:hover{border-color:var(--c-primary)}
+.code-copy.copied{border-color:var(--c-ok-border);color:var(--c-ok-text)}
+.code-block pre,.doc-body pre{margin:0;padding:14px 18px;overflow-x:auto;font-size:13px;line-height:1.6}
+.doc-body pre{background:var(--c-code-bg)}
+.code-block pre{background:transparent}
+.doc-body pre code{font-family:var(--font-mono);font-size:13px;background:transparent;padding:0;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+/* ASCII-art: font embedded con metriche fisse per allineamento a griglia. */
+.code-block.ascii-art pre code{font-family:'InlayMono',var(--font-mono)}
+.doc-body .shiki span{color:var(--shiki-light)}
+
+/* lightbox */
+.inlay-lightbox{position:fixed;inset:0;background:rgba(9,9,9,.92);z-index:999;display:flex;flex-direction:column}
+.inlay-lightbox-bar{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:12px 18px;flex:0 0 auto}
+.inlay-lightbox-hint{color:#d4d4d4;font-size:12.5px;margin-right:auto}
+.inlay-lightbox-bar button{background:#1f1f1f;color:#f5f5f5;border:1px solid #6b6b6b;border-radius:var(--radius-btn);padding:7px 14px;font:inherit;font-size:13px;cursor:pointer}
+.inlay-lightbox-bar button:hover{background:#333}
+.inlay-lightbox-bar button:focus-visible{outline:2px solid #fcfcfc;outline-offset:2px}
+.inlay-lightbox-stage{flex:1 1 auto;overflow:auto;padding:0 24px 24px;cursor:grab}
+.inlay-lightbox-stage.grabbing{cursor:grabbing}
+.inlay-lightbox-stage:focus-visible{outline:2px solid #fcfcfc;outline-offset:-4px}
+.inlay-lightbox-stage img{background:#fff;display:block;margin:0 auto;max-width:none;user-select:none;-webkit-user-drag:none}
+
+.site-footer{max-width:1440px;margin:0 auto;padding:0 28px 32px;color:var(--c-muted);font-size:12.5px}
+html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
+.export-note{margin:12px 22px 0}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  .layout{grid-template-columns:250px minmax(0,1fr)}
+  .search{flex-basis:200px;min-width:140px}
+}
+@media (max-width:840px){
+  .topbar{flex-wrap:wrap;gap:10px;padding:10px 14px}
+  .brand{flex:1 1 auto;max-width:none}
+  .js .nav-toggle{display:inline-flex}
+  .topnav{order:3;flex-basis:100%}
+  .search{order:4;flex:1 1 100%}
+  .js .topnav,.js .search{display:none}
+  .js.nav-open .topnav{display:flex}
+  .js.nav-open .search{display:block}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;max-height:none}
+  .js .sidebar{display:none}
+  .js.nav-open .sidebar{display:flex}
+  .page{padding:16px 12px 40px}
+  .hero-title{font-size:22px}
+  .doc-body{padding:18px 16px 36px}
+  .doc-head{flex-wrap:wrap}
+  .breadcrumbs,.doc-info{padding-left:16px;padding-right:16px}
+}
+@media print{
+  .topbar,.sidebar,.hero,.btn-primary,.code-copy,.site-footer,.breadcrumbs{display:none!important}
+  .layout{display:block}
+  .card{border:0;box-shadow:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Tema ENG (Engineering, eng.it). Valori osservati sul sito ufficiale il 2026-10-02
+   (review/eng-it-profile.json): header #090909/#FCFCFC, base #FCFCFC/#202020,
+   pulsante primario #C51B88 -> hover #FCFCFC/#090909 -> active #770F53, raggio 0,
+   famiglia CocoEng. Le altre scelte (layout, stati, contenuti tecnici) sono decisioni
+   di prodotto documentate in references/eng-brand.md. */
+:root{
+  --font:"CocoEng","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-mono:ui-monospace,"Cascadia Code",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --line-height:1.7;
+  --c-bg:#FCFCFC;--c-surface:#FFFFFF;--c-subtle-bg:#F6F6F6;--c-zebra:#FAFAFA;--c-hover-bg:#F1F1F1;
+  --c-border:#DEDEDE;--c-border-soft:#EDEDED;--c-border-strong:#8F8F8F;
+  --c-text:#202020;--c-heading:#090909;--c-muted:#4D4D4D;
+  --c-header-bg:#090909;--c-header-text:#FCFCFC;--c-header-muted:#BDBDBD;--c-header-hover-bg:#262626;--c-header-input-bg:#171717;
+  --c-primary:#C51B88;--c-primary-text:#FCFCFC;
+  --c-primary-hover-bg:#FCFCFC;--c-primary-hover-text:#090909;--c-primary-hover-border:#090909;
+  --c-primary-active:#770F53;
+  --c-link:#B0177A;--c-link-hover:#770F53;
+  --c-tree-active-bg:#F4D1E8;--c-tree-active-text:#770F53;--c-tree-active-border:#C51B88;
+  --c-focus:#C51B88;--c-focus-dark:#FCFCFC;
+  --c-code-bg:#F6F6F6;--c-code-border:#DEDEDE;--c-code-inline-bg:#EFEFEF;
+  --c-notice-info:#4D4D4D;--c-notice-warning:#A15C00;
+  --c-ok-bg:#E7F4EA;--c-ok-text:#1D6631;--c-ok-border:#9CCDA9;
+  --c-warn-bg:#FFF3DF;--c-warn-text:#7A4300;--c-warn-border:#E9B86A;
+  --radius-btn:0;--radius-card:0;--radius-code:0;
+  --card-shadow:none;
+  --sidebar-w:300px;
+}
+.topbar{border-bottom:1px solid #262626}
+.brand-logo{height:28px}
+.hero-title{font-weight:700;letter-spacing:-.01em}
+.side-head{color:#090909}
+.btn-primary{text-transform:none;letter-spacing:.01em}
+.doc-body h1{font-weight:700}
+.doc-body h2{border-top-color:#DEDEDE}
+.tree-link[aria-current="page"]{border-left-width:4px}
+.badge{border-radius:0}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Vai al contenuto</a>
+<header class="topbar" id="top">
+  <a class="brand" href="../index.html"><img class="brand-logo" src="data:image/svg+xml;base64,PHN2Zw0KICAgICAgICAgICAgd2lkdGg9IjE0OSINCiAgICAgICAgICAgIGhlaWdodD0iNDYiDQogICAgICAgICAgICB2aWV3Qm94PSIwIDAgMTQ5IDQ2Ig0KICAgICAgICAgICAgZmlsbD0ibm9uZSINCiAgICAgICAgICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICAgICAgICA+DQogICAgICAgICAgICA8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfMzc3XzIxMDEpIj4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjMuMTg3NCAzNy4xMzY3VjM5Ljc4OTVIMi4zNTYyNEMxLjg3NTM4IDM4Ljk2ODkgMS40OTg3IDM4LjA3OTkgMS4xNTA4NyAzNy4xMzk5TDIzLjE4NzQgMzcuMTM2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgNDIuMzA4NlY0NC43MzM1QzIzLjE4NzQgNDQuODU3OCAyMy4wODY0IDQ0Ljk1OTcgMjIuOTU5OCA0NC45NTk3SDExLjQ0OTRDOS4xMzQ4NSA0NC45NTk3IDYuNTA2MTIgNDQuMTU4MyA0LjQzNTE5IDQyLjMwODZIMjMuMTg3NFoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTI1LjcwMzkgMC4yMjYxMjFWMTUuODYyMkMyNS43MDM5IDE1Ljk1NzggMjUuNjczNCAxNi4wNTAyIDI1LjYxNzMgMTYuMTI4MkwxNS45ODcyIDI5LjI2NjFDMTUuOTAyMiAyOS4zODI0IDE1Ljc2NDQgMjkuNDUyNSAxNS42MjAxIDI5LjQ1MjVIMC42MDU4OTRDMC40NTY4MjYgMjkuNDUyNSAwLjM0NDYyNCAyOS4zMTA3IDAuMzg2Mjk5IDI5LjE2NzNDMC43Mzg5MzQgMjcuOTE1IDEuMzIzOTkgMjYuNzU4MyAyLjA5MDE3IDI1Ljc0MzRMMTguNzk3MSAzLjc3OTA0QzIxLjE4MzggMC44Mzk1MTggMjQuMjUxNyAwLjE3NjczIDI1LjQ0NTggMC4wMDMwNjcyOEMyNS41ODIxIC0wLjAxNzY0NDggMjUuNzAzOSAwLjA4OTEwMjIgMjUuNzAzOSAwLjIyNjEyMVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTIzLjE4NzQgMzIuMTA1MlYzNC42MjA5SDAuMzQ0NjIxQzAuMzM4MjA5IDM0LjYwMDIgMC4wMjg4NTIgMzMuNzczMyAwIDMyLjIwMDdDMCAzMi4wNzMzIDAuMDk5Mzc5IDMxLjk2OTcgMC4yMjc2MSAzMS45Njk3SDIzLjA1MTFDMjMuMTI2NSAzMS45Njk3IDIzLjE4NzQgMzIuMDMwMyAyMy4xODc0IDMyLjEwNTJaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik01Mi45NDQ5IDM3LjEzOTlDNTIuNTk3MSAzOC4wNzk5IDUyLjIyMDQgMzguOTY4OSA1MS43Mzk2IDM5Ljc4OTVIMzAuOTA4NVYzNy4xMzY3TDUyLjk0NDkgMzcuMTM5OVoiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTMwLjkwODUgNDIuMzA4NlY0NC43MzM1QzMwLjkwODUgNDQuODU3OCAzMS4wMDk0IDQ0Ljk1OTcgMzEuMTM2MSA0NC45NTk3SDQyLjY0NjRDNDQuOTYxIDQ0Ljk1OTcgNDcuNTg5NyA0NC4xNTgzIDQ5LjY2MDYgNDIuMzA4NkgzMC45MDg1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMjguMzkxOSAwLjIyNjQ4MVYxNS44NjI1QzI4LjM5MTkgMTUuOTU4MSAyOC40MjI0IDE2LjA1MDUgMjguNDc4NSAxNi4xMjg2TDM4LjEwODYgMjkuMjY2NUMzOC4xOTM2IDI5LjM4MjggMzguMzMxNCAyOS40NTI5IDM4LjQ3NTcgMjkuNDUyOUg1My40ODk5QzUzLjYzOSAyOS40NTI5IDUzLjc1MTIgMjkuMzExMSA1My43MDk1IDI5LjE2NzdDNTMuMzU2OSAyNy45MTU0IDUyLjc3MTggMjYuNzU4NyA1Mi4wMDU3IDI1Ljc0MzhMMzUuMjk3MiAzLjc4MUMzMi45MTA1IDAuODQxNDcxIDI5Ljg0MjUgMC4xNzg2ODMgMjguNjQ4NCAwLjAwNTAyMDQxQzI4LjUxMjEgLTAuMDE1NjkxNyAyOC4zOTAzIDAuMDkxMDU1MyAyOC4zOTAzIDAuMjI4MDc0SDI4LjM5MTlWMC4yMjY0ODFaIg0KICAgICAgICAgICAgICAgIGZpbGw9IndoaXRlIg0KICAgICAgICAgICAgICAvPg0KICAgICAgICAgICAgICA8cGF0aA0KICAgICAgICAgICAgICAgIGQ9Ik0zMC45MDg1IDMyLjE5NlYzNC42MjA5SDUzLjc1MTJDNTMuNzU3NiAzNC42MDAyIDU0LjA2NyAzMy43NzMzIDU0LjA5NTggMzIuMjAwN0M1NC4wOTc0IDMyLjA3MzMgNTMuOTk2NCAzMS45Njk3IDUzLjg2ODIgMzEuOTY5N0gzMS4xMzYxQzMxLjAxMSAzMS45Njk3IDMwLjkwODUgMzIuMDcwMSAzMC45MDg1IDMyLjE5NloiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTY5LjUyMzYgMzYuMDM0M0M2Ny41MDQgMzQuODM5NCA2NS45NDEyIDMzLjIzMDIgNjQuODM1MiAzMS4yMDY4QzYzLjcyOTIgMjkuMTgzNCA2My4xNzYyIDI2Ljk2MDggNjMuMTc2MiAyNC41MzkxQzYzLjE3NjIgMjIuMTE3NCA2My43MTMxIDE5Ljg0NyA2NC43ODcxIDE3LjgyMzZDNjUuODYxIDE1LjgwMDIgNjcuMzY3NyAxNC4xOTkgNjkuMzA3MiAxMy4wMkM3MS4yNDY3IDExLjg0MSA3My40ODI3IDExLjI1MTUgNzYuMDE1MyAxMS4yNTE1Qzc4LjU0NzkgMTEuMjUxNSA4MC44OTYxIDExLjgwOTEgODIuNzcxNSAxMi45MjQ0Qzg0LjY0NjggMTQuMDM5NiA4Ni4wNzM0IDE1LjU4NTEgODcuMDUxMiAxNy41NjA3Qzg4LjAyODkgMTkuNTM2MyA4OC41MTc4IDIxLjc5ODcgODguNTE3OCAyNC4zNDc5Qzg4LjUxNzggMjUuMjQwMSA4OC40NTM3IDI2LjExNjQgODguMzI1NSAyNi45NzY3SDcxLjAxNDNDNzEuNDMxIDI4LjMxNTEgNzIuMTM2MyAyOS4zNDI3IDczLjEzMDEgMzAuMDU5N0M3NC4xMjM5IDMwLjc3NjYgNzUuMzQyMSAzMS4xMzUxIDc2Ljc4NDcgMzEuMTM1MUM3Ny45NzA4IDMxLjEzNTEgNzkuMDEyNyAzMC45OTE3IDc5LjkxMDMgMzAuNzA0OUM4MC44MDc5IDMwLjQxODEgODEuNzIxNiAyOS45MjQyIDgyLjY1MTMgMjkuMjIzMkw4Ni40NTAxIDM0LjI0MTlDODUuMDA3NSAzNS40ODQ2IDgzLjQ5MjggMzYuMzkyOCA4MS45MDU5IDM2Ljk2NjNDODAuMzE5IDM3LjUzOTkgNzguNDk5OCAzNy44MjY3IDc2LjQ0ODEgMzcuODI2N0M3My44NTE0IDM3LjgyNjcgNzEuNTQzMiAzNy4yMjkyIDY5LjUyMzYgMzYuMDM0M1pNODEuMjU2NyAyMS44MTQ2QzgwLjkzNjIgMjAuNDQ0NSA4MC4zMzUxIDE5LjQwODggNzkuNDUzNSAxOC43MDc4Qzc4LjU3MTkgMTguMDA2OCA3Ny40NzM5IDE3LjY1NjMgNzYuMTU5NiAxNy42NTYzQzc0Ljg0NTIgMTcuNjU2MyA3My42OTkxIDE4LjAxNDggNzIuODE3NSAxOC43MzE3QzcxLjkzNiAxOS40NDg3IDcxLjMxODggMjAuNDc2MyA3MC45NjYyIDIxLjgxNDZIODEuMjU2N1oiDQogICAgICAgICAgICAgICAgZmlsbD0id2hpdGUiDQogICAgICAgICAgICAgIC8+DQogICAgICAgICAgICAgIDxwYXRoDQogICAgICAgICAgICAgICAgZD0iTTkyLjc5NzUgMTEuNzc3Mkg5Ny42MDYyTDk5Ljc3MDEgMTQuNjkyOEMxMDIuMDE0IDEyLjM2NjcgMTA0Ljg1MSAxMS4yMDM2IDEwOC4yODEgMTEuMjAzNkMxMTEuMzU5IDExLjIwMzYgMTEzLjgxOSAxMi4xOTE0IDExNS42NjMgMTQuMTY3QzExNy41MDYgMTYuMTQyNyAxMTguNDI4IDE4Ljg1MTIgMTE4LjQyOCAyMi4yOTI2VjM3LjEwOTdIMTEwLjQ0NVYyMy42Nzg3QzExMC40NDUgMjIuMDIxNyAxMTAuMDQ1IDIwLjczOTIgMTA5LjI0MyAxOS44MzFDMTA4LjQ0MiAxOC45MjI5IDEwNy4zNTIgMTguNDY4OCAxMDUuOTczIDE4LjQ2ODhDMTA0LjQ5OSAxOC40Njg4IDEwMy4yNjQgMTguOTU0NyAxMDIuMjcxIDE5LjkyNjZDMTAxLjI3NyAyMC44OTg1IDEwMC43OCAyMi4wMzc2IDEwMC43OCAyMy4zNDQxVjM3LjEwOTdIOTIuNzk3NVYxMS43NzcyWiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgICAgPHBhdGgNCiAgICAgICAgICAgICAgICBkPSJNMTQxLjQxMyAxNC41MDE2TDE0My40ODEgMTEuNzc3MkgxNDguMjg5VjMzLjE0MjVDMTQ4LjI4OSAzNS41MzI0IDE0Ny43MzYgMzcuNzA3MSAxNDYuNjMgMzkuNjY2OEMxNDUuNTI0IDQxLjYyNjUgMTQzLjkwNiA0My4xNzIgMTQxLjc3NCA0NC4zMDMyQzEzOS42NDIgNDUuNDM0NCAxMzcuMTAxIDQ2IDEzNC4xNTIgNDZDMTMwLjA4MSA0NiAxMjYuNDkgNDQuODA1IDEyMy4zODEgNDIuNDE1MkwxMjcuNTE2IDM2LjkxODVDMTI4LjU3NCAzNy43Nzg4IDEyOS42MTYgMzguMzg0MyAxMzAuNjQyIDM4LjczNDhDMTMxLjY2OCAzOS4wODUzIDEzMi43OSAzOS4yNjA2IDEzNC4wMDggMzkuMjYwNkMxMzYuMjIgMzkuMjYwNiAxMzcuODQ3IDM4Ljc1MDcgMTM4Ljg4OSAzNy43MzFDMTM5LjkzIDM2LjcxMTQgMTQwLjQ1MSAzNS4xOTc4IDE0MC40NTEgMzMuMTkwM0MxMzguNTYgMzQuNzUxNyAxMzYuMyAzNS41MzI0IDEzMy42NzEgMzUuNTMyNEMxMzEuNDI3IDM1LjUzMjQgMTI5LjQxNSAzNS4wMDY2IDEyNy42MzYgMzMuOTU1MUMxMjUuODU3IDMyLjkwMzUgMTI0LjQ2MyAzMS40NjE2IDEyMy40NTMgMjkuNjI5NEMxMjIuNDQzIDI3Ljc5NzIgMTIxLjkzOCAyNS43MTggMTIxLjkzOCAyMy4zOTE5QzEyMS45MzggMjEuMDY1OCAxMjIuNDQzIDE5LjAxODUgMTIzLjQ1MyAxNy4xNTQ0QzEyNC40NjMgMTUuMjkwMyAxMjUuODU3IDEzLjgzMjUgMTI3LjYzNiAxMi43ODA5QzEyOS40MTUgMTEuNzI5NCAxMzEuNDI3IDExLjIwMzYgMTMzLjY3MSAxMS4yMDM2QzEzNi43MTcgMTEuMjAzNiAxMzkuMjk3IDEyLjMwMjkgMTQxLjQxMyAxNC41MDE2Wk0xMzEuMzg3IDE5LjcxMTVDMTMwLjM3NyAyMC42OTkzIDEyOS44NzIgMjEuOTU4IDEyOS44NzIgMjMuNDg3NUMxMjkuODcyIDI1LjAxNyAxMzAuMzc3IDI2LjM3MTMgMTMxLjM4NyAyNy4zNTkxQzEzMi4zOTcgMjguMzQ2OSAxMzMuNzAzIDI4Ljg0MDggMTM1LjMwNiAyOC44NDA4QzEzNi45MDkgMjguODQwOCAxMzguMjE1IDI4LjM0NjkgMTM5LjIyNSAyNy4zNTkxQzE0MC4yMzUgMjYuMzcxMyAxNDAuNzQgMjUuMDk2NyAxNDAuNzQgMjMuNTM1M0MxNDAuNzQgMjEuOTczOSAxNDAuMjM1IDIwLjczOTIgMTM5LjIyNSAxOS43MzU0QzEzOC4yMTUgMTguNzMxNyAxMzYuOTA5IDE4LjIyOTggMTM1LjMwNiAxOC4yMjk4QzEzMy43MDMgMTguMjI5OCAxMzIuMzk3IDE4LjcyMzcgMTMxLjM4NyAxOS43MTE1WiINCiAgICAgICAgICAgICAgICBmaWxsPSJ3aGl0ZSINCiAgICAgICAgICAgICAgLz4NCiAgICAgICAgICAgIDwvZz4NCiAgICAgICAgICAgIDxkZWZzPg0KICAgICAgICAgICAgICA8Y2xpcFBhdGggaWQ9ImNsaXAwXzM3N18yMTAxIj4NCiAgICAgICAgICAgICAgICA8cmVjdCB3aWR0aD0iMTQ4LjI4OSIgaGVpZ2h0PSI0NiIgZmlsbD0id2hpdGUiIC8+DQogICAgICAgICAgICAgIDwvY2xpcFBhdGg+DQogICAgICAgICAgICA8L2RlZnM+DQogICAgICAgICAgPC9zdmc+" alt="Engineering" width="149" height="46"><span class="brand-text"><span class="brand-title">LOSS PREVENTION</span><span class="brand-sub"></span></span></a>
+  <button type="button" class="nav-toggle" aria-controls="inlay-nav inlay-sidebar" aria-expanded="false" hidden><span class="nav-toggle-icon" aria-hidden="true"></span><span class="nav-toggle-text">Menu</span></button>
+  <nav class="topnav" id="inlay-nav" aria-label="Navigazione principale"><a class="nav-item" href="../index.html">Panoramica</a><a class="nav-item" href="../index.html#fam-how">Architettura (HOW)</a></nav>
+  <div class="search" role="search" hidden>
+    <label class="visually-hidden" for="inlay-search">Cerca nella documentazione</label>
+    <input id="inlay-search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="inlay-search-results" placeholder="Cerca nella documentazione" autocomplete="off" spellcheck="false">
+    <ul id="inlay-search-results" class="search-results" role="listbox" aria-label="Cerca nella documentazione" hidden></ul>
+  </div>
+</header>
+<div class="page">
+  <div class="hero">
+    <p class="hero-title">LOSS PREVENTION</p>
+    <p class="hero-sub"></p>
+    
+  </div>
+  <div class="layout">
+    <aside class="card sidebar" id="inlay-sidebar">
+      <p class="card-head side-head" id="inlay-tree-label">Struttura documenti</p>
+      <nav class="tree-scroll" id="inlay-tree" aria-labelledby="inlay-tree-label"><ul class="tree"><li class="tree-node tree-node-root"><div class="tree-row"><button type="button" class="tree-toggle" aria-expanded="true" aria-controls="inlay-t1" aria-label="LOSS PREVENTION"></button><a class="tree-link" href="../index.html">LOSS PREVENTION</a></div><ul id="inlay-t1"><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t2">Architettura (HOW)</button></div><ul id="inlay-t2"><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t3">Foundation</button></div><ul id="inlay-t3"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../00_deep_dive.html">00 · Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../01_context.html">01 · Context Definition</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t6">Requirements</button></div><ul id="inlay-t6"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../02_functional_overview.html">02 · Functional Overview</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../03_non_functional_overview.html">03 · Non-Functional Requirements</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../04_constraints.html">04 · Constraints</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t10">Architecture</button></div><ul id="inlay-t10"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../05_principles.html">05 · Architectural Principles</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../06_software_architecture.html">06 · Software Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../07_code.html">07 · Code Implementation Details</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../08_data.html">08 · Data Architecture</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t15">Infrastructure &amp; Operations</button></div><ul id="inlay-t15"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../09_infrastructure_architecture.html">09 · Infrastructure Architecture</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../10_deployment.html">10 · Deployment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../11_development_environment.html">11 · Development Environment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../12_operation_and_support.html">12 · Operation and Support</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t20">Decisions &amp; Metrics</button></div><ul id="inlay-t20"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../13_decision_log.html">13 · Decision Log</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../14_metrics.html">14 · Metrics</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../15_fp_cocomo.html">15 · FP &amp; COCOMO II</a></div></li></ul></li><li class="tree-node tree-node-phase"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t24">Deep Assessments</button></div><ul id="inlay-t24"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../16_frontend_deep_assessment.html">16 · Frontend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../17_backend_deep_assessment.html">17 · Backend Deep Assessment</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../18_antipattern_deep_dive.html">18 · Antipattern Deep Dive</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../19_modernization_estimation_spec.html">19 · Modernization Estimation Spec</a></div></li></ul></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="../index-doc.html">IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION</a></div></li></ul></li><li class="tree-node tree-node-family"><div class="tree-row"><button type="button" class="tree-group" aria-expanded="true" aria-controls="inlay-t30">Audit MVP e Roadmap</button></div><ul id="inlay-t30"><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="roadmap-done-audit.en.html">Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</a></div></li><li class="tree-node tree-node-doc"><div class="tree-row"><a class="tree-link" href="roadmap-done-audit.html" aria-current="page">Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</a></div></li></ul></li></ul></li></ul></nav>
+    </aside>
+    <main class="card docpane" id="main" tabindex="-1">
+      <div class="card-head doc-head"><p class="doc-title">Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</p><a class="btn-primary btn-export" href="roadmap-done-audit.html" download="roadmap-done-audit.html" data-export="">Scarica</a></div>
+      <nav class="breadcrumbs" aria-label="Percorso"><ol><li><a href="../index.html">LOSS PREVENTION</a></li><li><span>Audit MVP e Roadmap</span></li><li><span aria-current="page">Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</span></li></ol></nav>
+      <div class="doc-info"><details class="provenance"><summary>Provenienza del documento <span class="badge badge-absent">metadati non disponibili</span></summary><dl><dt>Sorgente</dt><dd><code>@audit/roadmap-done-audit.md</code></dd><dt>SHA-256 sorgente</dt><dd><code>57295c36e7616add09fe9fd1ca88051cc5c77747d5509e8233d1b888b188c2a2</code></dd></dl><p class="notice" role="note">Documento senza blocco IMPACT-META: la baseline non è nota e non viene dedotta.</p></details><details class="toc" id="inlay-toc" open><summary>In questa pagina</summary><ol><li><a href="#metodo">Metodo</a></li><li><a href="#m01m02-integrazione-dati-e-definizioni-di-business">M01–M02 Integrazione dati e definizioni di business</a></li><li><a href="#m03m04-reportistica-e-dashboard">M03–M04 Reportistica e dashboard</a></li><li><a href="#m05m06-rilevazione-eccezioni-e-analisi-assistita">M05–M06 Rilevazione eccezioni e analisi assistita</a></li><li><a href="#m07m09-amministrazione-collaborazione-e-retention">M07–M09 Amministrazione, collaborazione e retention</a></li><li><a href="#m10-release-readiness">M10 Release readiness</a></li><li><a href="#roadmap-e-sviluppi-futuri--affermazioni-su-ci%C3%B2-che-esiste-gi%C3%A0">Roadmap e sviluppi futuri – affermazioni su ciò che esiste già</a></li><li><a href="#sintesi-solo-requisiti-dichiarati">Sintesi (solo requisiti dichiarati)</a></li></ol></details></div>
+      <article class="doc-body" id="doc-body"><h1 id="audit-voci-dichiarate-implementate--loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention"><span id="audit-voci-dichiarate-implementate-loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="audit-voci-dichiarate-implementate-–-loss-prevention-business-functionality-mvp-and-roadmap-docx-loss-prevention" class="anchor-alias" aria-hidden="true"></span>Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)<a class="header-anchor" href="#audit-voci-dichiarate-implementate--loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" aria-label="Collegamento alla sezione: Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)">#</a></h1>
+<p>Fonte dei requisiti: <code>Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx</code> ("MVP delivery and product roadmap", stato al 13 ottobre 2026).
+Base: <code>customspa-it-loss-prevention-d098a8b97860</code> (commit baf7319). Verifica eseguita <strong>solo su quanto dichiarato nel codice sorgente</strong> (lettura diretta dei file).
+Build: UI <code>vite build</code> OK su Windows (warning <code>eval</code> in resultsGrid.vue). Backend NON compilato (.NET SDK assente sulla macchina). Nessun test automatico nel repo.</p>
+<h2 id="metodo">Metodo<a class="header-anchor" href="#metodo" aria-label="Collegamento alla sezione: Metodo">#</a></h2>
+<p>Il documento non usa l'etichetta "DONE": assegna a ogni capacità (M01–M10) uno stato di completezza (<em>Implemented</em>, <em>Partially implemented</em>, <em>Validation pending</em>, <em>Planned</em>) e descrive cosa è già presente. Sono verificate tutte le funzionalità che il documento dichiara <strong>presenti / implementate / esistenti</strong>, comprese le parti dichiarate presenti nelle voci <em>Partially implemented</em>. Per le roadmap R01–R08 e N01–N06 sono verificate solo le affermazioni su ciò che esiste già. Lo stato dichiarato è indicato nella colonna "Voce".</p>
+<p>Per ogni voce:
+- <strong>Implementato</strong>: evidenze nel codice di ciò che esiste.
+- <strong>R – manca rispetto al requisito</strong>: ciò che il documento dichiara presente/funzionante non funziona o funziona solo in parte. Per le voci dichiarate parziali o incomplete, il requisito è la parte che il documento dichiara già presente.
+- <strong>Q – valutazione di qualità</strong>: robustezza, sicurezza, architettura o completezza oltre quanto dichiarato. È una valutazione dell'auditor, <strong>non richiesta dal documento</strong>. Diversi di questi temi sono indicati dal documento stesso come attività "To complete for MVP" o come roadmap: restrizioni dati applicate dal server, workflow lookup, switch regole in ingestion, replay/recovery dei file, logging/audit, security hardening, revisione permessi, test e deployment automatizzati (R07), policy dashboard per regione/negozio/distretto e alert automatici (R06), SSO (R03), ulteriore validazione KNN (N05), controlli AI token/creatività (opzionali).
+- <strong>Esito</strong>: calcolato <strong>solo sulla colonna R</strong>. ✅ requisito soddisfatto · 🟡 requisito soddisfatto in parte · ❌ requisito non implementato.</p>
+<h2 id="m01m02-integrazione-dati-e-definizioni-di-business"><span id="m01–m02-integrazione-dati-e-definizioni-di-business" class="anchor-alias" aria-hidden="true"></span>M01–M02 Integrazione dati e definizioni di business<a class="header-anchor" href="#m01m02-integrazione-dati-e-definizioni-di-business" aria-label="Collegamento alla sezione: M01–M02 Integrazione dati e definizioni di business">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 1"><table>
+<thead>
+<tr>
+<th>Voce</th>
+<th>Implementato</th>
+<th>R – manca rispetto al requisito</th>
+<th>Q – valutazione di qualità</th>
+<th>Esito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingestion SFTP/File System, CSV/XML/JSON (M01 – <em>core imports present</em>)</td>
+<td>Config + endpoint (incl. /sources, /schedule, /recurrence-options), SSH.NET, lettura file system, 3 processor registrati (Program.cs:102-105); un solo <code>SelectedFileType</code> per esecuzione (FileProcessingCoordinator.cs:71-82)</td>
+<td>—</td>
+<td>Servizio standalone DataIngestionService legacy (XML-only da <code>C:\xmlstore5\xml</code> hardcoded, Program.cs:76; carica le regole ma non le usa, :44-46; non consulta <code>ProcessedFiles</code>); XML: un documento per file, attributi stringa con prefisso <code>@</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Schedulazione caricamenti (M01 – <em>scheduling present</em>)</td>
+<td>DataIngestionBackgroundService: controllo ogni minuto (:13), esecuzione entro ±1 min da <code>ScheduleTime</code> (:118), ricorrenza daily/weekly/monthly (:129-142); UI dataingestion.vue</td>
+<td><strong>"One-time" mai eseguito</strong>: offerto dalla UI e default (dataingestion.vue:129, dataIngestionStore.ts:26), ma il servizio esce se <code>ScheduleType == "one-time"</code> (DataIngestionBackgroundService.cs:55)</td>
+<td><code>ScheduleDate</code> ignorato; <code>LastRunAt</code> solo in memoria (:86) → guardia anti-doppio-run (:100-101) inefficace; "monthly" solo il giorno 1 (:142), gestito dal backend ma assente nella UI attiva</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Tracciamento file sorgente (M01 – <em>source tracking present</em>)</td>
+<td><code>_sourceFile</code>/<code>_processedAt</code>/<code>_sourceType</code> su ogni documento (FileProcessingCoordinator.cs:298, 368)</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Record file processati / load monitoring (M01 – <em>processed-file records present</em>; "duplicate checks depend on filenames")</td>
+<td>Collection <code>ProcessedFiles</code> (<code>fileName</code>, <code>recordCount</code>, <code>processedAt</code>, FileProcessingCoordinator.cs:399-411) + skip duplicati per nome (:387-397)</td>
+<td><strong>"Load monitoring" non disponibile per l'utente</strong>: <code>ProcessedFiles</code> non è esposta da nessun endpoint API né dalla UI → verifica possibile solo interrogando il DB</td>
+<td>Chiave solo nome file, nessun indice univoco; su SFTP un file con nome già presente in <code>processed/</code> viene rinominato con <code>_yyyyMMddHHmmss</code> (SftpFileProcessingService.cs:229) e reinserito</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Move dei file SFTP in processed (M01 – dichiarato <em>target workflow</em>; replay da completare)</td>
+<td>Move → <code>processed/</code> (SftpFileProcessingService.cs:178-180), → <code>failed/</code> su errore (:113-117), cartelle create (:203-217). <strong>Già implementato</strong> sebbene il documento lo indichi come obiettivo</td>
+<td>—</td>
+<td><strong>Doppio download/parse</strong> (fase 2 FileProcessingCoordinator.cs:246-304 riscarica da <code>processed/</code> per inserire); se la fase 2 fallisce il file resta in <code>processed/</code> non inserito (ritentato al run successivo); nessuna funzione di replay API/UI e un file riportato indietro viene saltato perché il nome è in <code>ProcessedFiles</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Streaming (M01 – dichiarato <em>incomplete or require validation</em>)</td>
+<td>Nessuna implementazione</td>
+<td><strong>Streaming assente</strong> (non parziale): file SFTP scaricato interamente in MemoryStream (SftpFileProcessingService.cs:148-150) e copiato su file temporaneo (:160)</td>
+<td>—</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Mapping Add/Rename/Remove (M02 – <em>mappings implemented</em>)</td>
+<td>CRUD API + UI (MappingService.cs, mappingStore.ts, mappings.vue); Add con controllo duplicati Name/Alias; <code>Alias</code>, <code>DataType</code>, <code>IsVisible</code> per i campi esposti in reportistica</td>
+<td>—</td>
+<td>Rename senza controllo duplicati; API restituisce solo mapping visibili (MappingService.cs:29) → mapping nascosta non ripristinabile da UI; <code>ApplyMappingsToBsonDocuments</code> mai invocato</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Metadati lookup (M02 – <em>lookups partial</em>: "lookup-related metadata exists, workflow outstanding")</td>
+<td>Solo flag <code>IsLookup</code> (MappingItem.cs, MappingService.cs:43,82, switch mappings.vue:60); letto in queryBuilderTabs.vue:203 ma non usato</td>
+<td>— (corrisponde a quanto dichiarato)</td>
+<td>Nessuna tabella, collection o logica di lookup: il workflow va sviluppato da zero</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m03m04-reportistica-e-dashboard"><span id="m03–m04-reportistica-e-dashboard" class="anchor-alias" aria-hidden="true"></span>M03–M04 Reportistica e dashboard<a class="header-anchor" href="#m03m04-reportistica-e-dashboard" aria-label="Collegamento alla sezione: M03–M04 Reportistica e dashboard">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 2"><table>
+<thead>
+<tr>
+<th>Voce</th>
+<th>Implementato</th>
+<th>R – manca rispetto al requisito</th>
+<th>Q – valutazione di qualità</th>
+<th>Esito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspaces create/rename/delete/search (M03 – <em>implemented</em>)</td>
+<td>CRUD API + UI (<code>POST /workspaces</code> in CreateWorkspace.cs:18, Update/Delete, CAN_MANAGE_WORKSPACES); ricerca in workspace.vue:76-77 → workspacestore.ts:11-22</td>
+<td>—</td>
+<td>Ricerca solo client-side; Save non awaited con toast di successo comunque (queryBuilderTabs.vue:454-461)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Tab add/rename/delete/duplicate (M03)</td>
+<td>queryBuilderTabs.vue:286-359 (create/rename/remove/duplicate deep-copy), persistiti con Save workspace</td>
+<td>—</td>
+<td>Id tab posizionali <code>tab-N</code>, rigenerati al load (queryBuilderTabs.vue:250)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Design/View (M03)</td>
+<td>Toggle <code>designMode</code> persistito (queryBuilderTabs.vue:22-31, 60-70); esecuzione via GetReportDataEndpoint → ReportDataservice</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Espressioni (M03)</td>
+<td>Campi calcolati <code>IsCalculated</code>/<code>Expression</code> persistiti e valutati in resultsGrid.vue:1359-1386</td>
+<td>—</td>
+<td><code>eval</code> (resultsGrid.vue:1377) → rischio sicurezza; nessuna valutazione server; campi calcolati saltati in dashboard (tabularBlock.vue:283) ed esclusi dall'export</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Prefix/Suffix (M03)</td>
+<td>Persistiti (WorkspaceService.cs:117-118, 161-162), applicati in resultsGrid e tabularBlock.vue:342</td>
+<td>In resultsGrid non mostrati oltre 200 righe se non ci sono regole di formattazione (resultsGrid.vue:1340, 1432-1438)</td>
+<td>Esclusi dall'export (dati grezzi)</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Conditional Formatting (M03)</td>
+<td>formattingRow.vue (10 operatori, :172-181), cellStyle in resultsGrid.vue:1441-1451 e tabularBlock.vue:339, aggiunta da context menu (resultsGrid.vue:877-885, 1096)</td>
+<td>Applicato solo <code>$eq</code> (grid e dashboard) pur offrendo 10 operatori; <strong>regole non persistite</strong> (nessuna <code>FormattingRules</code> in Query/QueryDTO né in altre classi C#) → perse a save/reload; formattingRow legge le mapping in PascalCase (<code>m.IsVisible</code>, :167) mentre l'API le espone in camelCase → elenco campi vuoto</td>
+<td>—</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Heatmap (M03)</td>
+<td>heatmapPreview.vue (chartjs-matrix, normalizzazione lin/log, legende, tooltip); lock applicato (toolbar.vue:180)</td>
+<td>—</td>
+<td>Watch non deep</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Heatmap Drilldown (M03)</td>
+<td>Click → nuovo tab "(Drilldown)" con filtri <code>$eq</code> x/y (heatmapPreview.vue:406-445 → queryBuilderTabs.vue:378-395)</td>
+<td>—</td>
+<td>Date convertite in ora locale (heatmapPreview.vue:132-141; impatto dipende dai dati); filtri solo sul gruppo root; tab non salvato automaticamente</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Dashboard chart/tabular/text add/edit/delete (M04 – <em>implemented</em>)</td>
+<td>dashboard.vue, dashboardGrid.vue (edit/delete per chart/text/image/tabular), CRUD API con CAN_VIEW_DASHBOARD/CAN_MANAGE_DASHBOARDS, validator FluentValidation; tipi grafico bar/line/pie/doughnut/radar (chartConfigDialog.vue:66)</td>
+<td>Un blocco tabellare salva solo <code>tabId</code> (tabularDialog.vue:105) e lo cerca in tutti i workspace (tabularBlock.vue:125-131): con id posizionali può mostrare il tab di un altro workspace o un tab diverso dopo una cancellazione</td>
+<td>chartblock.vue senza <code>$match</code> (grafici ignorano condizioni e lock); nessuna validazione config per tipo blocco; dashboardGrid.vue:85 importa <code>./chartBlock.vue</code> ma il file è <code>chartblock.vue</code> (OK solo su file system case-insensitive); blocco immagine presente ma non citato dal documento</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Condizioni nei report tabellari (M04 – "conditions on tabular reports narrow the information")</td>
+<td>conditionGroup.vue ricorsivo AND/OR/NOR, queryUtils.ts → <code>$match</code> type-aware; applicate nel blocco tabellare (tabularBlock.vue:260-277)</td>
+<td><strong>Gruppi annidati persi al salvataggio</strong>: Query.Conditions è una lista piatta Field/Operator/Value (WorkspaceService.cs QueryToEntity/QueryToDto); le condizioni semplici si salvano</td>
+<td>—</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m05m06-rilevazione-eccezioni-e-analisi-assistita"><span id="m05–m06-rilevazione-eccezioni-e-analisi-assistita" class="anchor-alias" aria-hidden="true"></span>M05–M06 Rilevazione eccezioni e analisi assistita<a class="header-anchor" href="#m05m06-rilevazione-eccezioni-e-analisi-assistita" aria-label="Collegamento alla sezione: M05–M06 Rilevazione eccezioni e analisi assistita">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 3"><table>
+<thead>
+<tr>
+<th>Voce</th>
+<th>Implementato</th>
+<th>R – manca rispetto al requisito</th>
+<th>Q – valutazione di qualità</th>
+<th>Esito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regole generiche: definizione e applicazione regole abilitate (M05 – <em>core implemented</em>)</td>
+<td>(a) regole server RulesService/RuleHelper + endpoint <code>/rules</code> (CRUD, apply manuale <code>GET /rules/apply</code> con CAN_APPLY_RULE, solo regole <code>Enabled</code> RulesService.cs:35; pulsante "Apply Rules" rules.vue:21 → ruleStore.ts:83); (b) regole AI generate da Ollama ed eseguite nel browser; soglie persistite (<code>/api/fraud-detection/settings</code>)</td>
+<td><strong>Bug UpdateRuleAsync</strong>: scrive <code>{RuleName}</code> top-level invece di <code>FraudFlags.{RuleName}</code> (RulesService.cs:147) e cerca la mapping col nome errato (:155)</td>
+<td>Regole server limitate (uguaglianza/range/somma), collection caricata in memoria e aggiornata documento per documento; regole AI eseguite con <code>new Function</code> (aiStore.ts:1773-1777) e non persistite</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Data Distance (M05 – <em>data-distance functionality present</em>)</td>
+<td>GetDistanceEndpoint (CAN_VIEW_REPORT) → DistanceDataservice/DistanceHelper (euclidea, score composito 50% field match + 50% distanza, top 10, DistanceDataservice.cs:116-123), UI distanceDialog/Table/radar</td>
+<td>— (lock: vedi "Restrizioni dati")</td>
+<td>Nessuna normalizzazione min-max/z-score; soglie hardcoded (min 3 campi, top 10); risultati scartati senza keyField; carica in memoria tutti i documenti dell'intervallo; <code>TryNormalize</code> non gestisce DateTime né array int/bool (validazione KNN rinviata a N05)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Esecuzione automatica regole in ingestion (M05 – dichiarato <em>incomplete</em>)</td>
+<td>Solo esecuzione manuale <code>GET /rules/apply</code></td>
+<td><strong>Nessuno switch né percorso di esecuzione</strong>: nessun flag in DataIngestionConfiguration/RuleConfiguration, FileProcessingCoordinator non invoca le regole; la console DataIngestionService le carica senza usarle; <code>XmlEnrichmentService</code> applica <code>IXmlEnrichmentRule</code> ma non esiste alcuna implementazione</td>
+<td>—</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>AI Report Generation (M06 – <em>exists</em>; "propose report structures using the available fields")</td>
+<td>toolbar → naturalLanguageQuery.vue → aiStore.ts <code>generateFraudReports</code> (:308) → tab nel query builder</td>
+<td><strong>Non usa i campi disponibili</strong>: <code>generateFraudReports()</code> non accetta parametri e il prompt non contiene i campi; <code>mappings.value</code> passato da naturalLanguageQuery.vue:344 viene ignorato</td>
+<td>Ollama chiamato dal browser su <code>http://localhost:11434</code> (aiStore.ts:88) → non funziona per utenti remoti; nessun backend; errori solo in console (aiStore.ts:366); la UI promette 25 report (naturalLanguageQuery.vue:108) ma il prompt non lo specifica; dialog "AI Report Generator" in queryBuilderTabs.vue è codice morto</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>AI NLQ (M06 – <em>exists</em>)</td>
+<td>aiStore.ts:249-303 <code>generateQuery(mappings)</code>: prompt con campi e alias dello schema → campi/condizioni → tab nel builder</td>
+<td>—</td>
+<td>Stesso limite Ollama da browser; errori solo in console e risultato <code>null</code> senza messaggio all'utente (aiStore.ts:297-298); nessuna validazione server; parametri modello hardcoded (aiStore.ts:8-22, controlli token/creatività opzionali per il documento)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>AI progress + batching (M06 – "interfaces exist, including progress and batching behavior")</td>
+<td>Analisi frodi su tutte le pagine (chunk = pagina) e per regola (resultsGrid.vue:1140-1265, aiStore.ts:1763-1790); modal con %, contatore frodi, tempo, Stop (resultsGrid.vue:405-450)</td>
+<td>Nell'interfaccia di generazione report/NLQ il progress (naturalLanguageQuery.vue:122-147, 264-286) legge <code>currentBatch/totalBatches/elapsedTimeMs</code> da <code>aiStore</code>, che non li ha (sono in fraudDetectionStore.ts) → barra e testo non funzionano, solo lo spinner</td>
+<td>Nessun batching per NLQ; <code>_startTimer</code> di aiStore logga solo in console</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m07m09-amministrazione-collaborazione-e-retention"><span id="m07–m09-amministrazione-collaborazione-e-retention" class="anchor-alias" aria-hidden="true"></span>M07–M09 Amministrazione, collaborazione e retention<a class="header-anchor" href="#m07m09-amministrazione-collaborazione-e-retention" aria-label="Collegamento alla sezione: M07–M09 Amministrazione, collaborazione e retention">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 4"><table>
+<thead>
+<tr>
+<th>Voce</th>
+<th>Implementato</th>
+<th>R – manca rispetto al requisito</th>
+<th>Q – valutazione di qualità</th>
+<th>Esito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Login (M07 – <em>identity implemented</em>)</td>
+<td>LoginEndpoint.cs (JWT + permessi + claim lock <code>LockField</code>/<code>LockValue</code>), UserService.LoginAsync con controllo <code>IsActive</code> e PBKDF2-SHA256 600k iterazioni (hash legacy 10k aggiornati al login, PasswordHasher.cs:9-10), loginStore.ts, router guard, api.ts invia <code>Bearer</code></td>
+<td>—</td>
+<td><code>CreateTokenAsync</code> non awaited (LoginEndpoint.cs:39), il frontend compensa leggendo <code>token.result</code>; nessun interceptor 401</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Scadenza sessione configurabile (M07)</td>
+<td>appsettings.json <code>JwtSettings.ExpiryHours</code> (=1, :33), LoginEndpoint.cs:78 <code>AddHours(ExpiryHours)</code>, logout schedulato in loginStore.ts</td>
+<td>—</td>
+<td>Secret JWT hardcoded in appsettings; configurabile solo da file</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Recupero password via email (M07; R03 "already present")</td>
+<td>Forgot/Validate/Reset (anonimi), token SHA-256 (PasswordResetService.cs:158), scadenza 1h (:19), single-use, link <code>{FrontendUrl}/reset-password?token=</code> (EmailService.cs:29), UI + route; minimo 8 caratteri lato server (ResetPasswordEndpoint)</td>
+<td>—</td>
+<td>SMTP: host/porta da appsettings (localhost:25), <code>EnableSsl=false</code> hardcoded (EmailService.cs:64), <code>UseDefaultCredentials=true</code> → serve un relay; durata token hardcoded; uso token non atomico; nessun minimo in UI; utente inattivo → risposta diversa (ForgotPasswordEndpoint.cs:45) che rivela l'esistenza dell'account</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Gestione utenti + restrizione campo/valore (M07 – "administrators maintain users … associate a user with a field/value restriction")</td>
+<td>CRUD utenti; lock salvato in update (UserService.cs:100-104) e inserito nel JWT (LoginEndpoint.cs:65-68)</td>
+<td><strong>Lock non impostabile in creazione</strong> (UI invia <code>lockField/lockValue</code>, users.vue:268-280, ma CreateUserRequest/Endpoint li ignorano); <strong>lock non rimovibile</strong> (aggiornato solo se entrambi valorizzati, UserService.cs:100)</td>
+<td>PasswordHash/Salt restituiti da GetUsers (GetUsersEndpoint.cs:36)/CreateUser; <code>RegistrationDate</code> sovrascritta a ogni update; update senza modifiche → 400</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Ruoli e gruppi (M07; M08 "users and groups provide the foundation for organising audiences")</td>
+<td>Groups/Roles/Permissions CRUD + UI (CAN_MANAGE_GROUPS/CAN_VIEW_GROUPS, CAN_<em><em>ROLE, CAN</em></em>_PERMISSION); fan-out gruppo→utenti (groupStore.ts:40-49, notificationStore.ts:116-130)</td>
+<td>—</td>
+<td>Fan-out solo nel frontend; backend non risolve gruppi/ruoli; router controlla solo l'autenticazione (router/index.ts:65), i permessi solo nei menu</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Restrizioni dati (M07 – dichiarato <em>partial</em>)</td>
+<td>Lock applicato client-side via <code>generateSimpleMatch</code> (queryUtils.ts:165-174) in resultsGrid.vue, toolbar.vue (heatmap), tabularBlock.vue</td>
+<td><strong>Lock combinato con l'operatore del gruppo root</strong> (queryUtils.ts:174): con root OR non vincola, con NOR viene negato → aggirabile dalla UI; <strong>Distance ignora il lock</strong>; <strong>grafici dashboard non lo applicano</strong> (chartblock.vue senza <code>$match</code>)</td>
+<td>Nessun enforcement server-side (parte dichiarata da completare): nessun codice backend legge i claim di lock, GetReportDataEndpoint esegue qualsiasi pipeline del client (:66-71), cache 1h non legata all'utente, filtro di visibilità in ReportDataservice sempre vero; tabularBlock passa mappings vuote (nessuna conversione di tipo)</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Notifiche: invio, stato letto, risposte, rimozione (M08 – <em>implemented</em>)</td>
+<td>Endpoint Create/List/MarkAsRead/Reply/Delete, campanella App.vue, invio a utenti/gruppi</td>
+<td><strong>Ogni utente vede tutte le notifiche</strong> (ListNotificationsEndpoint con <code>Filter.Empty</code>, nessun filtro per destinatario); campanella caricata solo con CAN_MANAGE_NOTIFICATIONS (App.vue:165/172, notificationStore.ts:70-73), MarkAsRead/Reply/Delete richiedono lo stesso permesso → un utente con solo CAN_VIEW_NOTIFICATIONS non vede notifiche</td>
+<td>Nessun push/polling né notifiche automatiche (rinviate a R06/N02); <code>IsRead</code> unico per documento (per i gruppi il fan-out crea un documento per utente; un invio diretto a più utenti condivide lo stato); <code>From</code> fornito dal client; notifiche <code>toType 'role'</code> senza risoluzione destinatari</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>Retention (M09 – <em>implemented in part</em>; "configured retention period determines which older transactions expire … current 90-day default")</td>
+<td>TTL index <code>ttl_BeginDateTime</code> creato all'avvio API (DatabaseInitializationService.cs:97-101), retention da appsettings <code>DataRetention:TransactionRetentionDays</code> = 180 (:8-9); 90 è il fallback (DatabaseInitializationService.cs:23)</td>
+<td><strong>Il default dichiarato (90 gg) non corrisponde</strong>: configurati 180 gg (anche il dump <code>ReportData.metadata.json</code> ha <code>expireAfterSeconds</code> 15552000 = 180 gg); <strong>il TTL è sul campo <code>BeginDateTime</code>, che l'ingestion non produce</strong> e che non compare altrove nel codice: nel dump <code>ReportData.bson</code> (3000 documenti) nessuno ha <code>BeginDateTime</code> (tutti hanno <code>TransactionDateTime</code>) → con questi dati nessun documento scade</td>
+<td>Se l'indice TTL esiste già un cambio di retention non viene applicato (:64-71); date JSON convertite in BSON Date solo con Extended JSON <code>{"$date": …}</code> (stringhe semplici restano stringhe); nessuna UI di retention; nessun TTL su ProcessedFiles</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="m10-release-readiness">M10 Release readiness<a class="header-anchor" href="#m10-release-readiness" aria-label="Collegamento alla sezione: M10 Release readiness">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 5"><table>
+<thead>
+<tr>
+<th>Voce</th>
+<th>Implementato</th>
+<th>R – manca rispetto al requisito</th>
+<th>Q – valutazione di qualità</th>
+<th>Esito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Codice applicativo e documentazione presenti (M10 – <em>in progress</em>)</td>
+<td>Soluzione API/Application/Domain/Infrastructure/DataIngestionService + UI; <code>docs_original\01…14</code> (incl. 03_SETUP_INSTALLATION, 04_DEPLOYMENT_GUIDE, 11_USER_MANUAL, 13_TESTING_QA, 14_CHANGELOG), DISTANCE_ANALYSIS_QUICK_START, FRAUD_DETECTION_API, README.md</td>
+<td>—</td>
+<td>Nessun progetto di test né file <code>*.spec.ts</code>/<code>*.test.ts</code>; nessuna pipeline CI/CD (<code>.github</code> contiene solo copilot-instructions.md), nessun Dockerfile/script infrastruttura; nessun audit trail né logging strutturato (solo <code>ILogger</code>); CORS solo <code>localhost:5173/5174</code> (Program.cs:24-34), nessun <code>UseHsts</code>/<code>UseHttpsRedirection</code>, nessun rate limiting; nessun video</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="roadmap-e-sviluppi-futuri--affermazioni-su-ciò-che-esiste-già"><span id="roadmap-e-sviluppi-futuri-affermazioni-su-cio-che-esiste-gia" class="anchor-alias" aria-hidden="true"></span><span id="roadmap-e-sviluppi-futuri-–-affermazioni-su-cio-che-esiste-gia" class="anchor-alias" aria-hidden="true"></span>Roadmap e sviluppi futuri – affermazioni su ciò che esiste già<a class="header-anchor" href="#roadmap-e-sviluppi-futuri--affermazioni-su-ci%C3%B2-che-esiste-gi%C3%A0" aria-label="Collegamento alla sezione: Roadmap e sviluppi futuri – affermazioni su ciò che esiste già">#</a></h2>
+<div class="table-wrap" role="region" tabindex="0" aria-label="Tabella 6"><table>
+<thead>
+<tr>
+<th>Voce</th>
+<th>Implementato</th>
+<th>R – manca rispetto al requisito</th>
+<th>Q – valutazione di qualità</th>
+<th>Esito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R01 "Database setup materials exist"</td>
+<td><code>Data\MongoDBScripts\00…04*.js</code> (permessi, ruolo admin, regole) + PERMISSIONS_LIST.md; dump <code>Data\LossPrevention\*.bson</code> (10 collection + 2 copie <code>_old</code>)</td>
+<td>—</td>
+<td>Nessun wizard né licenza (0 occorrenze "wizard"/"licen") – coerente con <em>planned</em></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R02 "Existing user permissions do not establish a complete multi-customer model"</td>
+<td>Permessi/ruoli per utente; una sola connessione DB da appsettings</td>
+<td>—</td>
+<td>0 occorrenze "tenant"/"branding" – coerente con <em>planned</em></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R03 "Email-based forgot-password capability is already present"</td>
+<td>Vedi "Recupero password via email"</td>
+<td>—</td>
+<td>Nessun SSO/OIDC/SAML – coerente con <em>planned</em></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R04 "Core reporting is implemented"</td>
+<td>Vedi M03; grafici bar/line/pie/doughnut/radar (chartConfigDialog.vue:66)</td>
+<td>—</td>
+<td>Nessun linked report – coerente con <em>planned</em></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R05 "Initial lookup delivery remains an MVP gap"</td>
+<td>Vedi "Metadati lookup" (solo flag <code>IsLookup</code>)</td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R06 "Basic notifications and role structures exist"</td>
+<td>Vedi "Notifiche" e "Ruoli e gruppi"</td>
+<td>—</td>
+<td>Nessun alert automatico né policy dashboard regione/negozio/distretto – coerente con <em>planned</em>; limiti delle notifiche in M08</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>R07 "Setup and deployment guidance exist"</td>
+<td><code>docs_original\03_SETUP_INSTALLATION.md</code>, <code>04_DEPLOYMENT_GUIDE.md</code></td>
+<td>—</td>
+<td>Delivery automatizzata e test <strong>del tutto assenti</strong> (vedi M10)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>N03 "Report drilldown exists"</td>
+<td>Vedi "Heatmap Drilldown"</td>
+<td>—</td>
+<td>Nessuna receipt view ("receipt" solo in prompt AI e pattern di riconoscimento campi) – coerente con <em>planned</em></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>N04 "Existing reporting and aggregation"</td>
+<td>Aggregazioni <code>Field.GroupBy</code>/<code>Aggregation</code>, <code>$group</code> nei grafici</td>
+<td>—</td>
+<td>Nessuna vista riepilogativa dedicata – coerente con <em>planned</em></td>
+<td>✅</td>
+</tr>
+<tr>
+<td>N05 "Existing distance analysis provides a starting point"</td>
+<td>Vedi "Data Distance" (euclidea, top 10)</td>
+<td>—</td>
+<td>Nessun behavioural profiling ("behavioral" solo in testi AI) – coerente con roadmap</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="sintesi-solo-requisiti-dichiarati">Sintesi (solo requisiti dichiarati)<a class="header-anchor" href="#sintesi-solo-requisiti-dichiarati" aria-label="Collegamento alla sezione: Sintesi (solo requisiti dichiarati)">#</a></h2>
+<p>43 voci verificate (33 MVP + 10 affermazioni roadmap): <strong>28 ✅</strong>, <strong>13 🟡</strong>, <strong>2 ❌</strong>.
+- ✅: Ingestion SFTP/FS/CSV/XML/JSON, Tracciamento file sorgente, Move SFTP in processed, Mapping, Metadati lookup, Workspaces, Tab, Design/View, Espressioni, Heatmap, Heatmap Drilldown, Data Distance, AI NLQ, Login, Scadenza sessione, Recupero password, Ruoli e gruppi, Codice e documentazione (M10), R01, R02, R03, R04, R05, R06, R07, N03, N04, N05.
+- 🟡: Schedulazione, Record file processati/load monitoring, Prefix/Suffix, Conditional Formatting, Dashboard, Condizioni nei report tabellari, Regole generiche, AI Report Generation, AI progress + batching, Gestione utenti + restrizione, Restrizioni dati, Notifiche, Retention.
+- ❌: Streaming, Esecuzione automatica regole in ingestion.</p></article>
+    </main>
+  </div>
+</div>
+<footer class="site-footer">Portale generato da inlay-doc-site 2.2.0</footer>
+<div id="inlay-status" class="visually-hidden" role="status" aria-live="polite"></div>
+<script type="application/json" id="inlay-config">{"lang": "it", "root": "../", "route": "audit/roadmap-done-audit.html", "search": "_inlay/search-index.js", "theme": "eng", "version": "2.2.0"}</script>
+<script>/* inlay-doc-site 2.x - comportamento del portale (offline, nessuna dipendenza). */
+(function () {
+  'use strict';
+  var doc = document, root = doc.documentElement;
+  root.classList.add('js');
+  var cfg = {};
+  try { cfg = JSON.parse(doc.getElementById('inlay-config').textContent) || {}; } catch (e) { cfg = {}; }
+  var LANG = String(cfg.lang || root.lang || 'it').toLowerCase().indexOf('it') === 0 ? 'it' : 'en';
+  var TEXT = {
+    it: {
+      copy: 'Copia', copied: 'Copiato', copyFail: 'Copia non riuscita: testo selezionato, premi Ctrl+C',
+      close: 'Chiudi', zoomIn: 'Ingrandisci', zoomOut: 'Riduci', fit: 'Adatta', dialog: 'Immagine ingrandita',
+      hint: 'Ctrl+rotella o +/- per lo zoom, trascina per spostare, Esc per chiudere',
+      noResults: 'Nessun risultato', results: '{n} risultati', unavailable: 'Indice di ricerca non disponibile',
+      exportNote: 'Copia esportata della pagina "{t}": i collegamenti verso altre pagine del portale sono disattivati.',
+      linkDisabled: 'Collegamento disponibile solo nel portale', menuOpen: 'Mostra struttura documenti',
+      menuClose: 'Nascondi struttura documenti'
+    },
+    en: {
+      copy: 'Copy', copied: 'Copied', copyFail: 'Copy failed: text selected, press Ctrl+C',
+      close: 'Close', zoomIn: 'Zoom in', zoomOut: 'Zoom out', fit: 'Fit', dialog: 'Enlarged image',
+      hint: 'Ctrl+wheel or +/- to zoom, drag to pan, Esc to close',
+      noResults: 'No results', results: '{n} results', unavailable: 'Search index not available',
+      exportNote: 'Exported copy of the page "{t}": links to other portal pages are disabled.',
+      linkDisabled: 'Link available only inside the portal', menuOpen: 'Show document structure',
+      menuClose: 'Hide document structure'
+    }
+  };
+  function tr(key, vars) {
+    var s = TEXT[LANG][key] || key;
+    if (vars) { Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); }); }
+    return s;
+  }
+  var statusEl = doc.getElementById('inlay-status');
+  function announce(msg) {
+    if (!statusEl) { return; }
+    statusEl.textContent = '';
+    setTimeout(function () { statusEl.textContent = msg; }, 40);
+  }
+
+  /* altezza dell'header per sticky e ancore */
+  var header = doc.querySelector('.topbar');
+  function setHeaderHeight() { if (header) { root.style.setProperty('--header-h', header.offsetHeight + 'px'); } queueFit(); }
+  setHeaderHeight();
+  if (window.ResizeObserver && header) { new ResizeObserver(setHeaderHeight).observe(header); }
+  else { window.addEventListener('resize', setHeaderHeight); }
+
+  /* albero: espandi/comprimi */
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.tree-toggle, .tree-group') : null;
+    if (!btn) { return; }
+    var list = doc.getElementById(btn.getAttribute('aria-controls'));
+    if (!list) { return; }
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    list.hidden = open;
+  });
+  /* barra laterale: altezza limitata alla parte visibile (all'apertura la testata della pagina la spinge in basso) */
+  var sidebar = doc.getElementById('inlay-sidebar'), fitQueued = false;
+  function fitSidebar() {
+    fitQueued = false;
+    if (!sidebar) { return; }
+    if (window.getComputedStyle(sidebar).position !== 'sticky') { sidebar.style.maxHeight = ''; return; }
+    var top = Math.max(sidebar.getBoundingClientRect().top, 0);
+    sidebar.style.maxHeight = Math.max(240, window.innerHeight - top - 16) + 'px';
+  }
+  function queueFit() { if (!fitQueued) { fitQueued = true; window.requestAnimationFrame(fitSidebar); } }
+  fitSidebar();
+  window.addEventListener('scroll', queueFit, { passive: true });
+  window.addEventListener('resize', queueFit);
+  var treeScroll = doc.getElementById('inlay-tree');
+  var current = treeScroll && treeScroll.querySelector('[aria-current="page"]');
+  if (current) {
+    var r = current.getBoundingClientRect(), s = treeScroll.getBoundingClientRect();
+    if (r.top < s.top || r.bottom > s.bottom) { treeScroll.scrollTop += (r.top - s.top) - treeScroll.clientHeight / 3; }
+  }
+
+  /* menu mobile */
+  var navToggle = doc.querySelector('.nav-toggle');
+  if (navToggle && doc.getElementById('inlay-sidebar')) {
+    navToggle.hidden = false;
+    navToggle.addEventListener('click', function () {
+      var open = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
+      root.classList.toggle('nav-open', !open);
+    });
+  }
+
+  /* copia dei blocchi di codice */
+  function copied(btn) {
+    btn.textContent = tr('copied');
+    btn.classList.add('copied');
+    announce(tr('copied'));
+    setTimeout(function () { btn.textContent = tr('copy'); btn.classList.remove('copied'); }, 1800);
+  }
+  function copyFallback(text, pre, btn) {
+    var ta = doc.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    doc.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+    doc.body.removeChild(ta);
+    if (ok) { copied(btn); return; }
+    var range = doc.createRange();
+    range.selectNodeContents(pre);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = tr('copyFail');
+    announce(tr('copyFail'));
+    setTimeout(function () { btn.textContent = tr('copy'); }, 4000);
+  }
+  doc.addEventListener('click', function (ev) {
+    var btn = ev.target.closest ? ev.target.closest('.code-copy') : null;
+    if (!btn) { return; }
+    var block = btn.closest('.code-block');
+    var pre = block && block.querySelector('pre');
+    if (!pre) { return; }
+    var text = pre.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { copied(btn); }, function () { copyFallback(text, pre, btn); });
+    } else { copyFallback(text, pre, btn); }
+  });
+
+  /* lightbox accessibile per immagini e diagrammi */
+  var lb = null, lbImg, lbStage, lbClose, lbTrigger = null, scale = 1, inerted = [];
+  function setScale(v) {
+    scale = Math.max(0.1, Math.min(8, v));
+    if (lbImg.naturalWidth) { lbImg.style.width = Math.round(lbImg.naturalWidth * scale) + 'px'; }
+  }
+  function fitScale() {
+    var w = lbImg.naturalWidth || 1;
+    var sw = Math.max(lbStage.clientWidth - 48, 50);
+    setScale(Math.min(sw / w, 2));
+  }
+  function buildLightbox() {
+    if (lb) { return; }
+    lb = doc.createElement('div');
+    lb.className = 'inlay-lightbox';
+    lb.id = 'inlay-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', tr('dialog'));
+    lb.hidden = true;
+    var bar = doc.createElement('div');
+    bar.className = 'inlay-lightbox-bar';
+    var hint = doc.createElement('span');
+    hint.className = 'inlay-lightbox-hint';
+    hint.textContent = tr('hint');
+    bar.appendChild(hint);
+    [['out', tr('zoomOut'), '\u2212'], ['fit', tr('fit'), tr('fit')], ['in', tr('zoomIn'), '+'], ['close', tr('close'), tr('close')]].forEach(function (b) {
+      var btn = doc.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-zoom', b[0]);
+      btn.setAttribute('aria-label', b[1]);
+      btn.textContent = b[2];
+      bar.appendChild(btn);
+      if (b[0] === 'close') { lbClose = btn; }
+    });
+    lbStage = doc.createElement('div');
+    lbStage.className = 'inlay-lightbox-stage';
+    lbStage.tabIndex = 0;
+    lbImg = doc.createElement('img');
+    lbImg.alt = '';
+    lbStage.appendChild(lbImg);
+    lb.appendChild(bar);
+    lb.appendChild(lbStage);
+    doc.body.appendChild(lb);
+    bar.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button');
+      if (!b) { return; }
+      var a = b.getAttribute('data-zoom');
+      if (a === 'close') { closeLightbox(); } else if (a === 'in') { setScale(scale * 1.25); }
+      else if (a === 'out') { setScale(scale / 1.25); } else { fitScale(); }
+    });
+    lb.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { ev.preventDefault(); closeLightbox(); return; }
+      if (ev.key === '+' || ev.key === '=') { ev.preventDefault(); setScale(scale * 1.25); return; }
+      if (ev.key === '-') { ev.preventDefault(); setScale(scale / 1.25); return; }
+      if (ev.key === '0') { ev.preventDefault(); fitScale(); return; }
+      if (ev.key === 'Tab') {
+        var f = Array.prototype.slice.call(lb.querySelectorAll('button, [tabindex="0"]'));
+        var first = f[0], last = f[f.length - 1];
+        if (ev.shiftKey && doc.activeElement === first) { ev.preventDefault(); last.focus(); }
+        else if (!ev.shiftKey && doc.activeElement === last) { ev.preventDefault(); first.focus(); }
+      }
+    });
+    lbStage.addEventListener('wheel', function (ev) {
+      if (!ev.ctrlKey) { return; }
+      ev.preventDefault();
+      setScale(scale * (ev.deltaY < 0 ? 1.1 : 1 / 1.1));
+    }, { passive: false });
+    var drag = null;
+    lbStage.addEventListener('pointerdown', function (ev) {
+      drag = { x: ev.clientX, y: ev.clientY, l: lbStage.scrollLeft, t: lbStage.scrollTop };
+      lbStage.classList.add('grabbing');
+    });
+    window.addEventListener('pointermove', function (ev) {
+      if (!drag) { return; }
+      lbStage.scrollLeft = drag.l - (ev.clientX - drag.x);
+      lbStage.scrollTop = drag.t - (ev.clientY - drag.y);
+    });
+    window.addEventListener('pointerup', function () { drag = null; if (lbStage) { lbStage.classList.remove('grabbing'); } });
+  }
+  function openLightbox(trigger) {
+    var img = trigger.querySelector('img');
+    if (!img) { return; }
+    buildLightbox();
+    lbTrigger = trigger;
+    lbImg.alt = img.getAttribute('alt') || '';
+    lbImg.onload = function () { fitScale(); };
+    lbImg.src = img.getAttribute('src');
+    Array.prototype.forEach.call(doc.body.children, function (child) {
+      if (child !== lb && !child.inert) { child.inert = true; child.setAttribute('aria-hidden', 'true'); inerted.push(child); }
+    });
+    lb.hidden = false;
+    if (lbImg.complete && lbImg.naturalWidth) { fitScale(); }
+    lbClose.focus();
+  }
+  function closeLightbox() {
+    if (!lb || lb.hidden) { return; }
+    lb.hidden = true;
+    inerted.forEach(function (child) { child.inert = false; child.removeAttribute('aria-hidden'); });
+    inerted = [];
+    if (lbTrigger) { lbTrigger.focus(); }
+  }
+  doc.addEventListener('click', function (ev) {
+    var trigger = ev.target.closest ? ev.target.closest('.zoom-trigger') : null;
+    if (trigger) { ev.preventDefault(); openLightbox(trigger); }
+  });
+
+  /* ricerca offline (indice caricato su richiesta da _inlay/search-index.js) */
+  var input = doc.getElementById('inlay-search');
+  var results = doc.getElementById('inlay-search-results');
+  if (input && results && cfg.search) {
+    input.closest('.search').hidden = false;
+    var index = null, loading = false, active = -1, timer = null, pending = null;
+    var fold = function (s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var loadIndex = function (cb) {
+      if (index) { cb(); return; }
+      pending = cb;
+      if (loading) { return; }
+      loading = true;
+      var sc = doc.createElement('script');
+      sc.src = cfg.root + cfg.search;
+      sc.onload = function () { index = window.INLAY_SEARCH_INDEX || []; if (pending) { pending(); } };
+      sc.onerror = function () { index = []; announce(tr('unavailable')); if (pending) { pending(); } };
+      doc.head.appendChild(sc);
+    };
+    var search = function (q) {
+      var terms = fold(q).split(/\s+/).filter(Boolean);
+      if (!terms.length) { return []; }
+      var out = [];
+      index.forEach(function (e) {
+        if (e._t === undefined) { e._t = fold(e.t + ' ' + (e.l || '')); e._x = fold(e.x); }
+        var score = 0;
+        for (var i = 0; i < terms.length; i++) {
+          var inTitle = e._t.indexOf(terms[i]) >= 0, pos = e._x.indexOf(terms[i]);
+          if (!inTitle && pos < 0) { return; }
+          score += inTitle ? 10 : 1;
+        }
+        out.push({ e: e, score: score, term: terms[0] });
+      });
+      out.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+      return out.slice(0, 15);
+    };
+    var snippet = function (e, term) {
+      var pos = e._x.indexOf(term);
+      if (pos < 0) { return ''; }
+      var start = Math.max(0, pos - 50);
+      return (start > 0 ? '\u2026' : '') + e.x.substr(start, 150) + '\u2026';
+    };
+    var setActive = function (i) {
+      var opts = results.querySelectorAll('[role="option"]');
+      if (!opts.length) { active = -1; input.removeAttribute('aria-activedescendant'); return; }
+      active = (i + opts.length) % opts.length;
+      Array.prototype.forEach.call(opts, function (o, k) { o.setAttribute('aria-selected', k === active ? 'true' : 'false'); });
+      input.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    var close = function () {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    var render = function () {
+      var q = input.value.trim();
+      results.textContent = '';
+      if (!q) { close(); return; }
+      var found = search(q);
+      if (!found.length) {
+        var li = doc.createElement('li');
+        li.className = 'sr-empty';
+        li.textContent = tr('noResults');
+        results.appendChild(li);
+      }
+      found.forEach(function (r, k) {
+        var li = doc.createElement('li');
+        li.id = 'inlay-sr-' + k;
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var a = doc.createElement('a');
+        a.href = cfg.root + r.e.r;
+        a.tabIndex = -1;
+        var t = doc.createElement('span'); t.className = 'sr-title'; t.textContent = r.e.t; a.appendChild(t);
+        if (r.e.l) { var p = doc.createElement('span'); p.className = 'sr-path'; p.textContent = r.e.l; a.appendChild(p); }
+        var sn = snippet(r.e, r.term);
+        if (sn) { var x = doc.createElement('span'); x.className = 'sr-snippet'; x.textContent = sn; a.appendChild(x); }
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      active = -1;
+      announce(found.length ? tr('results', { n: found.length }) : tr('noResults'));
+    };
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { loadIndex(render); }, 120);
+    });
+    input.addEventListener('focus', function () { loadIndex(function () {}); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowDown') { ev.preventDefault(); if (results.hidden) { loadIndex(render); } else { setActive(active + 1); } }
+      else if (ev.key === 'ArrowUp') { ev.preventDefault(); setActive(active - 1); }
+      else if (ev.key === 'Enter') {
+        var opts = results.querySelectorAll('[role="option"] a');
+        if (!results.hidden && opts.length) { ev.preventDefault(); window.location.href = opts[Math.max(active, 0)].href; }
+      } else if (ev.key === 'Escape') {
+        if (!results.hidden) { ev.preventDefault(); close(); } else { input.value = ''; }
+      }
+    });
+    doc.addEventListener('click', function (ev) {
+      if (!ev.target.closest || !ev.target.closest('.search')) { close(); }
+    });
+  }
+
+  /* esportazione della pagina corrente come HTML autonomo */
+  doc.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[data-export]') : null;
+    if (!a || !window.Blob || !window.URL || !URL.createObjectURL) { return; }
+    ev.preventDefault();
+    var clone = root.cloneNode(true);
+    var drop = ['.topnav', '.search', '.nav-toggle', '.hero', '#inlay-sidebar', '.breadcrumbs', 'a[data-export]',
+      '#inlay-lightbox', 'script[src]', '.site-footer'];
+    drop.forEach(function (sel) { Array.prototype.forEach.call(clone.querySelectorAll(sel), function (n) { n.parentNode.removeChild(n); }); });
+    Array.prototype.forEach.call(clone.querySelectorAll('[inert]'), function (n) { n.removeAttribute('inert'); n.removeAttribute('aria-hidden'); });
+    clone.classList.remove('js', 'nav-open');
+    clone.style.removeProperty('--header-h');
+    clone.setAttribute('data-exported', 'true');
+    var brand = clone.querySelector('.brand');
+    if (brand) { brand.removeAttribute('href'); }
+    Array.prototype.forEach.call(clone.querySelectorAll('a[href]'), function (link) {
+      var href = link.getAttribute('href');
+      if (href.charAt(0) === '#' || /^[a-z][a-z0-9+.\-]*:/i.test(href) || href.indexOf('//') === 0) { return; }
+      var span = doc.createElement('span');
+      span.className = 'link-disabled';
+      span.title = tr('linkDisabled');
+      span.setAttribute('data-inlay-export', 'disabled');
+      while (link.firstChild) { span.appendChild(link.firstChild); }
+      link.parentNode.replaceChild(span, link);
+    });
+    var status = clone.querySelector('#inlay-status');
+    if (status) { status.textContent = ''; }
+    var title = (doc.querySelector('.doc-title') || {}).textContent || doc.title;
+    var main = clone.querySelector('#main');
+    if (main) {
+      var note = doc.createElement('p');
+      note.className = 'notice export-note';
+      note.setAttribute('role', 'note');
+      note.textContent = tr('exportNote', { t: title });
+      var head = main.querySelector('.doc-head');
+      main.insertBefore(note, head ? head.nextSibling : main.firstChild);
+    }
+    var blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var tmp = doc.createElement('a');
+    tmp.href = url;
+    tmp.download = a.getAttribute('download') || 'documento.html';
+    tmp.style.display = 'none';
+    doc.body.appendChild(tmp);
+    tmp.click();
+    doc.body.removeChild(tmp);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,18 +1,19 @@
 {
  "generator": "inlay-doc-site",
- "version": "2.1.0",
+ "version": "2.2.0",
  "layout": "project",
  "detected_by": "impostato esplicitamente",
  "theme": "eng",
  "lang": "it",
  "scope": [
-  "./"
+  "./",
+  "@audit: C:\\repository\\LOSS_PREVENTION\\customspa-it-loss-prevention-d098a8b97860\\docs_original"
  ],
  "allow_degraded": [],
  "projects": [
   {
    "id": "",
-   "name": "LOSS_PREVENTION",
+   "name": "LOSS PREVENTION",
    "docs": true,
    "how_status": "complete",
    "how_count": 17,
@@ -20,9 +21,17 @@
   }
  ],
  "enterprise": false,
+ "extra_sources": [
+  {
+   "id": "audit",
+   "label": "Audit MVP e Roadmap",
+   "path": "C:\\repository\\LOSS_PREVENTION\\customspa-it-loss-prevention-d098a8b97860\\docs_original",
+   "pages": 2
+  }
+ ],
  "counts": {
-  "page": 21,
-  "found": 21
+  "page": 23,
+  "found": 23
  },
  "items": [
   {
@@ -466,6 +475,30 @@
    }
   },
   {
+   "rel": "@audit/roadmap-done-audit.en.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "extra",
+   "mode": null,
+   "step": null,
+   "route": "audit/roadmap-done-audit.en.html",
+   "sha256": "0b0e01c6f7a679e5e16005c319a4c549f4a29294e3e634c4f1777565a484bf8a",
+   "meta": null
+  },
+  {
+   "rel": "@audit/roadmap-done-audit.md",
+   "kind": "markdown",
+   "status": "page",
+   "reason": null,
+   "family": "extra",
+   "mode": null,
+   "step": null,
+   "route": "audit/roadmap-done-audit.html",
+   "sha256": "57295c36e7616add09fe9fd1ca88051cc5c77747d5509e8233d1b888b188c2a2",
+   "meta": null
+  },
+  {
    "rel": "index.md",
    "kind": "markdown",
    "status": "page",
@@ -630,6 +663,20 @@
    "added": null
   },
   {
+   "route": "audit/roadmap-done-audit.en.html",
+   "title": "Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)",
+   "kind": "doc",
+   "source": "@audit/roadmap-done-audit.en.md",
+   "added": null
+  },
+  {
+   "route": "audit/roadmap-done-audit.html",
+   "title": "Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)",
+   "kind": "doc",
+   "source": "@audit/roadmap-done-audit.md",
+   "added": null
+  },
+  {
    "route": "index-doc.html",
    "title": "IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION",
    "kind": "doc",
@@ -638,7 +685,7 @@
   },
   {
    "route": "index.html",
-   "title": "LOSS_PREVENTION · IMPACT how (FULL)",
+   "title": "LOSS PREVENTION",
    "kind": "overview",
    "source": null,
    "added": null
@@ -661,6 +708,12 @@
    "severity": "info",
    "code": "font",
    "message": "font CocoEng non fornito (chiave 'fonts' in configurazione): viene usato il fallback Segoe UI/system-ui"
+  },
+  {
+   "severity": "warning",
+   "code": "indented-fence",
+   "message": "28 recinti di codice indentati (righe 352, 358, 365, 370, 382): python-markdown riconosce i blocchi ``` solo a inizio riga",
+   "source": "18_antipattern_deep_dive.md"
   }
  ]
 }

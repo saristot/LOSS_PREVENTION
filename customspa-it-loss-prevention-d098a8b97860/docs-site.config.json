@@ -1,0 +1,12 @@
+{
+  "theme": "eng",
+  "lang": "it",
+  "extra_sources": [
+    {
+      "id": "audit",
+      "label": "Audit MVP e Roadmap",
+      "path": "docs_original",
+      "include": ["roadmap-done-audit.md", "roadmap-done-audit.en.md"]
+    }
+  ]
+}
