@@ -2,6 +2,9 @@
   "theme": "eng",
   "lang": "it",
   "project_name": "LOSS PREVENTION",
+  "translations": [
+    { "lang": "en", "label": "English", "path": "Docs.en" }
+  ],
   "exclude": [
     { "path": "15_fp_cocomo.md", "reason": "Schermata non da pubblicare" },
     { "path": "19_modernization_estimation_spec.md", "reason": "Schermata non da pubblicare" }
@@ -9,7 +12,7 @@
   "extra_sources": [
     {
       "id": "audit",
-      "label": "Audit MVP e Roadmap",
+      "label": { "it": "Audit MVP e Roadmap", "en": "MVP and Roadmap Audit" },
       "path": "docs_original",
       "include": ["roadmap-done-audit.md", "roadmap-done-audit.en.md"]
     }

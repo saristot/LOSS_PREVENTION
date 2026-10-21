@@ -1,6 +1,6 @@
 {
  "generator": "inlay-doc-site",
- "version": "2.2.0",
+ "version": "2.3.0",
  "layout": "project",
  "detected_by": "impostato esplicitamente",
  "theme": "eng",
@@ -26,12 +26,12 @@
    "id": "audit",
    "label": "Audit MVP e Roadmap",
    "path": "C:\\repository\\LOSS_PREVENTION\\customspa-it-loss-prevention-d098a8b97860\\docs_original",
-   "pages": 2
+   "pages": 1
   }
  ],
  "counts": {
-  "page": 21,
-  "found": 21
+  "page": 20,
+  "found": 20
  },
  "items": [
   {
@@ -54,6 +54,9 @@
     "schema": "1",
     "step": "00_deep_dive",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/00_deep_dive.md"
    }
   },
   {
@@ -76,6 +79,9 @@
     "schema": "1",
     "step": "01_context",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/01_context.md"
    }
   },
   {
@@ -98,6 +104,9 @@
     "schema": "1",
     "step": "02_functional_overview",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/02_functional_overview.md"
    }
   },
   {
@@ -120,6 +129,9 @@
     "schema": "1",
     "step": "03_non_functional_overview",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/03_non_functional_overview.md"
    }
   },
   {
@@ -142,6 +154,9 @@
     "schema": "1",
     "step": "04_constraints",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/04_constraints.md"
    }
   },
   {
@@ -164,6 +179,9 @@
     "schema": "1",
     "step": "05_principles",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/05_principles.md"
    }
   },
   {
@@ -186,6 +204,9 @@
     "schema": "1",
     "step": "06_software_architecture",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/06_software_architecture.md"
    }
   },
   {
@@ -208,6 +229,9 @@
     "schema": "1",
     "step": "07_code",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/07_code.md"
    }
   },
   {
@@ -230,6 +254,9 @@
     "schema": "1",
     "step": "08_data",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/08_data.md"
    }
   },
   {
@@ -252,6 +279,9 @@
     "schema": "1",
     "step": "09_infrastructure_architecture",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/09_infrastructure_architecture.md"
    }
   },
   {
@@ -274,6 +304,9 @@
     "schema": "1",
     "step": "10_deployment",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/10_deployment.md"
    }
   },
   {
@@ -296,6 +329,9 @@
     "schema": "1",
     "step": "11_development_environment",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/11_development_environment.md"
    }
   },
   {
@@ -318,6 +354,9 @@
     "schema": "1",
     "step": "12_operation_and_support",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/12_operation_and_support.md"
    }
   },
   {
@@ -340,6 +379,9 @@
     "schema": "1",
     "step": "13_decision_log",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/13_decision_log.md"
    }
   },
   {
@@ -362,6 +404,9 @@
     "schema": "1",
     "step": "14_metrics",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/14_metrics.md"
    }
   },
   {
@@ -384,6 +429,9 @@
     "schema": "1",
     "step": "16_frontend_deep_assessment",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/16_frontend_deep_assessment.md"
    }
   },
   {
@@ -406,6 +454,9 @@
     "schema": "1",
     "step": "17_backend_deep_assessment",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/17_backend_deep_assessment.md"
    }
   },
   {
@@ -428,19 +479,10 @@
     "schema": "1",
     "step": "18_antipattern_deep_dive",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/18_antipattern_deep_dive.md"
    }
-  },
-  {
-   "rel": "@audit/roadmap-done-audit.en.md",
-   "kind": "markdown",
-   "status": "page",
-   "reason": null,
-   "family": "extra",
-   "mode": null,
-   "step": null,
-   "route": "audit/roadmap-done-audit.en.html",
-   "sha256": "4fc8d8e8f57b2de0ea43dcbf0aceeae7e70fb4c9e4a8facf2c9b325bff877093",
-   "meta": null
   },
   {
    "rel": "@audit/roadmap-done-audit.md",
@@ -452,7 +494,10 @@
    "step": null,
    "route": "audit/roadmap-done-audit.html",
    "sha256": "84eb8fbe0d48082dd4cb3983edf572af64e5ee578aa6e540922bd66a9162d11d",
-   "meta": null
+   "meta": null,
+   "translations": {
+    "en": "../../../../../../repository/LOSS_PREVENTION/customspa-it-loss-prevention-d098a8b97860/docs_original/roadmap-done-audit.en.md"
+   }
   },
   {
    "rel": "index.md",
@@ -474,6 +519,9 @@
     "schema": "1",
     "step": "index",
     "worktree": "dirty"
+   },
+   "translations": {
+    "en": "Docs.en/index.md"
    }
   }
  ],
@@ -605,13 +653,6 @@
    "added": null
   },
   {
-   "route": "audit/roadmap-done-audit.en.html",
-   "title": "Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)",
-   "kind": "doc",
-   "source": "@audit/roadmap-done-audit.en.md",
-   "added": null
-  },
-  {
    "route": "audit/roadmap-done-audit.html",
    "title": "Audit voci dichiarate implementate – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)",
    "kind": "doc",
@@ -666,6 +707,154 @@
    "code": "indented-fence",
    "message": "28 recinti di codice indentati (righe 352, 358, 365, 370, 382): python-markdown riconosce i blocchi ``` solo a inizio riga",
    "source": "18_antipattern_deep_dive.md"
+  },
+  {
+   "severity": "warning",
+   "code": "indented-fence",
+   "message": "28 recinti di codice indentati (righe 352, 358, 365, 370, 382): python-markdown riconosce i blocchi ``` solo a inizio riga",
+   "source": "Docs.en/18_antipattern_deep_dive.md"
   }
- ]
+ ],
+ "languages": {
+  "primary": {
+   "lang": "it",
+   "label": "Italiano"
+  },
+  "translations": [
+   {
+    "lang": "en",
+    "label": "English",
+    "path": "Docs.en",
+    "counts": {
+     "translated": 20,
+     "fallback": 0,
+     "stale": 0,
+     "unstamped": 0,
+     "orphan": 0
+    },
+    "pages": [
+     {
+      "route": "en/00_deep_dive.html",
+      "source": "00_deep_dive.md",
+      "translation": "Docs.en/00_deep_dive.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/01_context.html",
+      "source": "01_context.md",
+      "translation": "Docs.en/01_context.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/02_functional_overview.html",
+      "source": "02_functional_overview.md",
+      "translation": "Docs.en/02_functional_overview.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/03_non_functional_overview.html",
+      "source": "03_non_functional_overview.md",
+      "translation": "Docs.en/03_non_functional_overview.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/04_constraints.html",
+      "source": "04_constraints.md",
+      "translation": "Docs.en/04_constraints.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/05_principles.html",
+      "source": "05_principles.md",
+      "translation": "Docs.en/05_principles.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/06_software_architecture.html",
+      "source": "06_software_architecture.md",
+      "translation": "Docs.en/06_software_architecture.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/07_code.html",
+      "source": "07_code.md",
+      "translation": "Docs.en/07_code.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/08_data.html",
+      "source": "08_data.md",
+      "translation": "Docs.en/08_data.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/09_infrastructure_architecture.html",
+      "source": "09_infrastructure_architecture.md",
+      "translation": "Docs.en/09_infrastructure_architecture.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/10_deployment.html",
+      "source": "10_deployment.md",
+      "translation": "Docs.en/10_deployment.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/11_development_environment.html",
+      "source": "11_development_environment.md",
+      "translation": "Docs.en/11_development_environment.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/12_operation_and_support.html",
+      "source": "12_operation_and_support.md",
+      "translation": "Docs.en/12_operation_and_support.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/13_decision_log.html",
+      "source": "13_decision_log.md",
+      "translation": "Docs.en/13_decision_log.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/14_metrics.html",
+      "source": "14_metrics.md",
+      "translation": "Docs.en/14_metrics.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/15_frontend_deep_assessment.html",
+      "source": "16_frontend_deep_assessment.md",
+      "translation": "Docs.en/16_frontend_deep_assessment.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/16_backend_deep_assessment.html",
+      "source": "17_backend_deep_assessment.md",
+      "translation": "Docs.en/17_backend_deep_assessment.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/17_antipattern_deep_dive.html",
+      "source": "18_antipattern_deep_dive.md",
+      "translation": "Docs.en/18_antipattern_deep_dive.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/audit/roadmap-done-audit.html",
+      "source": "@audit/roadmap-done-audit.md",
+      "translation": "../../../../../../repository/LOSS_PREVENTION/customspa-it-loss-prevention-d098a8b97860/docs_original/roadmap-done-audit.en.md",
+      "state": "fresh"
+     },
+     {
+      "route": "en/index-doc.html",
+      "source": "index.md",
+      "translation": "Docs.en/index.md",
+      "state": "fresh"
+     }
+    ]
+   }
+  ]
+ }
 }
