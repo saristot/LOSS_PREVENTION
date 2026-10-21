@@ -418,7 +418,7 @@
    "mode": "how",
    "step": "16_frontend_deep_assessment",
    "route": "15_frontend_deep_assessment.html",
-   "sha256": "59636041ce2e7b21af1c654933b4f2a442d04adfe1c0505da2a963300557d579",
+   "sha256": "b39f2671f57a75e56417eafdde3911f086fd13061fd0ca94b9a9051147578fb4",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -443,7 +443,7 @@
    "mode": "how",
    "step": "17_backend_deep_assessment",
    "route": "16_backend_deep_assessment.html",
-   "sha256": "947d376ab3d9789fcd395f95991571ec8f967a4fb1ac386375690d1ea59c1a10",
+   "sha256": "db0d8dbc82c856b9840d9523910021675099ad32fa4d70602b0349ffad319814",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
