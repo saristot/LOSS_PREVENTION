@@ -325,7 +325,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 </blockquote>
 <p><strong>Date</strong>: 2026-10-08<br>
 <strong>Version</strong>: 1.1<br>
-<strong>Authors</strong>: REVERSE how (IMPACT) · verification IMPACT verify<br>
+<strong>Authors</strong>: REVERSE how (IMPACT) · verified by IMPACT verify<br>
 <strong>Audience</strong>: Technical team, architects, developers, operations</p>
 <hr>
 <h2 id="main-sections"><span id="sezioni-principali" class="anchor-alias" aria-hidden="true"></span>Main Sections<a class="header-anchor" href="#main-sections" aria-label="Link to section: Main Sections">#</a></h2>
@@ -1165,7 +1165,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 <ol>
 <li>Daily backup (<code>mongodump --gzip --archive</code> or managed backup with point-in-time recovery), 30-day retention (value also proposed by the vendor in <code>Docs/12_MAINTENANCE_OPERATIONS.md</code>, line 233, historical document present only in <code>593f6de</code>).</li>
 <li>Secrets (JWT, SFTP, connection string) in a secret store with its own backup.</li>
-<li>Retention of the source files in <code>processed/</code> for the duration of the retention period, to allow the reconstruction of <code>ReportData</code>.</li>
+<li>Keeping the source files in <code>processed/</code> for the duration of the retention period, to allow the reconstruction of <code>ReportData</code>.</li>
 <li>Quarterly restore test with measurement of the actual RPO/RTO.</li>
 <li>Removal of the dump from Git (it contains user records with password hashes and ingestion configuration).</li>
 </ol>

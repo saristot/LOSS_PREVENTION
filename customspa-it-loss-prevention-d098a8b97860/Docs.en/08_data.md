@@ -162,7 +162,7 @@ Dump total: 25 files (12 `.bson` + 12 `.metadata.json` + `prelude.json`), 3,845,
 | Rule flags | `FraudFlags.*` | **0** (the rules have never been applied to this dump) |
 | TTL | `BeginDateTime` | **0** |
 
-Average document size ≈ 1,176 bytes (3,528,608 / 3,000). `TransactionDateTime` covers 2025-08-13 → 2025-11-12; `_processedAt` = 2026-05-13. The coexistence of `LineItem[]` and flat `SKU` (and of `Tender[]` and flat `Type/Amount`) derives from the XML→BSON flattening when a file contains only one or several repeated elements. `ReportData_old` (100 documents) instead has boolean flags at the root (`HighRefund`, `HighValueTransaction`, `HighVoid`, `IsVoid`, `LowValueTransaction`, `OutsideBusinessHours`) and fields `Timestamp`, `TotalAmount`, `TransactionID`, `TransactionType`: it is a previous schema.
+Average document size ≈ 1,176 bytes (3,528,608 / 3,000). `TransactionDateTime` covers 2025-08-13 → 2025-11-12; `_processedAt` = 2026-05-13. The coexistence of `LineItem[]` and flat `SKU` (and of `Tender[]` and flat `Type/Amount`) derives from the XML→BSON flattening, depending on whether a file contains a single element or several repeated elements. `ReportData_old` (100 documents) instead has boolean flags at the root (`HighRefund`, `HighValueTransaction`, `HighVoid`, `IsVoid`, `LowValueTransaction`, `OutsideBusinessHours`) and fields `Timestamp`, `TotalAmount`, `TransactionID`, `TransactionType`: it is a previous schema.
 
 ### 2.5 Indexes
 
@@ -192,7 +192,7 @@ The dump does **not** reflect script 04: `Rules` contains 3 rules (`LowValueTran
 
 ## 3. Data Ownership & Governance
 
-**Summary.** There are no formal data owner/steward roles nor data classification in the code; ownership is implicit in the component that writes each collection. The transactional data contains operator identifiers and masked payment data, accessible to anyone who has `CAN_VIEW_REPORT` without server-side filters.
+**Summary.** There are no formal data owner/steward roles or data classification in the code; ownership is implicit in the component that writes each collection. The transactional data contains operator identifiers and masked payment data, accessible to anyone who has `CAN_VIEW_REPORT` without server-side filters.
 
 ### 3.1 Technical ownership (writers and readers)
 
@@ -319,7 +319,7 @@ var indexKeys = Builders<BsonDocument>.IndexKeys.Ascending("BeginDateTime");
 | `Users`, `Roles`, `Permissions`, `Rules`, `Mappings`, `Workspaces`, `Dashboards`, `Groups`, `FraudDetectionSettings`, `DataIngestionConfigurations`, `DataIngestionSchedules` | Until manual deletion via API | Low volume |
 | `Mappings_old`, `ReportData_old` | None (only in the dump) | Obsolete data |
 
-Regulatory retention requirements (e.g. GDPR, PCI-DSS): N/A — not derivable from the code. Historical note: `Docs/12_MAINTENANCE_OPERATIONS.md` (only `593f6de`) suggested a manual cleanup `deleteMany({ _processedAt: { $lt: cutoff } })` at 180 days "se il TTL non funziona": not implemented.
+Regulatory retention requirements (e.g. GDPR, PCI-DSS): N/A — not derivable from the code. Historical note: `Docs/12_MAINTENANCE_OPERATIONS.md` (only `593f6de`) suggested a manual cleanup `deleteMany({ _processedAt: { $lt: cutoff } })` at 180 days "if TTL not working": not implemented.
 
 ---
 

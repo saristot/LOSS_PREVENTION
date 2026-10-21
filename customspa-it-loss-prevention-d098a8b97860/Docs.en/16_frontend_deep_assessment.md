@@ -15,7 +15,7 @@ generated_at: 2026-10-08T09:41:25+02:00
 
 **Date**: 2026-10-08 · **Version**: 1.1 · **Authors**: REVERSE how / IMPACT verify · **Audience**: Frontend Architect, Tech Lead, Senior Frontend Developer
 
-> **Prompt adaptation (Angular → Vue 3).** The reference prompt is written for Angular/Micro Frontend; the analyzed frontend (`LossPrevention.UI/`) is a **Vue 3 + Vite 6 + Vuetify 3 + Pinia** SPA. Each requirement has been mapped to the Vue equivalent; where no equivalent exists, `N/A per stack Vue: <motivo>` is indicated.
+> **Prompt adaptation (Angular → Vue 3).** The reference prompt is written for Angular/Micro Frontend; the analyzed frontend (`LossPrevention.UI/`) is a **Vue 3 + Vite 6 + Vuetify 3 + Pinia** SPA. Each requirement has been mapped to the Vue equivalent; where no equivalent exists, `N/A for Vue stack: <reason>` is indicated.
 
 | Angular concept in the prompt | Equivalent analyzed in this project |
 |---|---|
@@ -205,7 +205,7 @@ sequenceDiagram
 
 - **Memoization**: Pinia getters and 93 `computed()`; 10 uses of `storeToRefs`. `markRaw` applied once to the cache of generated rules (`aiStore.ts:1652`; imported but not used in `fraudDetectionStore.ts:2`); `shallowRef` for the Chart.js instance (`heatmapPreview.vue:56`). These are good practices, Vue equivalents of exclusion from change tracking, but applied sporadically: the row datasets remain deeply reactive.
 - **Change detection**: N/A for Vue stack (no OnPush/Zone.js); reactivity is fine-grained via Proxy. 29 `watch()`.
-- **Memory leaks**: `resultsGrid.vue:635` registers `document.addEventListener('click', ...)` in `onMounted` **without** removal in `onBeforeUnmount` → leak on every mount of the grid. Correct: `dashboard.vue:444-448` (`beforeunload`), `setInterval` with `clearInterval` in `aiStore.ts:1980` and `fraudDetectionStore.ts:692`, `destroy()` of the charts in `chartblock.vue`, `heatmapPreview.vue`, `radarChart.vue`. `takeUntil`/`async pipe`: N/A for Vue stack.
+- **Memory leaks**: `resultsGrid.vue:635` registers `document.addEventListener('click', ...)` in `onMounted` **without** removal in `onBeforeUnmount` → leak on every mount of the grid. Handled correctly: `dashboard.vue:444-448` (`beforeunload`), `setInterval` with `clearInterval` in `aiStore.ts:1980` and `fraudDetectionStore.ts:692`, `destroy()` of the charts in `chartblock.vue`, `heatmapPreview.vue`, `radarChart.vue`. `takeUntil`/`async pipe`: N/A for Vue stack.
 
 ## 3. Component Architecture
 
@@ -218,7 +218,7 @@ The 41 SFCs almost all use `<script setup>` (39/41) and Vuetify; complexity is c
 - **Shared components**: no common library; folders per feature (`components/reports`, `dashboard`, `manage`, `workspace`).
 - **Complexity** (lizard, 569 FE functions, average CCN 3.09): 14 functions CCN > 15, 24 > 10, 11 functions > 50 NLOC. Top: `buildGenericFraudRuleTemplates` (`aiStore.ts:1203-1530`, CCN 87), `enrichWithCrossTransactionMetrics` (`aiStore.ts:986-1142`, CCN 43), `save` (`dataIngestionStore.ts:164-228`, CCN 36), `analyzeFraudInData` (`aiStore.ts:1667-1922`, CCN 34), `buildPipeline` (`chartblock.vue:69-124`, CCN 28).
 - **Communication**: 24 `defineProps`, 17 `defineEmits`, 1 `provide/inject`; cross-view communication via Pinia stores. EventEmitter/Subject: N/A for Vue stack.
-- **Reuse/duplication**: jscpd (min 50 tokens) on `src/`: 31 clones, 854 duplicated lines (**3.42 %**). Double libraries with the same responsibility: AG Grid (`resultsGrid.vue`, `tabularBlock.vue:44`) **and** Tabulator (`distanceTable.vue:25`); `vue-grid-layout-v3` (`dashboardGrid.vue:84`) **and** `grid-layout-plus` (not used).
+- **Reuse/duplication**: jscpd (min 50 tokens) on `src/`: 31 clones, 854 duplicated lines (**3.42 %**). Duplicate libraries with the same responsibility: AG Grid (`resultsGrid.vue`, `tabularBlock.vue:44`) **and** Tabulator (`distanceTable.vue:25`); `vue-grid-layout-v3` (`dashboardGrid.vue:84`) **and** `grid-layout-plus` (not used).
 
 ### 3.2 Template & Styling
 
@@ -248,7 +248,7 @@ api.interceptors.request.use((config) => {                       // righe 10-18
   - Interceptors: request only (auth). **No response interceptor**: 401/403 are not handled centrally (logout happens only on local expiry, `loginStore.ts:54-66`). Logging: `console.log` of the base URL in production.
   - Retry: absent. Client caching: absent (caching is server-side, 1 h on `/data/report/query`).
   - Typing: 24 `interface` + 1 `type` alias in `src/`; many responses typed `any` (336 occurrences of `: any`, 40 `as any`, 12 `<any>`).
-- **API integration**: base URL from `VITE_API_BASE_URL` (compile-time, no versioned `.env*` or `.env.example`); no API versioning (backend without `/v1`); per-action error handling with toasts; mock services: none.
+- **API integration**: base URL from `VITE_API_BASE_URL` (compile-time, no committed `.env*` or `.env.example`); no API versioning (backend without `/v1`); per-action error handling with toasts; mock services: none.
 - **LLM**: `fetch("http://localhost:11434/api/generate")` (`aiStore.ts:88`) with the `qwen2.5:14b` model (`aiStore.ts:8`) hardcoded. The vendor's historical documentation cited `VITE_OLLAMA_URL`/`VITE_OLLAMA_MODEL` (`Docs/07_FRONTEND_ARCHITECTURE.md:866-867`, **present only in commit `593f6de`, removed in `d768cd9`**), variables **never read** by the code at the baseline.
 
 ### 4.2 RxJS Patterns
@@ -347,8 +347,8 @@ At the baseline the build is not reproducible: the lockfile is not aligned and o
   > Note: the IMPACT fact sheet states "13" but lists 12; the 13th is the non-existent import of `ScheduleForm.vue`.
 
 - **Type-check**: not run in the build (`"build": "vite build"`). Manual result: `vue-tsc` 1.8.27 (version in the lock) **crashes** with TypeScript 5.6 (`Search string not found: "for (const existingRoot of buildInfoVersionMap.roots)"`); with `vue-tsc` 2.2.12 there are 4 syntax errors (TS1005 ×3, TS1136 ×1) in `queryBuilderTabs.vue:17`; in the presence of syntax errors `tsc` does not emit the semantic diagnostics, so the number of type errors remains **N/A — not derivable until the syntax error is fixed**.
-- **Environment configuration**: only `VITE_API_BASE_URL` (compile-time); no versioned `.env*` file, no runtime configuration (`config.json`), feature flags: none.
-- **Build performance**: 1 min 04 s on a Windows workstation (single measurement); incremental build = HMR of the Vite dev server; cache: `.vite/deps/_metadata.json` **versioned by mistake** (not excluded by `.gitignore`).
+- **Environment configuration**: only `VITE_API_BASE_URL` (compile-time); no committed `.env*` file, no runtime configuration (`config.json`), feature flags: none.
+- **Build performance**: 1 min 04 s on a Windows workstation (single measurement); incremental build = HMR of the Vite dev server; cache: `.vite/deps/_metadata.json` **committed by mistake** (not excluded by `.gitignore`).
 
 ### 8.2 Deployment Strategy
 
@@ -389,7 +389,7 @@ TypeScript is active in `strict` mode, but the massive use of `any` and the abse
 
 ### 10.3 Development Workflow
 
-- **Hot reload**: Vite dev server (native HMR); `.vscode/extensions.json` versioned.
+- **Hot reload**: Vite dev server (native HMR); `.vscode/extensions.json` committed.
 - **Debugging**: source maps in dev (Vite default); none in production.
 - **Error handling**: no `app.config.errorHandler`, no `onErrorCaptured`; errors handled locally with `console.error` + toast.
 
@@ -404,7 +404,7 @@ Method: installed versions from `package-lock.json` (copy in a work area, `npm i
 | Package | Lock | Latest (npm) | Usage in the code | Audit | License | Action |
 |---|---|---|---|---|---|---|
 | `vue` | 3.5.14 | 3.5.43 | core | High | MIT | Update patch |
-| `vue-router` | 4.6.3 | 5.4.0 | `router/index.ts` | — | MIT | Stay on updated 4.x; evaluate 5 |
+| `vue-router` | 4.6.3 | 5.4.0 | `router/index.ts` | — | MIT | Stay on the latest 4.x; evaluate 5 |
 | `pinia` | 2.2.4 | 4.0.3 | 15 stores | — | MIT | Update to 3.x/4.x with tests |
 | `vuetify` | 3.7.3 | 4.2.4 | UI | — | MIT | Update 3.x; 4 = major |
 | `axios` | 1.13.1 | 1.20.0 | `api/api.ts`, `userStore.ts:4` | High | MIT | Update |
@@ -498,7 +498,7 @@ The frontend debt is concentrated on security (dynamic execution, client-side en
 | FE-TD11 | P2 | Hardcoded LLM `localhost:11434` | Not deployable | 1 day FE + BE gateway | Backend AI gateway + per-environment config |
 | FE-TD12 | P3 | Listener leak `resultsGrid.vue:635` | Memory | 0.5 h | `removeEventListener` in `onBeforeUnmount` |
 | FE-TD13 | P3 | A11y: ARIA, keyboard, color | User exclusion, regulatory risk | 5–8 days | axe audit + WCAG 2.1 AA fixes |
-| FE-TD14 | P3 | Duplicate libraries (Tabulator, grid-layout-plus), `@types/vue-router`, versioned `.vite/` | Noise, bundle | 1–2 days | Single grid library, repo cleanup |
+| FE-TD14 | P3 | Duplicate libraries (Tabulator, grid-layout-plus), `@types/vue-router`, committed `.vite/` | Noise, bundle | 1–2 days | Single grid library, repo cleanup |
 
 **Estimated total**: 43–66.5 person-days (sum of the minimums and of the maximums of the rows; FE-TD12 ≈ 0.06 days is neglected; the backend shares are excluded).
 

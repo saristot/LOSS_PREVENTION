@@ -325,7 +325,7 @@ generated_at: 2026-10-08T09:41:25+02:00
 </blockquote>
 <p><strong>Date</strong>: 2026-10-08 · <strong>Version</strong>: 1.1 · <strong>Authors</strong>: REVERSE how / IMPACT verify · <strong>Audience</strong>: Frontend Architect, Tech Lead, Senior Frontend Developer</p>
 <blockquote>
-<p><strong>Prompt adaptation (Angular → Vue 3).</strong> The reference prompt is written for Angular/Micro Frontend; the analyzed frontend (<code>LossPrevention.UI/</code>) is a <strong>Vue 3 + Vite 6 + Vuetify 3 + Pinia</strong> SPA. Each requirement has been mapped to the Vue equivalent; where no equivalent exists, <code>N/A per stack Vue: &lt;motivo&gt;</code> is indicated.</p>
+<p><strong>Prompt adaptation (Angular → Vue 3).</strong> The reference prompt is written for Angular/Micro Frontend; the analyzed frontend (<code>LossPrevention.UI/</code>) is a <strong>Vue 3 + Vite 6 + Vuetify 3 + Pinia</strong> SPA. Each requirement has been mapped to the Vue equivalent; where no equivalent exists, <code>N/A for Vue stack: &lt;reason&gt;</code> is indicated.</p>
 </blockquote>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Table 1"><table>
 <thead>
@@ -753,7 +753,7 @@ app.mount("#app");
 <ul>
 <li><strong>Memoization</strong>: Pinia getters and 93 <code>computed()</code>; 10 uses of <code>storeToRefs</code>. <code>markRaw</code> applied once to the cache of generated rules (<code>aiStore.ts:1652</code>; imported but not used in <code>fraudDetectionStore.ts:2</code>); <code>shallowRef</code> for the Chart.js instance (<code>heatmapPreview.vue:56</code>). These are good practices, Vue equivalents of exclusion from change tracking, but applied sporadically: the row datasets remain deeply reactive.</li>
 <li><strong>Change detection</strong>: N/A for Vue stack (no OnPush/Zone.js); reactivity is fine-grained via Proxy. 29 <code>watch()</code>.</li>
-<li><strong>Memory leaks</strong>: <code>resultsGrid.vue:635</code> registers <code>document.addEventListener('click', ...)</code> in <code>onMounted</code> <strong>without</strong> removal in <code>onBeforeUnmount</code> → leak on every mount of the grid. Correct: <code>dashboard.vue:444-448</code> (<code>beforeunload</code>), <code>setInterval</code> with <code>clearInterval</code> in <code>aiStore.ts:1980</code> and <code>fraudDetectionStore.ts:692</code>, <code>destroy()</code> of the charts in <code>chartblock.vue</code>, <code>heatmapPreview.vue</code>, <code>radarChart.vue</code>. <code>takeUntil</code>/<code>async pipe</code>: N/A for Vue stack.</li>
+<li><strong>Memory leaks</strong>: <code>resultsGrid.vue:635</code> registers <code>document.addEventListener('click', ...)</code> in <code>onMounted</code> <strong>without</strong> removal in <code>onBeforeUnmount</code> → leak on every mount of the grid. Handled correctly: <code>dashboard.vue:444-448</code> (<code>beforeunload</code>), <code>setInterval</code> with <code>clearInterval</code> in <code>aiStore.ts:1980</code> and <code>fraudDetectionStore.ts:692</code>, <code>destroy()</code> of the charts in <code>chartblock.vue</code>, <code>heatmapPreview.vue</code>, <code>radarChart.vue</code>. <code>takeUntil</code>/<code>async pipe</code>: N/A for Vue stack.</li>
 </ul>
 <h2 id="3-component-architecture"><span id="_3-component-architecture" class="anchor-alias" aria-hidden="true"></span>3. Component Architecture<a class="header-anchor" href="#3-component-architecture" aria-label="Link to section: 3. Component Architecture">#</a></h2>
 <p>The 41 SFCs almost all use <code>&lt;script setup&gt;</code> (39/41) and Vuetify; complexity is concentrated in a few very large components that mix presentation, data access and domain logic.</p>
@@ -764,7 +764,7 @@ app.mount("#app");
 <li><strong>Shared components</strong>: no common library; folders per feature (<code>components/reports</code>, <code>dashboard</code>, <code>manage</code>, <code>workspace</code>).</li>
 <li><strong>Complexity</strong> (lizard, 569 FE functions, average CCN 3.09): 14 functions CCN &gt; 15, 24 &gt; 10, 11 functions &gt; 50 NLOC. Top: <code>buildGenericFraudRuleTemplates</code> (<code>aiStore.ts:1203-1530</code>, CCN 87), <code>enrichWithCrossTransactionMetrics</code> (<code>aiStore.ts:986-1142</code>, CCN 43), <code>save</code> (<code>dataIngestionStore.ts:164-228</code>, CCN 36), <code>analyzeFraudInData</code> (<code>aiStore.ts:1667-1922</code>, CCN 34), <code>buildPipeline</code> (<code>chartblock.vue:69-124</code>, CCN 28).</li>
 <li><strong>Communication</strong>: 24 <code>defineProps</code>, 17 <code>defineEmits</code>, 1 <code>provide/inject</code>; cross-view communication via Pinia stores. EventEmitter/Subject: N/A for Vue stack.</li>
-<li><strong>Reuse/duplication</strong>: jscpd (min 50 tokens) on <code>src/</code>: 31 clones, 854 duplicated lines (<strong>3.42 %</strong>). Double libraries with the same responsibility: AG Grid (<code>resultsGrid.vue</code>, <code>tabularBlock.vue:44</code>) <strong>and</strong> Tabulator (<code>distanceTable.vue:25</code>); <code>vue-grid-layout-v3</code> (<code>dashboardGrid.vue:84</code>) <strong>and</strong> <code>grid-layout-plus</code> (not used).</li>
+<li><strong>Reuse/duplication</strong>: jscpd (min 50 tokens) on <code>src/</code>: 31 clones, 854 duplicated lines (<strong>3.42 %</strong>). Duplicate libraries with the same responsibility: AG Grid (<code>resultsGrid.vue</code>, <code>tabularBlock.vue:44</code>) <strong>and</strong> Tabulator (<code>distanceTable.vue:25</code>); <code>vue-grid-layout-v3</code> (<code>dashboardGrid.vue:84</code>) <strong>and</strong> <code>grid-layout-plus</code> (not used).</li>
 </ul>
 <h3 id="32-template--styling"><span id="32-template-styling" class="anchor-alias" aria-hidden="true"></span><span id="_3-2-template-styling" class="anchor-alias" aria-hidden="true"></span>3.2 Template &amp; Styling<a class="header-anchor" href="#32-template--styling" aria-label="Link to section: 3.2 Template &amp; Styling">#</a></h3>
 <ul>
@@ -791,7 +791,7 @@ api.interceptors.request.use((config) =&gt; {                       // righe 10-
 <li>Interceptors: request only (auth). <strong>No response interceptor</strong>: 401/403 are not handled centrally (logout happens only on local expiry, <code>loginStore.ts:54-66</code>). Logging: <code>console.log</code> of the base URL in production.</li>
 <li>Retry: absent. Client caching: absent (caching is server-side, 1 h on <code>/data/report/query</code>).</li>
 <li>Typing: 24 <code>interface</code> + 1 <code>type</code> alias in <code>src/</code>; many responses typed <code>any</code> (336 occurrences of <code>: any</code>, 40 <code>as any</code>, 12 <code>&lt;any&gt;</code>).</li>
-<li><strong>API integration</strong>: base URL from <code>VITE_API_BASE_URL</code> (compile-time, no versioned <code>.env*</code> or <code>.env.example</code>); no API versioning (backend without <code>/v1</code>); per-action error handling with toasts; mock services: none.</li>
+<li><strong>API integration</strong>: base URL from <code>VITE_API_BASE_URL</code> (compile-time, no committed <code>.env*</code> or <code>.env.example</code>); no API versioning (backend without <code>/v1</code>); per-action error handling with toasts; mock services: none.</li>
 <li><strong>LLM</strong>: <code>fetch("http://localhost:11434/api/generate")</code> (<code>aiStore.ts:88</code>) with the <code>qwen2.5:14b</code> model (<code>aiStore.ts:8</code>) hardcoded. The vendor's historical documentation cited <code>VITE_OLLAMA_URL</code>/<code>VITE_OLLAMA_MODEL</code> (<code>Docs/07_FRONTEND_ARCHITECTURE.md:866-867</code>, <strong>present only in commit <code>593f6de</code>, removed in <code>d768cd9</code></strong>), variables <strong>never read</strong> by the code at the baseline.</li>
 </ul>
 <h3 id="42-rxjs-patterns"><span id="_4-2-rxjs-patterns" class="anchor-alias" aria-hidden="true"></span>4.2 RxJS Patterns<a class="header-anchor" href="#42-rxjs-patterns" aria-label="Link to section: 4.2 RxJS Patterns">#</a></h3>
@@ -966,8 +966,8 @@ const result = eval(expr);
 </blockquote>
 <ul>
 <li><strong>Type-check</strong>: not run in the build (<code>"build": "vite build"</code>). Manual result: <code>vue-tsc</code> 1.8.27 (version in the lock) <strong>crashes</strong> with TypeScript 5.6 (<code>Search string not found: "for (const existingRoot of buildInfoVersionMap.roots)"</code>); with <code>vue-tsc</code> 2.2.12 there are 4 syntax errors (TS1005 ×3, TS1136 ×1) in <code>queryBuilderTabs.vue:17</code>; in the presence of syntax errors <code>tsc</code> does not emit the semantic diagnostics, so the number of type errors remains <strong>N/A — not derivable until the syntax error is fixed</strong>.</li>
-<li><strong>Environment configuration</strong>: only <code>VITE_API_BASE_URL</code> (compile-time); no versioned <code>.env*</code> file, no runtime configuration (<code>config.json</code>), feature flags: none.</li>
-<li><strong>Build performance</strong>: 1 min 04 s on a Windows workstation (single measurement); incremental build = HMR of the Vite dev server; cache: <code>.vite/deps/_metadata.json</code> <strong>versioned by mistake</strong> (not excluded by <code>.gitignore</code>).</li>
+<li><strong>Environment configuration</strong>: only <code>VITE_API_BASE_URL</code> (compile-time); no committed <code>.env*</code> file, no runtime configuration (<code>config.json</code>), feature flags: none.</li>
+<li><strong>Build performance</strong>: 1 min 04 s on a Windows workstation (single measurement); incremental build = HMR of the Vite dev server; cache: <code>.vite/deps/_metadata.json</code> <strong>committed by mistake</strong> (not excluded by <code>.gitignore</code>).</li>
 </ul>
 <h3 id="82-deployment-strategy"><span id="_8-2-deployment-strategy" class="anchor-alias" aria-hidden="true"></span>8.2 Deployment Strategy<a class="header-anchor" href="#82-deployment-strategy" aria-label="Link to section: 8.2 Deployment Strategy">#</a></h3>
 <ul>
@@ -1002,7 +1002,7 @@ const result = eval(expr);
 </ul>
 <h3 id="103-development-workflow"><span id="_10-3-development-workflow" class="anchor-alias" aria-hidden="true"></span>10.3 Development Workflow<a class="header-anchor" href="#103-development-workflow" aria-label="Link to section: 10.3 Development Workflow">#</a></h3>
 <ul>
-<li><strong>Hot reload</strong>: Vite dev server (native HMR); <code>.vscode/extensions.json</code> versioned.</li>
+<li><strong>Hot reload</strong>: Vite dev server (native HMR); <code>.vscode/extensions.json</code> committed.</li>
 <li><strong>Debugging</strong>: source maps in dev (Vite default); none in production.</li>
 <li><strong>Error handling</strong>: no <code>app.config.errorHandler</code>, no <code>onErrorCaptured</code>; errors handled locally with <code>console.error</code> + toast.</li>
 </ul>
@@ -1039,7 +1039,7 @@ const result = eval(expr);
 <td><code>router/index.ts</code></td>
 <td>—</td>
 <td>MIT</td>
-<td>Stay on updated 4.x; evaluate 5</td>
+<td>Stay on the latest 4.x; evaluate 5</td>
 </tr>
 <tr>
 <td><code>pinia</code></td>
@@ -1487,7 +1487,7 @@ const result = eval(expr);
 <tr>
 <td>FE-TD14</td>
 <td>P3</td>
-<td>Duplicate libraries (Tabulator, grid-layout-plus), <code>@types/vue-router</code>, versioned <code>.vite/</code></td>
+<td>Duplicate libraries (Tabulator, grid-layout-plus), <code>@types/vue-router</code>, committed <code>.vite/</code></td>
 <td>Noise, bundle</td>
 <td>Single grid library, repo cleanup</td>
 </tr>

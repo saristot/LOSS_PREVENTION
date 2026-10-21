@@ -317,7 +317,7 @@ Concurrency: no optimistic locking (no version field); `ApplyRulesAsync` and ing
 |---|---------|----------|---------|
 | C1 | `appsettings.json` re-added after the default sources | `Program.cs:36-38` | The file values take precedence over environment variables and arguments: impossible to override `JwtSettings:SecretKey` or the connection string without modifying the file |
 | C2 | Empty `MongoDbSettings` singleton | `Program.cs:83` | D10 (see Appendix B) |
-| C3 | No per-environment file (`appsettings.{Environment}.json`) nor user-secrets | file search | Secrets and development hosts in the repository |
+| C3 | No per-environment file (`appsettings.{Environment}.json`) or user-secrets | file search | Secrets and development hosts in the repository |
 | C4 | Divergent retention defaults | code 90 days (`DatabaseInitializationService.cs:23`) vs config 180 days | Different behavior if the key is missing |
 | C5 | Console with 6 collection names out of 13 | `DataIngestionService/appsettings.json` | Unconfigured repositories receive a null collection name (not used by the console) |
 

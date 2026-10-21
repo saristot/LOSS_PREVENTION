@@ -375,7 +375,7 @@ Historical note: the vendor documentation `Docs/04_DEPLOYMENT_GUIDE.md` (present
 | Constraint | Evidence | Impact |
 |---------|----------|---------|
 | CORS hardcoded to `localhost:5173/5174` | `Program.cs:24-34` | Every different environment requires a code change |
-| In-process scheduler and cache | `Program.cs:49,111` | A single API instance: with multiple instances, duplicated ingestion and inconsistent cache |
+| In-process scheduler and cache | `Program.cs:49,111` | Only one API instance possible: with multiple instances, ingestion is duplicated and the cache becomes inconsistent |
 | Blocking DB initialization at startup | `Program.cs:115-119`, exception rethrown by `DatabaseInitializationService` | The API does not start if MongoDB is not reachable |
 | No `UseHttpsRedirection`, HSTS, health check | `Program.cs:121-131` | TLS and probes must be delegated to a reverse proxy |
 | LLM on the client's `localhost` | `aiStore.ts:88` | Every user workstation must run Ollama |

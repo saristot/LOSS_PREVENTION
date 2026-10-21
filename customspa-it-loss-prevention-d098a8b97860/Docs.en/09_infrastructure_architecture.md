@@ -15,7 +15,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 
 **Date**: 2026-10-08  
 **Version**: 1.1  
-**Authors**: REVERSE how (IMPACT) · verification IMPACT verify  
+**Authors**: REVERSE how (IMPACT) · verified by IMPACT verify  
 **Audience**: Technical team, architects, developers, operations
 
 ---
@@ -306,7 +306,7 @@ At API startup the TTL index `ttl_BeginDateTime` is created with `ExpireAfter = 
 
 1. Daily backup (`mongodump --gzip --archive` or managed backup with point-in-time recovery), 30-day retention (value also proposed by the vendor in `Docs/12_MAINTENANCE_OPERATIONS.md`, line 233, historical document present only in `593f6de`).
 2. Secrets (JWT, SFTP, connection string) in a secret store with its own backup.
-3. Retention of the source files in `processed/` for the duration of the retention period, to allow the reconstruction of `ReportData`.
+3. Keeping the source files in `processed/` for the duration of the retention period, to allow the reconstruction of `ReportData`.
 4. Quarterly restore test with measurement of the actual RPO/RTO.
 5. Removal of the dump from Git (it contains user records with password hashes and ingestion configuration).
 

@@ -293,7 +293,7 @@ Outcome of each check required by the prompt (Phases 1-4): ✅ = anti-pattern ab
 **3.1 God Object / The Blob**
 - ❌ `aiStore.ts` (99 functions, 1,994 lines) and `resultsGrid.vue` (2,271 lines) exceed all thresholds (AP-02, AP-03).
 - ⚠️ `fraudDetectionStore.ts` (29 functions, 728 lines) and `selectFields.vue` (823 lines).
-- ⚠️ Backend: `MappingService` (428 lines, schema discovery + CRUD + batch) and `FileProcessingCoordinator` (424 lines: orchestration, SFTP, parsing, persistence, idempotency) are at the limit; no class has more than 20 public methods.
+- ⚠️ Backend: `MappingService` (428 lines, schema discovery + CRUD + batch) and `FileProcessingCoordinator` (424 lines: orchestration, SFTP, parsing, persistence, idempotency) are borderline; no class has more than 20 public methods.
 - ⚠️ Generic names: `BsonHelper`, `RuleHelper` and `DistanceHelper` are static helpers. `IndexSuggestionHelper.cs` contains the `IndexService` class.
 
 **3.2 Circular Dependency**
@@ -532,7 +532,7 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
   public string Recurrence { get; set; } = "daily";      // "daily" | "weekly"          (:34) — ma "monthly" è gestito in DataIngestionBackgroundService.cs:140
   if (normalizedSource == "filesystem" || normalizedSource == "file system")          // FileProcessingCoordinator.cs:94
   ```
-- **Impact**: unvalidated values (the model comment does not include `monthly`, which is however handled); fragile comparisons.
+- **Impact**: unvalidated values (the model comment does not include `monthly`, even though it is handled); fragile comparisons.
 - **Refactoring**: `ScheduleType`, `Recurrence` and `SourceType` enums with string serialization (`[BsonRepresentation(BsonType.String)]`/`JsonStringEnumConverter`); `RowLock(Field, Value)` value object; TypeScript types instead of `any`.
 
 ### AP-17 — Magic Numbers · **Low**

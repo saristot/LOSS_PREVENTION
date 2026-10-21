@@ -42,7 +42,7 @@ All metrics are measured on the **content of commit `fc7d820`** (extracted with 
 | Baseline extraction | `git archive --format=tar -o fc7d820.tar fc7d820` → `tar -xf fc7d820.tar -C <dir>` |
 | Full repository SLOC | `cloc-2.10.exe <dir>\customspa-it-loss-prevention-d098a8b97860` (official `AlDanial/cloc` v2.10 binary; `npx cloc` not usable because it requires Perl, absent on the machine) |
 | SLOC per project | `cloc-2.10.exe <progetto>` for each `LossPrevention.*`, `Data`, `Docs` folder |
-| SLOC of the `<script>` sections only of the `.vue` files | Python script that extracts the content of every `<script …>…</script>` block of the 41 SFCs into temporary `.ts` files, then `cloc` on the extracted files |
+| SLOC of only the `<script>` sections of the `.vue` files | Python script that extracts the content of every `<script …>…</script>` block of the 41 SFCs into temporary `.ts` files, then `cloc` on the extracted files |
 | Cyclomatic complexity (CCN) | `pip install lizard` → `python -m lizard -l csharp LossPrevention.API LossPrevention.Application LossPrevention.Domain LossPrevention.Infrastructure LossPrevention.DataIngestionService` and `python -m lizard -l typescript -l vue LossPrevention.UI\src` (`--csv` output for the hotspots) |
 | npm vulnerabilities | `npm audit --package-lock-only --json` in `LossPrevention.UI` (run on 2026-10-08; the result depends on the date of the advisory DB) |
 

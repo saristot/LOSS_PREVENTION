@@ -325,7 +325,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 </blockquote>
 <p><strong>Date</strong>: 2026-10-08<br>
 <strong>Version</strong>: 1.1<br>
-<strong>Authors</strong>: REVERSE how (IMPACT) · verification IMPACT verify<br>
+<strong>Authors</strong>: REVERSE how (IMPACT) · verified by IMPACT verify<br>
 <strong>Audience</strong>: Operations, application support (L1/L2), tech lead</p>
 <hr>
 <h2 id="main-sections"><span id="sezioni-principali" class="anchor-alias" aria-hidden="true"></span>Main Sections<a class="header-anchor" href="#main-sections" aria-label="Link to section: Main Sections">#</a></h2>
@@ -474,7 +474,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 </tr>
 <tr>
 <td>Failed logins</td>
-<td><code>/users/login</code> log/metric (today it responds 500, §4.3)</td>
+<td><code>/users/login</code> log/metric (today it returns 500, §4.3)</td>
 <td>Anomalous spikes (brute force)</td>
 </tr>
 <tr>
@@ -912,7 +912,7 @@ db.PasswordResetTokens.countDocuments({ ExpiryDate: { $lt: new Date() } })
 <td>The API does not start</td>
 <td>Log <code>Error during database initialization</code></td>
 <td>MongoDB not reachable; the exception is rethrown (<code>DatabaseInitializationService.cs:36-40</code>)</td>
-<td>Restore MongoDB, restart</td>
+<td>Bring MongoDB back online, restart</td>
 </tr>
 <tr>
 <td>The API does not start with <code>FileNotFoundException</code></td>
@@ -930,7 +930,7 @@ db.PasswordResetTokens.countDocuments({ ExpiryDate: { $lt: new Date() } })
 <td>Ingestion executed twice</td>
 <td>Log <code>Scheduled ingestion triggered</code> repeated in the same minute, or from multiple instances</td>
 <td><code>LastRunAt</code> not persisted (lines 86-87); scheduler on every instance</td>
-<td>A single instance; files already in <code>ProcessedFiles</code> are skipped, but the check is not atomic</td>
+<td>Run a single instance; files already in <code>ProcessedFiles</code> are skipped, but the check is not atomic</td>
 </tr>
 <tr>
 <td>File not imported</td>
@@ -1196,7 +1196,7 @@ mongorestore --uri "&lt;connection-string&gt;" --gzip --archive="D:\backup\LossP
 <tr>
 <td>M12</td>
 <td>.NET 8 runtime upgrade</td>
-<td>Before the end of support of .NET 8 (10-11-2026)</td>
+<td>Before the end of support of .NET 8 (November 10, 2026)</td>
 <td>To be planned</td>
 <td>Retarget to .NET 10 LTS</td>
 </tr>

@@ -15,7 +15,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 
 **Date**: 2026-10-08  
 **Version**: 1.1  
-**Authors**: REVERSE how (IMPACT) · verification IMPACT verify  
+**Authors**: REVERSE how (IMPACT) · verified by IMPACT verify  
 **Audience**: Technical team, DevOps, release manager
 
 ---
@@ -84,7 +84,7 @@ flowchart LR
   end
   subgraph ART["Artifacts"]
     A1["publish/api<br/>(framework-dependent .NET 8)"]
-    A2["dist/<br/>(VITE_API_BASE_URL fixed)"]
+    A2["dist/<br/>(VITE_API_BASE_URL baked in)"]
     A3["publish/ingestion<br/>(exe + appsettings.json)"]
     A4[".js scripts"]
   end

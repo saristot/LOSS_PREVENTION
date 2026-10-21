@@ -333,7 +333,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 <p>The Loss Prevention Tool is an analytics web application for loss prevention in retail: it imports point-of-sale transactions and helps analysts uncover anomalous or fraudulent behavior.</p>
 <h3 id="11-overview"><span id="_1-1-overview" class="anchor-alias" aria-hidden="true"></span>1.1 Overview<a class="header-anchor" href="#11-overview" aria-label="Link to section: 1.1 Overview">#</a></h3>
 <p><strong>Elevator pitch (3 sentences)</strong>
-1. The Loss Prevention Tool collects store transactions into a single repository, received as XML, CSV or JSON files from an SFTP server or from a folder.
+1. The Loss Prevention Tool collects store transactions, received as XML, CSV or JSON files from an SFTP server or from a folder, into a single repository.
 2. Analysts build reports and dashboards on their own, apply anti-fraud rules and search for transactions "similar" to a suspicious one.
 3. Functions assisted by a language model turn natural-language questions into queries, and an automatic statistical analysis highlights anomalous transactions.</p>
 <p><strong>Description for non-technical readers.</strong> In stores, every receipt, return, void or discount generates a transaction. Losses due to internal fraud (for example a cashier granting undue discounts to acquaintances) or external fraud (fictitious returns, anomalous use of gift cards) are hidden in large volumes of data. The system periodically imports this data, makes it searchable with a "report designer" similar to an advanced spreadsheet, and flags suspicious transactions through configurable rules and statistics (values out of the norm compared with colleagues or with history).</p>
@@ -341,7 +341,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 <h3 id="12-application-domain"><span id="_1-2-dominio-applicativo" class="anchor-alias" aria-hidden="true"></span><span id="12-dominio-applicativo" class="anchor-alias" aria-hidden="true"></span><span id="_1-2-application-domain" class="anchor-alias" aria-hidden="true"></span>1.2 Application Domain<a class="header-anchor" href="#12-application-domain" aria-label="Link to section: 1.2 Application Domain">#</a></h3>
 <p><strong>Sector</strong>: Retail — Loss Prevention / Fraud Analytics on POS transactions (suspicious returns and refunds, voids, excessive discounts, <em>sweethearting</em>, out-of-hours transactions, splitting, anomalous use of gift cards and manually keyed cards; list derived from the 30 <code>fraudType</code> types in <code>aiStore.ts</code>).<br>
 <strong>System Type</strong>: B2B Enterprise — internal analytics tool for a retailer's Loss Prevention teams (product of the external vendor <code>customspa-it</code>, distributed per client; the historical roadmap envisages future <em>branding</em> and <em>multi-tenancy</em>).<br>
-<strong>Severity</strong>: <strong>Business-critical (decision support)</strong>, not mission-critical: the system is not in the operational sales path (the tills work even if it is down), but its results may ground investigations and disciplinary measures. Classification inferred from the domain: N/A — a formal client classification is not derivable from the code.</p>
+<strong>Criticality</strong>: <strong>Business-critical (decision support)</strong>, not mission-critical: the system is not in the operational sales path (the tills work even if it is down), but its results may form the basis for investigations and disciplinary measures. Classification inferred from the domain: N/A — a formal client classification is not derivable from the code.</p>
 <h3 id="13-acronyms-and-nomenclature"><span id="_1-3-acronimi-e-nomenclatura" class="anchor-alias" aria-hidden="true"></span><span id="13-acronimi-e-nomenclatura" class="anchor-alias" aria-hidden="true"></span><span id="_1-3-acronyms-and-nomenclature" class="anchor-alias" aria-hidden="true"></span>1.3 Acronyms and Nomenclature<a class="header-anchor" href="#13-acronyms-and-nomenclature" aria-label="Link to section: 1.3 Acronyms and Nomenclature">#</a></h3>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Table 1"><table>
 <thead>
@@ -540,7 +540,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 <th>Data Provided</th>
 <th>Protocol</th>
 <th>Frequency</th>
-<th>Severity</th>
+<th>Criticality</th>
 </tr>
 </thead>
 <tbody>
@@ -575,7 +575,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 <th>Data Received</th>
 <th>Protocol</th>
 <th>Frequency</th>
-<th>Severity</th>
+<th>Criticality</th>
 </tr>
 </thead>
 <tbody>
@@ -595,7 +595,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 </tr>
 <tr>
 <td>SFTP server</td>
-<td>Moving of processed files to <code>processed</code>/<code>failed</code></td>
+<td>Processed files moved to <code>processed</code>/<code>failed</code></td>
 <td>SFTP</td>
 <td>At every ingestion</td>
 <td>Low</td>
@@ -811,7 +811,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 <p><strong>Alternatives Considered</strong>: N/A — not derivable from the code: no decision document. Typical market alternatives, given as a reference for the evaluation (not documented by the vendor): commercial loss prevention/exception-based reporting suites for retail; generic BI (Power BI, Qlik) with SQL rules on a data warehouse. The declared distinctive value is the combination of dynamic schema, configurable anti-fraud and AI.</p>
 <h3 id="52-technical-drivers"><span id="_5-2-technical-drivers" class="anchor-alias" aria-hidden="true"></span>5.2 Technical Drivers<a class="header-anchor" href="#52-technical-drivers" aria-label="Link to section: 5.2 Technical Drivers">#</a></h3>
 <p><strong>Technology Modernization</strong>:
-- .NET 8 LTS ends support on <strong>10-11-2026</strong>: migration to .NET 10 LTS needed shortly.
+- .NET 8 LTS ends support on <strong>November 10, 2026</strong>: migration to .NET 10 LTS needed shortly.
 - Frontend dependencies to update/remove: 71 npm vulnerabilities (6 critical, 46 high), <code>xlsx@0.18.5</code> without a fix, unused Nuxt/jsPDF packages; lockfile out of sync (<code>npm ci</code> fails).</p>
 <p><strong>Scalability Requirements</strong>:
 - The historical documentation lists among the activities "in development" the optimization for large datasets (<code>Docs/01_EXECUTIVE_OVERVIEW.md</code>, section "Current Status (As of February 2026)") and the roadmap envisages possible optimizations "of the back of" real data (<code>Docs/roadmap.txt:27</code>).
@@ -858,7 +858,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 - GDPR fines of up to 20 M€ or 4% of annual worldwide turnover.
 - Inadmissibility, in disciplinary or judicial proceedings, of evidence collected in breach of art. 4 of the Statuto dei Lavoratori, with a risk of litigation.
 - Data breach: the execution of arbitrary MongoDB pipelines (<code>GetReportDataEndpoint.cs:68</code>) and the JWT secret versioned in <code>appsettings.json</code> expose the system to unauthorized reads/writes.
-- Impossibility of going into production at clients subject to audit (absence of audit trail).</p>
+- Inability to go into production at clients subject to audits (absence of audit trail).</p>
 <hr>
 <h2 id="6-context-diagram"><span id="_6-context-diagram" class="anchor-alias" aria-hidden="true"></span>6. Context Diagram<a class="header-anchor" href="#6-context-diagram" aria-label="Link to section: 6. Context Diagram">#</a></h2>
 <p>The C4 Level 1 diagram shows the system, its users and the external systems with which it exchanges data.</p>
@@ -898,17 +898,17 @@ generated_at: 2026-10-08T09:37:27+02:00
 <li><strong>Dependency on a local LLM</strong>: the AI functions require Ollama and <code>qwen2.5:14b</code> on every workstation.</li>
 <li><strong>Data security</strong>: arbitrary MongoDB pipelines from the client, row-level security only in the browser, exposed password hashes, versioned secrets and dump with data.</li>
 <li><strong>Real data not yet available</strong> (historical roadmap): risk of rework on mappings, performance and rules; the sample data does not contain the fields used by TTL (<code>BeginDateTime</code>) and UserLock (<code>StoreID</code>).</li>
-<li><strong>Platform</strong>: .NET 8 end of support on 10-11-2026.</li>
+<li><strong>Platform</strong>: .NET 8 end of support on November 10, 2026.</li>
 <li><strong>Undocumented organizational context</strong>: owners, governance, SLAs and team are N/A in the repository and must be gathered from the client/vendor.</li>
 </ul>
 <h3 id="72-success-criteria"><span id="_7-2-success-criteria" class="anchor-alias" aria-hidden="true"></span>7.2 Success Criteria<a class="header-anchor" href="#72-success-criteria" aria-label="Link to section: 7.2 Success Criteria">#</a></h3>
 <p><strong>Project KPIs</strong> (proposed by the analysis; dates and budget not derivable from the code):
-1. <strong>Go-Live by</strong>: N/A — not derivable from the code (no planning in the repository); minimum prerequisite: migration to .NET 10 before 10-11-2026 or formal acceptance of the risk.
+1. <strong>Go-Live by</strong>: N/A — not derivable from the code (no planning in the repository); minimum prerequisite: migration to .NET 10 before November 10, 2026 or formal acceptance of the risk.
 2. <strong>Budget met</strong>: N/A — not derivable from the code.
 3. <strong>User Adoption</strong>: ≥ 80% of enabled LP users running at least one report per week after 3 months (measurable only after the introduction of usage logs, currently absent).
 4. <strong>Performance</strong>: P95 of <code>POST /data/report/query</code> &lt; 3 s on 1 million transactions; rule application on 1 million transactions &lt; 10 min.
 5. <strong>Quality</strong>: 0 open critical/high vulnerabilities (currently 6 critical + 46 high npm) and test coverage ≥ 60% on the Application services (currently 0%) before go-live; &lt; 10 critical bugs in the following 6 months.
-6. <strong>Data security</strong>: UserLock filter and pipeline control applied server-side, verified by automated tests.
+6. <strong>Data security</strong>: UserLock filter and pipeline validation applied server-side, verified by automated tests.
 7. <strong>Validation</strong>: at least 3 real client datasets imported and analyzed, with outcomes confirmed by the LP team.</p>
 <hr>
 <h2 id="8-reference-documents"><span id="_8-reference-documents" class="anchor-alias" aria-hidden="true"></span>8. Reference Documents<a class="header-anchor" href="#8-reference-documents" aria-label="Link to section: 8. Reference Documents">#</a></h2>
@@ -1032,7 +1032,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 <td>1.1</td>
 <td>2026-10-08</td>
 <td>IMPACT verify</td>
-<td>Header <code>worktree: dirty</code>; vendor documents cited as historical (<code>593f6de</code>→<code>d768cd9</code>) with <code>git show</code> command; added Sector/System Type/Severity, 3-column acronyms, numbered features with evidence (scheduling also monthly, rules manual only), justified out of scope, Input/Output boundary, phases and operational criticality, upstream/downstream/peer tables, ownership/governance/team (justified N/A), attribute tables and journeys per user, vendor KPIs with verifiability, technical drivers (TTL "after say 3 months" vs 180 days, .NET 8 EOL), compliance impact, measurable success criteria, complete Reference Documents (00-17, historical, regulatory)</td>
+<td>Header <code>worktree: dirty</code>; vendor documents cited as historical (<code>593f6de</code>→<code>d768cd9</code>) with <code>git show</code> command; added Sector/System Type/Criticality, 3-column acronyms, numbered features with evidence (scheduling also monthly, rules manual only), justified out of scope, Input/Output boundary, phases and operational criticality, upstream/downstream/peer tables, ownership/governance/team (justified N/A), attribute tables and journeys per user, vendor KPIs with verifiability, technical drivers (TTL "after say 3 months" vs 180 days, .NET 8 EOL), compliance impact, measurable success criteria, complete Reference Documents (00-17, historical, regulatory)</td>
 </tr>
 </tbody>
 </table></div></article>

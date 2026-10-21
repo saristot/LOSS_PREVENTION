@@ -160,7 +160,7 @@ The catalog groups the features by area and indicates where they are implemented
 | | Statistical engine (30 `fraudType` labels) | **FE only** | 🟡 | `aiStore.ts:696-1520`; not persisted |
 | | Configurable thresholds | BE (storage) + FE (use) | ✅ | 22 categories |
 | | Similarity (Euclidean, top-10) | BE | 🟡 | Without scale normalization (`DistanceHelper.cs:8-25`) |
-| **AI** | NLQ | FE → local Ollama | 🟡 | Not deployable in multi-user |
+| **AI** | NLQ | FE → local Ollama | 🟡 | Not deployable in a multi-user setup |
 | | Anti-fraud report generation | FE → local Ollama | 🟡 | `aiStore.generateFraudReports` (line 308) |
 | | AI configuration (tokens, creativity) | — | 🔴 | Hardcoded parameters (`aiStore.ts:8-17`) |
 | **Collaboration** | Groups | BE + FE | ✅ | `/groups*` |
@@ -231,7 +231,7 @@ sequenceDiagram
 **Error scenarios**
 - Editing a rule (`PUT /rules`): the recomputation writes the result into the root field `<RuleName>` instead of `FraudFlags.<RuleName>` (`RulesService.cs:147`) and the mapping is not renamed, because the lookup uses the name without the `FraudFlags.` prefix (`RulesService.cs:155`).
 - Error during `Apply Rules`: the flags have already been removed with `$unset` (`RulesService.cs:40-41`), so the collection remains without flags until a new run.
-- Field not existing in the document: no value found, the rule returns `false` (`Helpers/RuleHelper.cs:13, 23`); with `SumValues` enabled the sum is 0 and is still compared with the range.
+- Field missing from the document: no value found, the rule returns `false` (`Helpers/RuleHelper.cs:13, 23`); with `SumValues` enabled the sum is 0 and is still compared with the range.
 
 **Quantification**: one `ReplaceOne` per document (`RulesService.cs:58`); on the 3,000 documents of the dump ≈ 3,000 writes per run.
 
@@ -285,7 +285,7 @@ flowchart TD
   MAP --> END
 ```
 
-Notes: files on the File System are **not** moved; the recurrence is `daily`, `weekly` (selected days) or `monthly` (day 1) in local time (`DataIngestionBackgroundService.cs:117-145`); `LastRunAt` is set but not saved (lines 86-87).
+Note: files on the File System are **not** moved; the recurrence is `daily`, `weekly` (selected days) or `monthly` (day 1) in local time (`DataIngestionBackgroundService.cs:117-145`); `LastRunAt` is set but not saved (lines 86-87).
 
 ### 5.2 Lifecycle of a rule
 
@@ -380,14 +380,14 @@ flowchart LR
 +--------------------------------------------------------------------------------+
 | Welcome to Loss Prevention                                                      |
 | Recent Dashboards [View All] | Recent Workspaces [View All] | Alerts & Notifications [View All] |
-|  - Test Dashboard  <data>    |  - <workspace>  <data>       |  - <titolo> [read][delete]        |
+|  - Test Dashboard  <date>    |  - <workspace>  <date>       |  - <title> [read][delete]         |
 +--------------------------------------------------------------------------------+
-(ogni riga delle liste è cliccabile e apre dashboard / workspace)
-(bell) -> popup: elenco non lette [Open][Read][Dismiss] | Mark all read | Manage Notifications
+(every list row is clickable and opens the dashboard / workspace)
+(bell) -> popup: unread list [Open][Read][Dismiss] | Mark all read | Manage Notifications
 (gear) -> Manage Users / Permissions / Roles / Groups / Notifications / Field Mappings / Rules / Data Ingestion
 ```
 
-The "Query" button of the bar is commented out (`App.vue:148`); `/query` is reached from Home (`home.vue:133`) or from Workspaces (`workspace.vue:82`). The workspace dates in Home are `new Date()` (fictitious value).
+The "Query" button in the app bar is commented out (`App.vue:148`); `/query` is reached from Home (`home.vue:133`) or from Workspaces (`workspace.vue:82`). The workspace dates in Home are `new Date()` (fictitious value).
 
 ### 6.3 Query Builder + results grid (`queryBuilderTabs.vue`, `selectFields.vue`, `toolbar.vue`, `resultsGrid.vue`)
 
@@ -397,23 +397,23 @@ The "Query" button of the bar is commented out (`App.vue:148`); `/query` is reac
 | [Tab 1 (edit)(x)] [Tab 2 (edit)(x)] ...                                         |
 +------------------------------+-------------------------------------------------+
 | Fields: [+][+list][A-Z][eye][clear] | Toolbar: [Save][Copy Report][Chart][AI Assistant][Heat Map] |
-| Field | Alias | Grp | Aggregate | Format | Actions(fx, copy, x) | Conditions: gruppi AND/OR annidati |
+| Field | Alias | Grp | Aggregate | Format | Actions(fx, copy, x) | Conditions: nested AND/OR groups   |
 +------------------------------+-------------------------------------------------+
 | Sort by [..] Order [..] Records per page [50]   [Export v] [Detect Potential Fraud] [gear] [Show Only Fraud] |
-| AG Grid: righe (evidenziate se sospette)  -- menu contestuale: Euclidean Distance, Export Selected Rows ... |
+| AG Grid: rows (highlighted if suspicious)  -- context menu: Euclidean Distance, Export Selected Rows ...    |
 +--------------------------------------------------------------------------------+
 Dialog "AI Report Generator": Fraud Detection Question, NQL Query (Optional), [Generate Report] [Close]
-Dialog "Heat Map": X Axis, Y Axis, Metric (e.g., Count or Sum), anteprima + drill-down
+Dialog "Heat Map": X Axis, Y Axis, Metric (e.g., Count or Sum), preview + drill-down
 ```
 
 ### 6.4 Dashboard (`dashboard.vue`, `dashboardGrid.vue`, `dashboardEditorBar.vue`)
 
 ```text
 +--------------------------------------------------------------------------------+
-| <nome dashboard>                       [Save] [Revert]                          |
+| <dashboard name>                       [Save] [Revert]                          |
 | [+ Chart] [+ Text] [+ Image] [+ Tabular]                                        |
 | +-----------------+ +----------------------+                                    |
-| | Chart block     | | Tabular block (AG Grid)|  <- blocchi trascinabili e ridimensionabili (vue-grid-layout-v3) |
+| | Chart block     | | Tabular block (AG Grid)|  <- draggable and resizable blocks (vue-grid-layout-v3)          |
 | +-----------------+ +----------------------+                                    |
 +--------------------------------------------------------------------------------+
 Dialog "Save Dashboard": Name [Cancel][Save]
@@ -491,7 +491,7 @@ Every claim quoted has been verified with this command.
 - **Deep Dive Analysis**: [00_deep_dive.md](00_deep_dive.md)
 - **Context**: [01_context.md](01_context.md)
 - Related IMPACT documents: [03_non_functional_overview.md](03_non_functional_overview.md) · [04_constraints.md](04_constraints.md) · [05_principles.md](05_principles.md) · [06_software_architecture.md](06_software_architecture.md) · [07_code.md](07_code.md) · [08_data.md](08_data.md) · [09_infrastructure_architecture.md](09_infrastructure_architecture.md) · [10_deployment.md](10_deployment.md) · [11_development_environment.md](11_development_environment.md) · [12_operation_and_support.md](12_operation_and_support.md) · [13_decision_log.md](13_decision_log.md) · [14_metrics.md](14_metrics.md) · [15_fp_cocomo.md](15_fp_cocomo.md) · [16_frontend_deep_assessment.md](16_frontend_deep_assessment.md) · [17_backend_deep_assessment.md](17_backend_deep_assessment.md) · [18_antipattern_deep_dive.md](18_antipattern_deep_dive.md) · [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md)
-- Detailed functional specifications of the vendor (historical, commit `593f6de` only): `Docs/11_USER_MANUAL.md`, `Docs/05_API_DOCUMENTATION.md`, `Docs/FRAUD_DETECTION_API.md`, `Docs/DISTANCE_ANALYSIS_QUICK_START.md`. Viewable with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>`.
+- The vendor's detailed functional specifications (historical, commit `593f6de` only): `Docs/11_USER_MANUAL.md`, `Docs/05_API_DOCUMENTATION.md`, `Docs/FRAUD_DETECTION_API.md`, `Docs/DISTANCE_ANALYSIS_QUICK_START.md`. Viewable with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>`.
 
 ---
 

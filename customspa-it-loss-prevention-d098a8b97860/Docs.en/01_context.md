@@ -29,7 +29,7 @@ The Loss Prevention Tool is an analytics web application for loss prevention in 
 ### 1.1 Overview
 
 **Elevator pitch (3 sentences)**
-1. The Loss Prevention Tool collects store transactions into a single repository, received as XML, CSV or JSON files from an SFTP server or from a folder.
+1. The Loss Prevention Tool collects store transactions, received as XML, CSV or JSON files from an SFTP server or from a folder, into a single repository.
 2. Analysts build reports and dashboards on their own, apply anti-fraud rules and search for transactions "similar" to a suspicious one.
 3. Functions assisted by a language model turn natural-language questions into queries, and an automatic statistical analysis highlights anomalous transactions.
 
@@ -41,7 +41,7 @@ The Loss Prevention Tool is an analytics web application for loss prevention in 
 
 **Sector**: Retail — Loss Prevention / Fraud Analytics on POS transactions (suspicious returns and refunds, voids, excessive discounts, *sweethearting*, out-of-hours transactions, splitting, anomalous use of gift cards and manually keyed cards; list derived from the 30 `fraudType` types in `aiStore.ts`).  
 **System Type**: B2B Enterprise — internal analytics tool for a retailer's Loss Prevention teams (product of the external vendor `customspa-it`, distributed per client; the historical roadmap envisages future *branding* and *multi-tenancy*).  
-**Severity**: **Business-critical (decision support)**, not mission-critical: the system is not in the operational sales path (the tills work even if it is down), but its results may ground investigations and disciplinary measures. Classification inferred from the domain: N/A — a formal client classification is not derivable from the code.
+**Criticality**: **Business-critical (decision support)**, not mission-critical: the system is not in the operational sales path (the tills work even if it is down), but its results may form the basis for investigations and disciplinary measures. Classification inferred from the domain: N/A — a formal client classification is not derivable from the code.
 
 ### 1.3 Acronyms and Nomenclature
 
@@ -163,7 +163,7 @@ flowchart LR
 
 #### Upstream Systems (Data Providers)
 
-| System | Data Provided | Protocol | Frequency | Severity |
+| System | Data Provided | Protocol | Frequency | Criticality |
 |---------|--------------|------------|-----------|-----------|
 | Store POS / back-office systems | Transactions (header, `LineItem` lines, `Tender` payments, operator, store, register) | XML/CSV/JSON files (format not constrained: the converter flattens any structure) | According to the schedule: daily / weekly / monthly, or manual | High (only data source) |
 | SFTP server | Files to import; `processed`/`failed` folders (`SftpFileProcessingService.cs:33-34`) | SFTP (SSH.NET, password authentication, no host key verification) | As above | High |
@@ -171,11 +171,11 @@ flowchart LR
 
 #### Downstream Systems (Data Consumers)
 
-| System | Data Received | Protocol | Frequency | Severity |
+| System | Data Received | Protocol | Frequency | Criticality |
 |---------|---------------|------------|-----------|-----------|
 | No application system | — | — | — | No API or automatic export to other systems |
 | End users (outside the system) | CSV/XLSX/PDF exports generated in the browser | File download | On demand | Low |
-| SFTP server | Moving of processed files to `processed`/`failed` | SFTP | At every ingestion | Low |
+| SFTP server | Processed files moved to `processed`/`failed` | SFTP | At every ingestion | Low |
 
 #### Integrated Systems (Peer-to-Peer)
 
@@ -311,7 +311,7 @@ These metrics are **commercial claims**: there is no data, test or benchmark in 
 ### 5.2 Technical Drivers
 
 **Technology Modernization**:
-- .NET 8 LTS ends support on **10-11-2026**: migration to .NET 10 LTS needed shortly.
+- .NET 8 LTS ends support on **November 10, 2026**: migration to .NET 10 LTS needed shortly.
 - Frontend dependencies to update/remove: 71 npm vulnerabilities (6 critical, 46 high), `xlsx@0.18.5` without a fix, unused Nuxt/jsPDF packages; lockfile out of sync (`npm ci` fails).
 
 **Scalability Requirements**:
@@ -339,7 +339,7 @@ These metrics are **commercial claims**: there is no data, test or benchmark in 
 - GDPR fines of up to 20 M€ or 4% of annual worldwide turnover.
 - Inadmissibility, in disciplinary or judicial proceedings, of evidence collected in breach of art. 4 of the Statuto dei Lavoratori, with a risk of litigation.
 - Data breach: the execution of arbitrary MongoDB pipelines (`GetReportDataEndpoint.cs:68`) and the JWT secret versioned in `appsettings.json` expose the system to unauthorized reads/writes.
-- Impossibility of going into production at clients subject to audit (absence of audit trail).
+- Inability to go into production at clients subject to audits (absence of audit trail).
 
 ---
 
@@ -390,18 +390,18 @@ The system is a functionally rich product but in a pre-production state; before 
 - **Dependency on a local LLM**: the AI functions require Ollama and `qwen2.5:14b` on every workstation.
 - **Data security**: arbitrary MongoDB pipelines from the client, row-level security only in the browser, exposed password hashes, versioned secrets and dump with data.
 - **Real data not yet available** (historical roadmap): risk of rework on mappings, performance and rules; the sample data does not contain the fields used by TTL (`BeginDateTime`) and UserLock (`StoreID`).
-- **Platform**: .NET 8 end of support on 10-11-2026.
+- **Platform**: .NET 8 end of support on November 10, 2026.
 - **Undocumented organizational context**: owners, governance, SLAs and team are N/A in the repository and must be gathered from the client/vendor.
 
 ### 7.2 Success Criteria
 
 **Project KPIs** (proposed by the analysis; dates and budget not derivable from the code):
-1. **Go-Live by**: N/A — not derivable from the code (no planning in the repository); minimum prerequisite: migration to .NET 10 before 10-11-2026 or formal acceptance of the risk.
+1. **Go-Live by**: N/A — not derivable from the code (no planning in the repository); minimum prerequisite: migration to .NET 10 before November 10, 2026 or formal acceptance of the risk.
 2. **Budget met**: N/A — not derivable from the code; effort estimate in [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).
 3. **User Adoption**: ≥ 80% of enabled LP users running at least one report per week after 3 months (measurable only after the introduction of usage logs, currently absent).
 4. **Performance**: P95 of `POST /data/report/query` < 3 s on 1 million transactions; rule application on 1 million transactions < 10 min.
 5. **Quality**: 0 open critical/high vulnerabilities (currently 6 critical + 46 high npm) and test coverage ≥ 60% on the Application services (currently 0%) before go-live; < 10 critical bugs in the following 6 months.
-6. **Data security**: UserLock filter and pipeline control applied server-side, verified by automated tests.
+6. **Data security**: UserLock filter and pipeline validation applied server-side, verified by automated tests.
 7. **Validation**: at least 3 real client datasets imported and analyzed, with outcomes confirmed by the LP team.
 
 ---
@@ -459,4 +459,4 @@ IMPACT documents of the set (same `Docs/` folder), historical vendor documentati
 | Version | Date | Author | Changes |
 |----------|------|--------|-----------|
 | 1.0 | 2026-10-07 | REVERSE how (FULL) | Document creation (replaces run 2026-10-05) |
-| 1.1 | 2026-10-08 | IMPACT verify | Header `worktree: dirty`; vendor documents cited as historical (`593f6de`→`d768cd9`) with `git show` command; added Sector/System Type/Severity, 3-column acronyms, numbered features with evidence (scheduling also monthly, rules manual only), justified out of scope, Input/Output boundary, phases and operational criticality, upstream/downstream/peer tables, ownership/governance/team (justified N/A), attribute tables and journeys per user, vendor KPIs with verifiability, technical drivers (TTL "after say 3 months" vs 180 days, .NET 8 EOL), compliance impact, measurable success criteria, complete Reference Documents (00-19, historical, regulatory) |
+| 1.1 | 2026-10-08 | IMPACT verify | Header `worktree: dirty`; vendor documents cited as historical (`593f6de`→`d768cd9`) with `git show` command; added Sector/System Type/Criticality, 3-column acronyms, numbered features with evidence (scheduling also monthly, rules manual only), justified out of scope, Input/Output boundary, phases and operational criticality, upstream/downstream/peer tables, ownership/governance/team (justified N/A), attribute tables and journeys per user, vendor KPIs with verifiability, technical drivers (TTL "after say 3 months" vs 180 days, .NET 8 EOL), compliance impact, measurable success criteria, complete Reference Documents (00-19, historical, regulatory) |

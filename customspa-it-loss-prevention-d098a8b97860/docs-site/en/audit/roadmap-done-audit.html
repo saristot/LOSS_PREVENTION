@@ -310,7 +310,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
       <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../index.html">LOSS PREVENTION</a></li><li><span>MVP and Roadmap Audit</span></li><li><span aria-current="page">Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)</span></li></ol></nav>
       <div class="doc-info"><details class="provenance"><summary>Document provenance <span class="badge badge-absent">metadata not available</span></summary><dl><dt>Source</dt><dd><code>@audit/roadmap-done-audit.md</code></dd><dt>Source SHA-256</dt><dd><code>84eb8fbe0d48082dd4cb3983edf572af64e5ee578aa6e540922bd66a9162d11d</code></dd><dt>Translation</dt><dd><code>../../../../../../repository/LOSS_PREVENTION/customspa-it-loss-prevention-d098a8b97860/docs_original/roadmap-done-audit.en.md</code> · up to date</dd></dl><p class="notice" role="note">Document without an IMPACT-META block: the baseline is unknown and is not inferred.</p></details><details class="toc" id="inlay-toc" open><summary>On this page</summary><ol><li><a href="#method">Method</a></li><li><a href="#m01m02-data-integration-and-business-definitions">M01–M02 Data integration and business definitions</a></li><li><a href="#m03m04-reporting-and-dashboards">M03–M04 Reporting and dashboards</a></li><li><a href="#m05m06-exception-detection-and-assisted-analysis">M05–M06 Exception detection and assisted analysis</a></li><li><a href="#m07m09-administration-collaboration-and-retention">M07–M09 Administration, collaboration and retention</a></li><li><a href="#m10-release-readiness">M10 Release readiness</a></li><li><a href="#roadmap-and-further-development--statements-about-what-already-exists">Roadmap and further development – statements about what already exists</a></li><li><a href="#summary-declared-requirements-only">Summary (declared requirements only)</a></li></ol></details></div>
       <article class="doc-body" id="doc-body"><h1 id="audit-of-items-declared-as-implemented--loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention"><span id="audit-voci-dichiarate-implementate-–-loss-prevention-business-functionality-mvp-and-roadmap-docx-loss-prevention" class="anchor-alias" aria-hidden="true"></span><span id="audit-voci-dichiarate-implementate-loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="audit-voci-dichiarate-implementate--loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="audit-of-items-declared-as-implemented-loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" class="anchor-alias" aria-hidden="true"></span><span id="audit-of-items-declared-as-implemented-–-loss-prevention-business-functionality-mvp-and-roadmap-docx-loss-prevention" class="anchor-alias" aria-hidden="true"></span>Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)<a class="header-anchor" href="#audit-of-items-declared-as-implemented--loss_prevention_business_functionality_mvp_and_roadmapdocx-loss_prevention" aria-label="Link to section: Audit of items declared as implemented – Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx (LOSS_PREVENTION)">#</a></h1>
-<p><strong>Requirements source:</strong> <code>Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx</code> ("MVP delivery and product roadmap", status at 13 October 2026).
+<p><strong>Requirements source:</strong> <code>Loss_Prevention_Business_Functionality_MVP_and_Roadmap.docx</code> ("MVP delivery and product roadmap", status as of 13 October 2026).
 <strong>Codebase:</strong> <code>customspa-it-loss-prevention-d098a8b97860</code> (commit baf7319). The audit is based <strong>only on what the source code shows</strong>, by reading the files directly.
 <strong>Build:</strong>
 - UI: <code>vite build</code> succeeds on Windows (with an <code>eval</code> warning in resultsGrid.vue).
@@ -353,7 +353,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <tbody>
 <tr>
 <td><strong>SFTP/file-system ingestion, CSV/XML/JSON</strong><br><strong>Requirement (M01, declared status: partially implemented):</strong> "Core imports […] are present"; "An administrator configures an SFTP or filesystem source and selects CSV, XML or JSON. The service processes the files, stores transaction records and adds source-file information."<br><strong>In plain words:</strong> the system must load transaction data from a server folder or from a remote file store (SFTP), in CSV, XML and JSON formats.</td>
-<td>The system reads files both from a server folder and from a secure remote file store, and it recognises the three formats CSV, XML and JSON. The settings (where to read from, when, how often) are managed from within the application. Each run processes one file format only.</td>
+<td>The system reads files both from a server folder and from a secure remote file store, and it recognizes the three formats CSV, XML and JSON. The settings (where to read from, when, how often) are managed from within the application. Each run processes one file format only.</td>
 <td>Present</td>
 <td>There is also an old, separate loading program that reads only XML files from a fixed folder written into the code, loads the anti-fraud rules without using them, and does not take already-loaded files into account. Each XML file is treated as a single document and its attributes are saved as text, with the name preceded by the "@" symbol.</td>
 <td>✅</td>
@@ -376,11 +376,11 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td><strong>Processed-file records and load monitoring</strong><br><strong>Requirement (M01, declared status: partially implemented):</strong> "processed-file records are present"; "Processed-file records support load checking"; among the areas involved: "load monitoring". The document adds: "Current duplicate checks depend on filenames".<br><strong>In plain words:</strong> there must be a log of the files already loaded, so that loads can be checked and the same file is not loaded twice.</td>
 <td>The system records every loaded file in the database, with its name, number of records and date. A file whose name is already recorded is skipped.</td>
 <td><strong>Load monitoring is not available to users</strong>: the log exists only in the database and cannot be viewed from any screen or any service of the application. Checking it requires querying the database directly.</td>
-<td>Duplicates are recognised only by file name, with no other checks. On the remote file store, if a file with the same name already exists in the processed-files folder, the new file is renamed by adding date and time and is inserted again.</td>
+<td>Duplicates are recognized only by file name, with no other checks. On the remote file store, if a file with the same name already exists in the processed-files folder, the new file is renamed by adding date and time and is added to the folder again.</td>
 <td>🟡</td>
 </tr>
 <tr>
-<td><strong>Moving SFTP files to processed</strong><br><strong>Requirement (M01, stated as the target):</strong> "The target workflow moves successfully handled SFTP files to a processed location and supports controlled reprocessing"; among the activities to complete: "safe processed-file movement, partial-failure recovery and replay".<br><strong>In plain words:</strong> files from the remote store that have been loaded must be moved to a "processed" folder, and it must be possible to reload them in a controlled way.</td>
+<td><strong>Moving SFTP files to the "processed" folder</strong><br><strong>Requirement (M01, stated as the target):</strong> "The target workflow moves successfully handled SFTP files to a processed location and supports controlled reprocessing"; among the activities to complete: "safe processed-file movement, partial-failure recovery and replay".<br><strong>In plain words:</strong> files from the remote store that have been loaded must be moved to a "processed" folder, and it must be possible to reload them in a controlled way.</td>
 <td>After loading, the file is moved to the "processed" folder; on error, to the "failed" folder. The folders are created if they do not exist. The move is <strong>already working</strong>, even though the document presents it as a target.</td>
 <td>Present (the move; controlled reloading is listed by the document as an activity still to complete)</td>
 <td>Each file is downloaded and read twice: the second time it is taken again from the "processed" folder to save its data. If this second step fails, the file stays in "processed" without its data being saved, and it is retried on the next run. There is no function to reload a file on request, neither from a screen nor from a service; a file put back by hand into the source folder is ignored because its name is already recorded as loaded.</td>
@@ -404,7 +404,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td><strong>Lookup metadata</strong><br><strong>Requirement (M02, declared status: partial):</strong> "Lookup-related metadata exists, but a complete lookup-table workflow remains outstanding."<br><strong>In plain words:</strong> the basic information for lookup tables must exist; lookup tables translate codes into readable descriptions (for example from store code to store name). The complete workflow is declared as still to be done.</td>
 <td>There is only an "is a lookup" option on fields, which can be switched on from the fields screen. The value is read in one place of the report builder but has no effect.</td>
 <td>Present (matches what is declared)</td>
-<td>There are no lookup tables, stores or lookup logic: the whole lookup workflow has to be built from scratch.</td>
+<td>There are no lookup tables, no storage for them and no lookup logic: the whole lookup workflow has to be built from scratch.</td>
 <td>✅</td>
 </tr>
 </tbody>
@@ -422,7 +422,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 </thead>
 <tbody>
 <tr>
-<td><strong>Workspace create, rename, delete and search</strong><br><strong>Requirement (M03, declared status: implemented, validation pending):</strong> "Users create, rename, delete and search workspaces."<br><strong>In plain words:</strong> users must be able to create, rename, delete and search their workspaces, where they organise their reports.</td>
+<td><strong>Workspace create, rename, delete and search</strong><br><strong>Requirement (M03, declared status: implemented, validation pending):</strong> "Users create, rename, delete and search workspaces."<br><strong>In plain words:</strong> users must be able to create, rename, delete and search their workspaces, where they organize their reports.</td>
 <td>All four operations are available on screen and protected by a specific permission. Search filters the list of workspaces.</td>
 <td>Present</td>
 <td>Search works only on the list already loaded in the browser. When saving, the application shows the success message without waiting for the server's answer, so it shows it even when saving fails.</td>
@@ -457,15 +457,15 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td>🟡</td>
 </tr>
 <tr>
-<td><strong>Conditional formatting</strong><br><strong>Requirement (M03, declared status: implemented, validation pending):</strong> "Conditional formatting draws attention to selected results".<br><strong>In plain words:</strong> cells must be coloured automatically according to their value, to highlight the results of interest.</td>
-<td>There is a screen to define the rules, with 10 types of comparison to choose from. Colours are applied in the report table and in dashboards; a rule can also be added from the menu that appears when right-clicking a cell.</td>
+<td><strong>Conditional formatting</strong><br><strong>Requirement (M03, declared status: implemented, validation pending):</strong> "Conditional formatting draws attention to selected results".<br><strong>In plain words:</strong> cells must be colored automatically according to their value, to highlight the results of interest.</td>
+<td>There is a screen to define the rules, with 10 types of comparison to choose from. Colors are applied in the report table and in dashboards; a rule can also be added from the menu that appears when right-clicking a cell.</td>
 <td><strong>Only the "equal to" comparison works</strong>, although 10 are offered. <strong>Rules are not saved</strong>: they are lost when the report is saved and reopened. In addition, the rules screen does not show the list of fields to choose from, because it reads the data names with a different upper/lower case from the one the server sends.</td>
 <td>—</td>
 <td>🟡</td>
 </tr>
 <tr>
-<td><strong>Heatmap</strong><br><strong>Requirement (M03, declared status: implemented, validation pending):</strong> "heatmaps show concentrations".<br><strong>In plain words:</strong> there must be a heatmap, that is, a coloured grid that shows at a glance where values are concentrated.</td>
-<td>The heatmap is available, with legends, details on mouse-over and two ways of spreading the colours (linear and logarithmic). It applies the data restriction assigned to the user (for its limits see "Data restrictions").</td>
+<td><strong>Heatmap</strong><br><strong>Requirement (M03, declared status: implemented, validation pending):</strong> "heatmaps show concentrations".<br><strong>In plain words:</strong> there must be a heatmap, that is, a colored grid that shows at a glance where values are concentrated.</td>
+<td>The heatmap is available, with legends, details on mouse-over and two ways of spreading the colors (linear and logarithmic). It applies the data restriction assigned to the user (for its limits see "Data restrictions").</td>
 <td>Present</td>
 <td>The map may not refresh automatically when only part of its settings changes.</td>
 <td>✅</td>
@@ -478,7 +478,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td>✅</td>
 </tr>
 <tr>
-<td><strong>Dashboard chart, tabular and text blocks: add, edit and delete</strong><br><strong>Requirement (M04, declared status: implemented, validation pending):</strong> "Authorised users add, edit or delete charts, tables and explanatory text, arranging them into a dashboard."<br><strong>In plain words:</strong> authorised users must be able to build dashboards from charts, tables and texts, and to edit or delete them.</td>
+<td><strong>Dashboard chart, tabular and text blocks: add, edit and delete</strong><br><strong>Requirement (M04, declared status: implemented, validation pending):</strong> "Authorised users add, edit or delete charts, tables and explanatory text, arranging them into a dashboard."<br><strong>In plain words:</strong> authorized users must be able to build dashboards from charts, tables and texts, and to edit or delete them.</td>
 <td>Dashboards can be created with chart, table, text and image blocks, which can be edited or deleted. Access is governed by permissions and the server checks the dashboard data. Available charts are bar, line, pie, doughnut and radar.</td>
 <td>A table block remembers only the "number" of the tab it takes its data from and looks for it across all workspaces. Since tabs are numbered by position, the block may show a tab from another workspace, or a different tab after a deletion.</td>
 <td>Dashboard charts apply neither the report filters nor the user's data restriction. There is no specific check of the configuration of each block type. One interface file is referenced with a different upper/lower case from its real name, which works only on systems that do not distinguish upper and lower case (such as Windows). The image block exists but is not mentioned in the document.</td>
@@ -506,7 +506,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 </thead>
 <tbody>
 <tr>
-<td><strong>Generic rules: define rules and apply the enabled ones</strong><br><strong>Requirement (M05, declared status: core implemented):</strong> "Generic rules […] are present"; "Users define business conditions and apply enabled rules to transaction records."<br><strong>In plain words:</strong> users must be able to define anti-fraud rules and apply them to transaction data, using only the active rules.</td>
+<td><strong>Generic rules</strong><br><strong>Requirement (M05, declared status: core implemented):</strong> "Generic rules […] are present"; "Users define business conditions and apply enabled rules to transaction records."<br><strong>In plain words:</strong> users must be able to define anti-fraud rules and apply them to transaction data, using only the active rules.</td>
 <td>There are two kinds of rules. (a) Rules managed by the server: they can be created, edited and deleted, and the "Apply Rules" button applies them manually to the data; only active rules are used and a specific permission is required. (b) Rules proposed by artificial intelligence and run in the browser. Detection thresholds are saved.</td>
 <td><strong>Editing a rule contains a bug</strong>: it saves the result in the wrong place in the data and looks for the field under the wrong name.</td>
 <td>Server rules are simple (equality, value range, sum); to apply them the system loads all the data into memory and updates records one by one. Artificial-intelligence rules are run as code in the browser and are not saved.</td>
@@ -534,7 +534,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td>🟡</td>
 </tr>
 <tr>
-<td><strong>AI NLQ</strong><br><strong>Requirement (M06, declared status: partially implemented):</strong> "[…] natural-language interfaces exist"; "A user describes the information they want, such as high-value refunds by store."<br><strong>In plain words:</strong> users must be able to describe in words what they want to see and get a report proposal from artificial intelligence.</td>
+<td><strong>AI natural-language questions (NLQ)</strong><br><strong>Requirement (M06, declared status: partially implemented):</strong> "[…] natural-language interfaces exist"; "A user describes the information they want, such as high-value refunds by store."<br><strong>In plain words:</strong> users must be able to describe in words what they want to see and get a report proposal from artificial intelligence.</td>
 <td>The request to artificial intelligence includes the available fields and their names; the answer (fields and filters) opens as a new tab in the report builder.</td>
 <td>Present</td>
 <td>Same limit as the previous item: artificial intelligence is called from the browser. If something goes wrong the user gets no message. The server does not check the result. The artificial-intelligence settings are fixed in the code (the document considers controls over these settings optional).</td>
@@ -579,7 +579,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td><strong>Email password recovery</strong><br><strong>Requirement (M07, declared status: identity implemented; R03):</strong> "email password recovery exist[s]"; "recover access through the password-reset journey"; R03: "Email-based forgot-password capability is already present".<br><strong>In plain words:</strong> anyone who forgets their password must be able to reset it through a link received by email.</td>
 <td>The user requests recovery, receives by email a link valid for 1 hour that can be used only once, and chooses the new password on a dedicated page. The code contained in the link is stored in unreadable form. The server requires a password of at least 8 characters.</td>
 <td>Present</td>
-<td>Email sending is configured towards a local mail server, without an encrypted connection and with the system's default credentials, so a prepared relay mail server is needed. The link duration is fixed in the code. The link is not protected against two simultaneous uses. The screen does not state the minimum password length. For a deactivated user the system answers differently, thereby revealing that the account exists.</td>
+<td>Email sending is configured toward a local mail server, without an encrypted connection and with the system's default credentials, so a prepared relay mail server is needed. The link duration is fixed in the code. The link is not protected against two simultaneous uses. The screen does not state the minimum password length. For a deactivated user the system answers differently, thereby revealing that the account exists.</td>
 <td>✅</td>
 </tr>
 <tr>
@@ -599,22 +599,22 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <tr>
 <td><strong>Data restrictions</strong><br><strong>Requirement (M07, declared status: partial):</strong> "Data restrictions are partially implemented"; to complete: "Complete server-enforced data restrictions".<br><strong>In plain words:</strong> the user's field/value restriction must limit what the user sees; the document declares part of this mechanism as already present and lists server-side enforcement as still to complete.</td>
 <td>The browser adds the restriction to the filters in the report table, the heatmap and the table blocks of dashboards.</td>
-<td><strong>The restriction can be bypassed from the interface</strong>: it is combined with the type of link the user chooses for the filters, so with "OR" it no longer limits anything and with "NONE OF" it is even reversed. <strong>The similarity analysis (Data distance) ignores it</strong> and <strong>dashboard charts do not apply it</strong>.</td>
+<td><strong>The restriction can be bypassed from the interface</strong>: it is combined with the connector (AND, OR, NONE OF) the user chooses to combine the filters, so with "OR" it no longer limits anything and with "NONE OF" it is even reversed. <strong>The similarity analysis (Data distance) ignores it</strong> and <strong>dashboard charts do not apply it</strong>.</td>
 <td>The server applies no restriction at all (the part the document declares still to complete): it does not read the user's restriction, runs any data request coming from the browser and keeps results for 1 hour without distinguishing between users. A visibility check planned on the server always lets everything through. Dashboard table blocks do not convert data types correctly in filters.</td>
 <td>🟡</td>
 </tr>
 <tr>
-<td><strong>Notifications: send, read state, replies and removal</strong><br><strong>Requirement (M08, declared status: implemented, validation pending):</strong> "Basic notifications, read state and replies are implemented"; "Users receive or view relevant notifications, mark them read and use supported reply actions"; to validate: "recipients, visibility, read/reply behavior and removal".<br><strong>In plain words:</strong> users must receive the messages addressed to them, mark them as read, reply and delete them.</td>
+<td><strong>Notifications</strong><br><strong>Requirement (M08, declared status: implemented, validation pending):</strong> "Basic notifications, read state and replies are implemented"; "Users receive or view relevant notifications, mark them read and use supported reply actions"; to validate: "recipients, visibility, read/reply behavior and removal".<br><strong>In plain words:</strong> users must receive the messages addressed to them, mark them as read, reply and delete them.</td>
 <td>All functions are available, with a bell icon in the header and the option to send to individual users or to groups.</td>
 <td><strong>Every user sees everyone's notifications</strong>, not just their own: the system does not filter by recipient. The bell loads only for users with the notification-management permission, and the same permission is required to mark as read, reply and delete: <strong>a user with only the viewing permission does not see notifications</strong>.</td>
 <td>Notifications do not arrive in real time and there are no automatic notifications (deferred to the roadmap, R06/N02). The "read" state is one per message: for groups a copy is created for each user, but a message sent directly to several users has a single state shared by all of them. The sender is set by the browser instead of the server. Notifications addressed to a role are not delivered to the users of that role.</td>
 <td>🟡</td>
 </tr>
 <tr>
-<td><strong>Retention</strong><br><strong>Requirement (M09, declared status: implemented in part, validation pending):</strong> "Retention setup exists"; "A configured retention period determines which older transactions expire […] the current 90-day default is a setting to review".<br><strong>In plain words:</strong> transactions older than a configured period must be deleted automatically; the current default declared is 90 days.</td>
+<td><strong>Retention</strong><br><strong>Requirement (M09, declared status: implemented in part, validation pending):</strong> "Retention setup exists"; "A configured retention period determines which older transactions expire […] the current 90-day default is a setting to review".<br><strong>In plain words:</strong> transactions older than a configured period must be deleted automatically; the declared current default is 90 days.</td>
 <td>At start-up the system sets up, in the database, the automatic deletion of transactions older than the configured period. The configured period is 180 days; 90 days are used only when the configuration is missing.</td>
 <td><strong>The declared default (90 days) does not match</strong>: 180 days are configured, also in the sample copy of the database. <strong>Deletion is based on a date (BeginDateTime) that data loading does not produce</strong>: none of the 3,000 records in the sample copy contains it (they all have a different date, TransactionDateTime). With this data, no record is ever deleted.</td>
-<td>If automatic deletion has already been set up before, a change of period is not applied. In JSON files, dates are recognised as dates only when written in a special format; otherwise they stay text. There is no screen to manage retention. The log of loaded files is never cleaned up.</td>
+<td>If automatic deletion has already been set up before, a change of period is not applied. In JSON files, dates are recognized as dates only when written in a special format; otherwise they stay text. There is no screen to manage retention. The log of loaded files is never cleaned up.</td>
 <td>🟡</td>
 </tr>
 </tbody>
@@ -633,7 +633,7 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <tbody>
 <tr>
 <td><strong>Application code and documentation present</strong><br><strong>Requirement (M10, declared status: in progress):</strong> "Core application code and documentation are present."<br><strong>In plain words:</strong> the application code and its documentation must exist; the document lists as still to complete testing, user feedback, activity logging, security review, deployment and guides (including videos).</td>
-<td>The code includes the server (organised in several parts), the data-loading program and the web interface. The documentation includes 14 documents (among them installation, deployment, user manual, testing and change history), a quick guide to the similarity analysis, the description of the anti-fraud services and a README file.</td>
+<td>The code includes the server (organized in several parts), the data-loading program and the web interface. The documentation includes 14 documents (among them installation, deployment, user manual, testing and change history), a quick guide to the similarity analysis, the description of the anti-fraud services and a README file.</td>
 <td>Present</td>
 <td>There are no automated tests. There is no automated build and release process, and no files for setting up the infrastructure. There is no log of user activity and no structured event logging. The server accepts requests from the browser only from local development addresses; there is no enforced secure connection (HTTPS) and no limit on the number of requests. There are no videos.</td>
 <td>✅</td>
@@ -654,9 +654,9 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <tbody>
 <tr>
 <td><strong>R01</strong><br><strong>Requirement (R01, declared status: planned extension):</strong> "Database setup materials exist; guided provisioning remains future work."<br><strong>In plain words:</strong> materials to set up the database already exist; a guided installation is future work.</td>
-<td>Scripts to create permissions, the administrator role and rules, with the full list of permissions; sample copy of the database (10 collections plus 2 old copies).</td>
+<td>Scripts to create permissions, the administrator role and rules, with the full list of permissions; sample copy of the database (10 data sets plus 2 old copies).</td>
 <td>Present</td>
-<td>There is no guided installation and no licence management: consistent with the "planned" status.</td>
+<td>There is no guided installation and no license management: consistent with the "planned" status.</td>
 <td>✅</td>
 </tr>
 <tr>
@@ -695,10 +695,10 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td>✅</td>
 </tr>
 <tr>
-<td><strong>R07</strong><br><strong>Requirement (R07, planned automation):</strong> "Setup and deployment guidance exist; automated delivery and test coverage require further work."<br><strong>In plain words:</strong> installation and deployment guides already exist; automated release and testing are future work.</td>
+<td><strong>R07</strong><br><strong>Requirement (R07, planned automation):</strong> "Setup and deployment guidance exist; automated delivery and test coverage require further work."<br><strong>In plain words:</strong> installation and deployment guides already exist; automated deployment and testing are future work.</td>
 <td>The installation guide and the deployment guide are available.</td>
 <td>Present</td>
-<td>Automated release and automated testing are <strong>entirely absent</strong> (see M10).</td>
+<td>Automated deployment and automated testing are <strong>entirely absent</strong> (see M10).</td>
 <td>✅</td>
 </tr>
 <tr>
@@ -716,10 +716,10 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <td>✅</td>
 </tr>
 <tr>
-<td><strong>N05</strong><br><strong>Requirement (N05, roadmap):</strong> "Existing distance analysis provides a starting point. Further KNN validation and behavioural profiling remain roadmap work."<br><strong>In plain words:</strong> the existing similarity analysis is the starting point; in-depth validation and behaviour analysis are future work.</td>
+<td><strong>N05</strong><br><strong>Requirement (N05, roadmap):</strong> "Existing distance analysis provides a starting point. Further KNN validation and behavioural profiling remain roadmap work."<br><strong>In plain words:</strong> the existing similarity analysis is the starting point; in-depth validation and behavior analysis are future work.</td>
 <td>See "Data distance" (the 10 most similar records).</td>
 <td>Present</td>
-<td>There is no behaviour analysis (the word appears only in texts for artificial intelligence): consistent with the roadmap.</td>
+<td>There is no behavior analysis (the word appears only in texts for artificial intelligence): consistent with the roadmap.</td>
 <td>✅</td>
 </tr>
 </tbody>
@@ -727,9 +727,9 @@ html[data-exported] .layout{grid-template-columns:minmax(0,1fr)}
 <h2 id="summary-declared-requirements-only"><span id="sintesi-solo-requisiti-dichiarati" class="anchor-alias" aria-hidden="true"></span>Summary (declared requirements only)<a class="header-anchor" href="#summary-declared-requirements-only" aria-label="Link to section: Summary (declared requirements only)">#</a></h2>
 <p>43 items were checked: 33 MVP items and 10 roadmap statements. Results: <strong>28 ✅</strong>, <strong>13 🟡</strong>, <strong>2 ❌</strong>.
 - ✅:
-  - <strong>M01–M02:</strong> SFTP/FS/CSV/XML/JSON ingestion, source-file tracking, moving SFTP files to processed, mappings, lookup metadata.
+  - <strong>M01–M02:</strong> SFTP/FS/CSV/XML/JSON ingestion, source-file tracking, moving SFTP files to the "processed" folder, mappings, lookup metadata.
   - <strong>M03:</strong> workspaces, tabs, design/view, expressions, heatmap, heatmap drilldown.
-  - <strong>M05–M06:</strong> data distance, AI NLQ.
+  - <strong>M05–M06:</strong> data distance, AI natural-language questions (NLQ).
   - <strong>M07:</strong> login, session expiry, password recovery, roles and groups.
   - <strong>M10:</strong> application code and documentation.
   - <strong>Roadmap:</strong> R01, R02, R03, R04, R05, R06, R07, N03, N04, N05.

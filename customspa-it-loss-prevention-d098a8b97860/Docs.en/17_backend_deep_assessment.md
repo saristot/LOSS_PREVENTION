@@ -101,7 +101,7 @@ Scorecard on the 7 dimensions required by the prompt, scores 0–10 with evidenc
 
 | # | Recommendation | Effort | Expected impact | ROI |
 |---|---|---|---|---|
-| 1 | User DTO without hash, SFTP password never returned nor in clear text, secrets in a vault + rotation (BE-03, BE-04) | 2.5–3.5 days | Closes 2 critical vectors at minimal cost | ⭐⭐⭐⭐⭐ |
+| 1 | User DTO without hash, SFTP password never returned and never stored in clear text, secrets in a vault + rotation (BE-03, BE-04) | 2.5–3.5 days | Closes 2 critical vectors at minimal cost | ⭐⭐⭐⭐⭐ |
 | 2 | Server-side query DSL + lock enforcement (BE-01, BE-02) | 8–12 days | Eliminates cross-collection exfiltration and row-level violation | ⭐⭐⭐⭐⭐ |
 | 3 | Singleton `MongoClient` + rule engine with server-side bulk updates (BE-08, BE-07) | 5.5–8.5 days | From N round-trips to a few operations; fixes the `UpdateRuleAsync` bug | ⭐⭐⭐⭐ |
 | 4 | xUnit + Testcontainers.MongoDb test baseline (BE-17) | 15–20 days | Enables safe refactoring and upgrades | ⭐⭐⭐⭐ |
@@ -154,7 +154,7 @@ The solution is a modular monolith of 5 projects with acyclic dependencies; the 
 
 #### 1.1 Multi-Module Structure
 
-**Mapping**: parent `pom.xml`/BOM → `LossPrevention.sln` + SDK-style `.csproj`; there is no `Directory.Build.props`, `Directory.Packages.props` (Central Package Management), `global.json`, `nuget.config` nor `.editorconfig` ⇒ versions and properties are repeated in every project.
+**Mapping**: parent `pom.xml`/BOM → `LossPrevention.sln` + SDK-style `.csproj`; there is no `Directory.Build.props`, `Directory.Packages.props` (Central Package Management), `global.json`, `nuget.config` or `.editorconfig` ⇒ versions and properties are repeated in every project.
 
 | Project (`.csproj`) | Target | C# files | Non-blank lines | ProjectReference | Responsibility |
 |---|---|---|---|---|---|
@@ -262,7 +262,7 @@ Verified business logic bugs:
 
 #### 3.2 Repository Pattern
 
-`IMongoRepository<T>` / `MongoRepository<T>` (Infrastructure) offers generic CRUD; there are no derived query methods (≙ Spring Data) nor specifications.
+`IMongoRepository<T>` / `MongoRepository<T>` (Infrastructure) offers generic CRUD; there are no derived query methods (≙ Spring Data) or specifications.
 
 | Problem | Evidence |
 |---|---|
@@ -275,7 +275,7 @@ Verified business logic bugs:
 
 #### 3.3 Database Schema Analysis
 
-MongoDB is schemaless: there are no DB constraints, FKs nor JSON Schema validators. The 13 collections are configured in `appsettings.json` (`MongoDbSettings`), plus `PasswordResetTokens` and `ProcessedFiles` hardcoded.
+MongoDB is schemaless: there are no DB constraints, FKs or JSON Schema validators. The 13 collections are configured in `appsettings.json` (`MongoDbSettings`), plus `PasswordResetTokens` and `ProcessedFiles` hardcoded.
 
 | Aspect | Status | Evidence |
 |---|---|---|
@@ -308,7 +308,7 @@ The API exposes 78 FastEndpoints endpoints protected by declarative permissions 
 | Criterion | Status | Evidence / example |
 |---|---|---|
 | Resource naming | 🟠 | 10 routes with verbs in the URL (e.g. `Post("/permissions/create")` `CreatePermissionEndpoint.cs:17`, `Post("/users/update")` `UpdateUserEndpoint.cs:20`, `Delete("/roles/delete")` `DeleteRoleEndpoint.cs:16`, `Post("/data/create-transactions")` `CreateTransactionEndpoint.cs:18`) |
-| Use of HTTP verbs | 🔴 | `GET /rules/apply` performs a massive **write** (`ApplyRulesEndpoint.cs:18-19`); the report and distance queries use POST (`/data/report/query`, `/distance`) to have a body (acceptable, but not idempotent by semantics) |
+| Use of HTTP verbs | 🔴 | `GET /rules/apply` performs a bulk **write** (`ApplyRulesEndpoint.cs:18-19`); the report and distance queries use POST (`/data/report/query`, `/distance`) to have a body (acceptable, but semantically non-idempotent) |
 | Prefixes / versioning | 🔴 | only 11 routes have the `/api` prefix (data-ingestion, fraud-detection); no versioning (neither `/v1` nor header) |
 | Status codes | 🟠 | use of the FastEndpoints helpers (`SendOkAsync` 72, `SendErrorsAsync` 45, `SendNotFoundAsync` 40, `SendNoContentAsync` 5, `SendCreatedAtAsync` 2, `SendUnauthorizedAsync` 1); creations often returned with 200 instead of 201 |
 | Login response contract | 🔴 | `CreateTokenAsync` is not awaited (`LoginEndpoint.cs:39`): a `Task` is serialized, and the frontend reads `token.result` |
@@ -336,7 +336,7 @@ The API exposes 78 FastEndpoints endpoints protected by declarative permissions 
 | Mass assignment / fields chosen by the client | 🟠 `StartDateField`/`EndDateField` chosen by the client in `/distance` | `GetDistanceEndpoint.cs:39-40` |
 | Sensitive data exposure | 🔴 hash/salt in 5 responses; `SftpPassword` in `GET /api/data-ingestion` and in the update response | `GetDataIngestionConfigurationEndpoint.cs:41,83` |
 | Information leakage | 🟡 `ex.Message` returned to the client in 13 places | e.g. `GetReportDataEndpoint.cs:87`, `ClearDataIngestionConfigurationEndpoint.cs:31` |
-| Rate limiting (≙ Bucket4j) | 🔴 absent (`AddRateLimiter` not used); no lockout on `/users/login` nor on forgot-password | grep: 0 occurrences |
+| Rate limiting (≙ Bucket4j) | 🔴 absent (`AddRateLimiter` not used); no lockout on `/users/login` or on forgot-password | grep: 0 occurrences |
 | CORS | 🟠 hardcoded origins `http://localhost:5173`, `http://localhost:5174` with `AllowCredentials` | `Program.cs:24-34` |
 | CSRF | N/A for the .NET stack: token in the `Authorization` header, not in a cookie ⇒ CSRF not applicable |
 | Notifications | 🟠 `ListNotificationsEndpoint` returns all notifications (`Filter.Empty`) to anyone with `CAN_VIEW_NOTIFICATIONS` | `ListNotificationsEndpoint.cs:20-21,30` |
@@ -481,7 +481,7 @@ The bottlenecks are structural (pool per request, full scan, N round-trips, doub
 
 | Hotspot | Complexity | Risk with 1 M documents (estimate) |
 |---|---|---|
-| `ApplyRulesAsync` | loads N documents + N `ReplaceOneAsync` | memory in the order of GB, very long execution, HTTP timeout on `GET /rules/apply` |
+| `ApplyRulesAsync` | loads N documents + N `ReplaceOneAsync` | memory on the order of GBs, very long execution, HTTP timeout on `GET /rules/apply` |
 | `UpdateRuleAsync` | update per document, wrong field | same + inconsistent data |
 | `GetDistanceAsync` | loads all documents of the interval + O(N·F) in memory | timeout |
 | `ProcessMappings("ReportData", int.MaxValue)` after every ingestion | full scan in batches | ingestion increasingly slow as data grows (`FileProcessingCoordinator.cs:108`) |
@@ -566,7 +566,7 @@ The backend has no automated tests at all: this is the main obstacle to refactor
 
 #### 11.3 Performance Testing
 
-N/A — not derivable from the code: no JMeter/Gatling/k6/NBomber scripts nor load baseline. Recommended priorities: `POST /data/report/query`, `POST /distance`, `GET /rules/apply` and ingestion on a dataset of at least 1 M documents.
+N/A — not derivable from the code: no JMeter/Gatling/k6/NBomber scripts or load baseline. Recommended priorities: `POST /data/report/query`, `POST /distance`, `GET /rules/apply` and ingestion on a dataset of at least 1 M documents.
 
 ---
 
@@ -587,7 +587,7 @@ Build and deployment are not automated: only the Visual Studio solution exists, 
 
 #### 12.2 Containerization
 
-🔴 No `Dockerfile` nor `docker-compose` in the repository. The historical vendor documentation described Azure Static Web Apps and Nginx (`git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/04_DEPLOYMENT_GUIDE.md`, lines 36, 172 and 288-401), but no corresponding artifacts exist. Recommended: multi-stage build `mcr.microsoft.com/dotnet/sdk:8.0` → `aspnet:8.0` (chiseled), non-root user, health check.
+🔴 No `Dockerfile` or `docker-compose` in the repository. The historical vendor documentation described Azure Static Web Apps and Nginx (`git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/04_DEPLOYMENT_GUIDE.md`, lines 36, 172 and 288-401), but no corresponding artifacts exist. Recommended: multi-stage build `mcr.microsoft.com/dotnet/sdk:8.0` → `aspnet:8.0` (chiseled), non-root user, health check.
 
 #### 12.3 CI/CD Pipeline
 
@@ -988,7 +988,7 @@ gantt
 | M2 | Tests ≥ 60 % on core services, bulk rule engine, persistent scheduler, health check and audit active |
 | M3 | .NET 10 LTS runtime (before 10-nov-2026 if the plan starts earlier), lean endpoints, duplication < 5 % |
 
-**Resource allocation (assumption)**: 2 senior backend developers (Phases 1-3), 0.5 QA/automation (Phase 2), DevOps support for vault, secret rotation and pipeline (Phase 1-2).
+**Resource allocation (assumption)**: 2 senior backend developers (Phases 1-3), 0.5 QA/automation (Phase 2), DevOps support for vault, secret rotation and pipeline (Phases 1-2).
 
 **Risk mitigation**
 - Characterization tests **before** BE-07 and BE-15.

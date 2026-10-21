@@ -361,7 +361,7 @@ generated_at: 2026-10-08T09:38:00+02:00
 <tr>
 <td>NFR-PERF-01</td>
 <td>Report query: the aggregation runs <strong>2 times</strong> per request (<code>$count</code> + page, <code>ReportDataservice.cs:40-52</code>); 1 h in-memory cache (<code>GetReportDataEndpoint.cs:81</code>); no upper limit on <code>Take</code> (only <code>Take &gt; 0</code>, line 45; the heatmap requests 100,000 rows, <code>components/reports/toolbar.vue:193</code>)</td>
-<td>P95 <code>POST /data/report/query</code> &lt; 3 s with 1 M documents and <code>Take ≤ 1.000</code>, indexes on the filtered fields; measured with load tests in R1</td>
+<td>P95 <code>POST /data/report/query</code> &lt; 3 s with 1 M documents and <code>Take ≤ 1,000</code>, indexes on the filtered fields; measured with load tests in R1</td>
 <td>Critical</td>
 </tr>
 <tr>
@@ -439,7 +439,7 @@ generated_at: 2026-10-08T09:38:00+02:00
 </tr>
 <tr>
 <td>NFR-USA-06</td>
-<td>Debug left in the code: 57 <code>console.log</code> in <code>src/</code> (e.g. every <code>computed</code> of the menu in <code>App.vue:314-369</code>)</td>
+<td>Debug code left in the codebase: 57 <code>console.log</code> in <code>src/</code> (e.g. every <code>computed</code> of the menu in <code>App.vue:314-369</code>)</td>
 <td>0 <code>console.log</code> in the production build (lint rule)</td>
 <td>Low</td>
 </tr>
@@ -483,7 +483,7 @@ generated_at: 2026-10-08T09:38:00+02:00
 <tr>
 <td>NFR-REL-04</td>
 <td>31 <code>catch (Exception …)</code> blocks in the backend, many return <code>ex.Message</code> to the client (e.g. <code>GetReportDataEndpoint.cs:85-88</code>); no retry policy (0 references to Polly/Retry)</td>
-<td>Centralized error handling (ProblemDetails) with correlation-id; retry with backoff toward Mongo/SFTP/SMTP</td>
+<td>Centralized error handling (ProblemDetails) with correlation-id; retry with backoff for calls to Mongo/SFTP/SMTP</td>
 <td>Medium</td>
 </tr>
 <tr>
@@ -724,8 +724,8 @@ generated_at: 2026-10-08T09:38:00+02:00
 <tr>
 <td>NFR-DEV-01</td>
 <td>Realizability</td>
-<td>Mainstream stack (.NET 8, FastEndpoints 6, MongoDB.Driver 3.4, Vue 3.5, Vuetify 3.7, Vite 6): skills easily available. .NET 8 is LTS with end of support 10/11/2026</td>
-<td>Migration to .NET 10 LTS before 10/11/2026</td>
+<td>Mainstream stack (.NET 8, FastEndpoints 6, MongoDB.Driver 3.4, Vue 3.5, Vuetify 3.7, Vite 6): skills easily available. .NET 8 is LTS with end of support November 10, 2026</td>
+<td>Migration to .NET 10 LTS before November 10, 2026</td>
 <td>High</td>
 </tr>
 <tr>

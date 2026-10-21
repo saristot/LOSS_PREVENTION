@@ -465,7 +465,7 @@ await _reportDataRepository.Collection.UpdateManyAsync(FilterDefinition&lt;BsonD
 <td><strong>O</strong> – Open/Closed</td>
 <td>🟢 High</td>
 <td>New file format = new <code>IFileProcessingService</code> class + 1 registration (<code>Program.cs:102-104</code>)</td>
-<td>Extension point <code>IXmlEnrichmentRule</code> provided but without implementations (speculative code)</td>
+<td>Extension point <code>IXmlEnrichmentRule</code> planned but with no implementations (speculative code)</td>
 </tr>
 <tr>
 <td><strong>L</strong> – Liskov Substitution</td>
@@ -565,7 +565,7 @@ var settings = tempProvider.GetRequiredService&lt;IOptions&lt;JwtSettings&gt;&gt
 </tr>
 <tr>
 <td>Debt management</td>
-<td>13 <code>TODO</code> in the C#, 4 in the frontend; 57 <code>console.log</code> and 6 <code>Console.WriteLine</code></td>
+<td>13 <code>TODO</code> items in the C# code, 4 in the frontend; 57 <code>console.log</code> and 6 <code>Console.WriteLine</code></td>
 <td>🟡 Medium</td>
 <td>Debt tracked in the backlog, lint that blocks <code>console.log</code></td>
 </tr>
@@ -823,7 +823,7 @@ var settings = tempProvider.GetRequiredService&lt;IOptions&lt;JwtSettings&gt;&gt
 <td>T1</td>
 <td><strong>The server is the source of truth</strong> for security and anti-fraud decisions</td>
 <td>Compliance, audit, reproducibility</td>
-<td>No security filter only in the client; anti-fraud results are persisted</td>
+<td>No client-only security filters; anti-fraud results are persisted</td>
 </tr>
 <tr>
 <td>T2</td>
@@ -852,7 +852,7 @@ var settings = tempProvider.GetRequiredService&lt;IOptions&lt;JwtSettings&gt;&gt
 <tr>
 <td>T6</td>
 <td><strong>Explainable fraud detection</strong></td>
-<td>Use on employees (GDPR, Statuto dei Lavoratori)</td>
+<td>Applied to employees (GDPR, Statuto dei Lavoratori)</td>
 <td>Each flag stores rule, threshold version, values and timestamp</td>
 </tr>
 <tr>

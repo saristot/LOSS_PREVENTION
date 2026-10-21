@@ -41,7 +41,7 @@ Requirements directly perceived by the user: performance, usability, reliability
 | ID | AS-IS (evidence) | Proposed TARGET SMART | Priority |
 |----|------------------|-----------------------|----------|
 | NFR-PERF-00 | **[NOT ASSESSABLE]** Actual response times (P50/P95): no benchmark, load test or telemetry in the repository | Define a baseline with load tests before R1 | High |
-| NFR-PERF-01 | Report query: the aggregation runs **2 times** per request (`$count` + page, `ReportDataservice.cs:40-52`); 1 h in-memory cache (`GetReportDataEndpoint.cs:81`); no upper limit on `Take` (only `Take > 0`, line 45; the heatmap requests 100,000 rows, `components/reports/toolbar.vue:193`) | P95 `POST /data/report/query` < 3 s with 1 M documents and `Take ≤ 1.000`, indexes on the filtered fields; measured with load tests in R1 | Critical |
+| NFR-PERF-01 | Report query: the aggregation runs **2 times** per request (`$count` + page, `ReportDataservice.cs:40-52`); 1 h in-memory cache (`GetReportDataEndpoint.cs:81`); no upper limit on `Take` (only `Take > 0`, line 45; the heatmap requests 100,000 rows, `components/reports/toolbar.vue:193`) | P95 `POST /data/report/query` < 3 s with 1 M documents and `Take ≤ 1,000`, indexes on the filtered fields; measured with load tests in R1 | Critical |
 | NFR-PERF-02 | `ApplyRulesAsync`: `GetAllAsync()` on the whole `ReportData` (`RulesService.cs:34`) + one `ReplaceOneAsync` per document (line 58) | Rule application on 1 M documents < 10 min and process memory < 1 GB (bulk write / pipeline update), by R1 | High |
 | NFR-PERF-03 | `GetDistanceAsync`: loads into memory all documents in the interval (`DistanceDataservice.cs:39`) and all the mappings; cost O(N·F) | P95 `POST /distance` < 5 s with 100 k documents in the interval, by R1 | High |
 | NFR-PERF-04 | Statistical analysis in the browser: one `POST /data/report/query` per page + JS evaluation (`resultsGrid.vue:1175-1203`) | Server-side analysis of 1 M transactions < 15 min, asynchronous with progress reporting, by R1 | High |
@@ -57,7 +57,7 @@ Requirements directly perceived by the user: performance, usability, reliability
 | NFR-USA-03 | Feedback via toast/snackbar; errors of the scheduled ingestion are visible only in the logs; in the manual run the API responds 500 and the UI shows a generic message (`dataingestion.vue:458-472`) | Ingestion run history in the UI (outcome, files, records, errors) for ≥ 30 days | High |
 | NFR-USA-04 | Automatic logout at token expiry (1 h, `loginStore.ts:54-62`) with no advance warning and no refresh token | Warning 5 min before expiry and silent session renewal | Low |
 | NFR-USA-05 | **[NOT ASSESSABLE]** Mobile/tablet use: Vuetify is responsive, but there are no requirements or tests on devices | — | Low |
-| NFR-USA-06 | Debug left in the code: 57 `console.log` in `src/` (e.g. every `computed` of the menu in `App.vue:314-369`) | 0 `console.log` in the production build (lint rule) | Low |
+| NFR-USA-06 | Debug code left in the codebase: 57 `console.log` in `src/` (e.g. every `computed` of the menu in `App.vue:314-369`) | 0 `console.log` in the production build (lint rule) | Low |
 
 ### 1.3 Reliability
 
@@ -67,7 +67,7 @@ Requirements directly perceived by the user: performance, usability, reliability
 | NFR-REL-01 | `ApplyRulesAsync` runs `$unset FraudFlags` on all documents (`RulesService.cs:40-41`) and then rewrites document by document: an error halfway through leaves the flags inconsistent | Idempotent batch operation with persisted execution state; resumption after an error without loss of flags | High |
 | NFR-REL-02 | Ingestion: `InsertMany` and `MarkFileAsProcessed` not transactional (`FileProcessingCoordinator.cs:374-377`); dedup by file name only; no Mongo session/transaction in the code (0 occurrences of `StartSession`) | Exactly-once per file (content hash + state) verified by integration tests | High |
 | NFR-REL-03 | Scheduler: `LastRunAt` set but not saved (`DataIngestionBackgroundService.cs:86-87`); `one-time` schedule never executed (line 55); `ManualLoad` flag never read | Persistent scheduler with state and history; 100% of the configured schedules executed or reported | High |
-| NFR-REL-04 | 31 `catch (Exception …)` blocks in the backend, many return `ex.Message` to the client (e.g. `GetReportDataEndpoint.cs:85-88`); no retry policy (0 references to Polly/Retry) | Centralized error handling (ProblemDetails) with correlation-id; retry with backoff toward Mongo/SFTP/SMTP | Medium |
+| NFR-REL-04 | 31 `catch (Exception …)` blocks in the backend, many return `ex.Message` to the client (e.g. `GetReportDataEndpoint.cs:85-88`); no retry policy (0 references to Polly/Retry) | Centralized error handling (ProblemDetails) with correlation-id; retry with backoff for calls to Mongo/SFTP/SMTP | Medium |
 | NFR-REL-05 | `POST /data/create-transactions` responds "Inserted" but does not persist (`CreateTransactionEndpoint.cs:49-53`: only `ProcessAsync`, no insert); `XmlProcessingService.InsertManyAsync` throws `NotImplementedException` (line 43) | 0 endpoints that report success without effect, verified by tests | High |
 | NFR-REL-06 | Data consistency: the 1 h cache is not invalidated after ingestion or `Apply Rules` (key = SHA-256 of pipeline+skip+take, `GetReportDataEndpoint.cs:92-98`) | Data visible within 1 min of ingestion/rules (explicit invalidation) | Medium |
 
@@ -136,7 +136,7 @@ Requirements on the realizability and planability of development. The stack is m
 
 | ID | Category | AS-IS (evidence) | Proposed TARGET SMART | Priority |
 |----|-----------|------------------|-----------------------|----------|
-| NFR-DEV-01 | Realizability | Mainstream stack (.NET 8, FastEndpoints 6, MongoDB.Driver 3.4, Vue 3.5, Vuetify 3.7, Vite 6): skills easily available. .NET 8 is LTS with end of support 10/11/2026 | Migration to .NET 10 LTS before 10/11/2026 | High |
+| NFR-DEV-01 | Realizability | Mainstream stack (.NET 8, FastEndpoints 6, MongoDB.Driver 3.4, Vue 3.5, Vuetify 3.7, Vite 6): skills easily available. .NET 8 is LTS with end of support November 10, 2026 | Migration to .NET 10 LTS before November 10, 2026 | High |
 | NFR-DEV-02 | Realizability | Obsolete package `Microsoft.AspNetCore.Http.Features 5.0.17`; `nuxt ^3.0.0` dependency present but unused; `xlsx ^0.18.5` (latest version published on npm) | 0 deprecated or unused packages; dependency audit in CI | Medium |
 | NFR-DEV-03 | Planability | No backlog, estimate or milestone in the repository. The historical vendor roadmap (`roadmap.txt`, only commit `593f6de`) stated "Within 3 Months Time frame" and "Initial Roadmap - 3-6 Months", without per-activity estimates | Estimated backlog (see [15_fp_cocomo.md](15_fp_cocomo.md) and [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md)) | Medium |
 | NFR-DEV-04 | Build reproducibility | No CI/CD pipeline or Dockerfile; `package.json` with `^` ranges and `package-lock.json` **not aligned** (`npm ci` fails); no `test`/`lint`/`type-check` script | Deterministic CI build (`npm ci`, `dotnet build`) green on every PR | High |

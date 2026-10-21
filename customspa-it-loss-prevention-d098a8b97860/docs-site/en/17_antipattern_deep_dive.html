@@ -729,7 +729,7 @@ valueGetter: (params) =&gt; {
 <p><strong>3.1 God Object / The Blob</strong>
 - ❌ <code>aiStore.ts</code> (99 functions, 1,994 lines) and <code>resultsGrid.vue</code> (2,271 lines) exceed all thresholds (AP-02, AP-03).
 - ⚠️ <code>fraudDetectionStore.ts</code> (29 functions, 728 lines) and <code>selectFields.vue</code> (823 lines).
-- ⚠️ Backend: <code>MappingService</code> (428 lines, schema discovery + CRUD + batch) and <code>FileProcessingCoordinator</code> (424 lines: orchestration, SFTP, parsing, persistence, idempotency) are at the limit; no class has more than 20 public methods.
+- ⚠️ Backend: <code>MappingService</code> (428 lines, schema discovery + CRUD + batch) and <code>FileProcessingCoordinator</code> (424 lines: orchestration, SFTP, parsing, persistence, idempotency) are borderline; no class has more than 20 public methods.
 - ⚠️ Generic names: <code>BsonHelper</code>, <code>RuleHelper</code> and <code>DistanceHelper</code> are static helpers. <code>IndexSuggestionHelper.cs</code> contains the <code>IndexService</code> class.</p>
 <p><strong>3.2 Circular Dependency</strong>
 - ✅ Absent, see 2.1.</p>
@@ -957,7 +957,7 @@ valueGetter: (params) =&gt; {
   public string ScheduleType { get; set; } = "one-time"; // "one-time" | "recurring"   (:31)
   public string Recurrence { get; set; } = "daily";      // "daily" | "weekly"          (:34) — ma "monthly" è gestito in DataIngestionBackgroundService.cs:140
   if (normalizedSource == "filesystem" || normalizedSource == "file system")          // FileProcessingCoordinator.cs:94</code></li>
-<li><strong>Impact</strong>: unvalidated values (the model comment does not include <code>monthly</code>, which is however handled); fragile comparisons.</li>
+<li><strong>Impact</strong>: unvalidated values (the model comment does not include <code>monthly</code>, even though it is handled); fragile comparisons.</li>
 <li><strong>Refactoring</strong>: <code>ScheduleType</code>, <code>Recurrence</code> and <code>SourceType</code> enums with string serialization (<code>[BsonRepresentation(BsonType.String)]</code>/<code>JsonStringEnumConverter</code>); <code>RowLock(Field, Value)</code> value object; TypeScript types instead of <code>any</code>.</li>
 </ul>
 <h3 id="ap-17--magic-numbers--low"><span id="ap-17-—-magic-numbers-·-bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-17-magic-numbers-bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-17--magic-numbers--bassa" class="anchor-alias" aria-hidden="true"></span><span id="ap-17-magic-numbers-low" class="anchor-alias" aria-hidden="true"></span><span id="ap-17-—-magic-numbers-·-low" class="anchor-alias" aria-hidden="true"></span>AP-17 — Magic Numbers · <strong>Low</strong><a class="header-anchor" href="#ap-17--magic-numbers--low" aria-label="Link to section: AP-17 — Magic Numbers · Low">#</a></h3>

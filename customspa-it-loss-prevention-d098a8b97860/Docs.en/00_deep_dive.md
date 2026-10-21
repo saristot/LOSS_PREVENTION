@@ -23,7 +23,7 @@ generated_at: 2026-10-08T09:33:09+02:00
 
 ## 1. Executive Summary
 
-The **Loss Prevention Tool** is a full-stack web application for the analysis of retail (POS) transactions aimed at identifying losses and fraud. It consists of a **.NET 8 / FastEndpoints 6** backend (5 projects, **78 REST endpoints**, 37 `CAN_*` permissions) on **MongoDB 8.x** as the sole datastore (15 collections referenced by the code), a .NET console job for bulk ingestion of XML files, and a **Vue 3.5 + Vite 6 + Vuetify 3 SPA** (41 SFCs, 15 Pinia stores) that hosts a significant part of the business logic (statistical anti-fraud engine with 30 heuristics, Ollama LLM integration, report designer). The code measures **≈25.3 KSLOC** (cloc 2.10: C# 10,143, Vue 10,773, TypeScript 3,868; details in [14_metrics.md](14_metrics.md)) and is organized as a **layered modular monolith** with a shared document database. The stack is recent, but .NET 8 LTS goes out of support on 10-11-2026; the overall status is **pre-production**: 0 automated tests, no CI/CD or containerization, CORS limited to `localhost`, npm lockfile out of sync (`npm ci` fails), 12 imports with incorrect upper/lower case that break the build on Linux/macOS (plus an unresolvable import in the orphan component `ScheduleForm.vue`) and several architectural vulnerabilities (arbitrary MongoDB pipeline sent by the client, row-level security applied only in the browser, password hashes returned by the API, LLM on `localhost:11434` called from the browser). The "intelligent" features declared by the vendor are only partially present (single-field rule-engine, non-persisted client-side statistics, top-10 Euclidean similarity, LLM limited to NLQ and template generation): details in [§11](#11-critical-observations) and in [02_functional_overview.md](02_functional_overview.md) (section «Verification of the features declared by the vendor»).
+The **Loss Prevention Tool** is a full-stack web application for the analysis of retail (POS) transactions aimed at identifying losses and fraud. It consists of a **.NET 8 / FastEndpoints 6** backend (5 projects, **78 REST endpoints**, 37 `CAN_*` permissions) on **MongoDB 8.x** as the sole datastore (15 collections referenced by the code), a .NET console job for bulk ingestion of XML files, and a **Vue 3.5 + Vite 6 + Vuetify 3 SPA** (41 SFCs, 15 Pinia stores) that hosts a significant part of the business logic (statistical anti-fraud engine with 30 heuristics, Ollama LLM integration, report designer). The code measures **≈25.3 KSLOC** (cloc 2.10: C# 10,143, Vue 10,773, TypeScript 3,868; details in [14_metrics.md](14_metrics.md)) and is organized as a **layered modular monolith** with a shared document database. The stack is recent, but .NET 8 LTS goes out of support on November 10, 2026; the overall status is **pre-production**: 0 automated tests, no CI/CD or containerization, CORS limited to `localhost`, npm lockfile out of sync (`npm ci` fails), 12 imports with incorrect upper/lower case that break the build on Linux/macOS (plus an unresolvable import in the orphan component `ScheduleForm.vue`) and several architectural vulnerabilities (arbitrary MongoDB pipeline sent by the client, row-level security applied only in the browser, password hashes returned by the API, LLM on `localhost:11434` called from the browser). The "intelligent" features declared by the vendor are only partially present (single-field rule-engine, non-persisted client-side statistics, top-10 Euclidean similarity, LLM limited to NLQ and template generation): details in [§11](#11-critical-observations) and in [02_functional_overview.md](02_functional_overview.md) (section «Verification of features declared by the vendor»).
 
 ---
 
@@ -102,7 +102,7 @@ Versions are read from `*.csproj`, `package.json` (declared ranges) and `package
 
 | Category | Technology | Version | Notes |
 |-----------|------------|----------|------|
-| Runtime | .NET | 8.0 (`net8.0` in all 5 csproj files) | LTS, end of support **10-11-2026** → plan .NET 10 LTS |
+| Runtime | .NET | 8.0 (`net8.0` in all 5 csproj files) | LTS, end of support **November 10, 2026** → plan .NET 10 LTS |
 | Language | C# | 12 (.NET 8 default) | `Nullable` and `ImplicitUsings` enabled in all projects |
 | Web framework | FastEndpoints | 6.0.0 | REPR pattern: 1 class = 1 endpoint; permissions via `permissions` claim |
 | Security | FastEndpoints.Security (JwtBearer) | 6.0.0 | Symmetric JWT HMAC-SHA256 (`Program.cs:73-74`) |
@@ -318,7 +318,7 @@ The security model is JWT + server-side granular permissions, but with structura
 
 - **JWT HS256** issued by `POST /users/login` (`LoginEndpoint.cs:48-81`), expiration `ExpiryHours=1`. Claims: `name`, `permissions` (one per permission of the roles), optional `LockField`/`LockValue` (`LoginEndpoint.cs:52-68`).
 - **Permission-based access control (PBAC)**: every non-anonymous endpoint declares `Permissions("CAN_...")` (37 distinct permissions); 4 anonymous endpoints: `LoginEndpoint.cs:31`, `ForgotPasswordEndpoint.cs:19`, `ResetPasswordEndpoint.cs:19`, `ValidateResetTokenEndpoint.cs:24`. Roles are containers of permissions (dump: 1 `Admin` role with 37 permissions).
-- **Password**: PBKDF2-SHA256 600,000 iterations, 16-byte salt, transparent upgrade of legacy hashes at 10,000 iterations (`PasswordHasher.cs:7-10,21`; `UserService.cs:206-211`) → good practice.
+- **Password**: PBKDF2-SHA256 600,000 iterations, 16-byte salt, transparent upgrade of legacy 10,000-iteration hashes (`PasswordHasher.cs:7-10,21`; `UserService.cs:206-211`) → good practice.
 - **Password reset**: random token (`RandomNumberGenerator`), stored as SHA-256, 1 h expiration, invalidation of previous tokens (`PasswordResetService.cs:50-65,148,158`) → good practice.
 - **Anomaly**: `LoginEndpoint.cs:39` does not await (`await`) `CreateTokenAsync`, so it serializes a `Task<string>`; the frontend reads `response.data.token.result` (`loginStore.ts:78`) → it works by coincidence, fragile API contract.
 
@@ -464,8 +464,8 @@ Classification of the technologies by support status at the date of the analysis
 
 Recommended next steps and map of the IMPACT documents that explore the topics of this deep dive in depth.
 
-1. Feature-by-feature verification of the declared features: [02_functional_overview.md](02_functional_overview.md) (section «Verification of the features declared by the vendor»).
-2. Effort to complete the "in development" and "planned" features: [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md) (section «Completion effort for features in development and planned»).
+1. Feature-by-feature verification of the declared features: [02_functional_overview.md](02_functional_overview.md) (section «Verification of features declared by the vendor»).
+2. Effort to complete the "in development" and "planned" features: [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md) (section «Completion effort for in-development and planned features»).
 3. Security and build quick wins: [17_backend_deep_assessment.md](17_backend_deep_assessment.md), [16_frontend_deep_assessment.md](16_frontend_deep_assessment.md).
 4. Validate at runtime (.NET 8 + MongoDB + dump `Data/LossPrevention`) the behaviors marked "to be confirmed" (create-transactions, TTL, login).
 

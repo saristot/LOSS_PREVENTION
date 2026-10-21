@@ -95,7 +95,7 @@ The code correctly applies DI and Strategy, but violates DRY and KISS precisely 
 | Principle | Adherence | Positive evidence | Violation (evidence) |
 |-----------|----------|-------------------|-----------------------|
 | **S** – Single Responsibility | 🔴 Low | Small endpoints for simple entities (e.g. `DeleteUserByIdEndpoint`) | `aiStore.ts` (1,994 lines) mixes LLM client, rule generation, cross-transaction metrics and analysis; `resultsGrid.vue` 2,271 lines (grid, export, analysis, pagination); `GetFraudDetectionSettingsEndpoint` 222 lines |
-| **O** – Open/Closed | 🟢 High | New file format = new `IFileProcessingService` class + 1 registration (`Program.cs:102-104`) | Extension point `IXmlEnrichmentRule` provided but without implementations (speculative code) |
+| **O** – Open/Closed | 🟢 High | New file format = new `IFileProcessingService` class + 1 registration (`Program.cs:102-104`) | Extension point `IXmlEnrichmentRule` planned but with no implementations (speculative code) |
 | **L** – Liskov Substitution | 🟡 Medium | XML/CSV/JSON interchangeable in the `FileProcessingCoordinator` | `XmlProcessingService.InsertManyAsync` throws `NotImplementedException("Use FileProcessingCoordinator.RunIngestionAsync instead")` (`XmlProcessingService.cs:43`) |
 | **I** – Interface Segregation | 🟡 Medium | Service interfaces per area (`IRuleConfigurationService`, `IPasswordResetService`, `IMappingService`, …) | "Fat" `IMongoRepository<T>`: CRUD, aggregations, indexes **and** raw `Collection` |
 | **D** – Dependency Inversion | 🟡 Medium | Constructor injection everywhere; services registered in `Program.cs:83-107` | Application depends on Infrastructure (§1.2); `PasswordHasher` is a `static class` (`PasswordHasher.cs:5`), not replaceable in tests; `AddSingleton<MongoDbSettings>()` (`Program.cs:83`) alongside the `IOptions` |
@@ -135,7 +135,7 @@ There are no codified development practices: no traceable tests, CI, branching o
 | Branching / versioning | 13 commits by a single author (`saristot`, 2026-10-05..07); the code arrived in a block with `593f6de`; no tags | 🔴 Not reconstructible | "Branching Strategy for ease of development" (`roadmap.txt:65`, historical) |
 | Code review | **N/A — not derivable from the code**: no PR or review history in the repository | — | Mandatory review on every PR |
 | Reproducible build | `package-lock.json` not aligned with `package.json` (`npm ci` fails); `^` ranges on all dependencies; 12 imports with wrong case and one unresolvable import (`ScheduleForm.vue:27`) | 🔴 Low | Green CI build on Linux |
-| Debt management | 13 `TODO` in the C#, 4 in the frontend; 57 `console.log` and 6 `Console.WriteLine` | 🟡 Medium | Debt tracked in the backlog, lint that blocks `console.log` |
+| Debt management | 13 `TODO` items in the C# code, 4 in the frontend; 57 `console.log` and 6 `Console.WriteLine` | 🟡 Medium | Debt tracked in the backlog, lint that blocks `console.log` |
 | Test data | Only a development dump (`Data/LossPrevention`); no real data ("Waiting for Custom", `roadmap.txt:27`, historical) | 🟡 Medium | Representative anonymized dataset |
 
 ---
@@ -235,12 +235,12 @@ The target principles translate the violations found into automatically verifiab
 
 | # | Principle | Rationale | Verifiable rule (fitness function) |
 |---|-----------|-----------|----------------------------------------|
-| T1 | **The server is the source of truth** for security and anti-fraud decisions | Compliance, audit, reproducibility | No security filter only in the client; anti-fraud results are persisted |
+| T1 | **The server is the source of truth** for security and anti-fraud decisions | Compliance, audit, reproducibility | No client-only security filters; anti-fraud results are persisted |
 | T2 | **Zero trust on query inputs** | Prevent data exfiltration | Pipeline validated by a whitelist of stages/operators; tests that reject `$lookup`, `$out`, `$merge`, `$unionWith`, `$function`, `$where` |
 | T3 | **Thin endpoints, thick services** | Testability | ArchUnitNET: no type in `LossPrevention.API.Endpoints` depends on `IMongoRepository<>` |
 | T4 | **Per-environment configuration, secrets outside the repository** | Security | Secret scanning in CI (e.g. gitleaks); `appsettings.json` without sensitive values |
 | T5 | **Batches and heavy computations close to the data** | Performance | No `GetAllAsync()` on `ReportData`; bulk operations with `BulkWrite` / pipeline-based updates |
-| T6 | **Explainable fraud detection** | Use on employees (GDPR, Statuto dei Lavoratori) | Each flag stores rule, threshold version, values and timestamp |
+| T6 | **Explainable fraud detection** | Applied to employees (GDPR, Statuto dei Lavoratori) | Each flag stores rule, threshold version, values and timestamp |
 | T7 | **Test-first on algorithms** | Rules and distances are pure functions | Coverage ≥ 80% on `RuleHelper`, `DistanceHelper` and the statistical engine |
 | T8 | **One library per need, governed dependencies** | Vulnerability and license surface | Dependency audit in CI; 0 unused packages; `Microsoft.Extensions.*` versions aligned with the runtime |
 

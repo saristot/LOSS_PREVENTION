@@ -325,11 +325,11 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 </blockquote>
 <p><strong>Date</strong>: 2026-10-08<br>
 <strong>Version</strong>: 1.1<br>
-<strong>Authors</strong>: REVERSE how (IMPACT) · verification IMPACT verify<br>
+<strong>Authors</strong>: REVERSE how (IMPACT) · verified by IMPACT verify<br>
 <strong>Audience</strong>: Developers (onboarding), tech leads</p>
 <hr>
 <h2 id="main-sections"><span id="sezioni-principali" class="anchor-alias" aria-hidden="true"></span>Main Sections<a class="header-anchor" href="#main-sections" aria-label="Link to section: Main Sections">#</a></h2>
-<p>This guide serves to get a developer up and running on the Loss Prevention Tool on <strong>Windows</strong>, the only operating system on which the frontend build works at commit <code>fc7d820</code> (see §4.3). Each command is marked:</p>
+<p>This guide is meant to get a developer up and running on the Loss Prevention Tool on <strong>Windows</strong>, the only operating system on which the frontend build works at commit <code>fc7d820</code> (see §4.3). Each command is marked:</p>
 <ul>
 <li>✅ <strong>verified</strong>: executed during this analysis (Windows, Node v22.14.0, npm 10.9.2, PowerShell 7.6);</li>
 <li>⚠️ <strong>not verified</strong>: derived from the code/configuration but not executed because the tool was not available (.NET SDK, <code>mongosh</code>, <code>mongorestore</code>, Ollama not installed on the analysis machine).</li>
@@ -913,7 +913,7 @@ mongosh "mongodb://localhost:27017" --eval "var d=db.getSiblingDB('LossPreventio
 <ol>
 <li>Start smtp4dev listening on <code>localhost:25</code>.</li>
 <li><code>POST /users/forgot-password</code> (anonymous) with the username or email of a dump user (<code>ForgotPasswordEndpoint.cs:39</code>).</li>
-<li>Open in smtp4dev the link <code>http://localhost:5173/reset-password?token=…</code> (<code>EmailService.cs:29</code>, <code>FrontendUrl</code> from <code>appsettings.json:40</code>); the token expires after 1 h (<code>PasswordResetService.cs:19</code>).</li>
+<li>In smtp4dev, open the link <code>http://localhost:5173/reset-password?token=…</code> (<code>EmailService.cs:29</code>, <code>FrontendUrl</code> from <code>appsettings.json:40</code>); the token expires after 1 h (<code>PasswordResetService.cs:19</code>).</li>
 </ol>
 <h3 id="65-automatic-initialization-at-api-startup"><span id="_6-5-inizializzazione-automatica-all-avvio-dell-api" class="anchor-alias" aria-hidden="true"></span><span id="65-inizializzazione-automatica-allavvio-dellapi" class="anchor-alias" aria-hidden="true"></span><span id="_6-5-automatic-initialization-at-api-startup" class="anchor-alias" aria-hidden="true"></span>6.5 Automatic initialization at API startup<a class="header-anchor" href="#65-automatic-initialization-at-api-startup" aria-label="Link to section: 6.5 Automatic initialization at API startup">#</a></h3>
 <p>At startup <code>DatabaseInitializationService</code> (<code>Program.cs:115-119</code>):</p>
@@ -1137,7 +1137,7 @@ dotnet run
 </tr>
 <tr>
 <td>T10</td>
-<td>Login with wrong credentials responds <strong>500</strong> instead of 401</td>
+<td>Login with wrong credentials returns <strong>500</strong> instead of 401</td>
 <td><code>UserService.LoginAsync</code> throws <code>UnauthorizedAccessException</code>, not handled by <code>LoginEndpoint</code> (no global exception handler)</td>
 <td>AS-IS behavior; check username/password or use the reset (§6.4)</td>
 </tr>
@@ -1193,7 +1193,7 @@ dotnet run
 <td>T19</td>
 <td>Weekly schedule does not trigger</td>
 <td>Comparison with the English names of <code>DayOfWeek</code> and the server's local time (<code>DataIngestionBackgroundService.cs:97,137</code>)</td>
-<td>Check the host's days and time zone</td>
+<td>Check the configured days and the host's time zone</td>
 </tr>
 <tr>
 <td>T20</td>

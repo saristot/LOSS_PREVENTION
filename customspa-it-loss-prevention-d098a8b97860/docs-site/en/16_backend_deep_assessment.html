@@ -519,7 +519,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 <tbody>
 <tr>
 <td>1</td>
-<td>User DTO without hash, SFTP password never returned nor in clear text, secrets in a vault + rotation (BE-03, BE-04)</td>
+<td>User DTO without hash, SFTP password never returned and never stored in clear text, secrets in a vault + rotation (BE-03, BE-04)</td>
 <td>Closes 2 critical vectors at minimal cost</td>
 <td>⭐⭐⭐⭐⭐</td>
 </tr>
@@ -691,7 +691,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 <h3 id="1-modular-architecture-assessment--maven-multi-module"><span id="1-modular-architecture-assessment-maven-multi-module" class="anchor-alias" aria-hidden="true"></span><span id="_1-modular-architecture-assessment-≙-maven-multi-module" class="anchor-alias" aria-hidden="true"></span>1. Modular Architecture Assessment (≙ Maven Multi-Module)<a class="header-anchor" href="#1-modular-architecture-assessment--maven-multi-module" aria-label="Link to section: 1. Modular Architecture Assessment (≙ Maven Multi-Module)">#</a></h3>
 <p>The solution is a modular monolith of 5 projects with acyclic dependencies; the layering is recognizable but has an inversion (Application → Infrastructure) and inconsistent namespace boundaries.</p>
 <h4 id="11-multi-module-structure"><span id="_1-1-multi-module-structure" class="anchor-alias" aria-hidden="true"></span>1.1 Multi-Module Structure<a class="header-anchor" href="#11-multi-module-structure" aria-label="Link to section: 1.1 Multi-Module Structure">#</a></h4>
-<p><strong>Mapping</strong>: parent <code>pom.xml</code>/BOM → <code>LossPrevention.sln</code> + SDK-style <code>.csproj</code>; there is no <code>Directory.Build.props</code>, <code>Directory.Packages.props</code> (Central Package Management), <code>global.json</code>, <code>nuget.config</code> nor <code>.editorconfig</code> ⇒ versions and properties are repeated in every project.</p>
+<p><strong>Mapping</strong>: parent <code>pom.xml</code>/BOM → <code>LossPrevention.sln</code> + SDK-style <code>.csproj</code>; there is no <code>Directory.Build.props</code>, <code>Directory.Packages.props</code> (Central Package Management), <code>global.json</code>, <code>nuget.config</code> or <code>.editorconfig</code> ⇒ versions and properties are repeated in every project.</p>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Table 8"><table>
 <thead>
 <tr>
@@ -1017,7 +1017,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 </tbody>
 </table></div>
 <h4 id="32-repository-pattern"><span id="_3-2-repository-pattern" class="anchor-alias" aria-hidden="true"></span>3.2 Repository Pattern<a class="header-anchor" href="#32-repository-pattern" aria-label="Link to section: 3.2 Repository Pattern">#</a></h4>
-<p><code>IMongoRepository&lt;T&gt;</code> / <code>MongoRepository&lt;T&gt;</code> (Infrastructure) offers generic CRUD; there are no derived query methods (≙ Spring Data) nor specifications.</p>
+<p><code>IMongoRepository&lt;T&gt;</code> / <code>MongoRepository&lt;T&gt;</code> (Infrastructure) offers generic CRUD; there are no derived query methods (≙ Spring Data) or specifications.</p>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Table 14"><table>
 <thead>
 <tr>
@@ -1053,7 +1053,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 </tbody>
 </table></div>
 <h4 id="33-database-schema-analysis"><span id="_3-3-database-schema-analysis" class="anchor-alias" aria-hidden="true"></span>3.3 Database Schema Analysis<a class="header-anchor" href="#33-database-schema-analysis" aria-label="Link to section: 3.3 Database Schema Analysis">#</a></h4>
-<p>MongoDB is schemaless: there are no DB constraints, FKs nor JSON Schema validators. The 13 collections are configured in <code>appsettings.json</code> (<code>MongoDbSettings</code>), plus <code>PasswordResetTokens</code> and <code>ProcessedFiles</code> hardcoded.</p>
+<p>MongoDB is schemaless: there are no DB constraints, FKs or JSON Schema validators. The 13 collections are configured in <code>appsettings.json</code> (<code>MongoDbSettings</code>), plus <code>PasswordResetTokens</code> and <code>ProcessedFiles</code> hardcoded.</p>
 <div class="table-wrap" role="region" tabindex="0" aria-label="Table 15"><table>
 <thead>
 <tr>
@@ -1160,7 +1160,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 <tr>
 <td>Use of HTTP verbs</td>
 <td>🔴</td>
-<td><code>GET /rules/apply</code> performs a massive <strong>write</strong> (<code>ApplyRulesEndpoint.cs:18-19</code>); the report and distance queries use POST (<code>/data/report/query</code>, <code>/distance</code>) to have a body (acceptable, but not idempotent by semantics)</td>
+<td><code>GET /rules/apply</code> performs a bulk <strong>write</strong> (<code>ApplyRulesEndpoint.cs:18-19</code>); the report and distance queries use POST (<code>/data/report/query</code>, <code>/distance</code>) to have a body (acceptable, but semantically non-idempotent)</td>
 </tr>
 <tr>
 <td>Prefixes / versioning</td>
@@ -1273,7 +1273,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 </tr>
 <tr>
 <td>Rate limiting (≙ Bucket4j)</td>
-<td>🔴 absent (<code>AddRateLimiter</code> not used); no lockout on <code>/users/login</code> nor on forgot-password</td>
+<td>🔴 absent (<code>AddRateLimiter</code> not used); no lockout on <code>/users/login</code> or on forgot-password</td>
 <td>grep: 0 occurrences</td>
 </tr>
 <tr>
@@ -1674,7 +1674,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 <tr>
 <td><code>ApplyRulesAsync</code></td>
 <td>loads N documents + N <code>ReplaceOneAsync</code></td>
-<td>memory in the order of GB, very long execution, HTTP timeout on <code>GET /rules/apply</code></td>
+<td>memory on the order of GBs, very long execution, HTTP timeout on <code>GET /rules/apply</code></td>
 </tr>
 <tr>
 <td><code>UpdateRuleAsync</code></td>
@@ -1939,7 +1939,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 </tbody>
 </table></div>
 <h4 id="113-performance-testing"><span id="_11-3-performance-testing" class="anchor-alias" aria-hidden="true"></span>11.3 Performance Testing<a class="header-anchor" href="#113-performance-testing" aria-label="Link to section: 11.3 Performance Testing">#</a></h4>
-<p>N/A — not derivable from the code: no JMeter/Gatling/k6/NBomber scripts nor load baseline. Recommended priorities: <code>POST /data/report/query</code>, <code>POST /distance</code>, <code>GET /rules/apply</code> and ingestion on a dataset of at least 1 M documents.</p>
+<p>N/A — not derivable from the code: no JMeter/Gatling/k6/NBomber scripts or load baseline. Recommended priorities: <code>POST /data/report/query</code>, <code>POST /distance</code>, <code>GET /rules/apply</code> and ingestion on a dataset of at least 1 M documents.</p>
 <hr>
 <h3 id="12-build--deployment"><span id="12-build-deployment" class="anchor-alias" aria-hidden="true"></span><span id="_12-build-deployment" class="anchor-alias" aria-hidden="true"></span>12. Build &amp; Deployment<a class="header-anchor" href="#12-build--deployment" aria-label="Link to section: 12. Build &amp; Deployment">#</a></h3>
 <p>Build and deployment are not automated: only the Visual Studio solution exists, with no containers or pipelines.</p>
@@ -1986,7 +1986,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 </tbody>
 </table></div>
 <h4 id="122-containerization"><span id="_12-2-containerization" class="anchor-alias" aria-hidden="true"></span>12.2 Containerization<a class="header-anchor" href="#122-containerization" aria-label="Link to section: 12.2 Containerization">#</a></h4>
-<p>🔴 No <code>Dockerfile</code> nor <code>docker-compose</code> in the repository. The historical vendor documentation described Azure Static Web Apps and Nginx (<code>git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/04_DEPLOYMENT_GUIDE.md</code>, lines 36, 172 and 288-401), but no corresponding artifacts exist. Recommended: multi-stage build <code>mcr.microsoft.com/dotnet/sdk:8.0</code> → <code>aspnet:8.0</code> (chiseled), non-root user, health check.</p>
+<p>🔴 No <code>Dockerfile</code> or <code>docker-compose</code> in the repository. The historical vendor documentation described Azure Static Web Apps and Nginx (<code>git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/04_DEPLOYMENT_GUIDE.md</code>, lines 36, 172 and 288-401), but no corresponding artifacts exist. Recommended: multi-stage build <code>mcr.microsoft.com/dotnet/sdk:8.0</code> → <code>aspnet:8.0</code> (chiseled), non-root user, health check.</p>
 <h4 id="123-cicd-pipeline"><span id="_12-3-ci-cd-pipeline" class="anchor-alias" aria-hidden="true"></span>12.3 CI/CD Pipeline<a class="header-anchor" href="#123-cicd-pipeline" aria-label="Link to section: 12.3 CI/CD Pipeline">#</a></h4>
 <p>🔴 No pipeline (<code>.github/workflows</code>, <code>azure-pipelines.yml</code> or similar absent for the application code). The recommended minimum stages are: restore → build → test → <code>dotnet list package --vulnerable --include-transitive</code> → static analysis → container build → deploy. Deployment strategy (blue-green/canary) and rollback: N/A — not derivable from the code.</p>
 <hr>
@@ -3161,7 +3161,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 </tr>
 </tbody>
 </table></div>
-<p><strong>Resource allocation (assumption)</strong>: 2 senior backend developers (Phases 1-3), 0.5 QA/automation (Phase 2), DevOps support for vault, secret rotation and pipeline (Phase 1-2).</p>
+<p><strong>Resource allocation (assumption)</strong>: 2 senior backend developers (Phases 1-3), 0.5 QA/automation (Phase 2), DevOps support for vault, secret rotation and pipeline (Phases 1-2).</p>
 <p><strong>Risk mitigation</strong>
 - Characterization tests <strong>before</strong> BE-07 and BE-15.
 - BE-01 behind a feature flag, with comparison of the results between the old and new pipeline on the saved workspaces.

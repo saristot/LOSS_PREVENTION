@@ -15,7 +15,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 
 **Date**: 2026-10-08  
 **Version**: 1.1  
-**Authors**: REVERSE how (IMPACT) · verification IMPACT verify  
+**Authors**: REVERSE how (IMPACT) · verified by IMPACT verify  
 **Audience**: Operations, application support (L1/L2), tech lead
 
 ---
@@ -69,7 +69,7 @@ The vendor's operations guide `Docs/12_MAINTENANCE_OPERATIONS.md` and `Docs/road
 | `GET /rules/apply` duration | Request duration metric | > measured reference value |
 | P95 latency of `POST /data/report/query` | HTTP metric | To be defined after a baseline |
 | 5xx errors | HTTP metric | > 1% over 5 min |
-| Failed logins | `/users/login` log/metric (today it responds 500, §4.3) | Anomalous spikes (brute force) |
+| Failed logins | `/users/login` log/metric (today it returns 500, §4.3) | Anomalous spikes (brute force) |
 | MongoDB disk space | DB monitoring | > 80% |
 
 ```mermaid
@@ -235,10 +235,10 @@ db.PasswordResetTokens.countDocuments({ ExpiryDate: { $lt: new Date() } })
 
 | Symptom | Diagnosis | Cause in the code | Action |
 |---------|----------|------------------|--------|
-| The API does not start | Log `Error during database initialization` | MongoDB not reachable; the exception is rethrown (`DatabaseInitializationService.cs:36-40`) | Restore MongoDB, restart |
+| The API does not start | Log `Error during database initialization` | MongoDB not reachable; the exception is rethrown (`DatabaseInitializationService.cs:36-40`) | Bring MongoDB back online, restart |
 | The API does not start with `FileNotFoundException` | Working directory | `appsettings.json` read from the cwd (`Program.cs:38`) | Start from the app folder |
 | Scheduled ingestion never executed | `findOne` on `DataIngestionConfigurations` | `ScheduleType: one-time` **ignored** by the scheduler (`DataIngestionBackgroundService.cs:55`); time outside the ±1 min window; days in English for weekly; monthly only on day 1 (line 142); server local time (`DateTime.Now`, line 97) | Use `recurring` or `POST /api/data-ingestion/run` |
-| Ingestion executed twice | Log `Scheduled ingestion triggered` repeated in the same minute, or from multiple instances | `LastRunAt` not persisted (lines 86-87); scheduler on every instance | A single instance; files already in `ProcessedFiles` are skipped, but the check is not atomic |
+| Ingestion executed twice | Log `Scheduled ingestion triggered` repeated in the same minute, or from multiple instances | `LastRunAt` not persisted (lines 86-87); scheduler on every instance | Run a single instance; files already in `ProcessedFiles` are skipped, but the check is not atomic |
 | File not imported | Log `File already processed, skipping` | Name already in `ProcessedFiles` (idempotency by **name**: a corrected file with the same name is ignored) | `db.ProcessedFiles.deleteOne({ fileName: "<nome>" })` and re-run |
 | File in `failed/` on SFTP | Log `Error processing SFTP file` | Parsing or transfer error | Fix the file and re-upload it to the source folder |
 | `POST /api/data-ingestion/run` → 500 | `errors` / `message` field of the response | Error returned with details (`RunDataIngestionEndpoint.cs:39-59`) | Analyze the message and the logs |
@@ -321,7 +321,7 @@ mongorestore --uri "<connection-string>" --gzip --archive="D:\backup\LossPrevent
 | M9 | JWT key rotation | Quarterly and immediately (it is versioned) | Absent | Change `JwtSettings:SecretKey` and restart: **all issued tokens become invalid** |
 | M10 | SFTP password rotation | According to the customer's policy | Absent | `PUT /api/data-ingestion` from the UI |
 | M11 | Cleanup of obsolete collections `Mappings_old`, `ReportData_old` | One-off | Present in the dump | Verify that they are not used, then `drop()` |
-| M12 | .NET 8 runtime upgrade | Before the end of support of .NET 8 (10-11-2026) | To be planned | Retarget to .NET 10 LTS |
+| M12 | .NET 8 runtime upgrade | Before the end of support of .NET 8 (November 10, 2026) | To be planned | Retarget to .NET 10 LTS |
 
 ### 6.2 Extraordinary activities
 

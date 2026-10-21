@@ -38,7 +38,7 @@ The code contains no information on time, budget or resources. The only indicati
 
 | ID | Constraint | Evidence | Impact on choices |
 |----|---------|----------|----------------------|
-| C-P01 | Initial delivery window **within 3 months**, then a **3-6 month** roadmap | `roadmap.txt:1` "Suggested Deliverables - Within 3 Months Time frame"; `roadmap.txt:62` "Initial Roadmap - 3-6 Months" (historical, `593f6de`) | Push towards tactical solutions (logic in the client, in-process scheduler) at the expense of tests and CI |
+| C-P01 | Initial delivery window **within 3 months**, then a **3-6 month** roadmap | `roadmap.txt:1` "Suggested Deliverables - Within 3 Months Time frame"; `roadmap.txt:62` "Initial Roadmap - 3-6 Months" (historical, `593f6de`) | Push toward tactical solutions (logic in the client, in-process scheduler) at the expense of tests and CI |
 | C-P02 | **Hosting cost containment** | `roadmap.txt:52` "Azure Functions - Spins up only when needed - reduces costs"; `roadmap.txt:56` "Development can be done locally to reduce costs" (historical) | Preference for serverless/consumption and local development; however, the current code (ASP.NET API + hosted service) is not compatible with Azure Functions without a rewrite |
 | C-P03 | Separate **Sales/UAT** and **Production** environments | `roadmap.txt:56` (historical) | The code has a single `appsettings.json` and CORS hardcoded to `localhost` (`Program.cs:29`): per-environment configurations are needed |
 | C-P04 | Product status as of "February 2026": lookup tables, "large datasets (1000+ rows)" optimization and testing on real data **still in development** | `01_EXECUTIVE_OVERVIEW.md:103-122` (historical) | Performance and correctness on real volumes not validated (see [03_non_functional_overview.md](03_non_functional_overview.md) NFR-PERF-00) |
@@ -54,7 +54,7 @@ The stack is imposed by the existing code: .NET 8 + FastEndpoints + MongoDB on t
 
 | ID | Constraint | Evidence | Impact on choices |
 |----|---------|----------|----------------------|
-| C-T01 | **.NET 8** as backend runtime | `<TargetFramework>net8.0</TargetFramework>` in the 5 csproj files | Microsoft end of support 10/11/2026: upgrade to .NET 10 LTS required shortly |
+| C-T01 | **.NET 8** as backend runtime | `<TargetFramework>net8.0</TargetFramework>` in the 5 csproj files | Microsoft end of support November 10, 2026: upgrade to .NET 10 LTS required shortly |
 | C-T02 | **FastEndpoints 6.0.0** as API framework | `PackageReference FastEndpoints 6.0.0` (`01. LossPrevention.API.csproj`); 78 endpoint classes (74 with `Permissions(...)`, 4 `AllowAnonymous`) | Authorization based on the `permissions` claim; changing framework means rewriting all endpoints |
 | C-T03 | **MongoDB** as the only datastore, native driver `MongoDB.Driver 3.4.0` | `IMongoRepository<T>` exposes `Collection` (`IMongoRepository.cs:170`, `MongoRepository.cs:27`); `Builders<T>` used in the services (e.g. `RulesService.cs:40-41`) | Strong coupling to Mongo. Cosmos DB (Mongo API), proposed in the historical roadmap (`roadmap.txt:53`), must be verified on aggregation pipelines and TTL indexes before adopting it |
 | C-T04 | **Schema-less transactional data** | `XmlToBsonConverterHelper.ConvertFlattened`; mappings generated from the data (`MappingService.ProcessMappings`) | No structural validation; indexes, rules and reports depend on the field names of the source files (see §3.2) |
@@ -146,7 +146,7 @@ The integrations use de facto standards (REST/JSON, JWT, SFTP, SMTP, Mongo proto
 | C-I06 | File ingestion | SFTP (SSH.NET 2025.1.0) | `SftpFileProcessingService.cs:56` | Password only |
 | C-I07 | Email | SMTP | `EmailService.cs:63-64` | No TLS |
 | C-I08 | LLM | HTTP JSON to Ollama's `/api/generate`, `format: "json"`, `stream: false` | `aiStore.ts:87-99` | Direct call from the browser, without authentication or proxy |
-| C-I09 | Datastore | MongoDB wire protocol, connection string without credentials | `appsettings.json` → `mongodb://localhost:27017` | No authentication/TLS towards the DB in the versioned configuration |
+| C-I09 | Datastore | MongoDB wire protocol, connection string without credentials | `appsettings.json` → `mongodb://localhost:27017` | No authentication/TLS for the DB connection in the versioned configuration |
 
 ---
 

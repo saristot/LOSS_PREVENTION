@@ -15,14 +15,14 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 
 **Date**: 2026-10-08  
 **Version**: 1.1  
-**Authors**: REVERSE how (IMPACT) · verification IMPACT verify  
+**Authors**: REVERSE how (IMPACT) · verified by IMPACT verify  
 **Audience**: Developers (onboarding), tech leads
 
 ---
 
 ## Main Sections
 
-This guide serves to get a developer up and running on the Loss Prevention Tool on **Windows**, the only operating system on which the frontend build works at commit `fc7d820` (see §4.3). Each command is marked:
+This guide is meant to get a developer up and running on the Loss Prevention Tool on **Windows**, the only operating system on which the frontend build works at commit `fc7d820` (see §4.3). Each command is marked:
 
 - ✅ **verified**: executed during this analysis (Windows, Node v22.14.0, npm 10.9.2, PowerShell 7.6);
 - ⚠️ **not verified**: derived from the code/configuration but not executed because the tool was not available (.NET SDK, `mongosh`, `mongorestore`, Ollama not installed on the analysis machine).
@@ -311,7 +311,7 @@ The fields match those of the `Users` documents in the dump (`Email`, `FirstName
 
 1. Start smtp4dev listening on `localhost:25`.
 2. `POST /users/forgot-password` (anonymous) with the username or email of a dump user (`ForgotPasswordEndpoint.cs:39`).
-3. Open in smtp4dev the link `http://localhost:5173/reset-password?token=…` (`EmailService.cs:29`, `FrontendUrl` from `appsettings.json:40`); the token expires after 1 h (`PasswordResetService.cs:19`).
+3. In smtp4dev, open the link `http://localhost:5173/reset-password?token=…` (`EmailService.cs:29`, `FrontendUrl` from `appsettings.json:40`); the token expires after 1 h (`PasswordResetService.cs:19`).
 
 ### 6.5 Automatic initialization at API startup
 
@@ -424,7 +424,7 @@ After ingestion the anti-fraud rules are **not** applied automatically: run `GET
 | T7 | The API terminates at startup with a connection error | MongoDB down: DB init rethrows the exception (`DatabaseInitializationService.cs:36-40`) | Start `mongod` |
 | T8 | `FileNotFoundException: appsettings.json` at startup | Current directory different from the project folder (`Program.cs:37-39`, `optional: false`) | Run `dotnet run` from the project folder |
 | T9 | Environment variables (`MongoDbSettings__ConnectionString`) ignored | `appsettings.json` re-added last (`Program.cs:37-39`) | Modify the local `appsettings.json` (without committing) |
-| T10 | Login with wrong credentials responds **500** instead of 401 | `UserService.LoginAsync` throws `UnauthorizedAccessException`, not handled by `LoginEndpoint` (no global exception handler) | AS-IS behavior; check username/password or use the reset (§6.4) |
+| T10 | Login with wrong credentials returns **500** instead of 401 | `UserService.LoginAsync` throws `UnauthorizedAccessException`, not handled by `LoginEndpoint` (no global exception handler) | AS-IS behavior; check username/password or use the reset (§6.4) |
 | T11 | 401 on all calls after about an hour | JWT expired (`ExpiryHours: 1`), no refresh | Log in again |
 | T12 | 403 on an action | Permission missing from the token | Assign the permission to the role and log in again |
 | T13 | Certificate warning on `https://localhost:7110` | Untrusted development certificate | `dotnet dev-certs https --trust` |
@@ -433,7 +433,7 @@ After ingestion the anti-fraud rules are **not** applied automatically: run `GET
 | T16 | Scheduled ingestion never executed | `ScheduleType` `one-time` is **ignored** by the scheduler (`DataIngestionBackgroundService.cs:55`); the UI shows it as "Scheduled" anyway | Use `recurring` or `POST /api/data-ingestion/run` |
 | T17 | Ingestion executed twice in the same minute | `LastRunAt` not persisted (`DataIngestionBackgroundService.cs:86-87`) | AS-IS behavior; files already present in `ProcessedFiles` are skipped |
 | T18 | File not re-imported | File name already present in `ProcessedFiles` (`FileProcessingCoordinator.cs:349`) | Remove the corresponding document from `ProcessedFiles` |
-| T19 | Weekly schedule does not trigger | Comparison with the English names of `DayOfWeek` and the server's local time (`DataIngestionBackgroundService.cs:97,137`) | Check the host's days and time zone |
+| T19 | Weekly schedule does not trigger | Comparison with the English names of `DayOfWeek` and the server's local time (`DataIngestionBackgroundService.cs:97,137`) | Check the configured days and the host's time zone |
 | T20 | Reset email not received | SMTP not listening on `localhost:25` (`EnableSsl=false`) | Start smtp4dev |
 | T21 | Duplicate data after the console | No `ProcessedFiles` check in the console | Empty `ReportData` before re-running |
 

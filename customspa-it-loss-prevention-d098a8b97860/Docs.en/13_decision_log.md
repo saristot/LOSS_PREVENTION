@@ -49,7 +49,7 @@ The chosen stack is mainstream and recent (.NET 8, Vue 3, MongoDB); the weak poi
 | TD-05 | Two grid libraries: **AG Grid** and **Tabulator** | AG Grid `main.ts:12`, `resultsGrid.vue`, `tabularBlock.vue`; Tabulator `distanceTable.vue`; `package.json:13-14,26` | A single library | Accepted | 🟡 Duplication (bundle, skills) |
 | TD-06 | **Symmetric JWT** (HMAC-SHA256) with `permissions` and `LockField/LockValue` claims | `Program.cs:64-74` (`AddJwtBearer`, `SymmetricSecurityKey`); `LoginEndpoint.cs:48-80`; `SecretKey` in `appsettings.json` | OIDC / external IdP (Entra ID) | Accepted | 🟡 Simple; planned SSO will require an IdP; versioned key |
 | TD-07 | Password hashing **PBKDF2-SHA256 600,000 iterations** with migration from the legacy format | `Infrastructure/Helpers/PasswordHasher.cs:21,44` (prefix `v2:`, legacy 10,000) | BCrypt/Argon2, external IdP | Accepted | ✅ Aligned with current OWASP recommendations |
-| TD-08 | PDF export with **pdfmake**, XLSX with **SheetJS `xlsx` 0.18.5** | `resultsGrid.vue:513` (pdfmake), `:1922`, `:1944` | jsPDF (declared but not used, ALT-04) | Accepted | 🟡 `xlsx` 0.18.5 has a high advisory with no fix on npm |
+| TD-08 | PDF export with **pdfmake**, XLSX with **SheetJS `xlsx` 0.18.5** | `resultsGrid.vue:513` (pdfmake), `:1922`, `:1944` | jsPDF (declared but not used, ALT-04) | Accepted | 🟡 `xlsx` 0.18.5 has a high-severity advisory with no fix on npm |
 
 ---
 
@@ -212,4 +212,4 @@ The recommended adoption order of the proposals and the related effort are in [1
 | Version | Date | Author | Changes |
 |----------|------|--------|-----------|
 | 1.0 | 2026-10-07 | REVERSE how (FULL) | Document creation (replaces run 2026-10-05) |
-| 1.1 | 2026-10-08 | IMPACT verify | file:line evidence for each TD/ADR/pattern; normalized statuses (Accepted/Superseded/Proposed) with distinction between inferred from the code vs recommendation (ADR-006 "Rejected" → Superseded); added TD-07 (PBKDF2), TD-08 (pdfmake/xlsx), abandoned alternatives ALT-01…06 (Dapper, DIS console, Nuxt SSR, jsPDF, grid-layout-plus, `_old` collections), `UpdateRuleAsync` defect, cache not tied to the user; driver/rationale table; Mermaid diagram with quoted labels; vendor documentation cited as historical (`593f6de` → `d768cd9`); Reference Documents complete |
+| 1.1 | 2026-10-08 | IMPACT verify | file:line evidence for each TD/ADR/pattern; normalized statuses (Accepted/Superseded/Proposed), distinguishing between what is inferred from the code and what is a recommendation (ADR-006 "Rejected" → Superseded); added TD-07 (PBKDF2), TD-08 (pdfmake/xlsx), abandoned alternatives ALT-01…06 (Dapper, DIS console, Nuxt SSR, jsPDF, grid-layout-plus, `_old` collections), `UpdateRuleAsync` defect, cache not tied to the user; driver/rationale table; Mermaid diagram with quoted labels; vendor documentation cited as historical (`593f6de` → `d768cd9`); Reference Documents complete |
