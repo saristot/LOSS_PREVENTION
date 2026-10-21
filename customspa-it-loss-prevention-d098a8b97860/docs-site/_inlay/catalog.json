@@ -16,7 +16,7 @@
    "name": "LOSS PREVENTION",
    "docs": true,
    "how_status": "complete",
-   "how_count": 17,
+   "how_count": 16,
    "overview": "index.html"
   }
  ],
@@ -30,8 +30,8 @@
   }
  ],
  "counts": {
-  "page": 23,
-  "found": 23
+  "page": 21,
+  "found": 21
  },
  "items": [
   {
@@ -43,7 +43,7 @@
    "mode": "how",
    "step": "00_deep_dive",
    "route": "00_deep_dive.html",
-   "sha256": "c87c77d53ac567c519e0eab7a5a6e7302a9d0d52e84863cd1568a7832221162e",
+   "sha256": "2934c5470c128c7a6dacf80be53c23e9828ce1e43fe0ecfb7e42c419680e407f",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -65,7 +65,7 @@
    "mode": "how",
    "step": "01_context",
    "route": "01_context.html",
-   "sha256": "4ffd6b524fb4ca9ba19828babe0ad630f3834588e47a4fe4a90049a963346163",
+   "sha256": "ec31e53e3736b120b999a833ad979a6bc2291085daa25469b2de30ada2940ac3",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -87,7 +87,7 @@
    "mode": "how",
    "step": "02_functional_overview",
    "route": "02_functional_overview.html",
-   "sha256": "b582511ce5b756684ea70b69dae4fa70bc75d1f551c106903f76b818d1565aa3",
+   "sha256": "9602b04d9bf65fcaa6b7ba3188220a404205727ffbdb8c77c54e49df225832d9",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -109,7 +109,7 @@
    "mode": "how",
    "step": "03_non_functional_overview",
    "route": "03_non_functional_overview.html",
-   "sha256": "a0a7f4569bfc1a97c21cc60bc7c63e551f8241053c007184e45e826f6b30ec3f",
+   "sha256": "f291fbb13fcaba22b00bcaf974cdc5c40ed971d8cb58f7aa1fe6dc8da6c2ef6a",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -131,7 +131,7 @@
    "mode": "how",
    "step": "04_constraints",
    "route": "04_constraints.html",
-   "sha256": "beacca52d9469ef30704cf2dc0a0e2517bf2af2ee5e4cb4d1bfa25c8a2d24277",
+   "sha256": "c508dea8e4feeb32afe483c5b999651db88650325e40932bbb1615e48b404adf",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -153,7 +153,7 @@
    "mode": "how",
    "step": "05_principles",
    "route": "05_principles.html",
-   "sha256": "43aef0c1c8a759e84e73237efd8e3613220781c46df3394ab6f40d2afdb686e5",
+   "sha256": "cd3cdb155d5e7bffc1a7ea4bf3e7e5f58548eaf2791bc706c6e290849d866143",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -219,7 +219,7 @@
    "mode": "how",
    "step": "08_data",
    "route": "08_data.html",
-   "sha256": "7b06a053d43c23cd6ddcf3e46c591b3fb38574329f74bdcd8244101dd77271cd",
+   "sha256": "51820c8624f25e6be5040bb36d0268acda24316af21e9c22db806c9e36899640",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -241,7 +241,7 @@
    "mode": "how",
    "step": "09_infrastructure_architecture",
    "route": "09_infrastructure_architecture.html",
-   "sha256": "2c29c8baff7855812e73246bf4dd0423b3ff13dc95bb62bd97ad7402aa63cef3",
+   "sha256": "1fdffdb7ce5842c9b43b28bfa34e2c7e555200c1858f77718a5c9a2038e18a15",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -263,7 +263,7 @@
    "mode": "how",
    "step": "10_deployment",
    "route": "10_deployment.html",
-   "sha256": "2eb92aa50842f5ee29f1e12133ce71970e7c68bf9934baa1eea46f66ce58d311",
+   "sha256": "e7b666aa62fd57eca16b25999660d0ee903f9404cbe670f1ac0f7854efd929d5",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -329,7 +329,7 @@
    "mode": "how",
    "step": "13_decision_log",
    "route": "13_decision_log.html",
-   "sha256": "289801976f31fafd126fae765e52259b2869c97baec30c6179ae9a3187ee251d",
+   "sha256": "0ff20c05db08902e3aa3c052e11e390eb7b7bbdf2a813f2477ccde0cd6c22dd6",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -351,7 +351,7 @@
    "mode": "how",
    "step": "14_metrics",
    "route": "14_metrics.html",
-   "sha256": "a216c8f0d627acb137e9d251702def4a6821de4ae8e335a221fd87c55aaf2bd4",
+   "sha256": "cce619f40b4951ec86af5dc4903e8ed70c27a0503547112c54e29ac58b1d8ede",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -365,28 +365,6 @@
    }
   },
   {
-   "rel": "15_fp_cocomo.md",
-   "kind": "markdown",
-   "status": "page",
-   "reason": null,
-   "family": "how",
-   "mode": "how",
-   "step": "15_fp_cocomo",
-   "route": "15_fp_cocomo.html",
-   "sha256": "01662141bc1dc04567a0dccfc74a6b89b8305373e0676bdfbedc9fb6453c249c",
-   "meta": {
-    "baseline_date": "2026-10-07T18:19:51+02:00",
-    "branch": "main",
-    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
-    "commit_short": "fc7d820",
-    "generated_at": "2026-10-08T09:34:49+02:00",
-    "mode": "how",
-    "schema": "1",
-    "step": "15_fp_cocomo",
-    "worktree": "dirty"
-   }
-  },
-  {
    "rel": "16_frontend_deep_assessment.md",
    "kind": "markdown",
    "status": "page",
@@ -394,8 +372,8 @@
    "family": "how",
    "mode": "how",
    "step": "16_frontend_deep_assessment",
-   "route": "16_frontend_deep_assessment.html",
-   "sha256": "6cf99716e65daba87eb542b6d318e61ddfcacb2b14fd6eef1569cabeb783e4c2",
+   "route": "15_frontend_deep_assessment.html",
+   "sha256": "59636041ce2e7b21af1c654933b4f2a442d04adfe1c0505da2a963300557d579",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -416,8 +394,8 @@
    "family": "how",
    "mode": "how",
    "step": "17_backend_deep_assessment",
-   "route": "17_backend_deep_assessment.html",
-   "sha256": "22723c706885ba41104a44c617b4df9ea29214a5a927cf661b9a07a5f9ca0c06",
+   "route": "16_backend_deep_assessment.html",
+   "sha256": "947d376ab3d9789fcd395f95991571ec8f967a4fb1ac386375690d1ea59c1a10",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -438,8 +416,8 @@
    "family": "how",
    "mode": "how",
    "step": "18_antipattern_deep_dive",
-   "route": "18_antipattern_deep_dive.html",
-   "sha256": "a71bbc37585f76aa16a080752d221b8e6e247a66ba9df1b902b43202c6f16692",
+   "route": "17_antipattern_deep_dive.html",
+   "sha256": "4cf17dae4c74f0b97a58732eff9d0b3e973e9f200f87429737ba4e1737c57c18",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -453,28 +431,6 @@
    }
   },
   {
-   "rel": "19_modernization_estimation_spec.md",
-   "kind": "markdown",
-   "status": "page",
-   "reason": null,
-   "family": "how",
-   "mode": "how",
-   "step": "19_modernization_estimation_spec",
-   "route": "19_modernization_estimation_spec.html",
-   "sha256": "0cf2ae85d8772ea41f68339604710e20faa2db00a9e74e711755ce902f0f16dc",
-   "meta": {
-    "baseline_date": "2026-10-07T18:19:51+02:00",
-    "branch": "main",
-    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
-    "commit_short": "fc7d820",
-    "generated_at": "2026-10-08T09:32:07+02:00",
-    "mode": "how",
-    "schema": "1",
-    "step": "19_modernization_estimation_spec",
-    "worktree": "dirty"
-   }
-  },
-  {
    "rel": "@audit/roadmap-done-audit.en.md",
    "kind": "markdown",
    "status": "page",
@@ -483,7 +439,7 @@
    "mode": null,
    "step": null,
    "route": "audit/roadmap-done-audit.en.html",
-   "sha256": "0b0e01c6f7a679e5e16005c319a4c549f4a29294e3e634c4f1777565a484bf8a",
+   "sha256": "4fc8d8e8f57b2de0ea43dcbf0aceeae7e70fb4c9e4a8facf2c9b325bff877093",
    "meta": null
   },
   {
@@ -495,7 +451,7 @@
    "mode": null,
    "step": null,
    "route": "audit/roadmap-done-audit.html",
-   "sha256": "57295c36e7616add09fe9fd1ca88051cc5c77747d5509e8233d1b888b188c2a2",
+   "sha256": "84eb8fbe0d48082dd4cb3983edf572af64e5ee578aa6e540922bd66a9162d11d",
    "meta": null
   },
   {
@@ -507,7 +463,7 @@
    "mode": "how",
    "step": "index",
    "route": "index-doc.html",
-   "sha256": "d483768a624da01f677957fd0bc6837588ce1ee1ad94c7bf026a94788014ca37",
+   "sha256": "3790487afd5c6a189388ef48a3542c1c81a0b2a7543cfe0191806dc09655c14b",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -628,38 +584,24 @@
    "added": null
   },
   {
-   "route": "15_fp_cocomo.html",
-   "title": "FP & COCOMO II - Progetto LOSS_PREVENTION",
-   "kind": "doc",
-   "source": "15_fp_cocomo.md",
-   "added": null
-  },
-  {
-   "route": "16_frontend_deep_assessment.html",
+   "route": "15_frontend_deep_assessment.html",
    "title": "Frontend Deep Assessment - Progetto LOSS_PREVENTION",
    "kind": "doc",
    "source": "16_frontend_deep_assessment.md",
    "added": null
   },
   {
-   "route": "17_backend_deep_assessment.html",
+   "route": "16_backend_deep_assessment.html",
    "title": "Backend Deep Assessment - Progetto LOSS_PREVENTION",
    "kind": "doc",
    "source": "17_backend_deep_assessment.md",
    "added": null
   },
   {
-   "route": "18_antipattern_deep_dive.html",
+   "route": "17_antipattern_deep_dive.html",
    "title": "🔍 ANTIPATTERN ASSESSMENT REPORT",
    "kind": "doc",
    "source": "18_antipattern_deep_dive.md",
-   "added": null
-  },
-  {
-   "route": "19_modernization_estimation_spec.html",
-   "title": "Modernization Estimation - Progetto LOSS_PREVENTION",
-   "kind": "doc",
-   "source": "19_modernization_estimation_spec.md",
    "added": null
   },
   {
@@ -692,6 +634,16 @@
   }
  ],
  "diagnostics": [
+  {
+   "severity": "warning",
+   "code": "config",
+   "message": "la regola di esclusione '15_fp_cocomo.md' non corrisponde ad alcun file"
+  },
+  {
+   "severity": "warning",
+   "code": "config",
+   "message": "la regola di esclusione '19_modernization_estimation_spec.md' non corrisponde ad alcun file"
+  },
   {
    "severity": "warning",
    "code": "impact-meta",

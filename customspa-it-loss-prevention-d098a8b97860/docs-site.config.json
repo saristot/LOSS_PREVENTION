@@ -1,6 +1,11 @@
 {
   "theme": "eng",
   "lang": "it",
+  "project_name": "LOSS PREVENTION",
+  "exclude": [
+    { "path": "15_fp_cocomo.md", "reason": "Schermata non da pubblicare" },
+    { "path": "19_modernization_estimation_spec.md", "reason": "Schermata non da pubblicare" }
+  ],
   "extra_sources": [
     {
       "id": "audit",
