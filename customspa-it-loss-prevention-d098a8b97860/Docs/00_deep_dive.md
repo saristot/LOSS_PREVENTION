@@ -371,7 +371,7 @@ Alla baseline `fc7d820` la documentazione disponibile nel repository è limitata
 | Elenco permessi | `Data/MongoDBScripts/PERMISSIONS_LIST.md` | 41 permessi, di cui 8 non usati da alcun endpoint (es. `CAN_ANALYZE_DATA`, `CAN_CREATE_WORKSPACE`) |
 | Seed / script DB | `Data/MongoDBScripts/00..04_*.js`, `rules_export.json` | Commenti in testa a ogni script (scopo e prerequisiti) |
 | API documentation | Swagger/OpenAPI generato a runtime (FastEndpoints.Swagger) | Solo in ambiente `Development` (`Program.cs:121-125`); nessuna collection Postman |
-| Documentazione IMPACT | `Docs/00_deep_dive.md` … `Docs/19_modernization_estimation_spec.md`, `Docs/index.md` | Prodotta dal reverse engineering (questo set) |
+| Documentazione IMPACT | `Docs/00_deep_dive.md` … `Docs/18_antipattern_deep_dive.md`, `Docs/index.md` | Prodotta dal reverse engineering (questo set) |
 | Diagrammi architetturali, coding standard, runbook | — | Assenti nel codice alla baseline |
 
 ### 10.2 Documentazione storica del fornitore (non presente alla baseline)
@@ -465,9 +465,8 @@ Classificazione delle tecnologie per stato di supporto alla data dell'analisi (2
 Passi successivi consigliati e mappa dei documenti IMPACT che approfondiscono i temi di questo deep dive.
 
 1. Verifica feature-by-feature delle funzionalità dichiarate: [02_functional_overview.md](02_functional_overview.md) (sezione «Verifica funzionalità dichiarate dal fornitore»).
-2. Effort per completare le feature "in sviluppo" e "pianificate": [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md) (sezione «Effort di completamento funzionalità in sviluppo e pianificate»).
-3. Quick win di sicurezza e build: [17_backend_deep_assessment.md](17_backend_deep_assessment.md), [16_frontend_deep_assessment.md](16_frontend_deep_assessment.md).
-4. Validare a runtime (.NET 8 + MongoDB + dump `Data/LossPrevention`) i comportamenti marcati "da confermare" (create-transactions, TTL, login).
+2. Quick win di sicurezza e build: [17_backend_deep_assessment.md](17_backend_deep_assessment.md), [16_frontend_deep_assessment.md](16_frontend_deep_assessment.md).
+3. Validare a runtime (.NET 8 + MongoDB + dump `Data/LossPrevention`) i comportamenti marcati "da confermare" (create-transactions, TTL, login).
 
 | Documento IMPACT | Tema |
 |------------------|------|

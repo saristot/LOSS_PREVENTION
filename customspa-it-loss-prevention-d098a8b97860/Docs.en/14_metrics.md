@@ -16,7 +16,7 @@ generated_at: 2026-10-08T09:26:01+02:00
 **Date**: 2026-10-08  
 **Version**: 1.1  
 **Authors**: REVERSE how (IMPACT) · IMPACT verification 2026-10-08  
-**Audience**: Technical team, architects, developers, PM (input for the estimates in [15_fp_cocomo.md](15_fp_cocomo.md) and [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md))
+**Audience**: Technical team, architects, developers, PM
 
 ---
 
@@ -41,7 +41,7 @@ All metrics are measured on the **content of commit `fc7d820`** (extracted with 
 |--------|-------------------------------------------------------------------|
 | Baseline extraction | `git archive --format=tar -o fc7d820.tar fc7d820` → `tar -xf fc7d820.tar -C <dir>` |
 | Full repository SLOC | `cloc-2.10.exe <dir>\customspa-it-loss-prevention-d098a8b97860` (official `AlDanial/cloc` v2.10 binary; `npx cloc` not usable because it requires Perl, absent on the machine) |
-| SLOC per project | `cloc-2.10.exe <progetto>` for each `LossPrevention.*`, `Data`, `Docs` folder |
+| SLOC per project | `cloc-2.10.exe <project>` for each `LossPrevention.*`, `Data`, `Docs` folder |
 | SLOC of only the `<script>` sections of the `.vue` files | Python script that extracts the content of every `<script …>…</script>` block of the 41 SFCs into temporary `.ts` files, then `cloc` on the extracted files |
 | Cyclomatic complexity (CCN) | `pip install lizard` → `python -m lizard -l csharp LossPrevention.API LossPrevention.Application LossPrevention.Domain LossPrevention.Infrastructure LossPrevention.DataIngestionService` and `python -m lizard -l typescript -l vue LossPrevention.UI\src` (`--csv` output for the hotspots) |
 | npm vulnerabilities | `npm audit --package-lock-only --json` in `LossPrevention.UI` (run on 2026-10-08; the result depends on the date of the advisory DB) |
@@ -72,14 +72,14 @@ $fe = Get-ChildItem LossPrevention.UI\src -Recurse -File -Include *.vue,*.ts
 
 ## 1. Total Lines of Code (SLOC)
 
-The repository contains **25,261 application SLOC** (C#, Vue, TypeScript, JavaScript, CSS, HTML) out of a total of 42,444 cloc lines of code; the rest is `package-lock.json` (14,001), Markdown documentation and build files. The **estimation baseline** (logical SLOC used for backfiring and COCOMO in documents 15 and 19) is **19,774 SLOC**.
+The repository contains **25,261 application SLOC** (C#, Vue, TypeScript, JavaScript, CSS, HTML) out of a total of 42,444 cloc lines of code; the rest is `package-lock.json` (14,001), Markdown documentation and build files. The **estimation baseline** (logical SLOC used for backfiring and COCOMO) is **19,774 SLOC**.
 
 ### 1.1 Total Lines of Code (cloc 2.10) — full repository
 
 Analysis performed with cloc 2.10 on the whole tree of commit `fc7d820` (no exclusions; `node_modules`, `bin`, `obj` are not versioned):
 
 ```
-Linguaggio               Files      Blank    Comment      Code
+Language                 Files      Blank    Comment      Code
 ──────────────────────────────────────────────────────────────
 JSON                        23          1          0     14216
 Vuejs Component             41       1614        670     10773
@@ -93,7 +93,7 @@ Visual Studio Solution       1          1          1        47
 HTML                         1          0          0        13
 SVG                          1          0          0        1
 ──────────────────────────────────────────────────────────────
-TOTALE                     364       4589       2128     42444
+SUM:                       364       4589       2128     42444
 ```
 
 Reading notes:
@@ -142,8 +142,6 @@ Check performed by searching for minified files (`*.min.js`, `*.min.css`), `vend
 | **Total** | **364** | **4,589** | **2,128** | **42,444** | |
 
 ### 1.5 Estimation baseline (logical SLOC)
-
-This is the only dimensional baseline used in [15_fp_cocomo.md](15_fp_cocomo.md) and [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).
 
 | Component | Logical SLOC | Origin |
 |------------|--------------|---------|
@@ -380,7 +378,6 @@ There is no automated test at all: coverage is 0% and no test quality metric can
 - **Development Environment**: [11_development_environment.md](11_development_environment.md)
 - **Operation and Support**: [12_operation_and_support.md](12_operation_and_support.md)
 - **Decision Log**: [13_decision_log.md](13_decision_log.md)
-- Documents that use this baseline: [15_fp_cocomo.md](15_fp_cocomo.md), [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md)
 
 ---
 

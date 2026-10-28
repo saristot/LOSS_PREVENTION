@@ -1,14 +1,3 @@
-<!-- IMPACT-META
-schema: 1
-mode: how
-step: index
-commit: fc7d820908b8b230fb47a2669920ba7efdb413a8
-commit_short: fc7d820
-branch: main
-worktree: dirty
-baseline_date: 2026-10-07T18:19:51+02:00
-generated_at: 2026-10-08T10:48:09.375+02:00
--->
 # IMPACT how (FULL) — Indice documentazione — LOSS_PREVENTION
 
 > **Baseline commit:** `fc7d820` (`main`) · worktree `dirty` (modifiche locali solo in `Docs/` e `.github/`; codice applicativo identico al commit)
@@ -73,8 +62,7 @@ Il codice applicativo è stato importato nel commit `593f6de` e non è più camb
 - Presenti tutti i 20 deliverable HOW più questo indice; ognuno inizia con il blocco `IMPACT-META` (commit `fc7d820…`), la riga Baseline e un Change Log con la revisione 1.1.
 - Nessun link relativo `.md` interrotto; sezione Reference Documents con i collegamenti 00–19 in ogni documento.
 - 52 diagrammi Mermaid validati con il parser `mermaid@11`: 0 errori.
-- Numeri incrociati tra documenti verificati (endpoint, permessi, SFC, collezioni, import, SLOC, FP/COCOMO, health score).
+- Numeri incrociati tra documenti verificati (endpoint, permessi, SFC, collezioni, import, SLOC, health score).
 - Nessun segreto riportato: l'unica stringa di connessione citata è `mongodb://localhost:27017`; la `SecretKey` JWT non compare.
 - **Documenti vendor storici**: i riferimenti a `Docs/01_EXECUTIVE_OVERVIEW.md`, `roadmap.txt`, `04_DEPLOYMENT_GUIDE.md` e simili riguardano file presenti solo nel commit `593f6de` e rimossi in `d768cd9`. Sono marcati come storici e consultabili con `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>`.
 - **Non ricavabili dal codice** (marcati N/A o come ipotesi): SLA/RPO/RTO, owner e budget, volumi di produzione, metriche runtime, CVE NuGet (serve il .NET SDK, non disponibile nell'ambiente di analisi).
-- **Ipotesi da confermare**: tariffa 400 €/gg e risposte al Wizard di stima in [15_fp_cocomo.md](15_fp_cocomo.md) e [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).

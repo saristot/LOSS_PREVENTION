@@ -186,7 +186,7 @@ Each journey reports the nominal path (happy path), the error scenarios observed
 
 | Scenario | Observed behavior | Evidence |
 |----------|------------------------|----------|
-| Wrong SFTP credentials / unreachable host | Manual run: the API responds HTTP 500 (`RunDataIngestionEndpoint`), axios goes into the `catch` branch and the toast shows only `Data ingestion failed: <errore HTTP>`, without the `errors` list; scheduled run: error only in the server logs | `dataingestion.vue:458-472`; `DataIngestionBackgroundService.cs` |
+| Wrong SFTP credentials / unreachable host | Manual run: the API responds HTTP 500 (`RunDataIngestionEndpoint`), axios goes into the `catch` branch and the toast shows only `Data ingestion failed: <HTTP error>`, without the `errors` list; scheduled run: error only in the server logs | `dataingestion.vue:458-472`; `DataIngestionBackgroundService.cs` |
 | File already processed | Skipped (check by file name in `ProcessedFiles`, both File System and SFTP) | `FileProcessingCoordinator.cs:270, 349` |
 | No configuration / source / file type / processor | `InvalidOperationException` → HTTP 500 with message | `FileProcessingCoordinator.cs:59-83` |
 | "one-time" schedule | Never executed by the scheduler (manual run only) | `DataIngestionBackgroundService.cs:55` |
@@ -291,19 +291,15 @@ Note: files on the File System are **not** moved; the recurrence is `daily`, `we
 
 ```mermaid
 stateDiagram-v2
-  state "Created" as Creata
-  state "Applied" as Applicata
-  state "Modified" as Modificata
-  state "Deleted" as Eliminata
-  [*] --> Creata: POST /rules (+ mapping FraudFlags.X)
-  Creata --> Applicata: GET /rules/apply
-  Applicata --> Modificata: PUT /rules (immediate recomputation*)
-  Modificata --> Applicata
-  Applicata --> Eliminata: DELETE /rules/{id} ($unset FraudFlags.X, delete mapping)
-  Eliminata --> [*]
+  [*] --> Created: POST /rules (+ mapping FraudFlags.X)
+  Created --> Applied: GET /rules/apply
+  Applied --> Modified: PUT /rules (immediate recomputation*)
+  Modified --> Applied
+  Applied --> Deleted: DELETE /rules/{id} ($unset FraudFlags.X, delete mapping)
+  Deleted --> [*]
 ```
 
-\* The recomputation in `UpdateRuleAsync` writes the value into a root field named after the rule instead of into `FraudFlags.<nome>` (`RulesService.cs:147`, defect).
+\* The recomputation in `UpdateRuleAsync` writes the value into a root field named after the rule instead of into `FraudFlags.<name>` (`RulesService.cs:147`, defect).
 
 ### 5.3 Password reset
 
@@ -482,7 +478,7 @@ Every claim quoted has been verified with this command.
 | "Nuxt 3 for SSR" (`README.md`) | ❌ | Vite SPA (`package.json` scripts `dev/build/preview`); `nuxt.config.ts` present but not used |
 | "Export capabilities (PDF, Excel, CSV)" (`01_EXECUTIVE_OVERVIEW.md:39`, historical) | ✅ | `resultsGrid.vue` |
 
-**Summary**: the three declared families (fraud detection, statistical analysis, AI) **exist** in the code but are less mature than described. The rule engine is elementary; statistics and AI run in the browser, without persistence or audit; the AI depends on a local LLM that cannot be deployed in a multi-user architecture; there is no machine learning. The completion effort is estimated in [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).
+**Summary**: the three declared families (fraud detection, statistical analysis, AI) **exist** in the code but are less mature than described. The rule engine is elementary; statistics and AI run in the browser, without persistence or audit; the AI depends on a local LLM that cannot be deployed in a multi-user architecture; there is no machine learning.
 
 ---
 

@@ -22,7 +22,7 @@ generated_at: 2026-10-08T09:38:00+02:00
 
 ### Sources and conventions
 
-- **Code** at commit `fc7d820`, cited as `file:riga`.
+- **Code** at commit `fc7d820`, cited as `file:line`.
 - **Historical vendor documentation**: `Docs/roadmap.txt`, `Docs/01_EXECUTIVE_OVERVIEW.md`, `Docs/04_DEPLOYMENT_GUIDE.md` and `Docs/09_SECURITY_DOCUMENTATION.md` **do not exist at the baseline**. They were present only in commit `593f6de` (initial import, 2026-10-05) and were removed in commit `d768cd9` ("Delete …/Docs directory"). They can be read, from the root `C:\repository\LOSS_PREVENTION`, with:
   `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>`
   Their statements are **intentions/declarations**, not constraints verified in the code.
@@ -139,7 +139,7 @@ The integrations use de facto standards (REST/JSON, JWT, SFTP, SMTP, Mongo proto
 | ID | Integration | Standard / protocol | Evidence | Constraint / gap |
 |----|--------------|-----------------------|----------|---------------|
 | C-I01 | SPA → API | REST/JSON with FastEndpoints | 78 endpoints | **No API versioning** (0 occurrences of `Version(`/`AddApiVersioning`); mixed routes with `/api/...` prefix (e.g. `/api/data-ingestion`) and without prefix (e.g. `/users/id/{UserId}`, `/rules/{id}`) |
-| C-I02 | Authentication | JWT ****** with `permissions` claim | `LoginEndpoint.cs:72` (`SecurityAlgorithms.HmacSha256`); validation in `Program.cs:62-76` | Symmetric key in `appsettings.json` (`JwtSettings:SecretKey`); 1 h expiry (`ExpiryHours: 1`), no refresh token |
+| C-I02 | Authentication | JWT Bearer **HS256** with `permissions` claim | `LoginEndpoint.cs:72` (`SecurityAlgorithms.HmacSha256`); validation in `Program.cs:62-76` | Symmetric key in `appsettings.json` (`JwtSettings:SecretKey`); 1 h expiry (`ExpiryHours: 1`), no refresh token |
 | C-I03 | API documentation | OpenAPI/Swagger | `Program.cs:54, 121-126` (`UseSwaggerGen/UseSwaggerUi` only in Development) | No published contract for non-development environments |
 | C-I04 | CORS | `AllowVueDev` policy | `Program.cs:24-34` (`WithOrigins("http://localhost:5173", "http://localhost:5174")`), `Program.cs:128` | Hardcoded origins: deployment requires a code change |
 | C-I05 | Transport | HTTP | No `UseHttpsRedirection` / `UseHsts` | TLS delegated to a possible reverse proxy, not provided for in the repository |
@@ -222,4 +222,4 @@ The system processes personal data of employees and customers for anti-fraud con
 | Version | Date | Author | Changes |
 |----------|------|--------|-----------|
 | 1.0 | 2026-10-07 | REVERSE how (FULL) | Document creation (replaces run 2026-10-05) |
-| 1.1 | 2026-10-08 | IMPACT verify | Header/baseline `dirty`. Document restructured into the 6 sections of the prompt; C-T/C-A IDs kept, C-O and C-S redistributed. Added: §1 Time/Budget/Resources (historical roadmap, budget N/A); §3 Existing Systems (integration landscape diagram, systems/assets table); §4 Integration Standards (REST without versioning, JWT HS256, CORS, SFTP, SMTP, Ollama, Mongo); §5 Team & Skills (team N/A, skills from the stack); §6 Legal split into GDPR, accessibility, licensing, log retention. Corrected: retention 180 days configured / 90 by default; constraints with `file:riga` evidence; vendor documents (`roadmap.txt`, `01_EXECUTIVE_OVERVIEW.md`, `04_DEPLOYMENT_GUIDE.md`, `09_SECURITY_DOCUMENTATION.md`) cited as historical (`593f6de`, removed in `d768cd9`). Reference Documents complete |
+| 1.1 | 2026-10-08 | IMPACT verify | Header/baseline `dirty`. Document restructured into the 6 sections of the prompt; C-T/C-A IDs kept, C-O and C-S redistributed. Added: §1 Time/Budget/Resources (historical roadmap, budget N/A); §3 Existing Systems (integration landscape diagram, systems/assets table); §4 Integration Standards (REST without versioning, JWT HS256, CORS, SFTP, SMTP, Ollama, Mongo); §5 Team & Skills (team N/A, skills from the stack); §6 Legal split into GDPR, accessibility, licensing, log retention. Corrected: retention 180 days configured / 90 by default; constraints with `file:line` evidence; vendor documents (`roadmap.txt`, `01_EXECUTIVE_OVERVIEW.md`, `04_DEPLOYMENT_GUIDE.md`, `09_SECURITY_DOCUMENTATION.md`) cited as historical (`593f6de`, removed in `d768cd9`). Reference Documents complete |

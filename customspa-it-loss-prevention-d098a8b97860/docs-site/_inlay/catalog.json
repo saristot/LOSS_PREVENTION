@@ -1,13 +1,13 @@
 {
  "generator": "inlay-doc-site",
- "version": "2.3.0",
+ "version": "2.5.0",
  "layout": "project",
- "detected_by": "impostato esplicitamente",
+ "detected_by": "la sorgente e' una cartella docs IMPACT",
  "theme": "eng",
  "lang": "it",
  "scope": [
   "./",
-  "@audit: C:\\repository\\LOSS_PREVENTION\\customspa-it-loss-prevention-d098a8b97860\\docs_original"
+  "@audit: C:\\genai\\LOSS_PREVENTION\\customspa-it-loss-prevention-d098a8b97860\\docs_original"
  ],
  "allow_degraded": [],
  "projects": [
@@ -16,7 +16,7 @@
    "name": "LOSS PREVENTION",
    "docs": true,
    "how_status": "complete",
-   "how_count": 16,
+   "how_count": 17,
    "overview": "index.html"
   }
  ],
@@ -25,7 +25,7 @@
   {
    "id": "audit",
    "label": "Audit MVP e Roadmap",
-   "path": "C:\\repository\\LOSS_PREVENTION\\customspa-it-loss-prevention-d098a8b97860\\docs_original",
+   "path": "C:\\genai\\LOSS_PREVENTION\\customspa-it-loss-prevention-d098a8b97860\\docs_original",
    "pages": 1
   }
  ],
@@ -43,7 +43,7 @@
    "mode": "how",
    "step": "00_deep_dive",
    "route": "00_deep_dive.html",
-   "sha256": "2934c5470c128c7a6dacf80be53c23e9828ce1e43fe0ecfb7e42c419680e407f",
+   "sha256": "40ede0243554c8fc30ccdace9046797faa36f52ad56647d52127c7371aefece8",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -68,7 +68,7 @@
    "mode": "how",
    "step": "01_context",
    "route": "01_context.html",
-   "sha256": "ec31e53e3736b120b999a833ad979a6bc2291085daa25469b2de30ada2940ac3",
+   "sha256": "a9cb922670c4813721191ef94d85326d8644d884b36bdfb7a1f3cad14cc5a5af",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -93,7 +93,7 @@
    "mode": "how",
    "step": "02_functional_overview",
    "route": "02_functional_overview.html",
-   "sha256": "9602b04d9bf65fcaa6b7ba3188220a404205727ffbdb8c77c54e49df225832d9",
+   "sha256": "b7adc03609ecd8247da71686d31409a5a5b58be3b7366b23ddcb0bdca3d6f4a6",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -118,7 +118,7 @@
    "mode": "how",
    "step": "03_non_functional_overview",
    "route": "03_non_functional_overview.html",
-   "sha256": "f291fbb13fcaba22b00bcaf974cdc5c40ed971d8cb58f7aa1fe6dc8da6c2ef6a",
+   "sha256": "a0a7f4569bfc1a97c21cc60bc7c63e551f8241053c007184e45e826f6b30ec3f",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -143,7 +143,7 @@
    "mode": "how",
    "step": "04_constraints",
    "route": "04_constraints.html",
-   "sha256": "c508dea8e4feeb32afe483c5b999651db88650325e40932bbb1615e48b404adf",
+   "sha256": "beacca52d9469ef30704cf2dc0a0e2517bf2af2ee5e4cb4d1bfa25c8a2d24277",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -168,7 +168,7 @@
    "mode": "how",
    "step": "05_principles",
    "route": "05_principles.html",
-   "sha256": "cd3cdb155d5e7bffc1a7ea4bf3e7e5f58548eaf2791bc706c6e290849d866143",
+   "sha256": "43aef0c1c8a759e84e73237efd8e3613220781c46df3394ab6f40d2afdb686e5",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -243,7 +243,7 @@
    "mode": "how",
    "step": "08_data",
    "route": "08_data.html",
-   "sha256": "51820c8624f25e6be5040bb36d0268acda24316af21e9c22db806c9e36899640",
+   "sha256": "7b06a053d43c23cd6ddcf3e46c591b3fb38574329f74bdcd8244101dd77271cd",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -268,7 +268,7 @@
    "mode": "how",
    "step": "09_infrastructure_architecture",
    "route": "09_infrastructure_architecture.html",
-   "sha256": "1fdffdb7ce5842c9b43b28bfa34e2c7e555200c1858f77718a5c9a2038e18a15",
+   "sha256": "2c29c8baff7855812e73246bf4dd0423b3ff13dc95bb62bd97ad7402aa63cef3",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -293,7 +293,7 @@
    "mode": "how",
    "step": "10_deployment",
    "route": "10_deployment.html",
-   "sha256": "e7b666aa62fd57eca16b25999660d0ee903f9404cbe670f1ac0f7854efd929d5",
+   "sha256": "2eb92aa50842f5ee29f1e12133ce71970e7c68bf9934baa1eea46f66ce58d311",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -368,7 +368,7 @@
    "mode": "how",
    "step": "13_decision_log",
    "route": "13_decision_log.html",
-   "sha256": "0ff20c05db08902e3aa3c052e11e390eb7b7bbdf2a813f2477ccde0cd6c22dd6",
+   "sha256": "6acf5c50ec0d0a4c4f9c82ec8d82f67ba3f2b3932a1a6ee479476dd3a57173aa",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -393,7 +393,7 @@
    "mode": "how",
    "step": "14_metrics",
    "route": "14_metrics.html",
-   "sha256": "cce619f40b4951ec86af5dc4903e8ed70c27a0503547112c54e29ac58b1d8ede",
+   "sha256": "5a7fbd1a843a9039ead95bdc8bf0b5ad0650bb91ef6d95724e134cd12f503ce9",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -417,8 +417,8 @@
    "family": "how",
    "mode": "how",
    "step": "16_frontend_deep_assessment",
-   "route": "15_frontend_deep_assessment.html",
-   "sha256": "b39f2671f57a75e56417eafdde3911f086fd13061fd0ca94b9a9051147578fb4",
+   "route": "16_frontend_deep_assessment.html",
+   "sha256": "6cf99716e65daba87eb542b6d318e61ddfcacb2b14fd6eef1569cabeb783e4c2",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -442,8 +442,8 @@
    "family": "how",
    "mode": "how",
    "step": "17_backend_deep_assessment",
-   "route": "16_backend_deep_assessment.html",
-   "sha256": "db0d8dbc82c856b9840d9523910021675099ad32fa4d70602b0349ffad319814",
+   "route": "17_backend_deep_assessment.html",
+   "sha256": "22723c706885ba41104a44c617b4df9ea29214a5a927cf661b9a07a5f9ca0c06",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -467,8 +467,8 @@
    "family": "how",
    "mode": "how",
    "step": "18_antipattern_deep_dive",
-   "route": "17_antipattern_deep_dive.html",
-   "sha256": "4cf17dae4c74f0b97a58732eff9d0b3e973e9f200f87429737ba4e1737c57c18",
+   "route": "18_antipattern_deep_dive.html",
+   "sha256": "a71bbc37585f76aa16a080752d221b8e6e247a66ba9df1b902b43202c6f16692",
    "meta": {
     "baseline_date": "2026-10-07T18:19:51+02:00",
     "branch": "main",
@@ -496,7 +496,7 @@
    "sha256": "84eb8fbe0d48082dd4cb3983edf572af64e5ee578aa6e540922bd66a9162d11d",
    "meta": null,
    "translations": {
-    "en": "../../../../../../repository/LOSS_PREVENTION/customspa-it-loss-prevention-d098a8b97860/docs_original/roadmap-done-audit.en.md"
+    "en": "docs_original/roadmap-done-audit.en.md"
    }
   },
   {
@@ -504,22 +504,12 @@
    "kind": "markdown",
    "status": "page",
    "reason": null,
-   "family": "how",
-   "mode": "how",
-   "step": "index",
+   "family": "other",
+   "mode": null,
+   "step": null,
    "route": "index-doc.html",
-   "sha256": "0051b9df1aa0655701e068f283d0abc009e4717c8cabbc110a1ddb98bd9e7a3e",
-   "meta": {
-    "baseline_date": "2026-10-07T18:19:51+02:00",
-    "branch": "main",
-    "commit": "fc7d820908b8b230fb47a2669920ba7efdb413a8",
-    "commit_short": "fc7d820",
-    "generated_at": "2026-10-08T10:48:09.375+02:00",
-    "mode": "how",
-    "schema": "1",
-    "step": "index",
-    "worktree": "dirty"
-   },
+   "sha256": "be127ea819738ee5fc03a842bf7c74b97ed36abd91d33dc1719b223f08921d72",
+   "meta": null,
    "translations": {
     "en": "Docs.en/index.md"
    }
@@ -632,21 +622,21 @@
    "added": null
   },
   {
-   "route": "15_frontend_deep_assessment.html",
+   "route": "16_frontend_deep_assessment.html",
    "title": "Frontend Deep Assessment - Progetto LOSS_PREVENTION",
    "kind": "doc",
    "source": "16_frontend_deep_assessment.md",
    "added": null
   },
   {
-   "route": "16_backend_deep_assessment.html",
+   "route": "17_backend_deep_assessment.html",
    "title": "Backend Deep Assessment - Progetto LOSS_PREVENTION",
    "kind": "doc",
    "source": "17_backend_deep_assessment.md",
    "added": null
   },
   {
-   "route": "17_antipattern_deep_dive.html",
+   "route": "18_antipattern_deep_dive.html",
    "title": "🔍 ANTIPATTERN ASSESSMENT REPORT",
    "kind": "doc",
    "source": "18_antipattern_deep_dive.md",
@@ -676,22 +666,6 @@
  ],
  "diagnostics": [
   {
-   "severity": "warning",
-   "code": "config",
-   "message": "la regola di esclusione '15_fp_cocomo.md' non corrisponde ad alcun file"
-  },
-  {
-   "severity": "warning",
-   "code": "config",
-   "message": "la regola di esclusione '19_modernization_estimation_spec.md' non corrisponde ad alcun file"
-  },
-  {
-   "severity": "warning",
-   "code": "impact-meta",
-   "message": "IMPACT-META dichiara mode 'how' ma il percorso non rispetta il contratto di output di quella modalita'",
-   "source": "index.md"
-  },
-  {
    "severity": "info",
    "code": "route",
    "message": "route riservata index.html: pubblicato come index-doc.html",
@@ -700,19 +674,7 @@
   {
    "severity": "info",
    "code": "font",
-   "message": "font CocoEng non fornito (chiave 'fonts' in configurazione): viene usato il fallback Segoe UI/system-ui"
-  },
-  {
-   "severity": "warning",
-   "code": "indented-fence",
-   "message": "28 recinti di codice indentati (righe 352, 358, 365, 370, 382): python-markdown riconosce i blocchi ``` solo a inizio riga",
-   "source": "18_antipattern_deep_dive.md"
-  },
-  {
-   "severity": "warning",
-   "code": "indented-fence",
-   "message": "28 recinti di codice indentati (righe 352, 358, 365, 370, 382): python-markdown riconosce i blocchi ``` solo a inizio riga",
-   "source": "Docs.en/18_antipattern_deep_dive.md"
+   "message": "font CocoEng non fornito (chiave 'fonts' in configurazione): viene usato Roboto, incorporato nel tema"
   }
  ],
  "languages": {
@@ -824,19 +786,19 @@
       "state": "fresh"
      },
      {
-      "route": "en/15_frontend_deep_assessment.html",
+      "route": "en/16_frontend_deep_assessment.html",
       "source": "16_frontend_deep_assessment.md",
       "translation": "Docs.en/16_frontend_deep_assessment.md",
       "state": "fresh"
      },
      {
-      "route": "en/16_backend_deep_assessment.html",
+      "route": "en/17_backend_deep_assessment.html",
       "source": "17_backend_deep_assessment.md",
       "translation": "Docs.en/17_backend_deep_assessment.md",
       "state": "fresh"
      },
      {
-      "route": "en/17_antipattern_deep_dive.html",
+      "route": "en/18_antipattern_deep_dive.html",
       "source": "18_antipattern_deep_dive.md",
       "translation": "Docs.en/18_antipattern_deep_dive.md",
       "state": "fresh"
@@ -844,7 +806,7 @@
      {
       "route": "en/audit/roadmap-done-audit.html",
       "source": "@audit/roadmap-done-audit.md",
-      "translation": "../../../../../../repository/LOSS_PREVENTION/customspa-it-loss-prevention-d098a8b97860/docs_original/roadmap-done-audit.en.md",
+      "translation": "docs_original/roadmap-done-audit.en.md",
       "state": "fresh"
      },
      {

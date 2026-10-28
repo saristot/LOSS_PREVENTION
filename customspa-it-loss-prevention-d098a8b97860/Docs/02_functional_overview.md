@@ -478,7 +478,7 @@ Ogni dichiarazione citata è stata verificata con questo comando.
 | "Nuxt 3 for SSR" (`README.md`) | ❌ | SPA Vite (`package.json` script `dev/build/preview`); `nuxt.config.ts` presente ma non usato |
 | "Export capabilities (PDF, Excel, CSV)" (`01_EXECUTIVE_OVERVIEW.md:39`, storico) | ✅ | `resultsGrid.vue` |
 
-**Sintesi**: le tre famiglie dichiarate (fraud detection, analisi statistica, AI) **esistono** nel codice ma sono meno mature di quanto descritto. Il rule engine è elementare; statistica e AI girano nel browser, senza persistenza né audit; l'AI dipende da un LLM locale non deployabile in architettura multi-utente; non esiste machine learning. L'effort di completamento è stimato in [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).
+**Sintesi**: le tre famiglie dichiarate (fraud detection, analisi statistica, AI) **esistono** nel codice ma sono meno mature di quanto descritto. Il rule engine è elementare; statistica e AI girano nel browser, senza persistenza né audit; l'AI dipende da un LLM locale non deployabile in architettura multi-utente; non esiste machine learning.
 
 ---
 

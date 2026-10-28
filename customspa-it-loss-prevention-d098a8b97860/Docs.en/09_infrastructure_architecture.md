@@ -24,7 +24,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 
 This document describes the physical/virtual infrastructure and the network topology of the Loss Prevention Tool. Each section explicitly separates:
 
-- **AS-IS** — what can be derived from the code and the configuration at commit `fc7d820` (with `file:riga` reference);
+- **AS-IS** — what can be derived from the code and the configuration at commit `fc7d820` (with `file:line` reference);
 - **TO-BE** — recommendations or proposals (from the vendor or from this analysis), which are **not** implemented in the repository.
 
 **Sources of evidence used**

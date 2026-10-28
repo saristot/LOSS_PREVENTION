@@ -18,7 +18,7 @@ generated_at: 2026-10-08T09:37:27+02:00
 **Authors**: IMPACT reverse engineering (static analysis of the code and of the Git history)  
 **Audience**: Technical and non-technical stakeholders, development team, management
 
-**Sources and conventions**: paths relative to the root `customspa-it-loss-prevention-d098a8b97860/`; `file:riga` references to the baseline commit. The vendor documentation **does not exist at the baseline**: it was present only in commit `593f6de` and was removed in `d768cd9`; every quotation is historical and verifiable with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>`. Information not derivable from code or history is marked «N/A — not derivable from the code».
+**Sources and conventions**: paths relative to the root `customspa-it-loss-prevention-d098a8b97860/`; `file:line` references to the baseline commit. The vendor documentation **does not exist at the baseline**: it was present only in commit `593f6de` and was removed in `d768cd9`; every quotation is historical and verifiable with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>`. Information not derivable from code or history is marked «N/A — not derivable from the code».
 
 ---
 
@@ -107,17 +107,17 @@ Features absent from the code at the baseline; where indicated, they are only en
 The system boundary includes SPA, API, ingestion services and database; POS, SFTP, SMTP and Ollama are external. C4 Level 1 diagram in textual form (the graphical diagram is in [§6](#6-context-diagram)).
 
 ```
-[Sistema Loss Prevention Tool]
+[Loss Prevention Tool System]
   ↑ Input:
-    - Analisti LP, Store/Region Manager, Amministratori (via SPA web, HTTP + JWT)
-    - Sistemi POS / back-office negozi (file XML/CSV/JSON depositati su SFTP o cartella)
-    - Server SFTP / file share (lettura file, spostamento in processed/failed)
-    - Scheduler interno (trigger giornaliero/settimanale/mensile, controllo ogni 60 s)
-    - Ollama LLM su localhost:11434 della postazione utente (risposte NLQ, chiamato dal browser)
+    - LP analysts, Store/Region Managers, administrators (via web SPA, HTTP + JWT)
+    - Store POS / back-office systems (XML/CSV/JSON files dropped on SFTP or in a folder)
+    - SFTP server / file share (file reading, move to processed/failed)
+    - Internal scheduler (daily/weekly/monthly trigger, check every 60 s)
+    - Ollama LLM on localhost:11434 of the user's workstation (NLQ answers, called from the browser)
   ↓ Output:
-    - Mail server SMTP (email di reset password)
-    - Utenti (report a video, export CSV/XLSX/PDF generati nel browser, dashboard, notifiche interne)
-    - Server SFTP (spostamento file processati nella cartella processed/failed)
+    - SMTP mail server (password reset emails)
+    - Users (on-screen reports, CSV/XLSX/PDF exports generated in the browser, dashboards, internal notifications)
+    - SFTP server (move of processed files to the processed/failed folder)
 ```
 
 ---
@@ -235,10 +235,10 @@ Users are derived from the `CAN_*` permissions (37 used by the endpoints), from 
 
 **Typical User Journey**:
 ```
-1. Login (username/password, JWT 1 h) → 2. Apre un Workspace e una tab di report →
-3. Seleziona campi, filtri e raggruppamenti (o pone una domanda in linguaggio naturale) →
-4. Lancia l'analisi statistica antifrode / filtra per FraudFlags → 5. Apre una transazione e cerca quelle simili →
-6. Esporta il risultato o invia una notifica a un gruppo
+1. Login (username/password, JWT 1 h) → 2. Opens a Workspace and a report tab →
+3. Selects fields, filters and groupings (or asks a question in natural language) →
+4. Runs the statistical anti-fraud analysis / filters by FraudFlags → 5. Opens a transaction and searches for similar ones →
+6. Exports the result or sends a notification to a group
 ```
 
 ---
@@ -263,8 +263,8 @@ Users are derived from the `CAN_*` permissions (37 used by the endpoints), from 
 
 **Typical User Journey**:
 ```
-1. Login → 2. Apre la dashboard assegnata → 3. Consulta report filtrati sul proprio negozio →
-4. Legge le notifiche e risponde al team LP
+1. Login → 2. Opens the assigned dashboard → 3. Consults reports filtered on their own store →
+4. Reads the notifications and replies to the LP team
 ```
 
 ---
@@ -397,7 +397,7 @@ The system is a functionally rich product but in a pre-production state; before 
 
 **Project KPIs** (proposed by the analysis; dates and budget not derivable from the code):
 1. **Go-Live by**: N/A — not derivable from the code (no planning in the repository); minimum prerequisite: migration to .NET 10 before November 10, 2026 or formal acceptance of the risk.
-2. **Budget met**: N/A — not derivable from the code; effort estimate in [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).
+2. **Budget met**: N/A — not derivable from the code.
 3. **User Adoption**: ≥ 80% of enabled LP users running at least one report per week after 3 months (measurable only after the introduction of usage logs, currently absent).
 4. **Performance**: P95 of `POST /data/report/query` < 3 s on 1 million transactions; rule application on 1 million transactions < 10 min.
 5. **Quality**: 0 open critical/high vulnerabilities (currently 6 critical + 46 high npm) and test coverage ≥ 60% on the Application services (currently 0%) before go-live; < 10 critical bugs in the following 6 months.

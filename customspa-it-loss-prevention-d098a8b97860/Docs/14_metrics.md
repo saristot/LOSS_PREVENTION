@@ -16,7 +16,7 @@ generated_at: 2026-10-08T09:26:01+02:00
 **Data**: 2026-10-08  
 **Versione**: 1.1  
 **Autori**: REVERSE how (IMPACT) · verifica IMPACT 2026-10-08  
-**Audience**: Team tecnico, architetti, developer, PM (input per le stime di [15_fp_cocomo.md](15_fp_cocomo.md) e [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md))
+**Audience**: Team tecnico, architetti, developer, PM
 
 ---
 
@@ -72,7 +72,7 @@ $fe = Get-ChildItem LossPrevention.UI\src -Recurse -File -Include *.vue,*.ts
 
 ## 1. Total Lines of Code (SLOC)
 
-Il repository contiene **25.261 SLOC applicative** (C#, Vue, TypeScript, JavaScript, CSS, HTML) su un totale di 42.444 righe di codice cloc; il resto è `package-lock.json` (14.001), documentazione Markdown e file di build. La **baseline di stima** (SLOC logiche usate per backfiring e COCOMO nei documenti 15 e 19) è di **19.774 SLOC**.
+Il repository contiene **25.261 SLOC applicative** (C#, Vue, TypeScript, JavaScript, CSS, HTML) su un totale di 42.444 righe di codice cloc; il resto è `package-lock.json` (14.001), documentazione Markdown e file di build. La **baseline di stima** (SLOC logiche usate per backfiring e COCOMO) è di **19.774 SLOC**.
 
 ### 1.1 Total Lines of Code (cloc 2.10) — repository completo
 
@@ -142,8 +142,6 @@ Verifica eseguita cercando file minificati (`*.min.js`, `*.min.css`), cartelle `
 | **Totale** | **364** | **4.589** | **2.128** | **42.444** | |
 
 ### 1.5 Baseline di stima (SLOC logiche)
-
-Questa è l'unica baseline dimensionale usata in [15_fp_cocomo.md](15_fp_cocomo.md) e [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).
 
 | Componente | SLOC logiche | Origine |
 |------------|--------------|---------|
@@ -380,7 +378,6 @@ Non esiste alcun test automatico: la copertura è 0% e non è misurabile alcuna 
 - **Development Environment**: [11_development_environment.md](11_development_environment.md)
 - **Operation and Support**: [12_operation_and_support.md](12_operation_and_support.md)
 - **Decision Log**: [13_decision_log.md](13_decision_log.md)
-- Documenti che usano questa baseline: [15_fp_cocomo.md](15_fp_cocomo.md), [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md)
 
 ---
 

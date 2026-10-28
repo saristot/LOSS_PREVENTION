@@ -94,7 +94,7 @@ Conventions: paths relative to `customspa-it-loss-prevention-d098a8b97860/`; `fi
 ### 2.1 FastEndpoints endpoint with cache
 
 ```csharp
-// LossPrevention.API/Endpoints/Data/GetReportDataEndpoint.cs (estratto, righe 28-87)
+// LossPrevention.API/Endpoints/Data/GetReportDataEndpoint.cs (excerpt, lines 28-87)
 public override void Configure()
 {
     Post("/data/report/query");
@@ -102,10 +102,10 @@ public override void Configure()
 }
 public override async Task HandleAsync(GetReportDataRequest req, CancellationToken ct)
 {
-    var cacheKey = GenerateCacheKey(req);                                  // :55 SHA256 di pipeline+skip+take
+    var cacheKey = GenerateCacheKey(req);                                  // :55 SHA256 of pipeline+skip+take
     if (_cache.TryGetValue(cacheKey, out GetReportDataResponse cached)) { ... }
     var pipeline = req.QueryPipeline
-        .Select(x => BsonDocument.Parse(x.ToString())).ToArray();          // :68 input non validato
+        .Select(x => BsonDocument.Parse(x.ToString())).ToArray();          // :68 unvalidated input
     var result = await _reportDataService.QueryReportDataAsync(pipeline, req.Skip, req.Take);
     _cache.Set(cacheKey, response, TimeSpan.FromHours(1));                 // :81
     // catch (Exception ex) -> AddError("query", "Invalid query pipeline: " + ex.Message)  :85-87
@@ -117,7 +117,7 @@ public override async Task HandleAsync(GetReportDataRequest req, CancellationTok
 `MongoRepository<TDocument>` (`Infrastructure/Repositories/MongoRepository.cs`, 179 lines) exposes CRUD, `AggregateAsync` (3 overloads, lines 143-170), `CreateIndexesAsync` (max 20 fields, lines 29-40) and the `Collection` property (line 27), used by the services for operations not covered (e.g. `UpdateManyAsync`, `ReplaceOneAsync`, `GetCollection("ProcessedFiles")`).
 
 ```csharp
-// LossPrevention.Infrastructure/InfrastructureServiceExtensions.cs (schema ripetuto 14 volte, righe 42-149)
+// LossPrevention.Infrastructure/InfrastructureServiceExtensions.cs (pattern repeated 14 times, lines 42-149)
 services.AddScoped<IMongoRepository<User>>(sp =>
 {
     var settings = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
@@ -134,19 +134,19 @@ services.AddScoped<IMongoRepository<User>>(sp =>
 ### 2.4 Rule engine
 
 ```csharp
-// LossPrevention.Application/Helpers/RuleHelper.cs (estratto)
+// LossPrevention.Application/Helpers/RuleHelper.cs (excerpt)
 public static bool EvaluateRule(BsonDocument document, RuleConfiguration rule)
 {
-    var values = GetValuesByPath(document, rule.FieldPath);   // attraversa array
+    var values = GetValuesByPath(document, rule.FieldPath);   // traverses arrays
     if (rule.SumValues) return CompareValue(values.Where(v => v.IsNumeric).Sum(v => v.ToDecimal()), rule);
-    return values.Any(v => CompareValue(v, rule));             // range numerico o uguaglianza case-insensitive
+    return values.Any(v => CompareValue(v, rule));             // numeric range or case-insensitive equality
 }
 ```
 A pure and testable function, but with minimal expressiveness (1 field, no logical operators). `ApplyRulesAsync` (`Services/Data/Rules/RulesService.cs:32-84`) loads the whole of `ReportData` (line 34), removes `FraudFlags` (40-41), evaluates the enabled rules and rewrites each document with `ReplaceOneAsync` (58).
 
 ### 2.5 Similarity
 
-`DistanceHelper.ComputeDistance` = Euclidean distance over the fields present in both records; `TryNormalize` converts only the **type** (bool→0/1, lists→mean), **not** the scale. Score: `0.5 · campiUsati/campiRichiesti + 0.5 · (1 − d/dmax)`; minimum 3 fields in common; top 10. `DistanceDataService.GetDistanceAsync` (line 22, 122 NLOC) loads into memory all documents in the date range (line 39).
+`DistanceHelper.ComputeDistance` = Euclidean distance over the fields present in both records; `TryNormalize` converts only the **type** (bool→0/1, lists→mean), **not** the scale. Score: `0.5 · usedFields/requestedFields + 0.5 · (1 − d/dmax)`; minimum 3 fields in common; top 10. `DistanceDataService.GetDistanceAsync` (line 22, 122 NLOC) loads into memory all documents in the date range (line 39).
 
 ### 2.6 Client-side statistical engine
 

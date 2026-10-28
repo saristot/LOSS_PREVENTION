@@ -17,7 +17,7 @@ generated_at: 2026-10-08T09:33:09+02:00
 **Codebase Version**: `fc7d820` (`main`) — `fc7d820908b8b230fb47a2669920ba7efdb413a8`  
 **Analyzed root**: `customspa-it-loss-prevention-d098a8b97860/` (the only application subfolder of the Git repository `LOSS_PREVENTION`)  
 **Document version**: 1.1 (IMPACT verification of 2026-10-08)  
-**Conventions**: paths are relative to the analyzed root; `file:riga` references refer to the baseline commit. The vendor documentation (17 files) **does not exist at the baseline**: it was present only in commit `593f6de` and was removed in `d768cd9`; every citation is therefore historical and can be verified with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>` (see [§10](#10-documentation-inventory)).
+**Conventions**: paths are relative to the analyzed root; `file:line` references refer to the baseline commit. The vendor documentation (17 files) **does not exist at the baseline**: it was present only in commit `593f6de` and was removed in `d768cd9`; every citation is therefore historical and can be verified with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>` (see [§10](#10-documentation-inventory)).
 
 ---
 
@@ -37,33 +37,33 @@ This section describes how the repository is organized, what the build produces,
 
 ```
 customspa-it-loss-prevention-d098a8b97860/
-├── LossPrevention.sln                     # 5 progetti .NET (nomi "01. ...API", "02. ...DataIngestionService")
-├── README.md                              # README di prodotto (link a docs/ inesistenti, vedi §10)
-├── .gitignore                             # template Visual Studio; riga 369 ignora .github/
-├── LossPrevention.API/                    # Host ASP.NET Core + FastEndpoints (79 file .cs, 78 endpoint)
-│   ├── Program.cs                         # composition root (132 righe): JWT, CORS, DI, Swagger, hosted service
-│   ├── appsettings.json                   # Mongo (13 collezioni), JWT, SMTP, retention
-│   ├── Properties/launchSettings.json     # profili http 5264 / https 7110 / IIS Express 55993
+├── LossPrevention.sln                     # 5 .NET projects (names "01. ...API", "02. ...DataIngestionService")
+├── README.md                              # product README (links to non-existent docs/, see §10)
+├── .gitignore                             # Visual Studio template; line 369 ignores .github/
+├── LossPrevention.API/                    # ASP.NET Core + FastEndpoints host (79 .cs files, 78 endpoints)
+│   ├── Program.cs                         # composition root (132 lines): JWT, CORS, DI, Swagger, hosted service
+│   ├── appsettings.json                   # Mongo (13 collections), JWT, SMTP, retention
+│   ├── Properties/launchSettings.json     # profiles http 5264 / https 7110 / IIS Express 55993
 │   └── Endpoints/                         # Dashboard 5 · Data 3 · DataIngestion 8 · FraudDetection 3 · Groups 7
 │                                          # Mappings 4 · Notifications 5 · Rules 6 · User/{Users 12, Roles 10,
 │                                          # Permissions 10} · Workspaces 5
-├── LossPrevention.Application/            # 121 file .cs: servizi, DTO, helper, mapping, validator
+├── LossPrevention.Application/            # 121 .cs files: services, DTOs, helpers, mappings, validators
 │   ├── Services/{Data,Data/Rules,DataIngestion,Users,Workspaces}
 │   ├── Helpers/{BsonHelper,DistanceHelper,JsonHelper,MappingHelper,RuleHelper,XmlToBsonConverterHelper}.cs
-│   ├── Handlers/{Requests,Responses}      # request/response model degli endpoint
+│   ├── Handlers/{Requests,Responses}      # endpoint request/response models
 │   ├── DTO/ · Interfaces/ · Mappings/ · Validators/
-├── LossPrevention.Domain/                 # 21 file .cs (19 in Entities/), POCO con attributi MongoDB.Bson
-├── LossPrevention.Infrastructure/         # 10 file .cs: MongoRepository<T>, DI repository, PasswordHasher,
-│                                          # EmailService, DapperRepository (interamente commentato)
-├── LossPrevention.DataIngestionService/   # console app batch (1 file): XML da C:\xmlstore5\xml → Mongo
-├── LossPrevention.UI/                     # SPA Vue 3 + Vite + Vuetify + Pinia (npm, name "workflowbuilder")
-│   ├── package.json · package-lock.json · vite.config.js · tsconfig.json · nuxt.config.ts (non usato)
+├── LossPrevention.Domain/                 # 21 .cs files (19 in Entities/), POCOs with MongoDB.Bson attributes
+├── LossPrevention.Infrastructure/         # 10 .cs files: MongoRepository<T>, repository DI, PasswordHasher,
+│                                          # EmailService, DapperRepository (entirely commented out)
+├── LossPrevention.DataIngestionService/   # batch console app (1 file): XML from C:\xmlstore5\xml → Mongo
+├── LossPrevention.UI/                     # Vue 3 + Vite + Vuetify + Pinia SPA (npm, name "workflowbuilder")
+│   ├── package.json · package-lock.json · vite.config.js · tsconfig.json · nuxt.config.ts (unused)
 │   └── src/{api,components/{ai,dashboard,manage,reports,workspace},helpers,interfaces,plugins,router,stores}
 ├── Data/
-│   ├── LossPrevention/                    # mongodump (12 collezioni, 25 file incl. prelude.json)
-│   └── MongoDBScripts/                    # 5 script ordinati 00..04 + rules_export.json + PERMISSIONS_LIST.md
-└── Docs/                                  # documenti IMPACT (00..19 + index.md); i Docs del fornitore sono
-                                           # stati rimossi in d768cd9
+│   ├── LossPrevention/                    # mongodump (12 collections, 25 files incl. prelude.json)
+│   └── MongoDBScripts/                    # 5 scripts ordered 00..04 + rules_export.json + PERMISSIONS_LIST.md
+└── Docs/                                  # IMPACT documents (00..19 + index.md); the vendor Docs were
+                                           # removed in d768cd9
 ```
 
 Tooling artifacts versioned by mistake: 5 `*.csproj.lscache` files and 2 files in `LossPrevention.UI/.vite/` (Vite cache).
@@ -221,7 +221,7 @@ flowchart TB
 
 | Pattern | Where | Evidence |
 |---------|------|----------|
-| Synchronous REST/JSON | SPA ↔ API (Axios, ******; token in `localStorage`) | `src/api/api.ts:4`, `stores/loginStore.ts:92` |
+| Synchronous REST/JSON | SPA ↔ API (Axios, Bearer JWT; token in `localStorage`) | `src/api/api.ts:4`, `stores/loginStore.ts:92` |
 | Internal scheduled polling | `DataIngestionBackgroundService` checks every 60 s whether to start ingestion (`daily`/`weekly`/`monthly`; `one-time` excluded) | `DataIngestionBackgroundService.cs:13,55,129-140` |
 | Batch console | `DataIngestionService` reads `C:\xmlstore5\xml` with `Parallel.ForEachAsync` and `InsertOneAsync` per document | `DataIngestionService/Program.cs:76,85,102` |
 | Direct HTTP browser → LLM | `fetch` to Ollama | `stores/aiStore.ts:88` |
@@ -371,7 +371,7 @@ At baseline `fc7d820` the documentation available in the repository is limited t
 | Permissions list | `Data/MongoDBScripts/PERMISSIONS_LIST.md` | 41 permissions, of which 8 not used by any endpoint (e.g. `CAN_ANALYZE_DATA`, `CAN_CREATE_WORKSPACE`) |
 | Seed / DB scripts | `Data/MongoDBScripts/00..04_*.js`, `rules_export.json` | Comments at the top of each script (purpose and prerequisites) |
 | API documentation | Swagger/OpenAPI generated at runtime (FastEndpoints.Swagger) | Only in the `Development` environment (`Program.cs:121-125`); no Postman collection |
-| IMPACT documentation | `Docs/00_deep_dive.md` … `Docs/19_modernization_estimation_spec.md`, `Docs/index.md` | Produced by the reverse engineering (this set) |
+| IMPACT documentation | `Docs/00_deep_dive.md` … `Docs/18_antipattern_deep_dive.md`, `Docs/index.md` | Produced by the reverse engineering (this set) |
 | Architecture diagrams, coding standards, runbooks | — | Absent in the code at the baseline |
 
 ### 10.2 Historical vendor documentation (not present at the baseline)
@@ -465,9 +465,8 @@ Classification of the technologies by support status at the date of the analysis
 Recommended next steps and map of the IMPACT documents that explore the topics of this deep dive in depth.
 
 1. Feature-by-feature verification of the declared features: [02_functional_overview.md](02_functional_overview.md) (section «Verification of features declared by the vendor»).
-2. Effort to complete the "in development" and "planned" features: [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md) (section «Completion effort for in-development and planned features»).
-3. Security and build quick wins: [17_backend_deep_assessment.md](17_backend_deep_assessment.md), [16_frontend_deep_assessment.md](16_frontend_deep_assessment.md).
-4. Validate at runtime (.NET 8 + MongoDB + dump `Data/LossPrevention`) the behaviors marked "to be confirmed" (create-transactions, TTL, login).
+2. Security and build quick wins: [17_backend_deep_assessment.md](17_backend_deep_assessment.md), [16_frontend_deep_assessment.md](16_frontend_deep_assessment.md).
+3. Validate at runtime (.NET 8 + MongoDB + dump `Data/LossPrevention`) the behaviors marked "to be confirmed" (create-transactions, TTL, login).
 
 | IMPACT document | Topic |
 |------------------|------|
@@ -498,33 +497,33 @@ Recommended next steps and map of the IMPACT documents that explore the topics o
 Commands executed (PowerShell on Windows, from the analyzed root unless otherwise indicated) to make the metrics reproducible.
 
 ```powershell
-# Metadati commit e storia
+# Commit metadata and history
 git rev-parse HEAD; git rev-parse --abbrev-ref HEAD; git show -s --format=%cI HEAD
-git --no-pager log --format="%h %ad %an %s" --date=iso      # 13 commit, 1 autore
-git --no-pager show --stat d768cd9                          # 17 file fornitore rimossi (17.577 righe)
+git --no-pager log --format="%h %ad %an %s" --date=iso      # 13 commits, 1 author
+git --no-pager show --stat d768cd9                          # 17 vendor files removed (17,577 lines)
 git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/roadmap.txt
 
-# File e righe C# per progetto (escl. bin/obj)
+# C# files and lines per project (excl. bin/obj)
 Get-ChildItem -Recurse -Include *.cs -Path LossPrevention.* | ? { $_.FullName -notmatch '\\(bin|obj)\\' } |
   Group { $_.FullName.Split('\')[4] } |
   % { "$($_.Name) $($_.Count) " + ($_.Group | % { (Get-Content $_.FullName | ? { $_.Trim() }).Count } | Measure -Sum).Sum }
 
-# SLOC (cloc) e complessità (lizard)
+# SLOC (cloc) and complexity (lizard)
 perl cloc-2.02.pl . --exclude-dir=node_modules,.vite,Docs,.git
 lizard LossPrevention.API LossPrevention.Application LossPrevention.Domain LossPrevention.Infrastructure LossPrevention.DataIngestionService -l csharp -x "*/bin/*" -x "*/obj/*"
 lizard LossPrevention.UI/src -l typescript -l vue
 
-# Endpoint, verbi, permessi
+# Endpoints, verbs, permissions
 Get-ChildItem LossPrevention.API\Endpoints -Recurse -Filter *.cs | Select-String '^\s*(Get|Post|Put|Delete|Patch)\("' | % { $_.Matches[0].Groups[1].Value } | Group
 Get-ChildItem LossPrevention.API\Endpoints -Recurse -Filter *.cs | Select-String 'CAN_[A-Z_]+' -AllMatches | % { $_.Matches.Value } | Sort -Unique
 
-# Frontend: lockfile, vulnerabilità, versioni risolte
+# Frontend: lockfile, vulnerabilities, resolved versions
 cd LossPrevention.UI
-npm ci --dry-run --ignore-scripts          # fallisce: lockfile non sincronizzato
-npm audit --package-lock-only --json       # 71 vulnerabilità
+npm ci --dry-run --ignore-scripts          # fails: lockfile out of sync
+npm audit --package-lock-only --json       # 71 vulnerabilities
 (Get-Content package-lock.json -Raw | ConvertFrom-Json -AsHashtable).packages['node_modules/vue'].version
 
-# Dump MongoDB: numero documenti per collezione (lettura lunghezze BSON)
+# MongoDB dump: documents per collection (reading BSON lengths)
 Get-ChildItem Data\LossPrevention -Filter *.bson
 Get-Content Data\LossPrevention\prelude.json
 ```
@@ -537,8 +536,8 @@ Limitation: the .NET build and the application startup were not executed; the ob
 Backend:
   - Solution:          LossPrevention.sln
   - API host:          LossPrevention.API/Program.cs
-  - Config API:        LossPrevention.API/appsettings.json, Properties/launchSettings.json
-  - DI repository:     LossPrevention.Infrastructure/InfrastructureServiceExtensions.cs
+  - API config:        LossPrevention.API/appsettings.json, Properties/launchSettings.json
+  - Repository DI:     LossPrevention.Infrastructure/InfrastructureServiceExtensions.cs
   - Password hashing:  LossPrevention.Infrastructure/Helpers/PasswordHasher.cs
   - Login / JWT:       LossPrevention.API/Endpoints/User/Users/LoginEndpoint.cs
   - Report query:      LossPrevention.API/Endpoints/Data/GetReportDataEndpoint.cs, Application/Services/Data/ReportDataservice.cs
@@ -549,7 +548,7 @@ Backend:
   - Batch job:         LossPrevention.DataIngestionService/Program.cs, appsettings.json
 Frontend:
   - package.json:      LossPrevention.UI/package.json, package-lock.json
-  - Build config:      LossPrevention.UI/vite.config.js, tsconfig.json (nuxt.config.ts non usato)
+  - Build config:      LossPrevention.UI/vite.config.js, tsconfig.json (nuxt.config.ts unused)
   - Entry:             LossPrevention.UI/src/main.ts
   - Router:            LossPrevention.UI/src/router/index.ts
   - HTTP client:       LossPrevention.UI/src/api/api.ts
@@ -557,7 +556,7 @@ Frontend:
   - Report grid:       LossPrevention.UI/src/components/reports/resultsGrid.vue
   - UserLock:          LossPrevention.UI/src/helpers/fieldLock.ts
 Data:
-  - Dump DB:           Data/LossPrevention/*.bson, prelude.json
+  - DB dump:           Data/LossPrevention/*.bson, prelude.json
   - Seed:              Data/MongoDBScripts/00..04_*.js, rules_export.json, PERMISSIONS_LIST.md
 ```
 

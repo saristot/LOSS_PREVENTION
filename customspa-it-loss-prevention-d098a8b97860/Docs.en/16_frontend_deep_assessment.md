@@ -153,7 +153,7 @@ flowchart LR
 
 ## 2. State Management
 
-State is managed with **Pinia** (15 stores, 12 in Options API and 3 in Setup API, 4,445 lines in total) following the flow `componente → action dello store → api.ts → backend`. The critical point is `aiStore.ts`, which concentrates LLM, statistics and rules, together with the persistence entrusted to `localStorage`.
+State is managed with **Pinia** (15 stores, 12 in Options API and 3 in Setup API, 4,445 lines in total) following the flow `component → store action → api.ts → backend`. The critical points are `aiStore.ts`, which concentrates LLM, statistics and rules, and the persistence entrusted to `localStorage`.
 
 ### 2.1 State Architecture
 
@@ -237,9 +237,9 @@ There is a single HTTP client (`src/api/api.ts`, 21 lines) used by 14 stores and
 ```ts
 // src/api/api.ts
 const api = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL });
-console.log('API base URL:', import.meta.env.VITE_API_BASE_URL);   // riga 7
-api.interceptors.request.use((config) => {                       // righe 10-18
-  const token = localStorage.getItem('token');                   // riga 11
+console.log('API base URL:', import.meta.env.VITE_API_BASE_URL);   // line 7
+api.interceptors.request.use((config) => {                       // lines 10-18
+  const token = localStorage.getItem('token');                   // line 11
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });

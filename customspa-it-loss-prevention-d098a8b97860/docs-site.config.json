@@ -9,6 +9,7 @@
     { "path": "15_fp_cocomo.md", "reason": "Schermata non da pubblicare" },
     { "path": "19_modernization_estimation_spec.md", "reason": "Schermata non da pubblicare" }
   ],
+  "exclusions": "hide",
   "extra_sources": [
     {
       "id": "audit",

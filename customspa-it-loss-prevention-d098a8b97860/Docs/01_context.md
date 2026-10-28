@@ -397,7 +397,7 @@ Il sistema è un prodotto funzionalmente ricco ma in stato pre-produzione; prima
 
 **KPI di Progetto** (proposti dall'analisi; date e budget non ricavabili dal codice):
 1. **Go-Live entro**: N/A — non ricavabile dal codice (nessuna pianificazione nel repository); prerequisito minimo: migrazione a .NET 10 prima del 10-11-2026 o accettazione formale del rischio.
-2. **Budget rispettato**: N/A — non ricavabile dal codice; stima dell'effort in [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).
+2. **Budget rispettato**: N/A — non ricavabile dal codice.
 3. **User Adoption**: ≥ 80% degli utenti LP abilitati che esegue almeno un report a settimana dopo 3 mesi (misurabile solo dopo l'introduzione di log di utilizzo, oggi assenti).
 4. **Performance**: P95 di `POST /data/report/query` < 3 s su 1 milione di transazioni; applicazione regole su 1 milione di transazioni < 10 min.
 5. **Quality**: 0 vulnerabilità critical/high aperte (oggi 6 critical + 46 high npm) e copertura test ≥ 60% sui servizi Application (oggi 0%) prima del go-live; < 10 bug critici nei 6 mesi successivi.

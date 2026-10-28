@@ -139,8 +139,8 @@ Set-Location .\LOSS_PREVENTION\customspa-it-loss-prevention-d098a8b97860
 ### 4.1 Backend (.NET) — ⚠️ not verified
 
 ```powershell
-# dalla cartella customspa-it-loss-prevention-d098a8b97860
-dotnet --list-sdks                         # deve elencare un SDK 8.x o superiore
+# from the customspa-it-loss-prevention-d098a8b97860 folder
+dotnet --list-sdks                         # must list an SDK 8.x or later
 dotnet restore .\LossPrevention.sln
 dotnet build .\LossPrevention.sln -c Debug
 ```
@@ -151,9 +151,9 @@ The project names contain spaces and a dot: for commands on a single project use
 
 ```powershell
 Set-Location .\LossPrevention.UI
-npm install --no-package-lock --no-audit --no-fund   # ✅ 921 pacchetti, ~3 min; non modifica il lockfile
-[IO.File]::WriteAllText("$PWD\.env.local", "VITE_API_BASE_URL=http://localhost:5264`n")   # UTF-8 senza BOM
-npm run build                                          # ✅ 789 moduli, ~1 min 10 s
+npm install --no-package-lock --no-audit --no-fund   # ✅ 921 packages, ~3 min; does not modify the lockfile
+[IO.File]::WriteAllText("$PWD\.env.local", "VITE_API_BASE_URL=http://localhost:5264`n")   # UTF-8 without BOM
+npm run build                                          # ✅ 789 modules, ~1 min 10 s
 ```
 
 | Command | Verified outcome | Detail |
@@ -210,13 +210,13 @@ dotnet build ".\LossPrevention.DataIngestionService\02. LossPrevention.DataInges
 N/A — not derivable from the code: there is no test framework and no test at all. Once the frameworks are introduced (TO-BE), the commands will be:
 
 ```powershell
-# Backend (TO-BE, dopo aver creato es. tests\LossPrevention.Application.Tests con xUnit)
+# Backend (TO-BE, after creating e.g. tests\LossPrevention.Application.Tests with xUnit)
 dotnet test .\LossPrevention.sln
 dotnet test .\LossPrevention.sln --filter "FullyQualifiedName~PasswordHasherTests.VerifyPassword_LegacyHash"
 
-# Frontend (TO-BE, dopo `npm install -D vitest @vue/test-utils jsdom`)
+# Frontend (TO-BE, after `npm install -D vitest @vue/test-utils jsdom`)
 npx vitest run
-npx vitest run src/stores/__tests__/loginStore.spec.ts -t "login salva il token"
+npx vitest run src/stores/__tests__/loginStore.spec.ts -t "login saves the token"
 ```
 
 ### 5.3 Manual verification available today
@@ -243,7 +243,7 @@ npx vitest run src/stores/__tests__/loginStore.spec.ts -t "login salva il token"
 ### 6.1 Starting MongoDB
 
 ```powershell
-mongosh "mongodb://localhost:27017" --eval "db.runCommand({ ping: 1 })"   # ⚠️ deve restituire { ok: 1 }
+mongosh "mongodb://localhost:27017" --eval "db.runCommand({ ping: 1 })"   # ⚠️ must return { ok: 1 }
 ```
 
 The development connection string is `mongodb://localhost:27017` without credentials (`appsettings.json:13` in both projects).
@@ -251,7 +251,7 @@ The development connection string is `mongodb://localhost:27017` without credent
 ### 6.2 Option A — Restoring the dump (recommended) — ⚠️ not verified
 
 ```powershell
-# dalla cartella customspa-it-loss-prevention-d098a8b97860
+# from the customspa-it-loss-prevention-d098a8b97860 folder
 mongorestore --uri "mongodb://localhost:27017" --nsInclude "LossPrevention.*" --nsExclude "LossPrevention.*_old" --drop .\Data
 ```
 
@@ -280,7 +280,7 @@ Mandatory order (the scripts use `db.getSiblingDB('LossPrevention')`):
 $uri = "mongodb://localhost:27017"
 mongosh $uri --file .\Data\MongoDBScripts\00_CleanupDuplicatePermissions.js
 mongosh $uri --file .\Data\MongoDBScripts\01_CreatePermissions.js
-# Prerequisito di 02: il ruolo Admin deve esistere (02 altrimenti stampa un esempio e non fa nulla)
+# Prerequisite for 02: the Admin role must exist (otherwise 02 prints an example and does nothing)
 mongosh $uri --eval "db.getSiblingDB('LossPrevention').Roles.insertOne({ RoleName: 'Admin', Description: 'Admin Permissions', Permissions: [] })"
 mongosh $uri --file .\Data\MongoDBScripts\02_AddPermissionsToAdminRole.js
 mongosh $uri --file .\Data\MongoDBScripts\03_CleanupStalePermissions.js
@@ -358,17 +358,17 @@ flowchart LR
 ### 7.3 Step-by-step startup (PowerShell, 3 terminals)
 
 ```powershell
-# Terminale 1 — API (eseguire DALLA cartella del progetto: Program.cs:38 legge appsettings.json dalla directory corrente)
+# Terminal 1 — API (run FROM the project folder: Program.cs:38 reads appsettings.json from the current directory)
 Set-Location .\LossPrevention.API
-dotnet dev-certs https --trust            # solo la prima volta, per il profilo https
-dotnet run --launch-profile http          # oppure: --launch-profile https
+dotnet dev-certs https --trust            # first time only, for the https profile
+dotnet run --launch-profile http          # or: --launch-profile https
 
-# Terminale 2 — SPA
+# Terminal 2 — SPA
 Set-Location .\LossPrevention.UI
 npm run dev                               # ✅ http://localhost:5173
 
-# Terminale 3 — servizi opzionali
-ollama pull qwen2.5:14b; ollama serve     # funzioni AI
+# Terminal 3 — optional services
+ollama pull qwen2.5:14b; ollama serve     # AI features
 ```
 
 `VITE_API_BASE_URL` in `.env.local` must contain the API origin **without** `/api` and without a trailing slash (the calls use absolute paths such as `/users/login`, `loginStore.ts:73`, and `/api/data-ingestion/run`, `dataingestion.vue:458`). If you use the `https` profile, set it to `https://localhost:7110`. After every change to `.env.local` restart `npm run dev`.
@@ -377,7 +377,7 @@ ollama pull qwen2.5:14b; ollama serve     # funzioni AI
 
 ```powershell
 New-Item -ItemType Directory -Force C:\xmlstore5\xml   # path hardcoded in Program.cs:76
-# copiare i file XML di transazione nella cartella, poi:
+# copy the transaction XML files into the folder, then:
 Set-Location .\LossPrevention.DataIngestionService
 dotnet run
 ```

@@ -391,7 +391,7 @@ Historical note: the vendor documentation `Docs/04_DEPLOYMENT_GUIDE.md` (present
 
 | Integration | Style | Synchronous? | Security | Error handling / resilience | Evidence |
 |-------------|-------|-----------|-----------|------------------------------|----------|
-| SPA ↔ API | REST/JSON | Yes | JWT ****** `permissions`, `LockField`, `LockValue`), CORS localhost | FE toast; `AddError`/`SendErrorsAsync` with `ex.Message` on the BE side | `api.ts`, `LoginEndpoint.cs:48-68` |
+| SPA ↔ API | REST/JSON | Yes | JWT Bearer (`permissions`, `LockField`, `LockValue` claims), CORS localhost | FE toast; `AddError`/`SendErrorsAsync` with `ex.Message` on the BE side | `api.ts`, `LoginEndpoint.cs:48-68` |
 | SPA ↔ Ollama | HTTP JSON `/api/generate` | Yes (up to minutes) | None | `try/catch` + `console.log` | `aiStore.ts:88` |
 | API/Console ↔ MongoDB | Wire protocol (driver 3.4.0) | Yes | No authentication, no TLS | Driver defaults; no application-level retry | `appsettings.json`, `MongoRepository.cs` |
 | Background ↔ SFTP | File transfer (pull) | Batch | Username/password in clear text in the DB, no host key verification | Files moved to `processed/` or `failed/`; errors in `FileProcessingResult.Errors` | `SftpFileProcessingService.cs:56-59` |

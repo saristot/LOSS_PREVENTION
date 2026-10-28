@@ -170,7 +170,7 @@ Average document size ≈ 1,176 bytes (3,528,608 / 3,000). `TransactionDateTime`
 |-----------|--------|--------|---------|---------|-------------------|
 | All 12 of the dump | `_id_` | `{_id: 1}` | — | MongoDB default | Yes (`*.metadata.json`) |
 | `ReportData` | `ttl_BeginDateTime` | `{BeginDateTime: 1}` | `expireAfterSeconds: 15552000` (180 days) | `DatabaseInitializationService.cs:97-105` at API startup | Yes (`ReportData.metadata.json`) |
-| `ReportData` | dynamic `<campo>_1` (max 20) | ascending on top-level bool/date/array/string/int/long/decimal fields of the first 100 documents | — | `IndexService.ProcessIndexesAsync` (`Services/Data/IndexSuggestionHelper.cs:20-38`) → `MongoRepository.CreateIndexesAsync` (`:29-40`), only from the console | No |
+| `ReportData` | dynamic `<field>_1` (max 20) | ascending on top-level bool/date/array/string/int/long/decimal fields of the first 100 documents | — | `IndexService.ProcessIndexesAsync` (`Services/Data/IndexSuggestionHelper.cs:20-38`) → `MongoRepository.CreateIndexesAsync` (`:29-40`), only from the console | No |
 | Code-only collections (5) | none besides `_id` | — | — | — | — |
 
 **Missing** indexes with respect to the code's accesses: `Users.Username` (login, uniqueness), `Roles.RoleName`, `Permissions.PermissionName`, `ProcessedFiles.fileName` (lookup on every file: today a collection scan, no uniqueness), `PasswordResetTokens.TokenHash` + TTL on `ExpiryDate`, `ReportData.TransactionDateTime` (range filter in `DistanceDataservice.cs:34-39`), `Mappings.{CollectionName, Name}`. The vendor documentation `Docs/06_DATABASE_DATA_MODEL.md` (present only in commit `593f6de`, removed in `d768cd9`; `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/06_DATABASE_DATA_MODEL.md`) listed unique indexes on `Users.Username`/`Email`, `Roles.RoleName`, `Permissions.PermissionName` and indexes on `ReportData.StoreID`/`Total`: they **do not exist** either in the code or in the dump.
@@ -293,11 +293,11 @@ Historical note: the vendor's `Docs/12_MAINTENANCE_OPERATIONS.md` (present only 
 ```csharp
 // LossPrevention.Application/Interfaces/Data/DatabaseInitializationService.cs
 _retentionDays = configuration.GetValue<int>("DataRetention:TransactionRetentionDays", 90);   // :23
-// EnsureTtlIndexAsync (:43-116): se esiste già un TTL su BeginDateTime -> return;
-// se esiste un indice non-TTL su BeginDateTime -> DropOneAsync; poi:
+// EnsureTtlIndexAsync (:43-116): if a TTL on BeginDateTime already exists -> return;
+// if a non-TTL index on BeginDateTime exists -> DropOneAsync; then:
 var indexKeys = Builders<BsonDocument>.IndexKeys.Ascending("BeginDateTime");
 // ExpireAfter = TimeSpan.FromDays(_retentionDays), Name = "ttl_BeginDateTime"         // :97-105
-// in caso di errore: _logger.LogError(...); throw;  -> l'API non parte
+// on error: _logger.LogError(...); throw;  -> the API does not start
 ```
 
 | Aspect | Behavior |

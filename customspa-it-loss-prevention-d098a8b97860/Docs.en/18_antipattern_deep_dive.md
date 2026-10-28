@@ -109,10 +109,10 @@ public BsonDocument[] Build(ReportQuery q, ClaimsPrincipal user, IReadOnlySet<st
     var lockValue = user.FindFirst("LockValue")?.Value;
     if (lockField is not null && knownFields.Contains(lockField))
         stages.Add(new("$match", new BsonDocument(lockField, lockValue)));
-    stages.Add(new("$match", ConditionTranslator.Translate(q.Filter, knownFields))); // whitelist: $eq,$ne,$gt,$gte,$lt,$lte,$in, $regex con escape
+    stages.Add(new("$match", ConditionTranslator.Translate(q.Filter, knownFields))); // whitelist: $eq,$ne,$gt,$gte,$lt,$lte,$in, escaped $regex
     if (q.GroupBy is not null) stages.Add(GroupStage(q, knownFields));
     stages.Add(new("$project", Projection(q.Fields, knownFields)));
-    return stages.ToArray(); // $skip/$limit e maxTimeMS aggiunti dal servizio
+    return stages.ToArray(); // $skip/$limit and maxTimeMS added by the service
 }
 ```
 
@@ -136,7 +136,7 @@ It also violates KISS and DRY with respect to the backend rule engine (AP-06).
 
 **Current Code (Snippet):**
 ```ts
-// aiStore.ts:1224-1229 (dentro buildGenericFraudRuleTemplates)
+// aiStore.ts:1224-1229 (inside buildGenericFraudRuleTemplates)
 rules.push({
   fraudType: "High Value Transaction",
   fields: [f],
@@ -144,7 +144,7 @@ rules.push({
   severity: "medium",
 });
 
-// aiStore.ts:1768-1774 (dentro analyzeFraudInData)
+// aiStore.ts:1768-1774 (inside analyzeFraudInData)
 const compiled = rules.map((rule, index) => {
   const fn = new Function(
     "row",
@@ -218,9 +218,9 @@ const result = eval(expr);
 import { Parser } from 'expr-eval';
 
 const parser = new Parser({ operators: { logical: false, assignment: false, fndef: false } });
-const compiled = parser.parse(expression);                  // una volta per campo calcolato
+const compiled = parser.parse(expression);                  // once per calculated field
 valueGetter: (params) => {
-  const vars = numericFieldsOf(params.data);                // solo variabili numeriche note
+  const vars = numericFieldsOf(params.data);                // known numeric variables only
   const result = compiled.evaluate(vars);
   return `${field.prefix ?? ''}${result.toFixed(2)}${field.suffix ?? ''}`;
 }
@@ -375,15 +375,15 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
 - **Evidence**:
   ```csharp
   var docs = (await _reportDataRepository.GetAllAsync()).ToList();                    // :34 full scan
-  await _reportDataRepository.Collection.UpdateManyAsync(FilterDefinition<BsonDocument>.Empty, unsetUpdate); // :41 rimuove TUTTI i flag
-  await _reportDataRepository.Collection.ReplaceOneAsync(filter, doc);                // :58 una scrittura per documento
-  var docUpdate = Builders<BsonDocument>.Update.Set($"{rule.RuleName}", isMatch);     // :147 path errato (radice, non FraudFlags.*)
+  await _reportDataRepository.Collection.UpdateManyAsync(FilterDefinition<BsonDocument>.Empty, unsetUpdate); // :41 removes ALL flags
+  await _reportDataRepository.Collection.ReplaceOneAsync(filter, doc);                // :58 one write per document
+  var docUpdate = Builders<BsonDocument>.Update.Set($"{rule.RuleName}", isMatch);     // :147 wrong path (root, not FraudFlags.*)
   ```
 - **Impact**:
   - O(N) memory and time with N round-trips;
   - during the recalculation all documents remain without flags (the unset is not atomic with respect to the rewrite);
   - after `UpdateRuleAsync` the flags are inconsistent.
-- **Refactoring**: one `UpdateMany` with an update pipeline per rule (`$set: { "FraudFlags.<rule>": <espressione $and/$gte/$lte> }`), execution as an asynchronous post-ingestion job, and a repository with explicit methods instead of `Collection`.
+- **Refactoring**: one `UpdateMany` with an update pipeline per rule (`$set: { "FraudFlags.<rule>": <$and/$gte/$lte expression> }`), execution as an asynchronous post-ingestion job, and a repository with explicit methods instead of `Collection`.
 
 ### AP-06 — Stovepipe / split-brain of the anti-fraud logic · **High**
 - **Location**:
@@ -391,7 +391,7 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
   - FE: `aiStore.ts:1203-1530` and `fraudDetectionStore.ts:177`.
 - **Evidence**:
   ```ts
-  // fraudDetectionStore.ts:177-181 — unica sorgente dei default delle soglie
+  // fraudDetectionStore.ts:177-181 — single source of the threshold defaults
   const DEFAULT_FRAUD_THRESHOLDS: FraudThresholdConfig = {
     highValue: {
       percentile: 0.95,
@@ -435,7 +435,7 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
 - **Location**: 20 endpoints that inject `IMongoRepository<T>`, e.g. `ListNotificationsEndpoint.cs:30`, `CreateGroupEndpoint.cs:34`, `CreateDashboardEndpoint.cs:35`, `CreateFraudDetectionSettingsEndpoint.cs:44`.
 - **Evidence**:
   ```csharp
-  var filter = Builders<NotificationDocument>.Filter.Empty;   // ListNotificationsEndpoint.cs:30 — query, nessun filtro per destinatario
+  var filter = Builders<NotificationDocument>.Filter.Empty;   // ListNotificationsEndpoint.cs:30 — query, no recipient filter
   ```
 - **Impact**: business and authorization logic in the endpoints, not reusable and not testable in isolation. In the example, the missing filter by recipient is a security bug.
 - **Refactoring**: application services for Groups, Notifications, Dashboard and FraudSettings; the endpoints are limited to binding, validation and HTTP mapping.
@@ -458,7 +458,7 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
       existing.Members.Add(userOid);
       existing.UpdatedAtUtc = DateTime.UtcNow;
       var updateDefinition = Builders<GroupDocument>.Update
-          .Set(g => g.Members, existing.Members)       // riscrive l'intera lista
+          .Set(g => g.Members, existing.Members)       // rewrites the whole list
   ```
 - **Impact**: invariants scattered across endpoints and helpers. The read-modify-write without optimistic concurrency causes lost updates with concurrent requests.
 - **Refactoring**: `Group.AddMember(userId)` in the domain; persistence with atomic `$addToSet`; `Rule.Evaluate(doc)` instead of `RuleHelper.EvaluateRule`.
@@ -493,7 +493,7 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
   - `MappingService.cs:269-288`.
 - **Evidence**:
   ```csharp
-  // ReportDataservice.cs:126-146 — livelli 3-8 di 8 (si parte da if :117 e foreach :121)
+  // ReportDataservice.cs:126-146 — levels 3-8 of 8 (starting from if :117 and foreach :121)
   if (dateFields.Contains(name))
   {
       if (val.IsBsonDocument)
@@ -529,7 +529,7 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
 - **Evidence**:
   ```csharp
   public string ScheduleType { get; set; } = "one-time"; // "one-time" | "recurring"   (:31)
-  public string Recurrence { get; set; } = "daily";      // "daily" | "weekly"          (:34) — ma "monthly" è gestito in DataIngestionBackgroundService.cs:140
+  public string Recurrence { get; set; } = "daily";      // "daily" | "weekly"          (:34) — but "monthly" is handled in DataIngestionBackgroundService.cs:140
   if (normalizedSource == "filesystem" || normalizedSource == "file system")          // FileProcessingCoordinator.cs:94
   ```
 - **Impact**: unvalidated values (the model comment does not include `monthly`, even though it is handled); fragile comparisons.
@@ -544,8 +544,8 @@ Each finding reports the verified location (file:line at commit `fc7d820`), evid
   - `GetReportDataEndpoint.cs:81` (1 h cache).
 - **Evidence**:
   ```csharp
-  var now = DateTime.Now;                                                    // :97 ora locale
-  if (config.LastRunAt.HasValue && (now - config.LastRunAt.Value).TotalSeconds < 50)  // :100-101, LastRunAt impostato in UTC (:86) e mai persistito (commento :87)
+  var now = DateTime.Now;                                                    // :97 local time
+  if (config.LastRunAt.HasValue && (now - config.LastRunAt.Value).TotalSeconds < 50)  // :100-101, LastRunAt set in UTC (:86) and never persisted (comment :87)
   ```
 - **Impact**: non-configurable behavior. In the example, the magic number combines with a comparison between local time and UTC that makes the anti-double-execution guard unreliable on servers with a time zone other than UTC.
 - **Refactoring**: `IngestionSchedulerOptions`, `IndexingOptions` and `ReportCacheOptions` via `IOptions<T>`; `TimeProvider`/`DateTime.UtcNow` everywhere.

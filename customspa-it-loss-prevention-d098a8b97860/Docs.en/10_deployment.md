@@ -191,11 +191,11 @@ flowchart LR
 
 | # | Step | Command / check |
 |---|-------|--------------------|
-| 1 | Database backup | `mongodump --uri "<connection-string>" --db LossPrevention --gzip --archive=LossPrevention_<data>.gz` |
+| 1 | Database backup | `mongodump --uri "<connection-string>" --db LossPrevention --gzip --archive=LossPrevention_<date>.gz` |
 | 2 | Update CORS in the code for the real domain | `Program.cs:29` |
 | 3 | Prepare the target `appsettings.json` (connection string, new JWT key, SMTP, `FrontendUrl`) | Do not use the versioned file with the development key |
 | 4 | Publish the API | `dotnet publish ".\LossPrevention.API\01. LossPrevention.API.csproj" -c Release -o .\publish\api` |
-| 5 | Build the SPA with the environment URL | `$env:VITE_API_BASE_URL="https://api.<dominio>"; npm run build` |
+| 5 | Build the SPA with the environment URL | `$env:VITE_API_BASE_URL="https://api.<domain>"; npm run build` |
 | 6 | Stop the API, replace the files, start with cwd = publish folder | Verify in the log `Database initialization completed successfully` |
 | 7 | Publish `dist/` with SPA fallback to `index.html` | Router `createWebHistory()` (`router/index.ts:52`) |
 | 8 | Run any new seed scripts | `mongosh "<connection-string>" --file <script>` |
@@ -222,7 +222,7 @@ flowchart LR
 
 1. **Before every deploy**: backup (`mongodump`) and retention of the previous artifacts (`publish/api`, `dist/`).
 2. **Application rollback**: stop the API, restore the previous publish folder, restart; republish the previous `dist/`.
-3. **Data rollback** (only if the deploy ran scripts or `GET /rules/apply`): `mongorestore --uri "<connection-string>" --gzip --archive=LossPrevention_<data>.gz --nsInclude "LossPrevention.*" --drop`.
+3. **Data rollback** (only if the deploy ran scripts or `GET /rules/apply`): `mongorestore --uri "<connection-string>" --gzip --archive=LossPrevention_<date>.gz --nsInclude "LossPrevention.*" --drop`.
 4. **Verification**: login, reports, ingestion configuration; check that the scheduler did not start ingestions during the window.
 
 ### 5.3 Order and idempotency of the seed scripts

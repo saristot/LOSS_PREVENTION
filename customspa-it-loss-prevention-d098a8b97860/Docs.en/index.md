@@ -1,14 +1,3 @@
-<!-- IMPACT-META
-schema: 1
-mode: how
-step: index
-commit: fc7d820908b8b230fb47a2669920ba7efdb413a8
-commit_short: fc7d820
-branch: main
-worktree: dirty
-baseline_date: 2026-10-07T18:19:51+02:00
-generated_at: 2026-10-08T10:48:09.375+02:00
--->
 # IMPACT how (FULL) — Documentation index — LOSS_PREVENTION
 
 > **Baseline commit:** `fc7d820` (`main`) · worktree `dirty` (local changes only in `Docs/` and `.github/`; application code identical to the commit)
@@ -73,8 +62,7 @@ The application code was imported in commit `593f6de` and has not changed since:
 - All 20 HOW deliverables are present plus this index; each one starts with the `IMPACT-META` block (commit `fc7d820…`), the Baseline line and a Change Log with revision 1.1.
 - No broken relative `.md` links; Reference Documents section with the 00–19 links in every document.
 - 52 Mermaid diagrams validated with the `mermaid@11` parser: 0 errors.
-- Cross-document numbers verified (endpoints, permissions, SFCs, collections, imports, SLOC, FP/COCOMO, health score).
+- Cross-document numbers verified (endpoints, permissions, SFCs, collections, imports, SLOC, health score).
 - No secrets reported: the only connection string cited is `mongodb://localhost:27017`; the JWT `SecretKey` does not appear.
 - **Historical vendor documents**: the references to `Docs/01_EXECUTIVE_OVERVIEW.md`, `roadmap.txt`, `04_DEPLOYMENT_GUIDE.md` and similar concern files present only in commit `593f6de` and removed in `d768cd9`. They are marked as historical and can be consulted with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>`.
 - **Not derivable from the code** (marked N/A or as assumptions): SLA/RPO/RTO, owner and budget, production volumes, runtime metrics, NuGet CVEs (the .NET SDK is required, not available in the analysis environment).
-- **Assumptions to be confirmed**: rate of 400 €/day and answers to the estimation Wizard in [15_fp_cocomo.md](15_fp_cocomo.md) and [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md).

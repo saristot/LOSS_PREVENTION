@@ -15,7 +15,7 @@ generated_at: 2026-10-08T10:05:26+02:00
 
 **Date**: 2026-10-08 · **Version**: 1.1 · **Authors**: REVERSE how / IMPACT verify · **Audience**: Backend Architect, Tech Lead, Senior Backend Developer, CTO
 
-> **Prompt adaptation (Java/Spring Boot → .NET 8).** The reference prompt is written for Java/Spring Boot; the analyzed backend is **.NET 8 + FastEndpoints 6 + MongoDB.Driver 3.4**. Each requirement has been mapped to the .NET equivalent indicated below; requirements without an equivalent are marked `N/A per stack .NET: <motivo>`.
+> **Prompt adaptation (Java/Spring Boot → .NET 8).** The reference prompt is written for Java/Spring Boot; the analyzed backend is **.NET 8 + FastEndpoints 6 + MongoDB.Driver 3.4**. Each requirement has been mapped to the .NET equivalent indicated below; requirements without an equivalent are marked `N/A for the .NET stack: <reason>`.
 
 | Java/Spring requirement in the prompt | Analyzed .NET equivalent |
 |---|---|
@@ -63,7 +63,7 @@ Scorecard on the 7 dimensions required by the prompt, scores 0–10 with evidenc
 
 **Calculation**: (6 + 3 + 4 + 4 + 2 + 6 + 2) / 7 = 27 / 7 = 3.857 → **3.9 / 10**.
 
-> Version note: v1.0 reported 5.0/10 on 7 dimensions different from those of the prompt (including "Stack/aggiornamento" = 8) and without an explicit calculation; the value has been recalculated on the prompt's dimensions.
+> Version note: v1.0 reported 5.0/10 on 7 dimensions different from those of the prompt (including "Stack/updates" = 8) and without an explicit calculation; the value has been recalculated on the prompt's dimensions.
 
 **Overall Assessment**: **poor** health. The foundations (REPR, DI, PBKDF2, validated JWT) are recoverable, but before any network exposure Phase 1 of the roadmap must be completed (§19.1: P1 vulnerabilities and quick wins, ≈ 18.5–25.5 days).
 
@@ -237,7 +237,7 @@ The domain is **anemic**: 19 entities with properties only and 22 `[Bson*]` attr
 | Logic in the wrong place | | 🔴 | statistical anti-fraud algorithm and row-level lock only in the frontend; rules loaded and then ignored in the console (`DataIngestionService/Program.cs:38-47`) |
 
 Verified business logic bugs:
-- `RulesService.UpdateRuleAsync` (`RulesService.cs:141-155`) updates the flag at the **root** of the document instead of in `FraudFlags.<campo>`, so the flags remain inconsistent with `ApplyRulesAsync`.
+- `RulesService.UpdateRuleAsync` (`RulesService.cs:141-155`) updates the flag at the **root** of the document instead of in `FraudFlags.<field>`, so the flags remain inconsistent with `ApplyRulesAsync`.
 - `CreateTransactionEndpoint.cs:49-50` does not work (see BE-05).
 - `XmlProcessingService.cs:43` throws `NotImplementedException` on `InsertManyAsync`, even though it is registered as `IFileProcessingService` (`Program.cs:102`).
 - `IXmlEnrichmentRule` has 0 implementations.
@@ -246,7 +246,7 @@ Verified business logic bugs:
 
 ### 3. Persistence Layer Deep Dive
 
-**Mapping**: JPA/Hibernate → MongoDB.Driver 3.4 with a generic repository. The prompt's requests about lazy loading, entity graphs and dirty checking are `N/A per stack .NET: nessun ORM né change tracking, il driver Mongo mappa i documenti con BsonSerializer`. Projection, indexes, the N+1 pattern and pooling remain relevant instead.
+**Mapping**: JPA/Hibernate → MongoDB.Driver 3.4 with a generic repository. The prompt's requests about lazy loading, entity graphs and dirty checking are `N/A for the .NET stack: no ORM or change tracking, the Mongo driver maps documents with BsonSerializer`. Projection, indexes, the N+1 pattern and pooling remain relevant instead.
 
 #### 3.1 JPA/Hibernate Usage (≙ MongoDB.Driver)
 
@@ -431,7 +431,7 @@ Security is the weakest dimension: the cryptographic foundations are correct, bu
 | Refresh / revocation | 🔴 absent: no refresh token, no blacklist; a stolen token remains valid for up to 1 h | — |
 | Claims | `permissions` (one per permission), `LockField`/`LockValue` | `LoginEndpoint.cs:55-69` |
 | Method security (≙ `@PreAuthorize`) | `Permissions("CAN_*")` per endpoint; 4 `AllowAnonymous` endpoints: login, forgot-password, reset-password, validate-reset-token | `LoginEndpoint.cs:31`, `ForgotPasswordEndpoint.cs:19`, `ResetPasswordEndpoint.cs:19`, `ValidateResetTokenEndpoint.cs:24` |
-| Password storage | ✅ PBKDF2-SHA256 600,000 iterations with `v2:` prefix, transparent upgrade from the legacy at 10,000 iterations; 🟡 comparison with `string.Equals` (not constant-time; use `CryptographicOperations.FixedTimeEquals`) | `PasswordHasher.cs:9-10,46` |
+| Password storage | ✅ PBKDF2-SHA256 600,000 iterations with `v2:` prefix, transparent upgrade from the legacy format at 10,000 iterations; 🟡 comparison with `string.Equals` (not constant-time; use `CryptographicOperations.FixedTimeEquals`) | `PasswordHasher.cs:9-10,46` |
 | Password reset | ✅ token stored only as a hash, previous tokens invalidated, `TokenExpiryHours` expiry; 🟡 no TTL index on the collection | `PasswordResetService.cs:47-53,59-62,65` |
 | Transport | 🔴 neither `UseHttpsRedirection` nor `UseHsts` | `Program.cs:121-131` |
 | Security headers | 🔴 no CSP/X-Content-Type-Options/X-Frame-Options header on the API side (the CSP appears only as an example in the historical vendor documentation: `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/09_SECURITY_DOCUMENTATION.md`, line 426) | — |
@@ -1020,10 +1020,10 @@ LossPrevention.sln
 │   └── → LossPrevention.Infrastructure
 ├── LossPrevention.Application (net8.0)
 │   ├── FluentValidation 11.11.0
-│   ├── Microsoft.AspNetCore.Http.Features 5.0.17 (DEPRECATO)
+│   ├── Microsoft.AspNetCore.Http.Features 5.0.17 (DEPRECATED)
 │   ├── MongoDB.Bson / MongoDB.Driver 3.4.0
 │   ├── Newtonsoft.Json 13.0.3
-│   ├── SSH.NET 2025.1.0 (2 advisory High)
+│   ├── SSH.NET 2025.1.0 (2 High advisories)
 │   ├── → LossPrevention.Domain
 │   └── → LossPrevention.Infrastructure
 ├── LossPrevention.Infrastructure (net8.0, FrameworkReference Microsoft.AspNetCore.App)

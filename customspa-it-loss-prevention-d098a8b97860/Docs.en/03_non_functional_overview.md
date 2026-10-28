@@ -24,7 +24,7 @@ generated_at: 2026-10-08T09:38:00+02:00
 
 - The repository **contains no formalized non-functional requirements**: no SLA, benchmark, load test, telemetry or monitoring configuration.
 - Each requirement reports:
-  - **AS-IS**: behavior observed in the code at commit `fc7d820`, with `file:riga` evidence;
+  - **AS-IS**: behavior observed in the code at commit `fc7d820`, with `file:line` evidence;
   - **TARGET SMART**: proposed requirement, measurable and with a time horizon. The targets are **proposals to be validated** with the client; the horizon "R1" denotes the first modernization release (see [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md));
   - **Priority**: Critical / High / Medium / Low.
 - **[NOT ASSESSABLE]** marks the requirements for which the code and the repository history provide no explicit elements (rule of the IMPACT 03 prompt).

@@ -24,7 +24,7 @@ generated_at: 2026-10-08T09:41:39.009+02:00
 
 This document gathers what is needed to operate and support the Loss Prevention Tool in production: monitoring, logs, configuration, diagnostics, backup, maintenance and escalation. The code at commit `fc7d820` offers **very limited operational tools** (only console logs from 4 service classes, no health check, no metrics, no backup), therefore many sections distinguish:
 
-- **AS-IS**: what the code does today, with `file:riga` evidence;
+- **AS-IS**: what the code does today, with `file:line` evidence;
 - **TO-BE**: recommended procedures and tools, not implemented.
 
 The vendor's operations guide `Docs/12_MAINTENANCE_OPERATIONS.md` and `Docs/roadmap.txt` **do not exist at the baseline**: they were present only in commit `593f6de` and were removed in `d768cd9` (viewable with `git show 593f6de:customspa-it-loss-prevention-d098a8b97860/Docs/<file>` from `C:\repository\LOSS_PREVENTION`). The procedures they describe (e.g. `/health` endpoint, logs in `/var/log/lossprevention/api.log`, systemd service `lossprevention-api`) **are not implemented** in the code.
@@ -136,7 +136,7 @@ Confidentiality note: the SFTP logs include host, port and directory but **not**
 
 ### 3.1 Configuration precedence (AS-IS)
 
-- **API**: `Program.cs:37-39` adds `appsettings.json` again (from the current directory, `optional: false`) **after** the standard sources. For every key present in the file, environment variables (`Sezione__Chiave`), command-line arguments and `appsettings.{Environment}.json` are **ignored**.
+- **API**: `Program.cs:37-39` adds `appsettings.json` again (from the current directory, `optional: false`) **after** the standard sources. For every key present in the file, environment variables (`Section__Key`), command-line arguments and `appsettings.{Environment}.json` are **ignored**.
 - **Console**: the services use a `ConfigurationBuilder` that reads only `appsettings.json` (`DataIngestionService/Program.cs:31-35,58-59`).
 - **Changing a value** = changing the `appsettings.json` file on the host + restarting the process (no reload of the values already read; `JwtSettings` is read only once at startup, `Program.cs:42-47`).
 
@@ -217,17 +217,17 @@ Confidentiality note: the SFTP logs include host, port and directory but **not**
 
 ```javascript
 use LossPrevention
-// Configurazione ingestione senza esporre la password
+// Ingestion configuration without exposing the password
 db.DataIngestionConfigurations.findOne({}, { SftpPassword: 0 })
-// Ultimi file importati
+// Most recently imported files
 db.ProcessedFiles.find().sort({ processedAt: -1 }).limit(20)
-// Indici di ReportData (verificare ttl_BeginDateTime ed expireAfterSeconds)
+// ReportData indexes (check ttl_BeginDateTime and expireAfterSeconds)
 db.ReportData.getIndexes()
-// Documenti senza campo BeginDateTime (non soggetti a TTL)
+// Documents without a BeginDateTime field (not subject to TTL)
 db.ReportData.countDocuments({ BeginDateTime: { $exists: false } })
-// Documenti di un file specifico
-db.ReportData.countDocuments({ _sourceFile: "<nomefile>" })
-// Token di reset scaduti (nessun TTL)
+// Documents from a specific file
+db.ReportData.countDocuments({ _sourceFile: "<filename>" })
+// Expired reset tokens (no TTL)
 db.PasswordResetTokens.countDocuments({ ExpiryDate: { $lt: new Date() } })
 ```
 
@@ -239,7 +239,7 @@ db.PasswordResetTokens.countDocuments({ ExpiryDate: { $lt: new Date() } })
 | The API does not start with `FileNotFoundException` | Working directory | `appsettings.json` read from the cwd (`Program.cs:38`) | Start from the app folder |
 | Scheduled ingestion never executed | `findOne` on `DataIngestionConfigurations` | `ScheduleType: one-time` **ignored** by the scheduler (`DataIngestionBackgroundService.cs:55`); time outside the ±1 min window; days in English for weekly; monthly only on day 1 (line 142); server local time (`DateTime.Now`, line 97) | Use `recurring` or `POST /api/data-ingestion/run` |
 | Ingestion executed twice | Log `Scheduled ingestion triggered` repeated in the same minute, or from multiple instances | `LastRunAt` not persisted (lines 86-87); scheduler on every instance | Run a single instance; files already in `ProcessedFiles` are skipped, but the check is not atomic |
-| File not imported | Log `File already processed, skipping` | Name already in `ProcessedFiles` (idempotency by **name**: a corrected file with the same name is ignored) | `db.ProcessedFiles.deleteOne({ fileName: "<nome>" })` and re-run |
+| File not imported | Log `File already processed, skipping` | Name already in `ProcessedFiles` (idempotency by **name**: a corrected file with the same name is ignored) | `db.ProcessedFiles.deleteOne({ fileName: "<name>" })` and re-run |
 | File in `failed/` on SFTP | Log `Error processing SFTP file` | Parsing or transfer error | Fix the file and re-upload it to the source folder |
 | `POST /api/data-ingestion/run` → 500 | `errors` / `message` field of the response | Error returned with details (`RunDataIngestionEndpoint.cs:39-59`) | Analyze the message and the logs |
 | Anti-fraud flags missing after ingestion | — | Rules are not applied automatically | `GET /rules/apply` (`CAN_APPLY_RULE`); heavy operation (§6) |
@@ -272,14 +272,14 @@ db.PasswordResetTokens.countDocuments({ ExpiryDate: { $lt: new Date() } })
 ### 5.2 Commands (TO-BE, ⚠️ not executed)
 
 ```powershell
-# Backup completo compresso
+# Full compressed backup
 mongodump --uri "<connection-string>" --db LossPrevention --gzip --archive="D:\backup\LossPrevention_$(Get-Date -Format yyyyMMdd_HHmm).gz"
 
-# Restore completo (sovrascrive le collezioni)
-mongorestore --uri "<connection-string>" --gzip --archive="D:\backup\LossPrevention_<data>.gz" --nsInclude "LossPrevention.*" --drop
+# Full restore (overwrites the collections)
+mongorestore --uri "<connection-string>" --gzip --archive="D:\backup\LossPrevention_<date>.gz" --nsInclude "LossPrevention.*" --drop
 
-# Restore di una sola collezione (es. Rules)
-mongorestore --uri "<connection-string>" --gzip --archive="D:\backup\LossPrevention_<data>.gz" --nsInclude "LossPrevention.Rules" --drop
+# Restore a single collection (e.g. Rules)
+mongorestore --uri "<connection-string>" --gzip --archive="D:\backup\LossPrevention_<date>.gz" --nsInclude "LossPrevention.Rules" --drop
 ```
 
 ### 5.3 Recommended policy
@@ -327,8 +327,8 @@ mongorestore --uri "<connection-string>" --gzip --archive="D:\backup\LossPrevent
 
 | Activity | Procedure |
 |----------|-----------|
-| Data retention change | The code does not update an existing TTL index. `db.runCommand({ collMod: "ReportData", index: { name: "ttl_BeginDateTime", expireAfterSeconds: <giorni*86400> } })` and update `TransactionRetentionDays` for consistency (⚠️ not verified) |
-| Re-import a file | `db.ProcessedFiles.deleteOne({ fileName: "<nome>" })`; `db.ReportData.deleteMany({ _sourceFile: "<nome>" })`; put the file back in the source folder; `POST /api/data-ingestion/run` |
+| Data retention change | The code does not update an existing TTL index. `db.runCommand({ collMod: "ReportData", index: { name: "ttl_BeginDateTime", expireAfterSeconds: <days*86400> } })` and update `TransactionRetentionDays` for consistency (⚠️ not verified) |
+| Re-import a file | `db.ProcessedFiles.deleteOne({ fileName: "<name>" })`; `db.ReportData.deleteMany({ _sourceFile: "<name>" })`; put the file back in the source folder; `POST /api/data-ingestion/run` |
 | Reset the ingestion configuration | `DELETE /api/data-ingestion` (deletes **all** configurations, `DataIngestionService.cs:176-180`) |
 | Update permissions/rules | Run the seed scripts in the order `00 → 01 → 02 → 03 → 04` (idempotent, see [10_deployment.md](10_deployment.md) §5.3); users must log in again |
 | Clear the report cache | Restart of the API (no invalidation endpoint) |

@@ -185,8 +185,6 @@ flowchart LR
 | ADR-005 | Un solo deploy, nessuna infrastruttura dedicata | Scheduler nello stesso processo dell'API |
 | ADR-101…105 | Uso in produzione su dati reali (voce roadmap "Real world data testing") | Chiudere i rischi di sicurezza e rendere i risultati verificabili prima di estendere le funzionalità |
 
-L'ordine consigliato di adozione delle proposte e il relativo effort sono in [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md) §7.1 (G1–G7).
-
 ---
 
 ## Reference Documents

@@ -47,7 +47,7 @@ The chosen stack is mainstream and recent (.NET 8, Vue 3, MongoDB); the weak poi
 | TD-03 | **Vue 3 + Vite 6 + Vuetify 3 + Pinia** frontend (SPA) | `package.json:27,31,25,44`; `main.ts:2,6,17,19`; script `dev: vite` (`package.json:7`) | React/MUI, Angular, Nuxt SSR (see ALT-03) | Accepted | ✅ Adequate |
 | TD-04 | Local LLM **Ollama `qwen2.5:14b`** called from the browser | `stores/aiStore.ts:8` (model), `:88` `fetch` to `localhost:11434` | Azure OpenAI, server-side LLM gateway | Superseded → ADR-105 | 🟡 Good for data privacy, but not deployable: every user must have a local Ollama |
 | TD-05 | Two grid libraries: **AG Grid** and **Tabulator** | AG Grid `main.ts:12`, `resultsGrid.vue`, `tabularBlock.vue`; Tabulator `distanceTable.vue`; `package.json:13-14,26` | A single library | Accepted | 🟡 Duplication (bundle, skills) |
-| TD-06 | **Symmetric JWT** (HMAC-SHA256) with `permissions` and `LockField/LockValue` claims | `Program.cs:64-74` (`AddJwtBearer`, `SymmetricSecurityKey`); `LoginEndpoint.cs:48-80`; `SecretKey` in `appsettings.json` | OIDC / external IdP (Entra ID) | Accepted | 🟡 Simple; planned SSO will require an IdP; versioned key |
+| TD-06 | **Symmetric JWT** (HMAC-SHA256) with `permissions` and `LockField/LockValue` claims | `Program.cs:64-74` (`AddJwtBearer`, `SymmetricSecurityKey`); `LoginEndpoint.cs:48-80`; `SecretKey` in `appsettings.json` | OIDC / external IdP (Entra ID) | Accepted | 🟡 Simple; planned SSO will require an IdP; key committed to version control |
 | TD-07 | Password hashing **PBKDF2-SHA256 600,000 iterations** with migration from the legacy format | `Infrastructure/Helpers/PasswordHasher.cs:21,44` (prefix `v2:`, legacy 10,000) | BCrypt/Argon2, external IdP | Accepted | ✅ Aligned with current OWASP recommendations |
 | TD-08 | PDF export with **pdfmake**, XLSX with **SheetJS `xlsx` 0.18.5** | `resultsGrid.vue:513` (pdfmake), `:1922`, `:1944` | jsPDF (declared but not used, ALT-04) | Accepted | 🟡 `xlsx` 0.18.5 has a high-severity advisory with no fix on npm |
 
@@ -184,8 +184,6 @@ flowchart LR
 | TD-04 | Sensitive transactional data | Local LLM avoids sending data to third parties |
 | ADR-005 | A single deployment, no dedicated infrastructure | Scheduler in the same process as the API |
 | ADR-101…105 | Production use on real data (roadmap item "Real world data testing") | Close the security risks and make results verifiable before extending the functionality |
-
-The recommended adoption order of the proposals and the related effort are in [19_modernization_estimation_spec.md](19_modernization_estimation_spec.md) §7.1 (G1–G7).
 
 ---
 

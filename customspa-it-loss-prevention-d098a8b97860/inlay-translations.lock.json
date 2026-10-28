@@ -2,124 +2,124 @@
  "entries": {
   "en": {
    "00_deep_dive.md": {
-    "source_sha256": "c87c77d53ac567c519e0eab7a5a6e7302a9d0d52e84863cd1568a7832221162e",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "source_sha256": "40ede0243554c8fc30ccdace9046797faa36f52ad56647d52127c7371aefece8",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/00_deep_dive.md",
-    "translation_sha256": "a2ea87a18d9e7bbd0d8ecf3ac1241af1096b0756afd0d88889d762b155688c38"
+    "translation_sha256": "34c043d961bdd3588976ebe2d470680ed9f14deecfa5be19a403497e0224c821"
    },
    "01_context.md": {
-    "source_sha256": "4ffd6b524fb4ca9ba19828babe0ad630f3834588e47a4fe4a90049a963346163",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "source_sha256": "a9cb922670c4813721191ef94d85326d8644d884b36bdfb7a1f3cad14cc5a5af",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/01_context.md",
-    "translation_sha256": "d0101a9c9e2cb39849c084f37370981f9ff8d311071371b3c803c05784f9cd8b"
+    "translation_sha256": "02554596931c34dce1dc7b989cba031ea64a7c1e2d0df6e852354c417eb9c9fb"
    },
    "02_functional_overview.md": {
-    "source_sha256": "b582511ce5b756684ea70b69dae4fa70bc75d1f551c106903f76b818d1565aa3",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "source_sha256": "b7adc03609ecd8247da71686d31409a5a5b58be3b7366b23ddcb0bdca3d6f4a6",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/02_functional_overview.md",
-    "translation_sha256": "c1f9aa56e7e5c4b51efb750095675a3aed8537de5fad934f604ef6ecc5de8b9e"
+    "translation_sha256": "653d5d6ffc2cf50355aaf9c3ff22707b56de320fc258f871028543cbc299d834"
    },
    "03_non_functional_overview.md": {
     "source_sha256": "a0a7f4569bfc1a97c21cc60bc7c63e551f8241053c007184e45e826f6b30ec3f",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/03_non_functional_overview.md",
-    "translation_sha256": "dfb6770654b7b48334339ff91e353aa13424ae33daa1219be6cb80c761e95fe9"
+    "translation_sha256": "40ad85e094f0f2c67dcb8090109ecabcdaa86598ccd23b233ee372246705434b"
    },
    "04_constraints.md": {
     "source_sha256": "beacca52d9469ef30704cf2dc0a0e2517bf2af2ee5e4cb4d1bfa25c8a2d24277",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/04_constraints.md",
-    "translation_sha256": "6296350f6e59a84b4036dbe10306d775f7a3dc22b37e1f54ffb11c80011eaf9b"
+    "translation_sha256": "11c4473f51c9b36948e51f8fbc278ddc2ea6fb0fdf29e4d590aa10c9352319e3"
    },
    "05_principles.md": {
     "source_sha256": "43aef0c1c8a759e84e73237efd8e3613220781c46df3394ab6f40d2afdb686e5",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/05_principles.md",
-    "translation_sha256": "7f5d5b975a5af4509cf0595ea9e35be8296d5d84518293cc2b01f4466f22170c"
+    "translation_sha256": "079f186e246c3e884071d7d1d206ab7e1889455bed0c461701af37cbee788583"
    },
    "06_software_architecture.md": {
     "source_sha256": "c6278ab07787856f39d3aa2348e9440efa95d88a7ed8eac0f5aa98bd192c0116",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/06_software_architecture.md",
-    "translation_sha256": "20e1f6a4814a00b6e613e02525483d273899951c83e7f7a85dce60e1c77c9b8a"
+    "translation_sha256": "1d29544f1c2364099c5bb30ab251ba2eaece1e1b5b0760e38c0b0a0a9c5128d3"
    },
    "07_code.md": {
     "source_sha256": "e60d5ec198740d4f5e9a3b0063f230f5ca42c7d2c38a3a714339a4afd045a64b",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/07_code.md",
-    "translation_sha256": "0393ec610fecfd7496555a49d3d8c99142c3f949fe77c69bad4ae8b96faa1e03"
+    "translation_sha256": "f465c54052a526baa7af2e9cfa87107856dc452816d2a47fec48717f28b8ef34"
    },
    "08_data.md": {
     "source_sha256": "7b06a053d43c23cd6ddcf3e46c591b3fb38574329f74bdcd8244101dd77271cd",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/08_data.md",
-    "translation_sha256": "59e44b627c351be34d89422d1f68a87897320d09aea9cdec4fdf66b71bbb4bc6"
+    "translation_sha256": "fe1860d086797086761e9145e486428f4f8741df5064549cd95eaa2cd1d3b8a9"
    },
    "09_infrastructure_architecture.md": {
     "source_sha256": "2c29c8baff7855812e73246bf4dd0423b3ff13dc95bb62bd97ad7402aa63cef3",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/09_infrastructure_architecture.md",
-    "translation_sha256": "e5dcf8ef2cd9e8a3da6bf90bdb89621ff3b5ee98cf488ab67a104226d532f749"
+    "translation_sha256": "1153c3980867a3595989a0d3b2780c3ef955762f42a343e6b06063f0c8f1efc6"
    },
    "10_deployment.md": {
     "source_sha256": "2eb92aa50842f5ee29f1e12133ce71970e7c68bf9934baa1eea46f66ce58d311",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/10_deployment.md",
-    "translation_sha256": "37e6afa0fdab2589b9584a70b8cf7b00d78eec27bc217f25fc39561177c432a1"
+    "translation_sha256": "ec646756b815c03f3f429bf462a2b4b27bdb611da8f37d923b036c8177ce7e7a"
    },
    "11_development_environment.md": {
     "source_sha256": "af4bf4963754b29d40159bf896eea72d613760ac69895a566cd9e2af1cb89304",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/11_development_environment.md",
-    "translation_sha256": "42508c3fd5de997dc686534e1c80f820f2640a00c1b9eb05aac99c653c84c315"
+    "translation_sha256": "ac0347f996df43cf30d6687664a55da8273b2293d880eea2b791a177fd28c1d3"
    },
    "12_operation_and_support.md": {
     "source_sha256": "4cd5cbf511ad807d7e59ee19e8b6a9b2fde14bfe648032b6c9de782d32c7cff7",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/12_operation_and_support.md",
-    "translation_sha256": "399dbfaf7b4e56a8bd2e2a23d45038e7dccd6a103658862e5a06419b2eba8559"
+    "translation_sha256": "c0c7e98d3225ddbc5878d5c54f848fe3d81553d6a4a8d7c5e9d7679ee3a5b751"
    },
    "13_decision_log.md": {
-    "source_sha256": "289801976f31fafd126fae765e52259b2869c97baec30c6179ae9a3187ee251d",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "source_sha256": "6acf5c50ec0d0a4c4f9c82ec8d82f67ba3f2b3932a1a6ee479476dd3a57173aa",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/13_decision_log.md",
-    "translation_sha256": "c41f97ef0990858525af082920756c73fcc530eb36e61744882a17b658d10a3a"
+    "translation_sha256": "de66baa25fc8d6bf47293097ecb770cd93c1a863adebc63569f2bc2bc5d05e95"
    },
    "14_metrics.md": {
-    "source_sha256": "a216c8f0d627acb137e9d251702def4a6821de4ae8e335a221fd87c55aaf2bd4",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "source_sha256": "5a7fbd1a843a9039ead95bdc8bf0b5ad0650bb91ef6d95724e134cd12f503ce9",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/14_metrics.md",
-    "translation_sha256": "b2b19f84affbe22eee9172cf6140878ffd87bd85b5ebfec956fcf37657c4b026"
+    "translation_sha256": "b253ef320cd0120323cfdb35c4607887afa9209a296fb6d42bebd29d739e2975"
    },
    "16_frontend_deep_assessment.md": {
     "source_sha256": "6cf99716e65daba87eb542b6d318e61ddfcacb2b14fd6eef1569cabeb783e4c2",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/16_frontend_deep_assessment.md",
-    "translation_sha256": "b9ad77bec35a7bc94c9fdd6f9aec212e1d65e62d7be32b6ba3a8f4964e625ecd"
+    "translation_sha256": "d46167e7fda97749f7981f1b7d9caa250eac6df1bdb0dfaaea9a30278adb828e"
    },
    "17_backend_deep_assessment.md": {
     "source_sha256": "22723c706885ba41104a44c617b4df9ea29214a5a927cf661b9a07a5f9ca0c06",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/17_backend_deep_assessment.md",
-    "translation_sha256": "5f0e6f8394852ea2946d160b9d7746994c4b4649bfc5abceeb2b101aa2140f8e"
+    "translation_sha256": "766485f9832eb499797a0edac432679e7cbef1127ca73b4d9b8f95cfd593c9fb"
    },
    "18_antipattern_deep_dive.md": {
     "source_sha256": "a71bbc37585f76aa16a080752d221b8e6e247a66ba9df1b902b43202c6f16692",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/18_antipattern_deep_dive.md",
-    "translation_sha256": "94bd8a7ab9af28f03cdbd445ead563f2e6d7d69841dc8a01e806b81e90798ac1"
+    "translation_sha256": "99300937309ad7804e4bfb0da056df1e2f32b37800a377f72e9674f9ef1a3ea1"
    },
    "@audit/roadmap-done-audit.md": {
     "source_sha256": "84eb8fbe0d48082dd4cb3983edf572af64e5ee578aa6e540922bd66a9162d11d",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "docs_original/roadmap-done-audit.en.md",
-    "translation_sha256": "4935d433b4177d92b39942365c7e55b1e2d655d5a9dc7fbdc76e72dbd5566410"
+    "translation_sha256": "18cf0acb51af430fb328838c30ac637635bf63b44f4f53f3b90650e5e7053f36"
    },
    "index.md": {
-    "source_sha256": "d483768a624da01f677957fd0bc6837588ce1ee1ad94c7bf026a94788014ca37",
-    "stamped_at": "2026-10-21T14:13:22Z",
+    "source_sha256": "be127ea819738ee5fc03a842bf7c74b97ed36abd91d33dc1719b223f08921d72",
+    "stamped_at": "2026-10-28T09:12:08Z",
     "translation": "Docs.en/index.md",
-    "translation_sha256": "98bc5e0cec7d8725ade8bbf73b6a8442ea47e7d075fe515df24f99c7b93d20fd"
+    "translation_sha256": "43b57a4c9bb020645f51ca743f5890f0a51ad7a9ce1e944bb1e2f24c9a54ac24"
    }
   }
  },
